@@ -1,0 +1,1399 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<meta name="theme-color" content="#2A5C40" />
+<title>OFFLINE GATHERING 2026 ｜ 奥日光編</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Outfit:wght@300;400;500;600;700&family=Shippori+Mincho:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FFF8F0;
+    --bg-2:#F5EBD8;
+    --green:#2A5C40;
+    --green-deep:#1E4530;
+    --amber:#D4854A;
+    --amber-soft:#E8A876;
+    --ink:#2C1A0E;
+    --ink-2:#5C4838;
+    --ink-3:#8A7560;
+    --line:#D9C9B2;
+    --paper-shadow: 0 1px 0 #E8DBC1, 0 12px 24px -16px rgba(44,26,14,.18);
+    --maru: "Zen Maru Gothic", "Hiragino Maru Gothic ProN", "Hiragino Sans", "Yu Gothic", system-ui, sans-serif;
+    --en: "Outfit", "Inter", system-ui, sans-serif;
+    --serif: "Shippori Mincho", "Yu Mincho", serif;
+  }
+
+  *{ box-sizing:border-box; -webkit-tap-highlight-color: transparent;}
+  html,body{ margin:0; padding:0; background:var(--bg); color:var(--ink); font-family:var(--maru); font-weight:500; line-height:1.7; -webkit-font-smoothing:antialiased; overflow-x:hidden;}
+  body{ max-width:480px; margin:0 auto; position:relative; min-height:100vh; background:
+    radial-gradient(1200px 600px at 50% -300px, #FBEFD4 0%, transparent 60%),
+    var(--bg);
+  }
+
+  /* Paper grain */
+  body::before{
+    content:""; position:fixed; inset:0; pointer-events:none; z-index:1; opacity:.5;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(44,26,14,.025) 1px, transparent 1.5px),
+      radial-gradient(circle at 70% 60%, rgba(44,26,14,.02) 1px, transparent 1.5px),
+      radial-gradient(circle at 40% 80%, rgba(44,26,14,.025) 1px, transparent 1.5px);
+    background-size: 7px 7px, 11px 11px, 13px 13px;
+    mix-blend-mode:multiply;
+  }
+
+  /* ============== HERO ============== */
+  .hero{
+    position:relative; min-height: 92vh; padding: 24px 24px 80px;
+    display:flex; flex-direction:column; justify-content:space-between;
+    color: #FFF8F0; overflow:hidden; isolation:isolate;
+  }
+  .hero-bg{
+    position:absolute; inset:0; z-index:-2;
+    background: linear-gradient(180deg, #0d1f2c 0%, #1a3a2c 55%, #1E4530 100%);
+  }
+  .hero-img{
+    position:absolute; inset:0; z-index:-2; width:100%; height:100%;
+    object-fit:cover; opacity:.85;
+  }
+  .hero-bg::after{
+    content:""; position:absolute; inset:0;
+    background: linear-gradient(180deg, rgba(13,31,44,.25) 0%, rgba(13,31,44,.1) 40%, rgba(30,69,48,.7) 90%, var(--bg) 100%);
+  }
+  /* placeholder badge */
+  .hero-placeholder{
+    position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
+    z-index:-1; pointer-events:none;
+    font-family:var(--en); font-size:11px; letter-spacing:.18em;
+    color:rgba(255,248,240,.5); text-align:center; line-height:1.6;
+    border:1px dashed rgba(255,248,240,.3); padding:14px 18px; border-radius:4px;
+    background:rgba(13,31,44,.25); backdrop-filter:blur(2px);
+    max-width:80%;
+  }
+
+  .hero-top{ display:flex; justify-content:space-between; align-items:flex-start; font-family:var(--en); font-size:11px; letter-spacing:.2em; text-transform:uppercase; opacity:.85;}
+  .hero-top .dot{ width:6px; height:6px; border-radius:50%; background:var(--amber); display:inline-block; margin-right:8px; vertical-align:middle; animation:pulse 2.4s ease-in-out infinite;}
+  @keyframes pulse{ 0%,100%{ opacity:1; transform:scale(1);} 50%{ opacity:.4; transform:scale(.7);} }
+
+  .hero-mid{ margin-top:auto; margin-bottom: 12px;}
+  .hero-eyebrow{ font-family:var(--en); font-size:12px; letter-spacing:.3em; color:var(--amber-soft); text-transform:uppercase; margin-bottom:20px; font-weight:500;}
+  .hero-eyebrow::before{ content:""; display:inline-block; width:24px; height:1px; background:var(--amber-soft); vertical-align:middle; margin-right:10px;}
+  .hero-title{
+    font-family:var(--en); font-weight:700;
+    font-size: clamp(48px, 14.5vw, 76px); line-height:0.95; margin:0;
+    letter-spacing:-.02em;
+    text-shadow: 0 2px 24px rgba(0,0,0,.45);
+    text-transform: uppercase;
+  }
+  .hero-title em{ font-style:normal; display:block; color:var(--amber-soft);}
+  .hero-title small{ display:block; font-family:var(--maru); font-weight:500; font-size:.22em; letter-spacing:.05em; margin-top:18px; opacity:.92; text-transform:none; line-height:1.6;}
+  .hero-sub{ margin-top:22px; font-size:15px; line-height:1.9; opacity:.92; font-weight:400; max-width:90%;}
+
+  .hero-bottom{ margin-top:28px; display:flex; gap:14px; align-items:center; font-family:var(--en); font-size:12px; letter-spacing:.1em;}
+  .hero-bottom .pill{ background:rgba(255,248,240,.12); border:1px solid rgba(255,248,240,.25); padding:8px 14px; border-radius:100px; backdrop-filter:blur(8px);}
+  .hero-bottom .pill strong{ color:var(--amber-soft); font-weight:600;}
+
+  .scroll-cue{ position:absolute; bottom:24px; left:50%; transform:translateX(-50%); font-family:var(--en); font-size:10px; letter-spacing:.3em; opacity:.7; text-align:center;}
+  .scroll-cue::after{ content:""; display:block; width:1px; height:32px; background:linear-gradient(180deg, var(--amber-soft), transparent); margin:10px auto 0; animation:fall 2.2s ease-in-out infinite;}
+  @keyframes fall{ 0%{ transform:scaleY(0); transform-origin:top;} 50%{ transform:scaleY(1); transform-origin:top;} 51%{ transform-origin:bottom;} 100%{ transform:scaleY(0); transform-origin:bottom;} }
+
+  /* ============== THEME ============== */
+  .theme-section{
+    padding: 64px 24px 56px;
+    background:
+      radial-gradient(800px 400px at 80% 10%, rgba(212,133,74,.08) 0%, transparent 60%),
+      radial-gradient(600px 400px at 0% 90%, rgba(42,92,64,.06) 0%, transparent 60%),
+      var(--bg);
+    position:relative;
+    border-bottom: 1px dashed var(--line);
+  }
+  .theme-eyebrow{
+    font-family:var(--en); font-size:11px; letter-spacing:.3em; color:var(--ink-3);
+    text-align:center; margin-bottom:18px; font-weight:500;
+  }
+  .theme-title{
+    margin: 0 0 24px;
+    font-family: var(--en); font-weight: 700;
+    font-size: clamp(56px, 17vw, 92px);
+    line-height: 0.92; letter-spacing: -.03em;
+    text-align:center; color: var(--green-deep);
+    text-transform: uppercase;
+  }
+  .theme-title .theme-word{ display:inline-block;}
+  .theme-title .theme-word.amber{ color: var(--amber);}
+  .theme-title .theme-paren{
+    font-weight:300; opacity:.85;
+    font-size:.7em; vertical-align: .08em;
+  }
+  .theme-lead{
+    font-family: var(--maru); font-weight:700;
+    font-size: 17px; text-align:center; color: var(--ink);
+    margin: 0 0 32px; line-height:1.7;
+  }
+
+  /* keyword cloud */
+  .theme-cloud{
+    display:flex; flex-wrap:wrap; justify-content:center; align-items:center;
+    gap: 10px 12px;
+    margin: 0 -4px 32px;
+    padding: 8px 4px;
+    text-align:center;
+  }
+  .theme-cloud .kw{
+    display:inline-block; font-family: var(--maru); font-weight: 700;
+    color: var(--ink-2); line-height: 1.25;
+    transition: transform .25s ease, color .25s ease;
+    cursor: default;
+  }
+  /* size variants */
+  .theme-cloud .kw-s{ font-size: 13px; opacity:.7; font-weight:500;}
+  .theme-cloud .kw-m{ font-size: 18px; opacity:.85;}
+  .theme-cloud .kw-l{ font-size: 26px; font-weight:800; letter-spacing:-.005em;}
+  .theme-cloud .kw-xl{ font-size: 36px; font-weight:900; letter-spacing:-.015em; line-height:1.05;}
+  /* color variants */
+  .theme-cloud .kw-green{ color: var(--green);}
+  .theme-cloud .kw-amber{ color: var(--amber);}
+  .theme-cloud .kw:hover{ transform: translateY(-2px);}
+
+  .theme-outro{
+    font-size: 13.5px; line-height:1.95; color: var(--ink-2);
+    text-align:center; margin: 0;
+    font-family: var(--serif); font-style: normal;
+    padding: 0 8px;
+  }
+
+  /* ============== SECTION FRAME ============== */
+  section{ position:relative; padding: 56px 24px; z-index:2;}
+  .sec-eyebrow{ font-family:var(--en); font-size:11px; letter-spacing:.3em; color:var(--amber); text-transform:uppercase; font-weight:600; margin-bottom:14px;}
+  .sec-eyebrow .num{ color:var(--green); margin-right:10px;}
+  .sec-title{ font-family:var(--maru); font-weight:900; font-size:32px; line-height:1.25; margin:0 0 8px; color:var(--green-deep); letter-spacing:-.01em;}
+  .sec-lead{ font-size:14px; color:var(--ink-2); line-height:1.9; margin:0 0 28px;}
+
+  /* Section divider — line art */
+  .divider{
+    display:flex; justify-content:center; align-items:center;
+    padding: 8px 0 0; margin: 0;
+    position:relative;
+  }
+  .divider img{ width:100%; max-width:340px; height:auto; opacity:.85; mix-blend-mode:multiply;}
+  .divider.small img{ max-width:120px;}
+  .divider.tiny img{ max-width:64px; opacity:.6;}
+
+  /* ============== MEET CARD ============== */
+  .meet-card{
+    background:#fff; border-radius:18px; padding:22px 22px 20px;
+    box-shadow: var(--paper-shadow);
+    border:1px solid var(--line);
+    position:relative; overflow:hidden;
+  }
+  .meet-card + .meet-card{ margin-top:14px;}
+  .meet-card .meet-head{ display:flex; align-items:baseline; justify-content:space-between; gap:10px; margin-bottom:10px;}
+  .meet-card .meet-tag{ font-family:var(--en); font-size:10px; letter-spacing:.2em; padding:4px 10px; border-radius:100px; background:var(--green); color:#fff; font-weight:600;}
+  .meet-card .meet-tag.amber{ background:var(--amber);}
+  .meet-card h3{ font-size:20px; margin:0; font-weight:700; color:var(--green-deep);}
+  .meet-card .meet-meta{ font-family:var(--en); font-size:11px; color:var(--ink-3); letter-spacing:.08em; margin-bottom:14px;}
+  .meet-card .meet-body{ font-size:14px; color:var(--ink-2); line-height:1.85;}
+  .meet-card .meet-body strong{ color:var(--ink); font-weight:700;}
+  .meet-card .meet-body ul{ margin:10px 0 0; padding:0; list-style:none;}
+  .meet-card .meet-body li{ position:relative; padding-left:18px; margin:4px 0;}
+  .meet-card .meet-body li::before{ content:"●"; position:absolute; left:0; top:0; color:var(--amber); font-size:8px; top:8px;}
+
+  /* ============== SCHEDULE TABS ============== */
+  .tabs{ display:flex; gap:8px; margin-bottom:20px; background:var(--bg-2); padding:6px; border-radius:14px;}
+  .tab{
+    flex:1; border:none; background:transparent; padding:14px 8px;
+    font-family:var(--maru); font-weight:700; font-size:15px; color:var(--ink-3);
+    border-radius:10px; cursor:pointer; transition: all .25s ease;
+    display:flex; flex-direction:column; align-items:center; gap:2px;
+  }
+  .tab .tab-en{ font-family:var(--en); font-size:10px; letter-spacing:.2em; opacity:.7; font-weight:500;}
+  .tab.active{ background:var(--green); color:#fff; box-shadow: 0 4px 12px -4px rgba(42,92,64,.5);}
+  .tab.active .tab-en{ opacity:.9;}
+
+  .day-panel{ display:none; animation: fadeUp .4s ease both;}
+  .day-panel.active{ display:block;}
+  @keyframes fadeUp{ from{ opacity:0; transform:translateY(10px);} to{ opacity:1; transform:translateY(0);} }
+
+  .day-head{ display:flex; align-items:baseline; justify-content:space-between; margin-bottom:18px;}
+  .day-head h3{ margin:0; font-size:22px; font-weight:900; color:var(--green-deep);}
+  .day-head .date{ font-family:var(--en); font-size:13px; color:var(--amber); font-weight:600; letter-spacing:.05em;}
+
+  /* Accordion items (timeline) */
+  .schedule-list{ list-style:none; margin:0; padding:0; position:relative;}
+  .schedule-list::before{
+    content:""; position:absolute; left: 56px; top:10px; bottom:10px; width:1px;
+    background: repeating-linear-gradient(to bottom, var(--line) 0 4px, transparent 4px 8px);
+  }
+
+  .sch-item{
+    position:relative; margin-bottom:6px;
+  }
+  .sch-toggle{
+    width:100%; border:none; background:transparent; padding: 14px 0 14px 0;
+    display:grid; grid-template-columns: 56px 1fr auto; align-items:center; gap:14px;
+    text-align:left; cursor:pointer; font-family:var(--maru);
+    border-bottom: 1px solid var(--line);
+    transition: background .2s ease;
+  }
+  .sch-toggle:hover{ background: rgba(212,133,74,.04);}
+  .sch-time{ font-family:var(--en); font-size:15px; font-weight:600; color:var(--green); letter-spacing:.02em; position:relative; z-index:1; background:var(--bg); padding-right:8px;}
+  .sch-time::before{
+    content:""; position:absolute; left: 50%; top:50%; width:10px; height:10px; border-radius:50%;
+    background:var(--bg); border:2px solid var(--amber);
+    transform:translate(-50%,-50%); margin-left: 28px;
+    box-shadow: 0 0 0 4px var(--bg);
+  }
+  .sch-item.highlight .sch-time::before{ background:var(--amber); border-color:var(--amber);}
+  .sch-title{ font-size:15px; font-weight:700; color:var(--ink); line-height:1.4;}
+  .sch-title .sch-cost{ display:inline-block; font-family:var(--en); font-size:10px; letter-spacing:.1em; color:var(--green); background:rgba(42,92,64,.1); padding:2px 7px; border-radius:4px; margin-left:6px; font-weight:600; vertical-align:1px;}
+  .sch-title .sch-cost.own{ color:var(--amber); background:rgba(212,133,74,.12);}
+  .sch-chev{ font-family:var(--en); color:var(--ink-3); font-size:14px; transition: transform .3s ease; width:20px; text-align:center;}
+  .sch-item.open .sch-chev{ transform: rotate(180deg); color:var(--amber);}
+
+  .sch-detail{
+    display:grid; grid-template-rows: 0fr; transition: grid-template-rows .35s ease;
+  }
+  .sch-detail > div{ overflow:hidden; min-height:0;}
+  .sch-item.open .sch-detail{ grid-template-rows: 1fr;}
+  .sch-detail .sch-detail-inner{
+    padding: 10px 0 18px 70px; font-size:13.5px; color:var(--ink-2); line-height:1.9;
+  }
+  .sch-detail .sch-detail-inner p{ margin:0 0 6px;}
+
+  /* ============== TRANSPORT ============== */
+  .transport-grid{ display:grid; gap:16px;}
+  .transport-card{
+    background:#fff; border-radius:18px; padding:24px 22px;
+    box-shadow: var(--paper-shadow); border:1px solid var(--line);
+    position:relative;
+  }
+  .transport-card .tc-illust{ position:absolute; right:14px; top:14px; width:88px; height:48px; opacity:.6;}
+  .transport-card .tc-illust img{ width:100%; height:100%; object-fit:contain; mix-blend-mode:multiply;}
+  .transport-card .tc-eyebrow{ font-family:var(--en); font-size:10px; letter-spacing:.25em; color:var(--amber); font-weight:600; text-transform:uppercase; margin-bottom:6px;}
+  .transport-card h3{ margin:0 0 4px; font-size:20px; font-weight:900; color:var(--green-deep);}
+  .transport-card .tc-meta{ font-size:12px; color:var(--ink-3); margin-bottom:18px;}
+
+  .tc-timeline{ list-style:none; margin:0; padding:0; position:relative; border-left: 2px solid var(--line); padding-left:20px;}
+  .tc-timeline li{ position:relative; padding: 6px 0; font-size:14px;}
+  .tc-timeline li::before{ content:""; position:absolute; left:-26px; top:14px; width:8px; height:8px; border-radius:50%; background:var(--green);}
+  .tc-timeline li b{ font-family:var(--en); color:var(--green); font-weight:600; margin-right:10px; font-size:13px;}
+  .tc-timeline li.key::before{ background:var(--amber); box-shadow: 0 0 0 4px rgba(212,133,74,.2);}
+  .tc-timeline li.key{ color:var(--ink); font-weight:700;}
+
+  /* Day labels inside transport card */
+  .tc-day-block{ margin-top:14px;}
+  .tc-day-block:first-of-type{ margin-top:4px;}
+  .tc-day-label{
+    display:inline-flex; align-items:baseline; gap:8px;
+    margin-bottom:10px; padding: 4px 10px 4px 10px;
+    background:var(--green); color:#fff; border-radius:6px;
+    font-family:var(--maru); font-weight:700; font-size:12px; letter-spacing:.04em;
+  }
+  .tc-day-label .tc-day-en{ font-family:var(--en); font-size:10px; letter-spacing:.2em; opacity:.85; font-weight:500;}
+  .tc-day-label .tc-day-date{ font-family:var(--en); font-size:10px; opacity:.75; margin-left:2px;}
+  .tc-day-block.day2 .tc-day-label{ background:var(--amber);}
+
+  .tc-note{ margin-top:16px; padding: 12px 14px; background:rgba(212,133,74,.08); border-radius:10px; font-size:12.5px; color:var(--ink-2); line-height:1.7;}
+  .tc-note::before{ content:"⚠"; color:var(--amber); margin-right:6px; font-size:14px;}
+
+  .tc-doc{
+    display:flex; align-items:center; gap:12px;
+    margin-top:14px; padding: 12px 14px;
+    background: var(--green); color:#fff;
+    text-decoration:none; border-radius:10px;
+    transition: background .2s ease; min-height:56px;
+  }
+  .tc-doc:active{ transform: scale(.98);}
+  .tc-doc-icon{
+    width:36px; height:36px; border-radius:8px;
+    background: rgba(255,255,255,.15);
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+  .tc-doc-icon svg{ width:18px; height:18px;}
+  .tc-doc-text{ flex:1; min-width:0;}
+  .tc-doc-label{ font-size:13.5px; font-weight:700; line-height:1.3;}
+  .tc-doc-sub{
+    font-family:var(--en); font-size:10px; letter-spacing:.12em;
+    color: var(--amber-soft); margin-top:2px; opacity:.95;
+  }
+  .tc-doc-arrow{
+    font-family:var(--en); font-size:16px; opacity:.7;
+    flex-shrink:0;
+  }
+
+  /* ============== PACK LIST ============== */
+  .checklist-section{ background:linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%); padding-bottom:80px;}
+
+  .pack-group{ margin-bottom:22px; background:#fff; border-radius:16px; border:1px solid var(--line); box-shadow: var(--paper-shadow); overflow:hidden;}
+  .pack-group h4{
+    margin:0; padding: 16px 20px;
+    font-size:14px; font-weight:700; color:var(--green-deep);
+    display:flex; align-items:center; gap:10px;
+    font-family:var(--maru);
+    border-bottom: 1px solid var(--line);
+    background: rgba(42,92,64,.04);
+  }
+  .pack-group h4 .cg-tag{ font-family:var(--en); font-size:9px; letter-spacing:.2em; color:var(--amber); background:rgba(212,133,74,.14); padding:3px 8px; border-radius:4px; font-weight:600;}
+
+  .pack-list{ list-style:none; margin:0; padding: 6px 20px 14px;}
+  .pack-list li{
+    position:relative; padding: 12px 0 12px 26px;
+    font-size:15px; font-weight:500; color:var(--ink); line-height:1.5;
+    border-bottom: 1px dashed var(--line);
+  }
+  .pack-list li:last-child{ border-bottom:none;}
+  .pack-list li::before{
+    content:""; position:absolute; left:0; top:18px;
+    width:14px; height:14px; border:1.5px solid var(--green); border-radius:4px;
+    background:#fff;
+  }
+
+  .check-note{ font-size:12.5px; color:var(--ink-2); padding: 14px 16px; background: rgba(255,255,255,.7); border-radius:10px; border:1px dashed var(--line); line-height:1.8; margin-top:14px;}
+  .check-note b{ color:var(--green); font-weight:700;}
+
+  /* ============== WEATHER ============== */
+  .weather-card{
+    background: linear-gradient(135deg, #2A5C40 0%, #1E4530 100%);
+    color:#fff; border-radius:20px; padding:24px;
+    position:relative; overflow:hidden;
+  }
+  .weather-card::before{
+    content:""; position:absolute; right:-30px; top:-30px; width:160px; height:160px;
+    background: radial-gradient(circle, rgba(212,133,74,.35) 0%, transparent 70%);
+    border-radius:50%;
+  }
+  .weather-card .wc-eyebrow{ font-family:var(--en); font-size:10px; letter-spacing:.25em; color:var(--amber-soft); text-transform:uppercase; font-weight:600;}
+  .weather-card h3{ margin:6px 0 16px; font-size:22px; font-weight:900;}
+  .weather-card .wc-grid{ display:grid; grid-template-columns: 1fr 1fr; gap:14px; position:relative; z-index:1;}
+  .weather-card .wc-stat{ background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15); border-radius:12px; padding:14px;}
+  .weather-card .wc-stat .wc-label{ font-family:var(--en); font-size:10px; letter-spacing:.15em; opacity:.7; text-transform:uppercase; margin-bottom:4px;}
+  .weather-card .wc-stat .wc-val{ font-family:var(--en); font-size:24px; font-weight:600; color:var(--amber-soft);}
+  .weather-card .wc-stat .wc-val small{ font-size:13px; opacity:.7; margin-left:4px;}
+  .weather-card .wc-note{ margin-top:16px; font-size:13px; line-height:1.7; opacity:.92; position:relative; z-index:1;}
+
+  /* ============== LUNCH ============== */
+  .lunch-panel{ display:none;}
+  .lunch-panel.active{ display:block;}
+
+  .lunch-cat{
+    display:flex; align-items:center; gap:14px;
+    margin: 24px 0 12px;
+    padding-bottom: 8px;
+    border-bottom: 1.5px solid var(--green);
+  }
+  .lunch-cat:first-child{ margin-top:8px;}
+  .lunch-cat .lc-num{
+    font-family:var(--en); font-size:14px; font-weight:600; color:#fff;
+    background:var(--green); width:28px; height:28px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+    letter-spacing:.02em;
+  }
+  .lunch-cat .lc-title{ font-size:15px; font-weight:700; color:var(--green-deep); line-height:1.4;}
+
+  .lunch-list{ display:grid; gap:10px; margin-bottom:8px;}
+  .lunch-item{
+    background:#fff; border-radius:14px; padding:18px 20px; border:1px solid var(--line);
+    box-shadow: var(--paper-shadow);
+  }
+  .lunch-item h4{ margin:0 0 6px; font-size:16px; font-weight:700; color:var(--ink); line-height:1.4;}
+  .lunch-item .li-loc{
+    font-family: var(--maru); font-size:11.5px; color:var(--green); font-weight:600;
+    margin-bottom:10px;
+    display:inline-block; padding: 3px 10px;
+    background: rgba(42,92,64,.08); border-radius:100px;
+  }
+  .lunch-item p{ margin:0; font-size:13.5px; color:var(--ink-2); line-height:1.85;}
+
+  /* ============== HOTEL ============== */
+  .hotel-card{
+    background:#fff; border-radius:20px; overflow:hidden;
+    box-shadow: var(--paper-shadow); border:1px solid var(--line);
+  }
+  .hotel-card .hc-illust{ aspect-ratio: 16/9; background: linear-gradient(135deg, #1E4530, #2A5C40); position:relative; overflow:hidden;}
+  .hotel-card .hc-illust img{ width:100%; height:100%; object-fit:cover; opacity:.95;}
+  .hotel-card .hc-illust::after{ content:""; position:absolute; inset:0; background: linear-gradient(0deg, rgba(30,69,48,.3), transparent 60%);}
+  .hotel-card .hc-body{ padding:22px 22px 24px;}
+  .hotel-card .hc-eyebrow{ font-family:var(--en); font-size:10px; letter-spacing:.25em; color:var(--amber); font-weight:600;}
+  .hotel-card h3{ margin:6px 0 10px; font-size:20px; font-weight:900; color:var(--green-deep);}
+  .hotel-card .hc-addr{ font-size:13px; color:var(--ink-2); margin-bottom:18px;}
+  .hotel-card .hc-meta{ display:grid; grid-template-columns: 1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:10px; overflow:hidden; margin-bottom:16px;}
+  .hotel-card .hc-meta div{ background:#fff; padding:12px 14px;}
+  .hotel-card .hc-meta .l{ font-family:var(--en); font-size:9px; letter-spacing:.2em; color:var(--ink-3); text-transform:uppercase; margin-bottom:3px;}
+  .hotel-card .hc-meta .v{ font-size:14px; font-weight:700; color:var(--ink);}
+  .hotel-card .hc-links{ display:flex; gap:10px;}
+  .hotel-card a{
+    flex:1; text-align:center; text-decoration:none; padding:14px;
+    background:var(--green); color:#fff; border-radius:10px; font-size:13px; font-weight:700;
+    letter-spacing:.05em;
+    transition: background .2s ease; min-height:48px; display:flex; align-items:center; justify-content:center;
+  }
+  .hotel-card a.outline{ background:transparent; color:var(--green); border:1.5px solid var(--green);}
+  .hotel-card a:active{ transform: scale(.97);}
+
+  /* Hotel photo gallery */
+  .hotel-gallery{
+    margin-top:16px;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:10px;
+  }
+  .hg-item{
+    margin:0; position:relative; border-radius:14px; overflow:hidden;
+    background:#1E4530; box-shadow: var(--paper-shadow); border:1px solid var(--line);
+    aspect-ratio: 1/1;
+  }
+  .hg-item.hg-wide{ grid-column: 1 / -1; aspect-ratio: 16/10;}
+  .hg-item img{ width:100%; height:100%; object-fit:cover; display:block;}
+  .hg-item figcaption{
+    position:absolute; left:0; right:0; bottom:0;
+    padding: 18px 14px 10px;
+    background: linear-gradient(0deg, rgba(30,69,48,.92) 0%, rgba(30,69,48,.5) 60%, transparent 100%);
+    color: #FFF8F0; font-family: var(--en); font-size:11px; letter-spacing:.12em;
+    font-weight:500;
+  }
+
+  /* ============== NOTICES ============== */
+  .notice-list{ display:grid; gap:10px;}
+  .notice{
+    background:#fff; border-left:3px solid var(--amber); padding: 14px 16px;
+    border-radius: 0 10px 10px 0; font-size:13.5px; color:var(--ink-2); line-height:1.75;
+    border-top:1px solid var(--line); border-right:1px solid var(--line); border-bottom:1px solid var(--line);
+  }
+  .notice b{ color:var(--ink); font-weight:700;}
+  .notice.critical{ border-left-color:var(--green); background: rgba(42,92,64,.04);}
+  .notice.critical b{ color:var(--green-deep);}
+
+  /* ============== LINE GROUP ============== */
+  .line-section{ padding-bottom: 64px;}
+  .line-card{
+    background:#fff; border-radius:18px; padding:22px 22px 24px;
+    border:1px solid var(--line); box-shadow: var(--paper-shadow);
+    position:relative; overflow:hidden;
+  }
+  .line-card::before{
+    content:""; position:absolute; right:-30px; top:-30px; width:120px; height:120px;
+    background: radial-gradient(circle, rgba(6,199,85,.1) 0%, transparent 70%);
+    border-radius:50%; pointer-events:none;
+  }
+  .line-card-head{ display:flex; align-items:center; gap:14px; margin-bottom:18px;}
+  .line-icon{
+    width:48px; height:48px; border-radius:14px;
+    background: #06C755; color:#fff;
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+    box-shadow: 0 4px 12px -4px rgba(6,199,85,.4);
+  }
+  .line-icon svg{ width:28px; height:28px;}
+  .line-card-eyebrow{
+    font-family:var(--en); font-size:10px; letter-spacing:.25em;
+    color:var(--ink-3); text-transform:uppercase; font-weight:600;
+  }
+  .line-card-name{
+    font-size:16px; font-weight:700; color:var(--ink); margin-top:2px;
+    line-height:1.4;
+  }
+
+  .line-cta{
+    display:flex; align-items:center; justify-content:center; gap:8px;
+    background: #06C755; color:#fff; text-decoration:none;
+    padding: 16px; border-radius:12px; font-weight:700; font-size:15px;
+    min-height: 52px;
+    transition: background .2s ease;
+    margin-bottom: 22px;
+  }
+  .line-cta:active{ transform: scale(.98);}
+  .line-cta svg{ flex-shrink:0;}
+
+  .line-rule{
+    border: 1.5px dashed var(--amber);
+    border-radius: 14px;
+    padding: 18px 18px 16px;
+    background: rgba(212,133,74,.04);
+  }
+  .line-rule-head{ margin-bottom:14px;}
+  .line-rule .lr-tag{
+    display:inline-block; font-family:var(--maru); font-weight:700; font-size:11px;
+    color:#fff; background: var(--amber);
+    padding: 4px 12px; border-radius: 100px; letter-spacing:.05em;
+    margin-bottom:8px;
+  }
+  .line-rule .lr-title{
+    font-size:15px; color:var(--ink); font-weight:500; line-height:1.5;
+  }
+  .line-rule .lr-title b{ font-weight:700; color: var(--green-deep);}
+
+  .line-rule-example{
+    background:#fff; border:1px solid var(--line); border-radius:10px;
+    padding: 16px 18px; margin-bottom:12px;
+  }
+  .lre-label{
+    font-family:var(--en); font-size:10px; letter-spacing:.25em;
+    color:var(--ink-3); text-transform:uppercase; font-weight:600;
+    margin-bottom:8px;
+  }
+  .lre-name{
+    font-size:22px; font-weight:700; color:var(--ink);
+    font-family: var(--maru); line-height:1.3; margin-bottom:10px;
+    letter-spacing:.02em;
+  }
+  .lre-name .lre-jp{ color: var(--green-deep);}
+  .lre-name .lre-paren{ color: var(--ink-3); font-weight:500;}
+  .lre-name .lre-dept{ color: var(--amber); font-weight:700;}
+  .lre-samples{
+    font-size: 12.5px; color: var(--ink-2); line-height:1.7;
+    padding-top:10px; border-top: 1px dashed var(--line);
+  }
+
+  .line-rule-note{
+    margin:0; font-size: 12.5px; color: var(--ink-2); line-height:1.7;
+  }
+
+  /* ============== ORGANIZERS ============== */
+  .organizers-section{
+    background:
+      linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 60%, var(--bg-2) 100%);
+    padding-bottom: 64px;
+  }
+  .organizer-grid{
+    display:grid; grid-template-columns: 1fr 1fr; gap:12px;
+  }
+  .organizer{
+    background:#fff; border-radius:16px; border:1px solid var(--line);
+    box-shadow: var(--paper-shadow); overflow:hidden;
+    display:flex; flex-direction:column;
+  }
+  .org-photo{
+    position:relative; aspect-ratio: 1/1; background: var(--bg-2);
+    overflow:hidden;
+  }
+  .org-photo img{ width:100%; height:100%; object-fit:cover; display:block;}
+  .org-photo .org-placeholder{
+    position:absolute; inset:0;
+    display:flex; align-items:center; justify-content:center;
+    background:
+      repeating-linear-gradient(45deg, rgba(42,92,64,.04) 0 6px, transparent 6px 12px),
+      linear-gradient(135deg, #E8DBC1, #F5EBD8);
+    color: var(--green); font-family: var(--en); font-weight:600; font-size:32px;
+    letter-spacing:.02em;
+  }
+  .org-body{ padding: 12px 14px 14px; flex:1; display:flex; flex-direction:column;}
+  .org-name{
+    font-family: var(--en); font-weight: 600; font-size: 14px;
+    color: var(--ink); line-height:1.3; letter-spacing:.01em;
+    margin-bottom: 4px;
+  }
+  .org-dept{
+    font-family: var(--maru); font-size: 11px; color: var(--green);
+    font-weight: 600; line-height:1.4;
+    padding: 2px 8px; background: rgba(42,92,64,.08); border-radius: 100px;
+    align-self: flex-start;
+    margin-bottom: 8px;
+  }
+  .org-dept.empty{
+    color: var(--ink-3); background: rgba(44,26,14,.05); font-style:italic;
+  }
+  .org-quote{
+    margin: auto 0 0; font-size: 12.5px; color: var(--ink-2);
+    line-height: 1.65;
+    padding-top: 8px; border-top: 1px dashed var(--line);
+    font-family: var(--serif); position:relative;
+  }
+  .org-quote.empty{ color: var(--ink-3); font-style: italic;}
+
+  .organizer-thanks{
+    text-align:center; margin: 32px 0 0;
+    font-family: var(--en); font-size: 11px; letter-spacing: .25em;
+    color: var(--ink-3); font-weight: 500;
+  }
+
+  /* ============== FOOTER ============== */
+  footer{
+    background: var(--green-deep);
+    color: rgba(255,248,240,.85);
+    padding: 48px 24px 36px; position:relative; overflow:hidden;
+    margin-top:40px;
+  }
+  footer::before{
+    content:""; position:absolute; left:0; right:0; top:-1px; height:24px;
+    background-image: radial-gradient(circle at 12px 0, var(--bg) 12px, transparent 13px);
+    background-size: 24px 24px; background-repeat: repeat-x;
+  }
+  .footer-illust{ position:absolute; right: -20px; bottom: -10px; width:140px; opacity:.12; pointer-events:none;}
+  .footer-illust img{ width:100%; filter: brightness(0) invert(1);}
+
+  footer .f-eyebrow{ font-family:var(--en); font-size:11px; letter-spacing:.3em; color:var(--amber-soft); text-transform:uppercase; margin-bottom:14px; font-weight:600;}
+  footer h3{ margin:0 0 18px; font-size:22px; font-weight:900; color:#fff; line-height:1.4;}
+  footer p{ font-size:13.5px; line-height:1.85; margin: 0 0 22px;}
+
+  .contact-btn{
+    display:flex; align-items:center; gap:14px;
+    background: rgba(255,255,255,.08); border:1px solid rgba(255,248,240,.2);
+    border-radius:14px; padding:16px 18px; text-decoration:none; color:#fff;
+    transition: background .2s ease; backdrop-filter: blur(4px);
+  }
+  .contact-btn:active{ background: rgba(255,255,255,.15);}
+  .contact-btn .cb-icon{
+    width:44px; height:44px; border-radius:50%; background:var(--amber);
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  }
+  .contact-btn .cb-icon svg{ width:20px; height:20px; color:#fff;}
+  .contact-btn .cb-text .l{ font-family:var(--en); font-size:10px; letter-spacing:.2em; opacity:.7; text-transform:uppercase;}
+  .contact-btn .cb-text .v{ font-size:16px; font-weight:700; color:#fff; font-family:var(--en); letter-spacing:.02em;}
+  .contact-btn .cb-text .n{ font-size:12px; opacity:.8; margin-top:2px;}
+
+  .footer-meta{ margin-top:32px; padding-top:24px; border-top:1px solid rgba(255,248,240,.15); font-family:var(--en); font-size:11px; letter-spacing:.12em; opacity:.6; text-transform:uppercase;}
+  .footer-meta .line{ display:flex; justify-content:space-between; align-items:center;}
+
+  /* ============== FADE IN ============== */
+  /* Animation removed — content renders normally to guarantee visibility. */
+
+  /* mini divider deer/tree */
+  .mini-divider{ display:flex; align-items:center; gap:14px; margin: 6px 0 22px; opacity:.5;}
+  .mini-divider::before, .mini-divider::after{ content:""; flex:1; height:1px; background: var(--line);}
+  .mini-divider .leaf{ font-family:var(--en); font-size:10px; letter-spacing:.3em; color:var(--ink-3);}
+
+  /* Floating illust accents */
+  .floating-deer{
+    position:absolute; right:-20px; opacity:.1; width:140px; pointer-events:none;
+    mix-blend-mode:multiply;
+  }
+</style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <img src="assets/hotel-exterior.jpg" alt="UNWIND HOTEL &amp; BAR 奥日光" class="hero-img" id="heroImg" />
+
+    <div class="hero-top">
+      <span><span class="dot"></span>GLOBAL AGENTS</span>
+      <span>2026 / 07</span>
+    </div>
+
+    <div class="hero-mid">
+      <div class="hero-eyebrow">Global Agents Company Retreat</div>
+      <h1 class="hero-title">
+        Offline<br>Gathering<br><em>2026</em>
+        <small>奥日光編 ／ 標高1400m、深い森と湯の香りに包まれる二日間。</small>
+      </h1>
+
+      <div class="hero-bottom">
+        <span class="pill"><strong>7/16</strong> Thu — <strong>7/17</strong> Fri</span>
+        <span class="pill">1泊2日</span>
+      </div>
+    </div>
+
+    <div class="scroll-cue">SCROLL</div>
+  </section>
+
+  <!-- THEME -->
+  <section class="theme-section reveal" aria-label="今回のテーマ">
+    <div class="theme-eyebrow">— THIS YEAR&rsquo;S THEME —</div>
+    <h2 class="theme-title">
+      <span class="theme-word">New</span><br>
+      <span class="theme-word amber">Face<span class="theme-paren">(s)</span></span>
+    </h2>
+    <p class="theme-lead">新しい顔ぶれと、まだ見ぬ自分の一面に出会う二日間。</p>
+
+    <div class="theme-cloud" aria-label="テーマを表すキーワード">
+      <span class="kw kw-xl kw-amber">GAの新しい顔</span>
+      <span class="kw kw-m">新しい場所</span>
+      <span class="kw kw-l kw-green">新しい顔ぶれ</span>
+      <span class="kw kw-s">開業で出会う</span>
+      <span class="kw kw-m kw-amber">一人ひとりの新しい一面</span>
+      <span class="kw kw-s">MAのような</span>
+      <span class="kw kw-l">新たな取り組み</span>
+      <span class="kw kw-xl kw-green">まだ見ぬ自分</span>
+      <span class="kw kw-s kw-amber">奥日光で</span>
+      <span class="kw kw-m">出会いなおす</span>
+      <span class="kw kw-s">語り合う夜</span>
+      <span class="kw kw-l kw-amber">名前の向こう側</span>
+      <span class="kw kw-s">ふと見せる横顔</span>
+      <span class="kw kw-m kw-green">これからの私たち</span>
+    </div>
+
+    <p class="theme-outro">二日間が終わるころ、お互いに「あ、こんな顔もあったんだ」と笑い合えていたら。<br>そんな旅にしたい、と思っています。</p>
+  </section>
+
+  <div class="divider tiny"><img src="assets/illust-tree.png" alt="" /></div>
+
+  <!-- ABOUT / KEY INFO -->
+  <section class="reveal">
+    <div class="sec-eyebrow"><span class="num">01</span>About this trip</div>
+    <h2 class="sec-title">旅のしおり</h2>
+    <p class="sec-lead">湯ノ湖のほとり、UNWIND HOTEL &amp; BAR 奥日光で過ごす1泊2日。<br>移動・宿泊・夕食・朝食は会社負担。昼食だけ自己負担です。</p>
+
+    <div class="meet-card">
+      <div class="meet-head">
+        <h3>イベント概要</h3>
+        <span class="meet-tag">EVENT</span>
+      </div>
+      <div class="meet-meta">OFFLINE GATHERING 2026 ／ 奥日光編</div>
+      <div class="meet-body">
+        <ul>
+          <li><strong>日程</strong>：2026年7月16日(木) — 17日(金)</li>
+          <li><strong>場所</strong>：UNWIND HOTEL &amp; BAR 奥日光</li>
+          <li><strong>参加</strong>：グローバルエージェンツ 正社員 約50名</li>
+          <li><strong>休暇</strong>：1.5日出勤＋0.5日有休</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="meet-card" style="margin-top:14px">
+      <div class="meet-head">
+        <h3>会社が負担するもの</h3>
+        <span class="meet-tag amber">COST</span>
+      </div>
+      <div class="meet-body">
+        会社負担：<strong>宿泊・移動・夕食(DAY1)・朝食(DAY2)</strong><br>
+        自己負担：<strong>昼食（2日分）</strong>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><img src="assets/illust-mountain.png" alt="" /></div>
+
+  <!-- SCHEDULE -->
+  <section class="reveal">
+    <div class="sec-eyebrow"><span class="num">02</span>Schedule</div>
+    <h2 class="sec-title">2日間のながれ</h2>
+    <p class="sec-lead">各時間をタップすると詳細が開きます。</p>
+
+    <div class="tabs" role="tablist">
+      <button class="tab active" data-day="1" role="tab">
+        DAY 1
+        <span class="tab-en">JUL 16 THU</span>
+      </button>
+      <button class="tab" data-day="2" role="tab">
+        DAY 2
+        <span class="tab-en">JUL 17 FRI</span>
+      </button>
+    </div>
+
+    <!-- DAY 1 -->
+    <div class="day-panel active" data-panel="1">
+      <div class="day-head">
+        <h3>初日 — 集合と、夕餉</h3>
+        <span class="date">07.16 THU</span>
+      </div>
+      <ul class="schedule-list" id="day1List"></ul>
+    </div>
+
+    <!-- DAY 2 -->
+    <div class="day-panel" data-panel="2">
+      <div class="day-head">
+        <h3>二日目 — 高原の朝</h3>
+        <span class="date">07.17 FRI</span>
+      </div>
+      <ul class="schedule-list" id="day2List"></ul>
+    </div>
+  </section>
+
+  <div class="divider"><img src="assets/illust-lake.png" alt="" /></div>
+
+  <!-- TRANSPORT -->
+  <section class="reveal">
+    <div class="sec-eyebrow"><span class="num">03</span>How to get there</div>
+    <h2 class="sec-title">移動について</h2>
+    <p class="sec-lead">関東組は貸切バス、地方組は新幹線・飛行機で東武日光駅に集合します。</p>
+
+    <div class="transport-grid">
+      <!-- Kanto -->
+      <div class="transport-card">
+        <div class="tc-illust"><img src="assets/illust-bus.png" alt="" /></div>
+        <div class="tc-eyebrow">Group A</div>
+        <h3>関東組</h3>
+        <div class="tc-meta">貸切バスで日光へ／渋谷へ戻る</div>
+
+        <div class="tc-day-block day1">
+          <div class="tc-day-label">DAY 1 <span class="tc-day-en">行き</span><span class="tc-day-date">7/16</span></div>
+          <ul class="tc-timeline">
+            <li class="key"><b>07:00</b>HOTEL GRAPHY渋谷 集合・出発</li>
+            <li><b>11:00</b>足尾銅山 見学</li>
+            <li><b>12:30</b>東照宮周辺・各自昼食</li>
+            <li><b>14:00</b>いろは坂 → ホテル合流</li>
+          </ul>
+        </div>
+
+        <div class="tc-day-block day2">
+          <div class="tc-day-label">DAY 2 <span class="tc-day-en">帰り</span><span class="tc-day-date">7/17</span></div>
+          <ul class="tc-timeline">
+            <li class="key"><b>14:30</b>日光駅 集合・バス搭乗</li>
+            <li><b>19:00</b>渋谷着・解散</li>
+          </ul>
+        </div>
+
+        <div class="tc-note">貸切バスのため <b>集合時間厳守</b>。1分でも遅れたら追いかける感じになります。</div>
+      </div>
+
+      <!-- Local -->
+      <div class="transport-card">
+        <div class="tc-eyebrow">Group B</div>
+        <h3>地方組</h3>
+        <div class="tc-meta">新幹線・飛行機で日光集合／現地解散</div>
+
+        <div class="tc-day-block day1">
+          <div class="tc-day-label">DAY 1 <span class="tc-day-en">行き</span><span class="tc-day-date">7/16</span></div>
+          <ul class="tc-timeline">
+            <li><b>08:00頃</b>各地を出発</li>
+            <li class="key"><b>16:00</b>東武日光駅 集合 ★</li>
+            <li><b>16:30</b>貸切バスでホテルへ</li>
+          </ul>
+        </div>
+
+        <div class="tc-day-block day2">
+          <div class="tc-day-label">DAY 2 <span class="tc-day-en">帰り</span><span class="tc-day-date">7/17</span></div>
+          <ul class="tc-timeline">
+            <li class="key"><b>14:30</b>日光駅にて現地解散</li>
+            <li><b>19:00頃</b>羽田・成田・各地へ</li>
+          </ul>
+        </div>
+
+        <div class="tc-note">東武日光駅の集合時刻は <b>16:00厳守</b>。乗り換えに余裕をもって。</div>
+
+        <a class="tc-doc" href="https://docs.google.com/document/d/1FYGlzENNhXUHGHr03GjVUgsnc5uwftX0qlni3AtLxAg/edit?usp=sharing" target="_blank" rel="noopener">
+          <div class="tc-doc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="9" y1="13" x2="15" y2="13"/>
+              <line x1="9" y1="17" x2="15" y2="17"/>
+            </svg>
+          </div>
+          <div class="tc-doc-text">
+            <div class="tc-doc-label">地方組向け 交通詳細</div>
+            <div class="tc-doc-sub">経路・時刻表・予約方法など</div>
+          </div>
+          <div class="tc-doc-arrow">↗</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider small"><img src="assets/illust-tree.png" alt="" /></div>
+
+  <!-- PACK LIST -->
+  <section class="checklist-section reveal">
+    <div class="sec-eyebrow"><span class="num">04</span>Pack list</div>
+    <h2 class="sec-title">持ち物リスト</h2>
+    <p class="sec-lead">出発前の確認に。</p>
+
+    <div class="pack-group">
+      <h4>基本の持ち物 <span class="cg-tag">ESSENTIAL</span></h4>
+      <ul class="pack-list">
+        <li>着替え（1〜2日分）</li>
+        <li>洗面・歯ブラシセット</li>
+        <li>スマートフォン・充電器</li>
+        <li>財布・交通系ICカード</li>
+        <li>常備薬・酔い止め</li>
+      </ul>
+    </div>
+
+    <div class="pack-group">
+      <h4>奥日光向けアイテム <span class="cg-tag">OKUNIKKO</span></h4>
+      <ul class="pack-list">
+        <li>歩きやすいシューズ</li>
+        <li>薄手のアウター（夜は15〜20℃）</li>
+        <li>虫除けスプレー</li>
+        <li>折りたたみ傘・レインウェア</li>
+        <li>ランチ代（自己負担分）</li>
+        <li>カメラ・予備バッテリー</li>
+      </ul>
+    </div>
+
+    <div class="check-note">
+      <b>服装メモ：</b>ドレスコードなし。奥日光は標高1400m、7月でも夜は <b>15〜20℃前後</b> でひんやり。Tシャツ＋薄手のアウター＋長ズボンが安心です。
+    </div>
+  </section>
+
+  <div class="divider tiny"><img src="assets/illust-deer.png" alt="" /></div>
+
+  <!-- WEATHER -->
+  <section class="reveal">
+    <div class="sec-eyebrow"><span class="num">05</span>Weather</div>
+    <h2 class="sec-title">7月の奥日光は、こんな感じ</h2>
+    <p class="sec-lead">標高1400mの高原。下界より涼しく、夜は重ね着がほしくなる気候です。</p>
+
+    <div class="weather-card">
+      <div class="wc-eyebrow">Okunikko / Mid July</div>
+      <h3>過去5年の平均気温</h3>
+      <div class="wc-grid">
+        <div class="wc-stat">
+          <div class="wc-label">Daytime</div>
+          <div class="wc-val">22<small>℃</small></div>
+        </div>
+        <div class="wc-stat">
+          <div class="wc-label">Night</div>
+          <div class="wc-val">15<small>℃</small></div>
+        </div>
+        <div class="wc-stat">
+          <div class="wc-label">Humidity</div>
+          <div class="wc-val">78<small>%</small></div>
+        </div>
+        <div class="wc-stat">
+          <div class="wc-label">Rain days</div>
+          <div class="wc-val">11<small>/月</small></div>
+        </div>
+      </div>
+      <p class="wc-note">日中は半袖でちょうど良いものの、朝晩と曇り空ではぐっと冷えます。<br>梅雨明け前後にあたるので、折りたたみ傘もぜひ。</p>
+    </div>
+  </section>
+
+  <!-- LUNCH -->
+  <section class="reveal">
+    <div class="sec-eyebrow"><span class="num">06</span>Lunch spots</div>
+    <h2 class="sec-title">お昼ごはん候補</h2>
+    <p class="sec-lead">DAY1・DAY2ともに昼食は自由。せっかくの日光、美味しいもの食べてください。</p>
+
+    <div class="tabs" role="tablist" id="lunchTabs">
+      <button class="tab active" data-lunch="1" role="tab">
+        DAY 1
+        <span class="tab-en">東照宮周辺</span>
+      </button>
+      <button class="tab" data-lunch="2" role="tab">
+        DAY 2
+        <span class="tab-en">東武日光駅周辺</span>
+      </button>
+    </div>
+
+    <!-- DAY1 lunch -->
+    <div class="lunch-panel active" data-lunch-panel="1">
+
+      <div class="lunch-cat">
+        <div class="lc-num">01</div>
+        <div class="lc-title">日光名物「湯波（ゆば）」を堪能</div>
+      </div>
+      <div class="lunch-list">
+        <div class="lunch-item">
+          <h4>恵比寿家（えびすや）</h4>
+          <div class="li-loc">陽明門から徒歩約12分／神橋から徒歩約3分</div>
+          <p>創業明治末期、元祖・日光湯波の老舗。引き上げ湯波やたぐり湯波など、上品で優しい湯波料理をコース・御膳で。</p>
+        </div>
+        <div class="lunch-item">
+          <h4>補陀洛本舗 石屋町店</h4>
+          <div class="li-loc">東照宮から徒歩約15分</div>
+          <p>名物「ゆばむすび」が絶品。出汁で炊いた味付けご飯を湯波で包んだ食べ歩き向き（売り切れ注意）。</p>
+        </div>
+      </div>
+
+      <div class="lunch-cat">
+        <div class="lc-num">02</div>
+        <div class="lc-title">レトロな洋館で味わう絶品グルメ</div>
+      </div>
+      <div class="lunch-list">
+        <div class="lunch-item">
+          <h4>西洋料理館 明治の館</h4>
+          <div class="li-loc">東照宮から徒歩約15分</div>
+          <p>明治時代の石造り洋館を利用した名店。ふんわりトロトロの「オムレツライス」と、食後のチーズケーキ「ニルバーナ」が看板。</p>
+        </div>
+      </div>
+
+      <div class="lunch-cat">
+        <div class="lc-num">03</div>
+        <div class="lc-title">お洒落な和モダンカフェ＆洋食</div>
+      </div>
+      <div class="lunch-list">
+        <div class="lunch-item">
+          <h4>日光珈琲 御用邸通</h4>
+          <div class="li-loc">東照宮から徒歩約12分</div>
+          <p>古い商家リノベのノスタルジック古民家カフェ。「黒カレー」やガレットと、ハンドドリップコーヒーを静かな空間で。</p>
+        </div>
+        <div class="lunch-item">
+          <h4>雲IZU 日光店</h4>
+          <div class="li-loc">東照宮から徒歩約10分（神橋すぐ）</div>
+          <p>湯波を使った食事メニューとスイーツ。三猿モチーフの「そっぽ焼き」をデザートにするのもおすすめ。</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- DAY2 lunch -->
+    <div class="lunch-panel" data-lunch-panel="2">
+
+      <div class="lunch-cat">
+        <div class="lc-num">01</div>
+        <div class="lc-title">駅の目の前！気軽に名物を</div>
+      </div>
+      <div class="lunch-list">
+        <div class="lunch-item">
+          <h4>日光さかえや</h4>
+          <div class="li-loc">東武日光駅から徒歩約30秒</div>
+          <p>駅出てすぐ右手、行列の絶えない超有名店。名物「揚げゆばまんじゅう」は岩塩がアクセント。イートインで軽食も。</p>
+        </div>
+        <div class="lunch-item">
+          <h4>補陀洛本舗 駅前店</h4>
+          <div class="li-loc">東武日光駅から徒歩約2分</div>
+          <p>名物「ゆばむすび（2個入り）」をパック販売。電車前のお弁当テイクアウトに最適。</p>
+        </div>
+      </div>
+
+      <div class="lunch-cat">
+        <div class="lc-num">02</div>
+        <div class="lc-title">行列のできる絶品専門店</div>
+      </div>
+      <div class="lunch-list">
+        <div class="lunch-item">
+          <h4>欄干橋 寿し常</h4>
+          <div class="li-loc">東武日光駅から徒歩約6分</div>
+          <p>湯波料理と寿司の「ゆば御膳」「ゆば寿司」。ちょっと贅沢に湯波をメインで楽しみたい派へ。</p>
+        </div>
+        <div class="lunch-item">
+          <h4>豚骨100%ラーメン 鳴神</h4>
+          <div class="li-loc">東武日光駅から徒歩約4分</div>
+          <p>濃厚豚骨×細麺の本格派。「日光湯波」トッピングのご当地ラーメンもあり。がっつり派の隠れた名店。</p>
+        </div>
+      </div>
+
+      <div class="lunch-cat">
+        <div class="lc-num">03</div>
+        <div class="lc-title">レトロでお洒落な駅前カフェ</div>
+      </div>
+      <div class="lunch-list">
+        <div class="lunch-item">
+          <h4>日光ぷりん亭 日光店</h4>
+          <div class="li-loc">東武日光駅から徒歩約5分</div>
+          <p>大正ロマン調のプリン専門店。大笹牧場の牛乳のなめらかプリンと、SNSで人気の「プリンソフト」。</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"><img src="assets/illust-mountain.png" alt="" /></div>
+
+  <!-- HOTEL -->
+  <section class="reveal">
+    <div class="sec-eyebrow"><span class="num">07</span>Stay</div>
+    <h2 class="sec-title">泊まる場所</h2>
+    <p class="sec-lead">湯ノ湖を目の前にした、UNWIND HOTEL &amp; BAR 奥日光。</p>
+
+    <div class="hotel-card">
+      <div class="hc-illust"><img src="assets/hotel-exterior.jpg" alt="UNWIND HOTEL &amp; BAR 奥日光 外観" /></div>
+      <div class="hc-body">
+        <div class="hc-eyebrow">Hotel</div>
+        <h3>UNWIND HOTEL &amp; BAR 奥日光</h3>
+        <div class="hc-addr">栃木県日光市湯元温泉</div>
+
+        <div class="hc-meta">
+          <div>
+            <div class="l">Check-in</div>
+            <div class="v">15:00〜</div>
+          </div>
+          <div>
+            <div class="l">Check-out</div>
+            <div class="v">朝食後</div>
+          </div>
+          <div>
+            <div class="l">Rooms</div>
+            <div class="v">46室</div>
+          </div>
+          <div>
+            <div class="l">Meals</div>
+            <div class="v">夕・朝食付</div>
+          </div>
+        </div>
+
+        <div class="hc-links">
+          <a href="https://www.livelyhotels.com/ja/unwindokunikko/" target="_blank" rel="noopener">公式サイト →</a>
+          <a class="outline" href="https://www.google.com/maps/search/?api=1&query=UNWIND+HOTEL+%26+BAR+%E5%A5%A5%E6%97%A5%E5%85%89" target="_blank" rel="noopener">地図を開く</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hotel photo gallery -->
+    <div class="hotel-gallery">
+      <figure class="hg-item hg-wide">
+        <img src="assets/hotel-lounge.jpg" alt="ラウンジ" />
+        <figcaption>Lounge ／ 夜のラウンジ</figcaption>
+      </figure>
+      <figure class="hg-item">
+        <img src="assets/hotel-room.jpg" alt="客室" />
+        <figcaption>Room ／ ツインルーム</figcaption>
+      </figure>
+      <figure class="hg-item">
+        <img src="assets/hotel-wine.jpg" alt="バー" />
+        <figcaption>Bar ／ フリーワイン</figcaption>
+      </figure>
+    </div>
+
+    <div class="check-note" style="margin-top:16px">
+      <b>相部屋について：</b>客室は46室のため、組み合わせによっては相部屋になります。詳細は後日ご案内します。
+    </div>
+  </section>
+
+  <!-- NOTICES -->
+  <section class="reveal">
+    <div class="sec-eyebrow"><span class="num">08</span>Notes</div>
+    <h2 class="sec-title">注意事項</h2>
+    <p class="sec-lead">楽しく過ごすために、いくつかのお願いです。</p>
+
+    <div class="notice-list">
+      <div class="notice critical">
+        <b>1泊2日参加が必須です。</b>1日のみの参加はできません。スケジュール調整にご協力を。
+      </div>
+      <div class="notice critical">
+        <b>休暇扱い：</b>1.5日出勤＋0.5日有休利用となります。
+      </div>
+      <div class="notice">
+        <b>貸切バスは時間厳守。</b>関東組7:00／地方組16:00集合、いずれも遅れたら自走になります。
+      </div>
+      <div class="notice">
+        <b>国立公園内です。</b>ゴミは持ち帰り、動植物を傷つけないよう、自然に敬意を払って。
+      </div>
+      <div class="notice">
+        <b>食事の負担：</b>夕食(DAY1)・朝食(DAY2)は会社負担、昼食は自己負担です。
+      </div>
+    </div>
+  </section>
+
+  <!-- LINE GROUP -->
+  <section class="line-section reveal">
+    <div class="sec-eyebrow"><span class="num">09</span>Join the group</div>
+    <h2 class="sec-title">LINEグループに参加</h2>
+    <p class="sec-lead">当日の連絡・集合場所の共有はLINEグループで行います。<br>必ず事前にご参加ください。</p>
+
+    <div class="line-card">
+      <div class="line-card-head">
+        <div class="line-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+        </div>
+        <div>
+          <div class="line-card-eyebrow">LINE Group</div>
+          <div class="line-card-name">OFFLINE GATHERING 2026</div>
+        </div>
+      </div>
+
+      <a class="line-cta" href="#" target="_blank" rel="noopener">
+        <span>グループに参加する</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+
+      <div class="line-rule">
+        <div class="line-rule-head">
+          <span class="lr-tag">★ 必読 ★</span>
+          <div class="lr-title">名前は<b>こちらのフォーマット</b>で登録</div>
+        </div>
+        <div class="line-rule-example">
+          <div class="lre-label">記入例</div>
+          <div class="lre-name">
+            <span class="lre-jp">名前</span><span class="lre-paren">（</span><span class="lre-dept">部署・施設</span><span class="lre-paren">）</span>
+          </div>
+          <div class="lre-samples">
+            例：山田太郎（マーケティング）／佐藤花子（UNWIND奥日光）
+          </div>
+        </div>
+        <p class="line-rule-note">当日の点呼・連絡をスムーズにするためのお願いです。よろしくお願いします。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORGANIZERS -->
+  <section class="organizers-section reveal">
+    <div class="sec-eyebrow"><span class="num">10</span>Organizers</div>
+    <h2 class="sec-title">幹事チーム</h2>
+    <p class="sec-lead">この旅をつくっているメンバーです。<br>困ったとき、迷ったときは声をかけてください。</p>
+
+    <div class="organizer-grid" id="organizerGrid"></div>
+
+    <p class="organizer-thanks">— Thank you for joining us. See you in Okunikko. —</p>
+  </section>
+
+  <!-- FOOTER / CONTACT -->
+  <footer>
+    <div class="footer-illust"><img src="assets/illust-deer.png" alt="" /></div>
+    <div class="f-eyebrow">Contact</div>
+    <h3>当日の緊急連絡先</h3>
+    <p>スケジュール変更、体調不良、迷子のとき。<br>遠慮せず連絡してくださいね。</p>
+
+    <a class="contact-btn" href="tel:07069719069">
+      <div class="cb-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/>
+        </svg>
+      </div>
+      <div class="cb-text">
+        <div class="l">担当・吉田さん</div>
+        <div class="v">070-6971-9069</div>
+        <div class="n">タップで発信</div>
+      </div>
+    </a>
+
+    <div class="footer-meta">
+      <div class="line">
+        <span>Global Agents</span>
+        <span>2026.07.16 — 17</span>
+      </div>
+    </div>
+  </footer>
+
+<script>
+  // ============== SCHEDULE DATA ==============
+  const day1 = [
+    {time:"07:00", title:"HOTEL GRAPHY 渋谷 集合・バス出発", own:false, detail:"関東組は <a href=\"https://www.google.com/maps/search/?api=1&query=HOTEL+GRAPHY+%E6%B8%8B%E8%B0%B7\" target=\"_blank\" rel=\"noopener\" style=\"color:inherit;text-decoration:underline;text-underline-offset:3px;\">HOTEL GRAPHY 渋谷</a> に集合。貸切バスで出発します。遅れないように！", key:true},
+    {time:"11:00", title:"足尾銅山", own:false, detail:"関東組はバスで到着後、足尾銅山を見学。トロッコで坑道へ。"},
+    {time:"12:30", title:"東照宮周辺・各自昼食", cost:"自己負担", own:true, detail:"東照宮エリアで散策しつつ昼食。下のおすすめスポットを参考に。"},
+    {time:"14:00", title:"集合・いろは坂のぼる", own:false, detail:"関東組と地方組がここで合流。いろは坂を経由してホテルへ。", key:true},
+    {time:"15:00", title:"ホテル着／湯ノ湖散策", own:false, detail:"目の前の湯ノ湖をのんびり散策。チェックインも順次。"},
+    {time:"16:00", title:"東武日光駅（地方組到着）", own:false, detail:"★地方組はこの時間に東武日光駅集合。貸切バスでホテルへ。", key:true},
+    {time:"17:00", title:"フリーワイン", cost:"会社負担", own:false, detail:"ウェルカムワインで乾杯。ゆるく集まりましょう。"},
+    {time:"18:00", title:"夕食", cost:"会社負担", own:false, detail:"会場：<a href=\"https://www.google.com/maps/search/?api=1&query=UNWIND+HOTEL+%26+BAR+%E5%A5%A5%E6%97%A5%E5%85%89\" target=\"_blank\" rel=\"noopener\" style=\"color:inherit;text-decoration:underline;text-underline-offset:3px;\">UNWIND HOTEL &amp; BAR 奥日光</a><br>全員で同じテーブルを囲む夕食。", key:true},
+    {time:"19:30", title:"ゲーム ①", own:false, detail:"19:30–20:15 ／ 45分の企画。チーム分けは当日発表。"},
+    {time:"20:30", title:"ゲーム ②", own:false, detail:"20:30–21:15 ／ 続けて2本目、45分。"},
+    {time:"21:30", title:"二次会", own:false, detail:"バー or 部屋飲み。自由参加。"},
+    {time:"24:00", title:"終了", own:false, detail:"明日もあるので、ほどほどに。おやすみなさい。"},
+  ];
+
+  const day2 = [
+    {time:"07:00", title:"朝食", cost:"会社負担", own:false, detail:"会場：<a href=\"https://www.google.com/maps/search/?api=1&query=UNWIND+HOTEL+%26+BAR+%E5%A5%A5%E6%97%A5%E5%85%89\" target=\"_blank\" rel=\"noopener\" style=\"color:inherit;text-decoration:underline;text-underline-offset:3px;\">UNWIND HOTEL &amp; BAR 奥日光</a><br>高原の朝ごはん。早起きの人は湖畔散歩も。", key:true},
+    {time:"09:00", title:"分かれてアクティビティ", own:false, detail:"3コースから選択：<br>① 戦場ヶ原までのトレッキング<br>② 中禅寺湖でSUP<br>③ 日光市街で文化系体験（創る、観る）", key:true},
+    {time:"12:00", title:"東武日光駅周辺でランチ", cost:"自己負担", own:true, detail:"各自で昼食。集合場所に向かいながら。"},
+    {time:"14:00", title:"日光駅集合・閉会式", own:false, detail:"全員で日光駅に集合。閉会式で締めくくります。", key:true},
+    {time:"14:30", title:"地方組は現地解散、東京組はバス搭乗", own:false, detail:"地方組：日光駅から羽田・成田・各地へ。お疲れさまでした！<br>東京組：貸切バスに搭乗して渋谷へ向かいます。"},
+    {time:"19:00", title:"バス渋谷着・解散", own:false, detail:"東京組はHOTEL GRAPHY 渋谷周辺にて解散予定。お疲れさまでした！", key:true},
+  ];
+
+  function renderSchedule(arr, host){
+    const ul = document.getElementById(host);
+    arr.forEach((it, i)=>{
+      const li = document.createElement("li");
+      li.className = "sch-item" + (it.key?" highlight":"");
+      li.innerHTML = `
+        <button class="sch-toggle" aria-expanded="false">
+          <span class="sch-time">${it.time}</span>
+          <span class="sch-title">${it.title}${it.cost?`<span class="sch-cost${it.own?" own":""}">${it.cost}</span>`:""}</span>
+          <span class="sch-chev">▾</span>
+        </button>
+        <div class="sch-detail"><div><div class="sch-detail-inner"><p>${it.detail}</p></div></div></div>
+      `;
+      ul.appendChild(li);
+    });
+  }
+  renderSchedule(day1, "day1List");
+  renderSchedule(day2, "day2List");
+
+  // accordion behavior
+  document.addEventListener("click", (e)=>{
+    const btn = e.target.closest(".sch-toggle");
+    if(!btn) return;
+    const item = btn.parentElement;
+    const wasOpen = item.classList.contains("open");
+    // close siblings in same list
+    item.parentElement.querySelectorAll(".sch-item.open").forEach(s=>s.classList.remove("open"));
+    if(!wasOpen) item.classList.add("open");
+  });
+
+  // Schedule tabs (DAY1 / DAY2)
+  document.querySelectorAll(".tab[data-day]").forEach(tab=>{
+    tab.addEventListener("click", ()=>{
+      const day = tab.dataset.day;
+      document.querySelectorAll(".tab[data-day]").forEach(t=>t.classList.remove("active"));
+      tab.classList.add("active");
+      document.querySelectorAll(".day-panel").forEach(p=>{
+        p.classList.toggle("active", p.dataset.panel===day);
+      });
+    });
+  });
+
+  // Lunch tabs
+  document.querySelectorAll(".tab[data-lunch]").forEach(tab=>{
+    tab.addEventListener("click", ()=>{
+      const d = tab.dataset.lunch;
+      document.querySelectorAll(".tab[data-lunch]").forEach(t=>t.classList.remove("active"));
+      tab.classList.add("active");
+      document.querySelectorAll(".lunch-panel").forEach(p=>{
+        p.classList.toggle("active", p.dataset.lunchPanel===d);
+      });
+    });
+  });
+
+  // ============== ORGANIZERS ==============
+  // After photos arrive, fill in `photo` (e.g. "assets/org-yukie.jpg"),
+  // `dept`, and `quote` for each entry. Empty strings render as placeholders.
+  const organizers = [
+    { name: "Yukie Yoshida",    photo: "", dept: "", quote: "" },
+    { name: "Kai Tomiyama",     photo: "", dept: "", quote: "" },
+    { name: "Izumi Hina",       photo: "", dept: "", quote: "" },
+    { name: "Rodriguez Jorge",  photo: "", dept: "", quote: "" },
+    { name: "Klara Ulmannova",  photo: "", dept: "", quote: "" },
+    { name: "Eri Matsuo",       photo: "", dept: "", quote: "" },
+    { name: "Nozomi Okazaki",   photo: "", dept: "", quote: "" },
+    { name: "Nanami Ayaki",     photo: "", dept: "", quote: "" },
+    { name: "Kota Okuyama",     photo: "", dept: "", quote: "" },
+  ];
+
+  function initials(name){
+    return name.split(/\s+/).map(p=> p[0]||"").join("").slice(0,2).toUpperCase();
+  }
+
+  (function renderOrganizers(){
+    const grid = document.getElementById("organizerGrid");
+    if(!grid) return;
+    organizers.forEach(o=>{
+      const card = document.createElement("div");
+      card.className = "organizer";
+      const photoHTML = o.photo
+        ? `<img src="${o.photo}" alt="${o.name}" loading="lazy" />`
+        : `<div class="org-placeholder">${initials(o.name)}</div>`;
+      card.innerHTML = `
+        <div class="org-photo">${photoHTML}</div>
+        <div class="org-body">
+          <div class="org-name">${o.name}</div>
+          <div class="org-dept${o.dept?"":" empty"}">${o.dept || "所属未設定"}</div>
+          <div class="org-quote${o.quote?"":" empty"}">${o.quote || "（一言メッセージ）"}</div>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+  })();
+
+  // ============== HERO IMAGE FALLBACK ==============
+  const heroImg = document.getElementById("heroImg");
+  if(heroImg){
+    heroImg.addEventListener("error", ()=> heroImg.style.display = "none");
+  }
+
+  // ============== REVEAL ON SCROLL ==============
+  (function setupReveal(){
+    const els = Array.from(document.querySelectorAll(".reveal"));
+    const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    // Show-everything fallback (always wins eventually) — guarantees content
+    const showAll = ()=> els.forEach(el=> el.classList.add("in"));
+
+    if(reduceMotion){ showAll(); return; }
+
+    // Safety net: ensure visibility within 1.2s no matter what
+    const safety = setTimeout(showAll, 1200);
+
+    // Manual scroll-based reveal (more reliable than IO in some preview contexts)
+    function check(){
+      const vh = window.innerHeight || document.documentElement.clientHeight;
+      let allDone = true;
+      els.forEach(el=>{
+        if(el.classList.contains("in")) return;
+        const r = el.getBoundingClientRect();
+        if(r.top < vh - 40 && r.bottom > 0){
+          el.classList.add("in");
+        } else {
+          allDone = false;
+        }
+      });
+      if(allDone){
+        clearTimeout(safety);
+        window.removeEventListener("scroll", check);
+        window.removeEventListener("resize", check);
+      }
+    }
+    window.addEventListener("scroll", check, {passive:true});
+    window.addEventListener("resize", check);
+    // Run after layout settles
+    requestAnimationFrame(()=> requestAnimationFrame(check));
+    setTimeout(check, 100);
+  })();
+</script>
+</body>
+</html>
