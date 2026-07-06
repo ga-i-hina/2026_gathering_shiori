@@ -249,6 +249,61 @@
   .sch-title{ font-size:15px; font-weight:700; color:var(--ink); line-height:1.4;}
   .sch-title .sch-cost{ display:inline-block; font-family:var(--en); font-size:10px; letter-spacing:.1em; color:var(--green); background:rgba(42,92,64,.1); padding:2px 7px; border-radius:4px; margin-left:6px; font-weight:600; vertical-align:1px;}
   .sch-title .sch-cost.own{ color:var(--amber); background:rgba(212,133,74,.12);}
+
+  /* Group pills (東京組 / 地方組) */
+  .sch-group{
+    display:inline-block; font-family:var(--maru); font-size:10.5px; letter-spacing:.02em;
+    padding:2px 8px; border-radius:100px; margin-right:8px; font-weight:700;
+    vertical-align:1px; line-height:1.5;
+  }
+  .sch-group.tokyo{ color:#1E4530; background:rgba(42,92,64,.14); border:1px solid rgba(42,92,64,.25);}
+  .sch-group.local{ color:#8a4a1d; background:rgba(212,133,74,.14); border:1px solid rgba(212,133,74,.35);}
+
+  /* Section divider between groups and merge point */
+  .sch-branch-note{
+    margin: 18px 0 6px; padding: 8px 12px;
+    background: linear-gradient(90deg, rgba(42,92,64,.06), rgba(212,133,74,.06));
+    border-radius: 8px; font-family:var(--maru); font-size:12px; color:var(--ink-2);
+    display:flex; align-items:center; gap:8px; font-weight:600;
+  }
+  .sch-branch-note::before{
+    content:""; width:14px; height:2px; background:var(--amber); border-radius:2px;
+  }
+
+  /* In-house guide card (DAY1 東京組の自由時間) */
+  .in-house-card{
+    margin-top:22px; background:#fff; border:1px solid var(--line); border-radius:16px;
+    padding: 20px 20px 18px; box-shadow: var(--paper-shadow);
+    border-left: 4px solid var(--green);
+  }
+  .in-house-card .ih-head{ display:flex; align-items:center; gap:10px; margin-bottom:8px; flex-wrap:wrap;}
+  .in-house-card .ih-tag{
+    font-family:var(--en); font-size:10px; letter-spacing:.18em; text-transform:uppercase;
+    background:var(--green); color:#fff; padding:4px 10px; border-radius:100px; font-weight:600;
+  }
+  .in-house-card h4{ margin:0; font-size:16px; font-weight:900; color:var(--green-deep); line-height:1.4;}
+  .in-house-card .ih-lead{ font-size:13.5px; color:var(--ink-2); line-height:1.85; margin:6px 0 14px;}
+  .in-house-card .ih-section{ margin-top:14px;}
+  .in-house-card .ih-section-title{
+    font-family:var(--maru); font-weight:800; font-size:13px; color:var(--ink);
+    margin-bottom:8px; letter-spacing:.02em;
+  }
+  .in-house-card .ih-list{ list-style:none; margin:0; padding:0;}
+  .in-house-card .ih-list li{
+    position:relative; padding: 4px 0 4px 18px;
+    font-size:13px; color:var(--ink-2); line-height:1.75;
+  }
+  .in-house-card .ih-list li::before{
+    content:""; position:absolute; left:0; top:12px; width:6px; height:6px;
+    background:var(--green); border-radius:50%;
+  }
+  .in-house-card .ih-list li b{ color:var(--ink); font-weight:700;}
+  .in-house-card .ih-list.ih-list-caution li::before{ background:var(--amber);}
+  .in-house-card .ih-note{
+    margin-top:10px; font-size:11.5px; color:var(--ink-3);
+    padding: 6px 10px; background: rgba(212,133,74,.08); border-radius:6px;
+    font-style: italic;
+  }
   .sch-chev{ font-family:var(--en); color:var(--ink-3); font-size:14px; transition: transform .3s ease; width:20px; text-align:center;}
   .sch-item.open .sch-chev{ transform: rotate(180deg); color:var(--amber);}
 
@@ -406,6 +461,102 @@
     background: rgba(42,92,64,.08); border-radius:100px;
   }
   .lunch-item p{ margin:0; font-size:13.5px; color:var(--ink-2); line-height:1.85;}
+
+  /* ============== ACTIVITIES (DAY2) ============== */
+  .act-intro{
+    display:flex; align-items:center; gap:10px;
+    margin: 8px 0 18px;
+    padding: 12px 14px;
+    background: rgba(212,133,74,.10);
+    border: 1px dashed var(--amber);
+    border-radius: 12px;
+    font-size: 12.5px; color: var(--ink-2); line-height:1.7;
+  }
+  .act-intro .ai-icon{
+    flex-shrink:0; width:32px; height:32px; border-radius:50%;
+    background: var(--amber); color:#fff;
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--en); font-size:14px; font-weight:700;
+  }
+  .act-intro b{ color: var(--ink);}
+
+  .activity-list{ display:grid; gap:14px; margin-top: 4px; list-style:none; padding:0; margin-left:0; margin-right:0;}
+  .activity-list > li{ margin:0;}
+  .activity-card{
+    position:relative;
+    background:#fff; border-radius:18px; padding: 20px 20px 22px;
+    border:1px solid var(--line); box-shadow: var(--paper-shadow);
+    overflow:hidden;
+  }
+  .activity-card::before{
+    content:""; position:absolute; left:0; top:0; bottom:0; width:5px;
+    background: var(--amber);
+  }
+  .activity-card .ac-head{
+    display:flex; align-items:center; gap:14px;
+    margin-bottom: 14px; padding-bottom: 12px;
+    border-bottom: 1px dashed var(--line);
+  }
+  .activity-card .ac-plan{
+    flex-shrink:0;
+    width:56px; height:56px; border-radius: 14px;
+    background: var(--green); color:#fff;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    font-family: var(--en); font-weight: 700; line-height:1;
+    box-shadow: 0 6px 14px -6px rgba(42,92,64,.55);
+  }
+  .activity-card .ac-plan .ap-letter{
+    font-size: 24px; letter-spacing:.02em;
+  }
+  .activity-card .ac-plan .ap-label{
+    font-size: 8px; letter-spacing:.2em; opacity:.9; margin-top:4px;
+    font-weight: 500;
+  }
+  .activity-card .ac-head-text{ flex:1; min-width:0;}
+  .activity-card .ac-order{
+    display:inline-block; font-family:var(--en); font-size:10px; font-weight:600;
+    letter-spacing:.18em; color: var(--amber);
+    background: rgba(212,133,74,.12);
+    padding: 3px 8px; border-radius: 4px;
+    margin-bottom: 6px;
+  }
+  .activity-card h4{
+    margin: 0; font-size: 16.5px; font-weight: 900; color: var(--green-deep);
+    line-height:1.35;
+  }
+  .activity-card .ac-loc{
+    margin-top:4px;
+    font-size: 12px; color: var(--ink-3);
+    display:flex; align-items:center; gap:5px;
+  }
+  .activity-card .ac-loc::before{
+    content:"📍"; font-size:11px;
+  }
+  .activity-card .ac-desc{
+    font-size: 13.5px; color: var(--ink-2); line-height:1.8; margin:0;
+  }
+  .activity-card .ac-tags{
+    display:flex; flex-wrap:wrap; gap:6px; margin-top: 12px;
+  }
+  .activity-card .ac-tag{
+    font-family:var(--maru); font-size: 11px; font-weight:600;
+    color: var(--green); background: rgba(42,92,64,.09);
+    padding: 3px 9px; border-radius: 100px;
+  }
+
+  /* connector line between cards (bus route feel) */
+  .activity-list{ position:relative;}
+  .activity-card + .activity-card::after{
+    content:""; position:absolute; left: 34px; top: -14px; height:14px;
+    width:2px; background: repeating-linear-gradient(180deg, var(--amber) 0 3px, transparent 3px 6px);
+  }
+
+  .act-note{
+    margin-top: 16px;
+    padding: 12px 14px; background:rgba(42,92,64,.06); border-radius:10px;
+    font-size:12.5px; color:var(--ink-2); line-height:1.7;
+  }
+  .act-note::before{ content:"ℹ"; color:var(--green); margin-right:6px; font-weight:700;}
 
   /* ============== HOTEL ============== */
   .hotel-card{
@@ -791,38 +942,174 @@
       </div>
       <ul class="schedule-list" id="day2List"></ul>
     </div>
+
+    <!-- 東京組向け：チェックイン後の自由時間案内 -->
+    <div class="in-house-card" aria-label="東京組の到着後・館内での過ごし方">
+      <div class="ih-head">
+        <span class="ih-tag">東京組向け</span>
+        <h4>ホテル着後、フリーワインまでの過ごし方</h4>
+      </div>
+      <p class="ih-lead">14:00頃にホテル到着後、17:00 のフリーワイン開始まで自由時間です。館内で寛いだり、湯ノ湖のほとりを散策したり、ご自由にどうぞ。</p>
+
+      <div class="ih-section">
+        <div class="ih-section-title">◆ おすすめの過ごし方</div>
+        <ul class="ih-list">
+          <li><b>湯ノ湖散策</b>：ホテル目の前。ぐるっと一周1時間ほど。</li>
+          <li><b>館内見学</b>：新規開業ホテルを探検してみてください。</li>
+          <li><b>大浴場・温泉</b>：奥日光の名湯でひと風呂。夕食前にさっぱり。</li>
+          <li><b>お部屋で仮眠</b>：早朝集合だったので、少し休むのも◎。</li>
+        </ul>
+      </div>
+
+      <div class="ih-section">
+        <div class="ih-section-title">⚠ 館内での注意事項（叩き）</div>
+        <ul class="ih-list ih-list-caution">
+          <li>チェックインは順次。フロントでルームキーを受け取ってください。</li>
+          <li>館内は基本的に <b>静かに</b>。他のお客様もいらっしゃいます。</li>
+          <li>大浴場の利用時間・タオルの持ち出しルールはフロント案内に従ってください。</li>
+          <li>喫煙は指定エリアのみ。客室・館内は全面禁煙です。</li>
+          <li>ラウンジやバーでの飲食は、17:00 のフリーワインまでは各自で。</li>
+          <li>貴重品は各自で管理を。金庫は各室に備え付けあり。</li>
+          <li>ホテル備品の破損・持ち出しはNG。困ったらフロントか幹事まで。</li>
+        </ul>
+        <p class="ih-note">※こちらは叩きです。ホテル側と最終確認したら差し替えます。</p>
+      </div>
+    </div>
   </section>
 
   <div class="divider"><img src="assets/illust-lake.png" alt="" /></div>
 
+  <!-- ACTIVITIES (DAY2) -->
+  <section class="reveal" aria-label="DAY2 アクティビティ一覧">
+    <div class="sec-eyebrow"><span class="num">03</span>Day 2 activities</div>
+    <h2 class="sec-title">DAY2 アクティビティ一覧</h2>
+    <p class="sec-lead">2日目の午前は、貸切バスで各アクティビティ会場へ。<br>下記は<b>バス着順（A → B → C → D）</b>です。コース分けは Google チャットで別途ご案内します。</p>
+
+    <div class="act-intro">
+      <div class="ai-icon">🚌</div>
+      <div>
+        <b>8:45にホテルを出発</b>し、下記の順にバスで各会場を回ります。<br>該当プランの方は、自分の会場でバスを降りてください。
+      </div>
+    </div>
+
+    <ol class="activity-list">
+      <li class="activity-card">
+        <div class="ac-head">
+          <div class="ac-plan">
+            <span class="ap-letter">A</span>
+            <span class="ap-label">PLAN</span>
+          </div>
+          <div class="ac-head-text">
+            <span class="ac-order">STOP 01 ／ 湯滝 着</span>
+            <h4>戦場ヶ原トレッキング</h4>
+            <div class="ac-loc">湯滝 → 戦場ヶ原</div>
+          </div>
+        </div>
+        <p class="ac-desc">奥日光を代表する高層湿原・戦場ヶ原を歩くコース。湯滝からスタートし、水音と森の空気に包まれながら自然観察を楽しみます。</p>
+        <div class="ac-tags">
+          <span class="ac-tag"># 自然</span>
+          <span class="ac-tag"># ウォーキング</span>
+          <span class="ac-tag"># 奥日光らしさ</span>
+        </div>
+      </li>
+
+      <li class="activity-card">
+        <div class="ac-head">
+          <div class="ac-plan">
+            <span class="ap-letter">B</span>
+            <span class="ap-label">PLAN</span>
+          </div>
+          <div class="ac-head-text">
+            <span class="ac-order">STOP 02 ／ 中禅寺湖畔</span>
+            <h4>中禅寺湖 SUP体験</h4>
+            <div class="ac-loc">中禅寺湖</div>
+          </div>
+        </div>
+        <p class="ac-desc">標高1,269mの湖上でスタンドアップパドルボード。男体山を望む静かな湖面を、ボードの上からゆっくり味わうアクティビティ。</p>
+        <div class="ac-tags">
+          <span class="ac-tag"># アクティブ</span>
+          <span class="ac-tag"># 水上</span>
+          <span class="ac-tag"># 絶景</span>
+        </div>
+      </li>
+
+      <li class="activity-card">
+        <div class="ac-head">
+          <div class="ac-plan">
+            <span class="ap-letter">C</span>
+            <span class="ap-label">PLAN</span>
+          </div>
+          <div class="ac-head-text">
+            <span class="ac-order">STOP 03 ／ 東照宮</span>
+            <h4>東照宮見学</h4>
+            <div class="ac-loc">日光東照宮</div>
+          </div>
+        </div>
+        <p class="ac-desc">言わずと知れた世界遺産・日光東照宮。陽明門をはじめ、豪華絢爛な社殿建築と彫刻をじっくり見学できるコース。</p>
+        <div class="ac-tags">
+          <span class="ac-tag"># 世界遺産</span>
+          <span class="ac-tag"># 文化</span>
+          <span class="ac-tag"># 定番</span>
+        </div>
+      </li>
+
+      <li class="activity-card">
+        <div class="ac-head">
+          <div class="ac-plan">
+            <span class="ap-letter">D</span>
+            <span class="ap-label">PLAN</span>
+          </div>
+          <div class="ac-head-text">
+            <span class="ac-order">STOP 04 ／ mekke 日光郷土センター</span>
+            <h4>ワークショップ体験</h4>
+            <div class="ac-loc">mekke 日光郷土センター</div>
+          </div>
+        </div>
+        <p class="ac-desc">日光の伝統工芸や食文化に触れる、屋内型のワークショップ体験。手を動かしながら日光の"もの"を持ち帰れるコース。</p>
+        <div class="ac-tags">
+          <span class="ac-tag"># ものづくり</span>
+          <span class="ac-tag"># 屋内</span>
+          <span class="ac-tag"># 雨天でも安心</span>
+        </div>
+      </li>
+    </ol>
+
+    <div class="act-note">
+      希望プランの調整・最終確定は Google チャットで別途ご連絡します。装備や集合場所の詳細も追ってご案内します。
+    </div>
+  </section>
+
+  <div class="divider tiny"><img src="assets/illust-tree.png" alt="" /></div>
+
   <!-- TRANSPORT -->
   <section class="reveal">
-    <div class="sec-eyebrow"><span class="num">03</span>How to get there</div>
+    <div class="sec-eyebrow"><span class="num">04</span>How to get there</div>
     <h2 class="sec-title">移動について</h2>
-    <p class="sec-lead">関東組は貸切バス、地方組は新幹線・飛行機で東武日光駅に集合します。</p>
+    <p class="sec-lead">東京組は貸切バス、地方組は新幹線・飛行機で東武日光駅に集合します。</p>
 
     <div class="transport-grid">
-      <!-- Kanto -->
+      <!-- Tokyo -->
       <div class="transport-card">
         <div class="tc-illust"><img src="assets/illust-bus.png" alt="" /></div>
         <div class="tc-eyebrow">Group A</div>
-        <h3>関東組</h3>
+        <h3>東京組</h3>
         <div class="tc-meta">貸切バスで日光へ／渋谷へ戻る</div>
 
         <div class="tc-day-block day1">
           <div class="tc-day-label">DAY 1 <span class="tc-day-en">行き</span><span class="tc-day-date">7/16</span></div>
           <ul class="tc-timeline">
-            <li class="key"><b>07:00</b>HOTEL GRAPHY渋谷 集合・出発</li>
+            <li class="key"><b>06:30</b>HOTEL GRAPHY 渋谷 集合</li>
+            <li class="key"><b>06:45</b>バス出発</li>
             <li><b>11:00</b>足尾銅山 見学</li>
             <li><b>12:30</b>東照宮周辺・各自昼食</li>
-            <li><b>14:00</b>いろは坂 → ホテル合流</li>
+            <li><b>14:00</b>いろは坂 → ホテル着</li>
           </ul>
         </div>
 
         <div class="tc-day-block day2">
           <div class="tc-day-label">DAY 2 <span class="tc-day-en">帰り</span><span class="tc-day-date">7/17</span></div>
           <ul class="tc-timeline">
-            <li class="key"><b>14:30</b>日光駅 集合・バス搭乗</li>
+            <li class="key"><b>14:00</b>解散・バス搭乗</li>
             <li><b>19:00</b>渋谷着・解散</li>
           </ul>
         </div>
@@ -839,21 +1126,21 @@
         <div class="tc-day-block day1">
           <div class="tc-day-label">DAY 1 <span class="tc-day-en">行き</span><span class="tc-day-date">7/16</span></div>
           <ul class="tc-timeline">
-            <li><b>08:00頃</b>各地を出発</li>
-            <li class="key"><b>16:00</b>東武日光駅 集合 ★</li>
-            <li><b>16:30</b>貸切バスでホテルへ</li>
+            <li><b>各自</b>新幹線・飛行機で日光へ</li>
+            <li class="key"><b>16:30</b>東武日光駅 集合 ★</li>
+            <li><b>17:30頃</b>貸切バスでホテル着</li>
           </ul>
         </div>
 
         <div class="tc-day-block day2">
           <div class="tc-day-label">DAY 2 <span class="tc-day-en">帰り</span><span class="tc-day-date">7/17</span></div>
           <ul class="tc-timeline">
-            <li class="key"><b>14:30</b>日光駅にて現地解散</li>
-            <li><b>19:00頃</b>羽田・成田・各地へ</li>
+            <li class="key"><b>14:00</b>集合場所にて現地解散</li>
+            <li><b>以降</b>各自、公共交通機関で羽田・成田・各地へ</li>
           </ul>
         </div>
 
-        <div class="tc-note">東武日光駅の集合時刻は <b>16:00厳守</b>。乗り換えに余裕をもって。</div>
+        <div class="tc-note">東武日光駅の集合時刻は <b>16:30厳守</b>。乗り換えに余裕をもって。</div>
 
         <a class="tc-doc" href="https://docs.google.com/document/d/1FYGlzENNhXUHGHr03GjVUgsnc5uwftX0qlni3AtLxAg/edit?usp=sharing" target="_blank" rel="noopener">
           <div class="tc-doc-icon">
@@ -878,7 +1165,7 @@
 
   <!-- PACK LIST -->
   <section class="checklist-section reveal">
-    <div class="sec-eyebrow"><span class="num">04</span>Pack list</div>
+    <div class="sec-eyebrow"><span class="num">05</span>Pack list</div>
     <h2 class="sec-title">持ち物リスト</h2>
     <p class="sec-lead">出発前の確認に。</p>
 
@@ -914,7 +1201,7 @@
 
   <!-- WEATHER -->
   <section class="reveal">
-    <div class="sec-eyebrow"><span class="num">05</span>Weather</div>
+    <div class="sec-eyebrow"><span class="num">06</span>Weather</div>
     <h2 class="sec-title">7月の奥日光は、こんな感じ</h2>
     <p class="sec-lead">標高1400mの高原。下界より涼しく、夜は重ね着がほしくなる気候です。</p>
 
@@ -945,7 +1232,7 @@
 
   <!-- LUNCH -->
   <section class="reveal">
-    <div class="sec-eyebrow"><span class="num">06</span>Lunch spots</div>
+    <div class="sec-eyebrow"><span class="num">07</span>Lunch spots</div>
     <h2 class="sec-title">お昼ごはん候補</h2>
     <p class="sec-lead">DAY1・DAY2ともに昼食は自由。せっかくの日光、美味しいもの食べてください。</p>
 
@@ -1067,7 +1354,7 @@
 
   <!-- HOTEL -->
   <section class="reveal">
-    <div class="sec-eyebrow"><span class="num">07</span>Stay</div>
+    <div class="sec-eyebrow"><span class="num">08</span>Stay</div>
     <h2 class="sec-title">泊まる場所</h2>
     <p class="sec-lead">湯ノ湖を目の前にした、UNWIND HOTEL &amp; BAR 奥日光。</p>
 
@@ -1127,7 +1414,7 @@
 
   <!-- NOTICES -->
   <section class="reveal">
-    <div class="sec-eyebrow"><span class="num">08</span>Notes</div>
+    <div class="sec-eyebrow"><span class="num">09</span>Notes</div>
     <h2 class="sec-title">注意事項</h2>
     <p class="sec-lead">楽しく過ごすために、いくつかのお願いです。</p>
 
@@ -1139,7 +1426,7 @@
         <b>休暇扱い：</b>1.5日出勤＋0.5日有休利用となります。
       </div>
       <div class="notice">
-        <b>貸切バスは時間厳守。</b>関東組7:00／地方組16:00集合、いずれも遅れたら自走になります。
+        <b>貸切バスは時間厳守。</b>東京組6:30／地方組16:30集合、いずれも遅れたら自走になります。
       </div>
       <div class="notice">
         <b>国立公園内です。</b>ゴミは持ち帰り、動植物を傷つけないよう、自然に敬意を払って。
@@ -1147,12 +1434,15 @@
       <div class="notice">
         <b>食事の負担：</b>夕食(DAY1)・朝食(DAY2)は会社負担、昼食は自己負担です。
       </div>
+      <div class="notice">
+        <b>【DAY1／地方組の方へ】</b>14時以前に日光に到着できる方は、<b>直接体験場所（東照宮周辺）</b>へお越しの上、LINEまたはお電話で日名まで連絡してください（<a href="tel:08068126598" style="color:inherit; text-decoration:underline; text-underline-offset:3px;">080-6812-6598</a>）。東京組の東照宮着は <b>12:30予定</b> のため、それまでは日光駅周辺で観光してお待ちください。
+      </div>
     </div>
   </section>
 
   <!-- LINE GROUP -->
   <section class="line-section reveal">
-    <div class="sec-eyebrow"><span class="num">09</span>Join the group</div>
+    <div class="sec-eyebrow"><span class="num">10</span>Join the group</div>
     <h2 class="sec-title">LINEグループに参加</h2>
     <p class="sec-lead">当日の連絡・集合場所の共有はLINEグループで行います。<br>必ず事前にご参加ください。</p>
 
@@ -1193,7 +1483,7 @@
 
   <!-- ORGANIZERS -->
   <section class="organizers-section reveal">
-    <div class="sec-eyebrow"><span class="num">10</span>Organizers</div>
+    <div class="sec-eyebrow"><span class="num">11</span>Organizers</div>
     <h2 class="sec-title">幹事チーム</h2>
     <p class="sec-lead">この旅をつくっているメンバーです。<br>困ったとき、迷ったときは声をかけてください。</p>
 
@@ -1233,14 +1523,20 @@
 <script>
   // ============== SCHEDULE DATA ==============
   const day1 = [
-    {time:"07:00", title:"HOTEL GRAPHY 渋谷 集合・バス出発", own:false, detail:"関東組は <a href=\"https://www.google.com/maps/search/?api=1&query=HOTEL+GRAPHY+%E6%B8%8B%E8%B0%B7\" target=\"_blank\" rel=\"noopener\" style=\"color:inherit;text-decoration:underline;text-underline-offset:3px;\">HOTEL GRAPHY 渋谷</a> に集合。貸切バスで出発します。遅れないように！", key:true},
-    {time:"11:00", title:"足尾銅山", own:false, detail:"関東組はバスで到着後、足尾銅山を見学。トロッコで坑道へ。"},
-    {time:"12:30", title:"東照宮周辺・各自昼食", cost:"自己負担", own:true, detail:"東照宮エリアで散策しつつ昼食。下のおすすめスポットを参考に。"},
-    {time:"14:00", title:"集合・いろは坂のぼる", own:false, detail:"関東組と地方組がここで合流。いろは坂を経由してホテルへ。", key:true},
-    {time:"15:00", title:"ホテル着／湯ノ湖散策", own:false, detail:"目の前の湯ノ湖をのんびり散策。チェックインも順次。"},
-    {time:"16:00", title:"東武日光駅（地方組到着）", own:false, detail:"★地方組はこの時間に東武日光駅集合。貸切バスでホテルへ。", key:true},
-    {time:"17:00", title:"フリーワイン", cost:"会社負担", own:false, detail:"ウェルカムワインで乾杯。ゆるく集まりましょう。"},
-    {time:"18:00", title:"夕食", cost:"会社負担", own:false, detail:"会場：<a href=\"https://www.google.com/maps/search/?api=1&query=UNWIND+HOTEL+%26+BAR+%E5%A5%A5%E6%97%A5%E5%85%89\" target=\"_blank\" rel=\"noopener\" style=\"color:inherit;text-decoration:underline;text-underline-offset:3px;\">UNWIND HOTEL &amp; BAR 奥日光</a><br>全員で同じテーブルを囲む夕食。", key:true},
+    // ============ 東京組 ============
+    {time:"06:30", group:"tokyo", title:"HOTEL GRAPHY 渋谷 集合", own:false, detail:"東京組は <a href=\"https://www.google.com/maps/search/?api=1&query=HOTEL+GRAPHY+%E6%B8%8B%E8%B0%B7\" target=\"_blank\" rel=\"noopener\" style=\"color:inherit;text-decoration:underline;text-underline-offset:3px;\">HOTEL GRAPHY 渋谷</a> にお越しください。時間厳守でお願いします。", key:true},
+    {time:"06:45", group:"tokyo", title:"バス出発", own:false, detail:"貸切バスで奥日光へ向けて出発。片道 約4時間半の道のりです。"},
+    {time:"11:00", group:"tokyo", title:"足尾銅山", own:false, detail:"バスで到着後、足尾銅山を見学。トロッコで坑道へ。"},
+    {time:"12:30", group:"tokyo", title:"東照宮周辺・各自昼食", cost:"自己負担", own:true, detail:"東照宮エリアで散策しつつ昼食。下のおすすめスポットを参考に。"},
+    {time:"14:00", group:"tokyo", title:"いろは坂のぼる → ホテル着", own:false, detail:"いろは坂を経由してホテルへ。到着後は自由時間。館内注意事項は下記参照。", key:true},
+
+    // ============ 地方組 ============
+    {time:"16:30", group:"local", title:"東武日光駅 集合", own:false, detail:"★地方組はこの時間に東武日光駅集合。貸切バスでホテルへ向かいます。", key:true},
+    {time:"17:30", group:"local", title:"ホテル着", own:false, detail:"貸切バスでホテル到着。チェックインを済ませて、下のフリーワインへ。"},
+
+    // ============ 合流 ============
+    {time:"17:00", title:"フリーワイン", cost:"会社負担", own:false, detail:"ウェルカムワインで乾杯。到着した人からゆるく集まりましょう。<br>※地方組は到着後、合流してください。"},
+    {time:"18:00", title:"入館式 ＋ 夕食", cost:"会社負担", own:false, detail:"会場：<a href=\"https://www.google.com/maps/search/?api=1&query=UNWIND+HOTEL+%26+BAR+%E5%A5%A5%E6%97%A5%E5%85%89\" target=\"_blank\" rel=\"noopener\" style=\"color:inherit;text-decoration:underline;text-underline-offset:3px;\">UNWIND HOTEL &amp; BAR 奥日光</a><br>入館式のあと、全員で同じテーブルを囲む夕食。", key:true},
     {time:"19:30", title:"ゲーム ①", own:false, detail:"19:30–20:15 ／ 45分の企画。チーム分けは当日発表。"},
     {time:"20:30", title:"ゲーム ②", own:false, detail:"20:30–21:15 ／ 続けて2本目、45分。"},
     {time:"21:30", title:"二次会", own:false, detail:"バー or 部屋飲み。自由参加。"},
@@ -1248,23 +1544,43 @@
   ];
 
   const day2 = [
-    {time:"07:00", title:"朝食", cost:"会社負担", own:false, detail:"会場：<a href=\"https://www.google.com/maps/search/?api=1&query=UNWIND+HOTEL+%26+BAR+%E5%A5%A5%E6%97%A5%E5%85%89\" target=\"_blank\" rel=\"noopener\" style=\"color:inherit;text-decoration:underline;text-underline-offset:3px;\">UNWIND HOTEL &amp; BAR 奥日光</a><br>高原の朝ごはん。早起きの人は湖畔散歩も。", key:true},
-    {time:"09:00", title:"分かれてアクティビティ", own:false, detail:"3コースから選択：<br>① 戦場ヶ原までのトレッキング<br>② 中禅寺湖でSUP<br>③ 日光市街で文化系体験（創る、観る）", key:true},
-    {time:"12:00", title:"東武日光駅周辺でランチ", cost:"自己負担", own:true, detail:"各自で昼食。集合場所に向かいながら。"},
-    {time:"14:00", title:"日光駅集合・閉会式", own:false, detail:"全員で日光駅に集合。閉会式で締めくくります。", key:true},
-    {time:"14:30", title:"地方組は現地解散、東京組はバス搭乗", own:false, detail:"地方組：日光駅から羽田・成田・各地へ。お疲れさまでした！<br>東京組：貸切バスに搭乗して渋谷へ向かいます。"},
-    {time:"19:00", title:"バス渋谷着・解散", own:false, detail:"東京組はHOTEL GRAPHY 渋谷周辺にて解散予定。お疲れさまでした！", key:true},
+    {time:"07:00", title:"朝食", cost:"会社負担", own:false, detail:"会場：<a href=\"https://www.google.com/maps/search/?api=1&query=UNWIND+HOTEL+%26+BAR+%E5%A5%A5%E6%97%A5%E5%85%89\" target=\"_blank\" rel=\"noopener\" style=\"color:inherit;text-decoration:underline;text-underline-offset:3px;\">UNWIND HOTEL &amp; BAR 奥日光</a><br>7:00〜8:30 の間で。高原の朝ごはん。早起きの人は湖畔散歩も。", key:true},
+    {time:"08:30", title:"退館式", own:false, detail:"チェックアウトを済ませ、退館式。", key:true},
+    {time:"08:45", title:"全員バスへ乗車 → 各アクティビティへ", own:false, detail:"貸切バスで各アクティビティ会場へ移動。<br><b>▼ バス着順（4プラン）</b><br>① 戦場ヶ原トレッキング：湯滝着（<b>Aプラン</b>）<br>② 中禅寺湖SUP体験（<b>Bプラン</b>）<br>③ 東照宮見学（<b>Cプラン</b>）<br>④ ワークショップ体験：mekke 日光郷土センター（<b>Dプラン</b>）<br><br>※コース分けや集合場所の詳細は <b>Google チャットで別途ご案内</b> します。", key:true},
+    {time:"12:30", title:"日光駅周辺でランチ", cost:"自己負担", own:true, detail:"日光駅周辺で各自昼食。<br><b>⚠ 結構混む可能性があるので、あまり迷っている暇はないかも。速やかに決めて食べましょう！</b>"},
+    {time:"13:50", title:"集合", own:false, detail:"集合場所は当日ご案内。時間厳守でお願いします。"},
+    {time:"14:00", title:"解散", own:false, detail:"東京組：貸切バスに乗車して渋谷へ向かいます。<br>地方組：各自、公共の移動手段で羽田・成田・各地へ。お疲れさまでした！<br><br>※早めに帰る方は、ご自身でバスまで荷物を取りに行って、そのまま出発していただく形でもOKです。", key:true},
+    {time:"19:00", title:"バス渋谷着・解散（東京組）", own:false, detail:"東京組は HOTEL GRAPHY 渋谷周辺にて解散予定。お疲れさまでした！", key:true},
   ];
 
   function renderSchedule(arr, host){
     const ul = document.getElementById(host);
+    let prevGroup = undefined;
     arr.forEach((it, i)=>{
+      // 分岐セクションの見出し
+      if(it.group !== prevGroup){
+        let label = null;
+        if(it.group === "tokyo") label = "🚌 東京組（HOTEL GRAPHY 渋谷 集合）";
+        else if(it.group === "local") label = "🚄 地方組（東武日光駅 集合）";
+        else if(prevGroup !== undefined && !it.group) label = "🍷 合流 — 全員でホテル集合";
+        if(label){
+          const note = document.createElement("li");
+          note.className = "sch-branch-note";
+          note.textContent = label;
+          ul.appendChild(note);
+        }
+        prevGroup = it.group;
+      }
+
       const li = document.createElement("li");
       li.className = "sch-item" + (it.key?" highlight":"");
+      const groupPill = it.group
+        ? `<span class="sch-group ${it.group}">${it.group === "tokyo" ? "東京組" : "地方組"}</span>`
+        : "";
       li.innerHTML = `
         <button class="sch-toggle" aria-expanded="false">
           <span class="sch-time">${it.time}</span>
-          <span class="sch-title">${it.title}${it.cost?`<span class="sch-cost${it.own?" own":""}">${it.cost}</span>`:""}</span>
+          <span class="sch-title">${groupPill}${it.title}${it.cost?`<span class="sch-cost${it.own?" own":""}">${it.cost}</span>`:""}</span>
           <span class="sch-chev">▾</span>
         </button>
         <div class="sch-detail"><div><div class="sch-detail-inner"><p>${it.detail}</p></div></div></div>
