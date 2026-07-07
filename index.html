@@ -1,9 +1,9 @@
 <!doctype html>
 <html lang="ja">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-<meta name="theme-color" content="#2A5C40" />
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+<meta name="theme-color" content="#2A5C40"/>
 <title>OFFLINE GATHERING 2026 ｜ 奥日光編</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,6 +12,7 @@
   :root{
     --bg:#FFF8F0;
     --bg-2:#F5EBD8;
+    --bg-alt:#E8E4D0;
     --green:#2A5C40;
     --green-deep:#1E4530;
     --amber:#D4854A;
@@ -46,7 +47,7 @@
 
   /* ============== HERO ============== */
   .hero{
-    position:relative; min-height: 92vh; padding: 24px 24px 80px;
+    position:relative; min-height: 62vh; padding: 24px 24px 40px;
     display:flex; flex-direction:column; justify-content:space-between;
     color: #FFF8F0; overflow:hidden; isolation:isolate;
   }
@@ -164,8 +165,214 @@
     padding: 0 8px;
   }
 
+  /* ============== HOME ABOUT (05-A on top page) ============== */
+  .home-about{ padding: 48px 24px 40px; border-bottom: 1px dashed var(--line);}
+  .home-about .sec-title{ font-size:28px;}
+  .home-about .sec-lead{ margin-bottom:22px;}
+
   /* ============== SECTION FRAME ============== */
   section{ position:relative; padding: 56px 24px; z-index:2;}
+
+  /* ============== PAGE SYSTEM (SPA-style) ============== */
+  .page{ display:none; animation: pageIn .18s ease; }
+  .page.active{ display:block; }
+  @keyframes pageIn { from{ opacity:0; transform: translateY(6px);} to{ opacity:1; transform: none;} }
+
+  /* サブページ上部の戻るバー */
+  .subpage-bar{
+    position: sticky; top: 0; z-index: 40;
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 12px 16px;
+    background: rgba(255,248,240,.92); backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .back-link{
+    display:flex; align-items:center; gap:6px;
+    background:none; border:none; padding: 8px 4px;
+    font-family: var(--maru); font-size: 14px; font-weight:700;
+    color: var(--green-deep); cursor:pointer; text-decoration:none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .back-link:active{ opacity:.6;}
+  .back-link .bl-arrow{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:26px; height:26px; border-radius:50%;
+    background: var(--green); color:#fff;
+  }
+  .back-link .bl-arrow svg{ width:14px; height:14px;}
+  .subpage-bar .sp-title{
+    font-family: var(--en); font-size: 11px; letter-spacing:.25em;
+    color: var(--ink-3); text-transform: uppercase;
+  }
+
+  /* ============== HOME NAV CARDS ============== */
+  .home-hero-strip{ padding: 28px 24px 8px;}
+  .home-eyebrow{
+    font-family:var(--en); font-size:11px; letter-spacing:.3em; color:var(--ink-3);
+    text-transform:uppercase; margin:0 0 8px; font-weight:500;
+  }
+  .home-eyebrow::before{
+    content:""; display:inline-block; width:20px; height:1px;
+    background:var(--amber); vertical-align:middle; margin-right:10px;
+  }
+  .home-title{
+    font-family:var(--maru); font-weight:900; color:var(--green-deep);
+    font-size:26px; letter-spacing:-.005em; line-height:1.4; margin: 0 0 8px;
+  }
+  .home-lead{ font-size:13.5px; color:var(--ink-2); line-height:1.85; margin: 0 0 22px;}
+
+  /* Featured card = スケジュール */
+  .nav-featured{
+    display:block; text-decoration:none; color:#fff;
+    background: linear-gradient(135deg, #2A5C40 0%, #1E4530 100%);
+    border-radius: 20px; padding: 24px 22px 22px;
+    box-shadow: 0 10px 28px -12px rgba(30,69,48,.5);
+    margin: 0 24px 14px; position:relative; overflow:hidden;
+  }
+  .nav-featured::after{
+    content:""; position:absolute; right:-40px; top:-40px;
+    width:180px; height:180px; border-radius:50%;
+    background: radial-gradient(circle, rgba(212,133,74,.25), transparent 70%);
+    pointer-events:none;
+  }
+  .nav-featured .nf-eyebrow{
+    font-family:var(--en); font-size:10px; letter-spacing:.28em;
+    color: var(--amber-soft); text-transform: uppercase; font-weight:600; margin-bottom:8px;
+    position:relative; z-index:1;
+  }
+  .nav-featured h3{
+    margin:0 0 6px; font-size:26px; font-weight:900; color:#fff;
+    line-height:1.3; position:relative; z-index:1;
+  }
+  .nav-featured .nf-sub{ font-size:13px; opacity:.85; position:relative; z-index:1;}
+  .nav-featured .nf-arrow{
+    position:absolute; right:20px; bottom:20px; z-index:1;
+    width:40px; height:40px; border-radius:50%;
+    background: var(--amber); color:#fff;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .nav-featured:active{ transform: scale(.99);}
+
+  /* 2列グリッド:残り5枚 */
+  .nav-grid{
+    display:grid; grid-template-columns: 1fr 1fr; gap:10px;
+    padding: 4px 24px 0;
+  }
+  .nav-card{
+    display:flex; flex-direction:column; justify-content:space-between;
+    text-decoration:none; color:inherit;
+    background:#fff; border-radius:16px; padding: 16px 16px 14px;
+    border:1px solid var(--line); box-shadow: var(--paper-shadow);
+    aspect-ratio: 1 / .95; position:relative;
+  }
+  .nav-card:active{ transform: scale(.98);}
+  .nav-card .nc-num{
+    font-family:var(--en); font-size:10px; letter-spacing:.24em;
+    color: var(--amber); font-weight:600;
+  }
+  .nav-card .nc-title{
+    font-family:var(--maru); font-weight:900; color:var(--green-deep);
+    font-size:16px; line-height:1.35; margin-top:auto;
+  }
+  .nav-card .nc-sub{
+    font-family:var(--en); font-size:10px; letter-spacing:.15em;
+    color: var(--ink-3); text-transform: uppercase; margin-top:4px;
+  }
+  .nav-card .nc-arrow{
+    position:absolute; right:12px; top:12px;
+    width:22px; height:22px; border-radius:50%;
+    background: rgba(42,92,64,.08); color: var(--green);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .nav-card .nc-arrow svg{ width:12px; height:12px;}
+  .nav-card-wide{ grid-column: 1 / -1; aspect-ratio: auto; padding: 18px 20px;}
+  .nav-card-wide .nc-inner{ display:flex; align-items:center; justify-content:space-between; width:100%;}
+  .nav-card-wide .nc-inner > div:first-child{ display:flex; flex-direction:column; gap:4px;}
+  .nav-card-wide .nc-arrow{ position:static;}
+  .nav-card-wide .nc-title{ margin-top:0;}
+
+  /* people ページ:タブで一方だけ表示 */
+  [data-page="people"] section#sec-organizers,
+  [data-page="people"] section#sec-staff{ display:none; }
+  [data-page="people"].show-organizers section#sec-organizers,
+  [data-page="people"].show-staff section#sec-staff{ display:block; }
+
+  /* Home 内の緊急連絡先ブロック */
+  .home-contact{
+    margin: 32px 24px 0;
+    background: linear-gradient(135deg, #2A5C40 0%, #1E4530 100%);
+    border-radius:20px; padding: 22px 20px 20px; color:#fff;
+    position:relative; overflow:hidden;
+  }
+  .home-contact .hc-eyebrow{
+    font-family:var(--en); font-size:10px; letter-spacing:.3em;
+    color: var(--amber-soft); text-transform: uppercase; font-weight:600; margin-bottom:6px;
+  }
+  .home-contact h3{
+    margin:0 0 16px; font-size:20px; font-weight:900; color:#fff; line-height:1.4;
+  }
+
+  /* Home 内の LINE ブロック */
+  .home-line{
+    margin: 14px 24px 0;
+    background:#fff; border-radius:20px; padding: 20px;
+    border: 1px solid var(--line); box-shadow: var(--paper-shadow);
+    display:flex; align-items:center; gap:14px;
+  }
+  .home-line .hl-icon{
+    width:48px; height:48px; border-radius:14px; background:#06C755;
+    color:#fff; display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  }
+  .home-line .hl-icon svg{ width:26px; height:26px;}
+  .home-line .hl-body{ flex:1; min-width:0;}
+  .home-line .hl-eyebrow{
+    font-family:var(--en); font-size:10px; letter-spacing:.22em;
+    color:var(--ink-3); text-transform:uppercase; font-weight:600;
+  }
+  .home-line .hl-title{ font-family:var(--maru); font-weight:900; color:var(--ink); font-size:14.5px; margin-top:2px; line-height:1.4;}
+  .home-line .hl-arrow{
+    width:30px; height:30px; border-radius:50%;
+    background: var(--green); color:#fff; flex-shrink:0;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .home-line .hl-arrow svg{ width:14px; height:14px;}
+
+  .home-outro{
+    text-align:center; margin: 40px 24px 24px;
+    font-family: var(--en); font-size: 11px; letter-spacing: .25em;
+    color: var(--ink-3); text-transform: uppercase;
+  }
+
+  /* サブページのタイトル領域は撤去。sec-eyebrow + sec-title が担う。 */
+
+  /* --- セクション交互背景 & 区切りオーナメント --- */
+  /* デフォルト:id="sec-〜"のセクションは明色 */
+  section[id^="sec-"]{ background: var(--bg); }
+  /* ページ内の交互リズムに合わせて淡色を割り当て */
+  section#sec-activities,   /* activities page: 2番目 */
+  section#sec-weather,      /* prep page: 2番目 */
+  section#sec-hotel,        /* prep page: 4番目 */
+  section#sec-notes,        /* info page: 2番目 */
+  section#sec-staff{        /* people page: 2番目 */
+    background: var(--bg-alt);
+  }
+  /* グラデを持つセクションはそのまま(明色開始) */
+  section#sec-pack{ background: linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%); }
+  section#sec-organizers{ background: linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 60%, var(--bg-2) 100%); }
+
+  /* セクション上端の小さな仕切り(3点オーナメント) */
+  section[id^="sec-"]::before{
+    content:""; position:absolute; left:50%; top:18px; transform:translateX(-50%);
+    width:44px; height:6px;
+    background:
+      radial-gradient(circle at 6px 3px, var(--amber) 2px, transparent 2.5px),
+      radial-gradient(circle at 22px 3px, var(--ink-3) 2px, transparent 2.5px),
+      radial-gradient(circle at 38px 3px, var(--amber) 2px, transparent 2.5px);
+    opacity:.55;
+    pointer-events:none;
+  }
+  /* セクション上端に余白を確保(オーナメント分) */
+  section[id^="sec-"]{ padding-top: 48px; }
   .sec-eyebrow{ font-family:var(--en); font-size:11px; letter-spacing:.3em; color:var(--amber); text-transform:uppercase; font-weight:600; margin-bottom:14px;}
   .sec-eyebrow .num{ color:var(--green); margin-right:10px;}
   .sec-title{ font-family:var(--maru); font-weight:900; font-size:32px; line-height:1.25; margin:0 0 8px; color:var(--green-deep); letter-spacing:-.01em;}
@@ -223,7 +430,7 @@
   /* Accordion items (timeline) */
   .schedule-list{ list-style:none; margin:0; padding:0; position:relative;}
   .schedule-list::before{
-    content:""; position:absolute; left: 56px; top:10px; bottom:10px; width:1px;
+    content:""; position:absolute; left: 68px; top:10px; bottom:10px; width:1px;
     background: repeating-linear-gradient(to bottom, var(--line) 0 4px, transparent 4px 8px);
   }
 
@@ -246,28 +453,91 @@
     box-shadow: 0 0 0 4px var(--bg);
   }
   .sch-item.highlight .sch-time::before{ background:var(--amber); border-color:var(--amber);}
+
+  /* Transit items — visually recessive; not the main content */
+  .sch-item.transit .sch-toggle{ padding: 8px 0 8px 0;}
+  .sch-item.transit .sch-time{
+    color: var(--ink-3); font-weight: 500; font-size: 12.5px; opacity: .85;
+  }
+  .sch-item.transit .sch-time::before{
+    width:6px; height:6px; border-width:1px;
+    border-color: var(--ink-3); background: var(--bg);
+    box-shadow: 0 0 0 3px var(--bg);
+  }
+  .sch-item.transit .sch-title{
+    color: var(--ink-3); font-weight: 500; font-size: 12.5px;
+  }
+  .sch-item.transit .sch-title::before{
+    content:"🚌"; font-size: 11px; margin-right: 6px; opacity:.75;
+    vertical-align: 1px;
+  }
+  .sch-item.transit .sch-chev{ opacity:.5; font-size: 12px;}
+  .sch-item.transit .sch-toggle{ border-bottom-style: dashed; border-bottom-color: rgba(217,201,178,.7);}
+  .sch-item.transit .sch-toggle:hover{ background: rgba(0,0,0,.015);}
+
   .sch-title{ font-size:15px; font-weight:700; color:var(--ink); line-height:1.4;}
   .sch-title .sch-cost{ display:inline-block; font-family:var(--en); font-size:10px; letter-spacing:.1em; color:var(--green); background:rgba(42,92,64,.1); padding:2px 7px; border-radius:4px; margin-left:6px; font-weight:600; vertical-align:1px;}
   .sch-title .sch-cost.own{ color:var(--amber); background:rgba(212,133,74,.12);}
 
-  /* Group pills (東京組 / 地方組) */
-  .sch-group{
-    display:inline-block; font-family:var(--maru); font-size:10.5px; letter-spacing:.02em;
-    padding:2px 8px; border-radius:100px; margin-right:8px; font-weight:700;
-    vertical-align:1px; line-height:1.5;
+  /* Group side-bar (visual grouping without repeating pills) */
+  .sch-item.grp-tokyo,
+  .sch-item.grp-local,
+  .sch-item.grp-merge{
+    padding-left: 12px; position:relative;
   }
-  .sch-group.tokyo{ color:#1E4530; background:rgba(42,92,64,.14); border:1px solid rgba(42,92,64,.25);}
-  .sch-group.local{ color:#8a4a1d; background:rgba(212,133,74,.14); border:1px solid rgba(212,133,74,.35);}
+  .sch-item.grp-tokyo::before,
+  .sch-item.grp-local::before,
+  .sch-item.grp-merge::before{
+    content:""; position:absolute; left:0; top:2px; bottom:2px; width:3px;
+    border-radius: 2px;
+  }
+  .sch-item.grp-tokyo::before{ background: var(--green);}
+  .sch-item.grp-local::before{ background: var(--amber);}
+  .sch-item.grp-merge::before{
+    background: repeating-linear-gradient(180deg,
+      var(--green) 0 6px, var(--amber) 6px 12px);
+    opacity: .55;
+  }
 
-  /* Section divider between groups and merge point */
+  /* Section divider — the label for each group section */
   .sch-branch-note{
-    margin: 18px 0 6px; padding: 8px 12px;
-    background: linear-gradient(90deg, rgba(42,92,64,.06), rgba(212,133,74,.06));
-    border-radius: 8px; font-family:var(--maru); font-size:12px; color:var(--ink-2);
-    display:flex; align-items:center; gap:8px; font-weight:600;
+    margin: 20px 0 8px;
+    padding: 10px 14px 10px 16px;
+    border-radius: 10px;
+    font-family:var(--maru); font-size:12.5px; font-weight:700;
+    color:var(--ink);
+    display:flex; align-items:center; gap:10px;
+    position:relative; overflow:hidden;
+    border: 1px solid transparent;
+  }
+  .sch-branch-note .sbn-en{
+    font-family:var(--en); font-size:9.5px; letter-spacing:.22em;
+    text-transform:uppercase; font-weight:600;
+    opacity:.75; margin-left:auto;
   }
   .sch-branch-note::before{
-    content:""; width:14px; height:2px; background:var(--amber); border-radius:2px;
+    content:""; width:4px; align-self:stretch; border-radius:2px;
+  }
+  .sch-branch-note.grp-tokyo{
+    background: rgba(42,92,64,.08);
+    border-color: rgba(42,92,64,.20);
+    color: var(--green-deep);
+  }
+  .sch-branch-note.grp-tokyo::before{ background: var(--green);}
+  .sch-branch-note.grp-local{
+    background: rgba(212,133,74,.10);
+    border-color: rgba(212,133,74,.28);
+    color: #7a4318;
+  }
+  .sch-branch-note.grp-local::before{ background: var(--amber);}
+  .sch-branch-note.grp-merge{
+    background: linear-gradient(90deg, rgba(42,92,64,.07), rgba(212,133,74,.09));
+    border-color: rgba(44,26,14,.10);
+    color: var(--ink);
+  }
+  .sch-branch-note.grp-merge::before{
+    background: repeating-linear-gradient(180deg,
+      var(--green) 0 6px, var(--amber) 6px 12px);
   }
 
   /* In-house guide card (DAY1 東京組の自由時間) */
@@ -316,6 +586,96 @@
     padding: 10px 0 18px 70px; font-size:13.5px; color:var(--ink-2); line-height:1.9;
   }
   .sch-detail .sch-detail-inner p{ margin:0 0 6px;}
+
+  /* ============== TOC (INDEX) ============== */
+  html{ scroll-behavior: smooth;}
+  .toc-section{
+    padding: 40px 24px 48px;
+    background:
+      radial-gradient(500px 300px at 100% 0%, rgba(212,133,74,.08), transparent 60%),
+      var(--bg);
+    border-bottom: 1px dashed var(--line);
+  }
+  .toc-eyebrow{
+    font-family:var(--en); font-size:11px; letter-spacing:.3em; color:var(--ink-3);
+    font-weight:500; text-transform:uppercase; display:block;
+  }
+  .toc-eyebrow::before{
+    content:""; display:inline-block; width:20px; height:1px;
+    background:var(--amber); vertical-align:middle; margin-right:10px;
+  }
+  .toc-title{
+    margin: 4px 0 0;
+    font-family: var(--maru); font-weight: 900; color: var(--green-deep);
+    font-size: 22px; letter-spacing:.02em; display:block;
+  }
+
+  /* --- 折りたたみ目次 --- */
+  .toc-details{
+    background:#fff; border-radius:16px; border:1px solid var(--line);
+    box-shadow: var(--paper-shadow); overflow:hidden;
+  }
+  .toc-summary{
+    list-style:none; cursor:pointer;
+    display:flex; align-items:center; justify-content:space-between; gap:14px;
+    padding: 18px 20px;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .toc-summary::-webkit-details-marker{ display:none; }
+  .toc-summary-text{ display:flex; flex-direction:column; gap:0;}
+  .toc-chevron{
+    flex-shrink:0; width:28px; height:28px; border-radius:50%;
+    background: rgba(42,92,64,.08);
+    position:relative; transition: transform .25s ease, background .2s ease;
+  }
+  .toc-chevron::before{
+    content:""; position:absolute; left:50%; top:50%;
+    width:8px; height:8px; border-right:2px solid var(--green); border-bottom:2px solid var(--green);
+    transform: translate(-50%, -70%) rotate(45deg);
+    transition: transform .25s ease;
+  }
+  .toc-details[open] .toc-chevron{ background: rgba(212,133,74,.14); }
+  .toc-details[open] .toc-chevron::before{
+    border-color: var(--amber);
+    transform: translate(-50%, -30%) rotate(-135deg);
+  }
+  .toc-summary:hover{ background: rgba(42,92,64,.03); }
+
+  .toc-list{
+    list-style:none; margin:0; padding:0;
+    border-top: 1px solid var(--line);
+    animation: tocFade .25s ease;
+  }
+  @keyframes tocFade{ from{ opacity:0; transform: translateY(-4px);} to{ opacity:1; transform: translateY(0);} }
+  .toc-list li{ border-bottom: 1px dashed var(--line);}
+  .toc-list li:last-child{ border-bottom:none;}
+  .toc-list a{
+    display:flex; align-items:center; gap:14px;
+    padding: 14px 18px; text-decoration:none; color:inherit;
+    transition: background .15s ease;
+    min-height: 52px;
+  }
+  .toc-list a:active{ background: rgba(212,133,74,.08);}
+  .toc-num{
+    flex-shrink:0;
+    font-family: var(--en); font-weight: 600; font-size: 11px;
+    color:#fff; background: var(--green);
+    width: 28px; height: 28px; border-radius: 50%;
+    display:flex; align-items:center; justify-content:center;
+    letter-spacing: .02em;
+  }
+  .toc-text{ flex:1; min-width:0; display:flex; flex-direction:column; gap:2px;}
+  .toc-ja{ font-size: 14.5px; font-weight: 700; color: var(--ink); line-height:1.35;}
+  .toc-en{
+    font-family: var(--en); font-size: 10px; letter-spacing: .18em;
+    color: var(--ink-3); text-transform: uppercase; font-weight: 500;
+  }
+  .toc-arrow{
+    flex-shrink:0;
+    font-family: var(--en); font-size: 14px; color: var(--amber);
+    opacity: .7;
+  }
+  .toc-list a:active .toc-arrow{ transform: translateX(2px); opacity: 1;}
 
   /* ============== TRANSPORT ============== */
   .transport-grid{ display:grid; gap:16px;}
@@ -512,6 +872,59 @@
     font-size: 8px; letter-spacing:.2em; opacity:.9; margin-top:4px;
     font-weight: 500;
   }
+
+  /* Time-badge variant (used when plan letters are not needed) */
+  .activity-card .ac-time{
+    flex-shrink:0;
+    width:56px; height:56px; border-radius: 14px;
+    background: var(--green); color:#fff;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    font-family: var(--en); font-weight: 700; line-height:1;
+    box-shadow: 0 6px 14px -6px rgba(42,92,64,.55);
+    letter-spacing:.02em;
+  }
+  .activity-card .ac-time .at-h{ font-size: 20px;}
+  .activity-card .ac-time .at-label{
+    font-size: 8px; letter-spacing:.2em; opacity:.9; margin-top:4px; font-weight:500;
+  }
+  /* Evening variant — amber accent to signal "night" section */
+  .activity-card.evening::before{ background: var(--amber);}
+  .activity-card.evening .ac-time{
+    background: var(--amber);
+    box-shadow: 0 6px 14px -6px rgba(212,133,74,.6);
+  }
+  .activity-card.evening .ac-order{ color: var(--green); background: rgba(42,92,64,.10);}
+  .activity-card.evening h4{ color: var(--ink);}
+
+  /* Sub-section head inside activity list (e.g., 昼 / 夜) */
+  .ac-section-head{
+    list-style:none;
+    display:flex; align-items:center; gap:12px;
+    margin: 10px 2px 2px;
+    font-family:var(--maru); font-weight:800; font-size: 13px;
+    color: var(--ink);
+    letter-spacing:.02em;
+  }
+  .ac-section-head:first-child{ margin-top:2px;}
+  .ac-section-head .ash-line{
+    flex: 1; height: 1px;
+    background: repeating-linear-gradient(90deg, var(--line) 0 4px, transparent 4px 8px);
+  }
+  .ac-section-head .ash-en{
+    font-family: var(--en); font-size: 10px; letter-spacing:.22em;
+    color: var(--ink-3); text-transform: uppercase; font-weight: 600;
+  }
+  .ac-section-head .ash-icon{
+    width: 26px; height: 26px; border-radius: 50%;
+    background: rgba(42,92,64,.10);
+    display:flex; align-items:center; justify-content:center;
+    font-size: 13px;
+  }
+  .ac-section-head.night .ash-icon{ background: rgba(212,133,74,.14);}
+
+  /* Connector between cards inside the same section only */
+  .activity-list .activity-card + .ac-section-head{ margin-top: 18px;}
+  .activity-list .ac-section-head + .activity-card::after{ display:none;}
   .activity-card .ac-head-text{ flex:1; min-width:0;}
   .activity-card .ac-order{
     display:inline-block; font-family:var(--en); font-size:10px; font-weight:600;
@@ -754,31 +1167,36 @@
   }
   .org-quote.empty{ color: var(--ink-3); font-style: italic;}
 
+  .people-loading{
+    grid-column: 1 / -1;
+    text-align:center; padding: 40px 12px;
+    font-family: var(--en); font-size: 12px; letter-spacing:.2em;
+    color: var(--ink-3); text-transform: uppercase;
+  }
+  .people-loading.error{ color: var(--amber); }
   .organizer-thanks{
     text-align:center; margin: 32px 0 0;
     font-family: var(--en); font-size: 11px; letter-spacing: .25em;
     color: var(--ink-3); font-weight: 500;
   }
 
-  /* ============== FOOTER ============== */
-  footer{
-    background: var(--green-deep);
-    color: rgba(255,248,240,.85);
-    padding: 48px 24px 36px; position:relative; overflow:hidden;
-    margin-top:40px;
+  /* ============== SITE FOOTER (軽量・全ページ共通) ============== */
+  .site-footer{
+    padding: 32px 24px 40px;
+    text-align:center;
+    border-top: 1px dashed var(--line);
+    margin-top: 8px;
   }
-  footer::before{
-    content:""; position:absolute; left:0; right:0; top:-1px; height:24px;
-    background-image: radial-gradient(circle at 12px 0, var(--bg) 12px, transparent 13px);
-    background-size: 24px 24px; background-repeat: repeat-x;
+  .site-footer .footer-meta{
+    font-family:var(--en); font-size:10px; letter-spacing:.24em;
+    color: var(--ink-3); text-transform: uppercase; opacity:.7;
   }
-  .footer-illust{ position:absolute; right: -20px; bottom: -10px; width:140px; opacity:.12; pointer-events:none;}
-  .footer-illust img{ width:100%; filter: brightness(0) invert(1);}
+  .site-footer .footer-meta .line{
+    display:flex; justify-content:space-between; align-items:center; gap:16px;
+  }
 
-  footer .f-eyebrow{ font-family:var(--en); font-size:11px; letter-spacing:.3em; color:var(--amber-soft); text-transform:uppercase; margin-bottom:14px; font-weight:600;}
-  footer h3{ margin:0 0 18px; font-size:22px; font-weight:900; color:#fff; line-height:1.4;}
-  footer p{ font-size:13.5px; line-height:1.85; margin: 0 0 22px;}
-
+  /* ============== CONTACT LIST (home-contactブロック内で使用) ============== */
+  .contact-list{ display:flex; flex-direction:column; gap:10px;}
   .contact-btn{
     display:flex; align-items:center; gap:14px;
     background: rgba(255,255,255,.08); border:1px solid rgba(255,248,240,.2);
@@ -790,13 +1208,22 @@
     width:44px; height:44px; border-radius:50%; background:var(--amber);
     display:flex; align-items:center; justify-content:center; flex-shrink:0;
   }
+  .contact-btn .cb-icon.cb-icon-med{ background:#c94a4a;}
   .contact-btn .cb-icon svg{ width:20px; height:20px; color:#fff;}
-  .contact-btn .cb-text .l{ font-family:var(--en); font-size:10px; letter-spacing:.2em; opacity:.7; text-transform:uppercase;}
+  .contact-btn .cb-text{ min-width:0;}
+  .contact-btn .cb-text .l{
+    display:flex; align-items:center; gap:8px;
+    font-size:13px; color:#fff; font-weight:600; margin-bottom:2px;
+    letter-spacing:normal; text-transform:none; opacity:1;
+  }
+  .cb-role{
+    display:inline-block; font-family:var(--en); font-size:9px; letter-spacing:.2em;
+    padding:2px 8px; border-radius:100px; background:var(--amber); color:#fff;
+    font-weight:600; text-transform:uppercase;
+  }
+  .cb-role.role-med{ background:#c94a4a;}
   .contact-btn .cb-text .v{ font-size:16px; font-weight:700; color:#fff; font-family:var(--en); letter-spacing:.02em;}
   .contact-btn .cb-text .n{ font-size:12px; opacity:.8; margin-top:2px;}
-
-  .footer-meta{ margin-top:32px; padding-top:24px; border-top:1px solid rgba(255,248,240,.15); font-family:var(--en); font-size:11px; letter-spacing:.12em; opacity:.6; text-transform:uppercase;}
-  .footer-meta .line{ display:flex; justify-content:space-between; align-items:center;}
 
   /* ============== FADE IN ============== */
   /* Animation removed — content renders normally to guarantee visibility. */
@@ -815,10 +1242,12 @@
 </head>
 <body>
 
+  <div class="page active" data-page="home">
+
   <!-- HERO -->
   <section class="hero">
     <div class="hero-bg"></div>
-    <img src="assets/hotel-exterior.jpg" alt="UNWIND HOTEL &amp; BAR 奥日光" class="hero-img" id="heroImg" />
+    <img src="assets/hotel-exterior.jpg" alt="UNWIND HOTEL &amp; BAR 奥日光" class="hero-img" id="heroImg"/>
 
     <div class="hero-top">
       <span><span class="dot"></span>GLOBAL AGENTS</span>
@@ -870,12 +1299,10 @@
     <p class="theme-outro">二日間が終わるころ、お互いに「あ、こんな顔もあったんだ」と笑い合えていたら。<br>そんな旅にしたい、と思っています。</p>
   </section>
 
-  <div class="divider tiny"><img src="assets/illust-tree.png" alt="" /></div>
-
-  <!-- ABOUT / KEY INFO -->
-  <section class="reveal">
-    <div class="sec-eyebrow"><span class="num">01</span>About this trip</div>
-    <h2 class="sec-title">旅のしおり</h2>
+  <!-- ABOUT / KEY INFO (moved to home) -->
+  <section class="reveal home-about" id="sec-about-home">
+    <div class="sec-eyebrow"><span class="num">05-A</span>About this trip</div>
+    <h2 class="sec-title">概要</h2>
     <p class="sec-lead">湯ノ湖のほとり、UNWIND HOTEL &amp; BAR 奥日光で過ごす1泊2日。<br>移動・宿泊・夕食・朝食は会社負担。昼食だけ自己負担です。</p>
 
     <div class="meet-card">
@@ -906,11 +1333,141 @@
     </div>
   </section>
 
-  <div class="divider"><img src="assets/illust-mountain.png" alt="" /></div>
+  <!-- HOME MENU -->
+  <div class="home-hero-strip">
+    <div class="home-eyebrow">Menu</div>
+    <h2 class="home-title">この旅のしおり、<br>目的地はここから。</h2>
+    <p class="home-lead">当日、いちばん使うのはスケジュールです。<br>まずはここをタップしてください。</p>
+  </div>
+
+  <!-- 特大カード:スケジュール -->
+  <a class="nav-featured" href="#schedule" onclick="showPage('schedule',event)">
+    <div class="nf-eyebrow">01 · Most used</div>
+    <h3>スケジュール</h3>
+    <div class="nf-sub">2日間の全タイムライン ／ Day 1・Day 2</div>
+    <div class="nf-arrow" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </div>
+  </a>
+
+  <!-- 2列ナビ -->
+  <div class="nav-grid">
+    <a class="nav-card" href="#activities" onclick="showPage('activities',event)">
+      <div class="nc-num">02</div>
+      <div>
+        <div class="nc-title">アクティビティ</div>
+        <div class="nc-sub">Activities</div>
+      </div>
+      <div class="nc-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+    </a>
+    <a class="nav-card" href="#transport" onclick="showPage('transport',event)">
+      <div class="nc-num">03</div>
+      <div>
+        <div class="nc-title">移動</div>
+        <div class="nc-sub">Transport</div>
+      </div>
+      <div class="nc-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+    </a>
+    <a class="nav-card" href="#prep" onclick="showPage('prep',event)">
+      <div class="nc-num">04</div>
+      <div>
+        <div class="nc-title">旅の準備</div>
+        <div class="nc-sub">Pack · Weather · Lunch · Stay</div>
+      </div>
+      <div class="nc-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+    </a>
+    <a class="nav-card" href="#info" onclick="showPage('info',event)">
+      <div class="nc-num">05</div>
+      <div>
+        <div class="nc-title">集合・注意事項</div>
+        <div class="nc-sub">rules</div>
+      </div>
+      <div class="nc-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+    </a>
+    <a class="nav-card nav-card-wide" href="#people" onclick="showPage('people',event)">
+      <div class="nc-inner">
+        <div>
+          <div class="nc-num">06</div>
+          <div class="nc-title">メンバー紹介</div>
+          <div class="nc-sub">Organizers &amp; UNWIND Staff</div>
+        </div>
+        <div class="nc-arrow nc-arrow-inline"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      </div>
+    </a>
+  </div>
+
+  <!-- LINE カード -->
+  <a class="home-line" href="https://line.me/ti/g2/DRWLEJFC9eB3YihJZYDHFTClQMscqHCkWA-Nvw?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default" target="_blank" rel="noopener">
+    <div class="hl-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+    </div>
+    <div class="hl-body">
+      <div class="hl-eyebrow">LINE Group</div>
+      <div class="hl-title">OFFLINE GATHERING 2026 に参加</div>
+    </div>
+    <div class="hl-arrow" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </div>
+  </a>
+
+  <!-- 緊急連絡先ブロック(3件) -->
+  <div class="home-contact">
+    <div class="hc-eyebrow">Contact</div>
+    <h3>当日の緊急連絡先</h3>
+    <div class="contact-list">
+      <a class="contact-btn" href="tel:07069719069">
+        <div class="cb-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/>
+          </svg>
+        </div>
+        <div class="cb-text">
+          <div class="l"><span class="cb-role">幹事</span>吉田さん</div>
+          <div class="v">070-6971-9069</div>
+          <div class="n">タップで発信</div>
+        </div>
+      </a>
+      <a class="contact-btn" href="tel:07048068595">
+        <div class="cb-icon cb-icon-med" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3v18M3 12h18"/>
+          </svg>
+        </div>
+        <div class="cb-text">
+          <div class="l"><span class="cb-role role-med">救護</span>漢城さん</div>
+          <div class="v">070-4806-8595</div>
+          <div class="n">タップで発信</div>
+        </div>
+      </a>
+      <a class="contact-btn" href="tel:08087230065">
+        <div class="cb-icon cb-icon-med" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3v18M3 12h18"/>
+          </svg>
+        </div>
+        <div class="cb-text">
+          <div class="l"><span class="cb-role role-med">救護</span>奥山さん</div>
+          <div class="v">080-8723-0065</div>
+          <div class="n">タップで発信</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <p class="home-outro">— See you in Okunikko. —</p>
+
+  </div><!-- /page:home -->
+
+  <div class="page" data-page="schedule">
+    <div class="subpage-bar">
+      <button class="back-link" onclick="goHome()"><span class="bl-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></span>Home</button>
+      <span class="sp-title">01 · Schedule</span>
+    </div>
+    
 
   <!-- SCHEDULE -->
-  <section class="reveal">
-    <div class="sec-eyebrow"><span class="num">02</span>Schedule</div>
+  <section class="reveal" id="sec-schedule">
+    <div class="sec-eyebrow"><span class="num">01</span>Schedule</div>
     <h2 class="sec-title">2日間のながれ</h2>
     <p class="sec-lead">各時間をタップすると詳細が開きます。</p>
 
@@ -928,7 +1485,6 @@
     <!-- DAY 1 -->
     <div class="day-panel active" data-panel="1">
       <div class="day-head">
-        <h3>初日 — 集合と、夕餉</h3>
         <span class="date">07.16 THU</span>
       </div>
       <ul class="schedule-list" id="day1List"></ul>
@@ -937,7 +1493,6 @@
     <!-- DAY 2 -->
     <div class="day-panel" data-panel="2">
       <div class="day-head">
-        <h3>二日目 — 高原の朝</h3>
         <span class="date">07.17 FRI</span>
       </div>
       <ul class="schedule-list" id="day2List"></ul>
@@ -957,12 +1512,12 @@
           <li><b>湯ノ湖散策</b>：ホテル目の前。ぐるっと一周1時間ほど。</li>
           <li><b>館内見学</b>：新規開業ホテルを探検してみてください。</li>
           <li><b>大浴場・温泉</b>：奥日光の名湯でひと風呂。夕食前にさっぱり。</li>
-          <li><b>お部屋で仮眠</b>：早朝集合だったので、少し休むのも◎。</li>
+          <li><b>お部屋でゆっくり</b>：早朝集合だったので、少し休むのも◎。</li>
         </ul>
       </div>
 
       <div class="ih-section">
-        <div class="ih-section-title">⚠ 館内での注意事項（叩き）</div>
+        <div class="ih-section-title">⚠ 館内での注意事項</div>
         <ul class="ih-list ih-list-caution">
           <li>チェックインは順次。フロントでルームキーを受け取ってください。</li>
           <li>館内は基本的に <b>静かに</b>。他のお客様もいらっしゃいます。</li>
@@ -972,16 +1527,159 @@
           <li>貴重品は各自で管理を。金庫は各室に備え付けあり。</li>
           <li>ホテル備品の破損・持ち出しはNG。困ったらフロントか幹事まで。</li>
         </ul>
-        <p class="ih-note">※こちらは叩きです。ホテル側と最終確認したら差し替えます。</p>
       </div>
     </div>
   </section>
 
-  <div class="divider"><img src="assets/illust-lake.png" alt="" /></div>
+
+  
+  </div>
+
+  <div class="page" data-page="activities">
+    <div class="subpage-bar">
+      <button class="back-link" onclick="goHome()"><span class="bl-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></span>Home</button>
+      <span class="sp-title">02 · Activities</span>
+    </div>
+    
+
+  <!-- ACTIVITIES (DAY1) -->
+  <section class="reveal" id="sec-activities-day1" aria-label="DAY1 アクティビティ一覧">
+    <div class="sec-eyebrow"><span class="num">02-A</span>Day 1</div>
+    <h2 class="sec-title">DAY1 アクティビティ一覧</h2>
+    <p class="sec-lead">初日は道中2つの見学地を巡り、ホテル着後は夕食・ゲーム・二次会と続きます。<br><b>すべて全員参加</b>のプログラムです。</p>
+
+    <div class="act-intro">
+      <div class="ai-icon">🚌</div>
+      <div>
+        <b>7:45に渋谷を出発</b>し、道中2つの見学地を巡ってホテルへ。<br>地方組は16:30に東武日光駅集合、貸切バスでホテルへ向かい合流します。
+      </div>
+    </div>
+
+    <ol class="activity-list">
+      <li class="ac-section-head">
+        <span class="ash-icon">☀️</span>
+        <span>昼のプログラム</span>
+        <span class="ash-line"></span>
+        <span class="ash-en">Daytime</span>
+      </li>
+
+      <li class="activity-card">
+        <div class="ac-head">
+          <div class="ac-time">
+            <span class="at-h">11:00</span>
+            <span class="at-label">START</span>
+          </div>
+          <div class="ac-head-text">
+            <span class="ac-order">11:00 – 12:00 ／ 約1時間</span>
+            <h4>足尾銅山 見学</h4>
+            <div class="ac-loc">足尾銅山観光</div>
+          </div>
+        </div>
+        <p class="ac-desc">日本の近代化を支えた銅山跡。トロッコに乗って坑道内部へ入り、坑内での採掘作業や当時の生活の様子を見学できます。</p>
+        <div class="ac-tags">
+          <span class="ac-tag"># 歴史</span>
+          <span class="ac-tag"># トロッコ</span>
+          <span class="ac-tag"># 屋内あり</span>
+        </div>
+      </li>
+
+      <li class="activity-card">
+        <div class="ac-head">
+          <div class="ac-time">
+            <span class="at-h">12:30</span>
+            <span class="at-label">START</span>
+          </div>
+          <div class="ac-head-text">
+            <span class="ac-order">12:30 – 14:00 ／ 約1時間半</span>
+            <h4>東照宮周辺で自由行動・ランチ</h4>
+            <div class="ac-loc">日光東照宮エリア</div>
+          </div>
+        </div>
+        <p class="ac-desc">世界遺産・日光東照宮の門前町エリアで自由行動。<b>東照宮に参拝してもよし、周辺を観光してもよし</b>。各自でお店を選んで日光名物（湯波・そばなど）の昼食も楽しめます。おすすめ店は「お昼ごはん候補」セクションを参照。</p>
+        <div class="ac-tags">
+          <span class="ac-tag"># 自由行動</span>
+          <span class="ac-tag"># 世界遺産</span>
+          <span class="ac-tag"># ランチ</span>
+        </div>
+      </li>
+
+      <li class="ac-section-head night">
+        <span class="ash-icon">🌙</span>
+        <span>夜のプログラム</span>
+        <span class="ash-line"></span>
+        <span class="ash-en">Evening</span>
+      </li>
+
+      <li class="activity-card evening">
+        <div class="ac-head">
+          <div class="ac-time">
+            <span class="at-h">18:00</span>
+            <span class="at-label">START</span>
+          </div>
+          <div class="ac-head-text">
+            <span class="ac-order">18:00 – 19:30 ／ 約1時間半</span>
+            <h4>入館式 ＋ 夕食</h4>
+            <div class="ac-loc">UNWIND HOTEL &amp; BAR 奥日光</div>
+          </div>
+        </div>
+        <p class="ac-desc">入館式のあと夕食。奥日光スタッフに感謝しながら、初日の乾杯を。</p>
+        <div class="ac-tags">
+          <span class="ac-tag"># 全員参加</span>
+          <span class="ac-tag"># 会社負担</span>
+          <span class="ac-tag"># 乾杯</span>
+        </div>
+      </li>
+
+      <li class="activity-card evening">
+        <div class="ac-head">
+          <div class="ac-time">
+            <span class="at-h">19:30</span>
+            <span class="at-label">START</span>
+          </div>
+          <div class="ac-head-text">
+            <span class="ac-order">19:30 – 21:15 ／ 各45分 × 2本</span>
+            <h4>ゲーム ① ＆ ②</h4>
+            <div class="ac-loc">ホテル内会場</div>
+          </div>
+        </div>
+        <p class="ac-desc">19:30–20:15 でゲーム①、休憩を挟んで 20:30–21:15 でゲーム②。チーム分けは当日発表。"新しい顔"に出会う仕掛けが色々。</p>
+        <div class="ac-tags">
+          <span class="ac-tag"># 全員参加</span>
+          <span class="ac-tag"># チーム対抗</span>
+          <span class="ac-tag"># 交流</span>
+        </div>
+      </li>
+
+      <li class="activity-card evening">
+        <div class="ac-head">
+          <div class="ac-time">
+            <span class="at-h">21:30</span>
+            <span class="at-label">START</span>
+          </div>
+          <div class="ac-head-text">
+            <span class="ac-order">21:30 – 24:00 ／ 自由参加</span>
+            <h4>二次会</h4>
+            <div class="ac-loc">バー ／ 各部屋</div>
+          </div>
+        </div>
+        <p class="ac-desc">バーで、あるいは部屋飲みで、ゆるく夜を延長。自由参加なので早めに切り上げて休むのももちろんOK。24:00には終了、翌日に備えましょう。</p>
+        <div class="ac-tags">
+          <span class="ac-tag"># 自由参加</span>
+          <span class="ac-tag"># バー</span>
+          <span class="ac-tag"># 部屋飲み</span>
+        </div>
+      </li>
+    </ol>
+
+    <div class="act-note">
+      地方組で14時以前に日光到着可能な方は、東照宮周辺で東京組と合流いただけます（詳細は「注意事項」参照）。
+    </div>
+  </section>
+
 
   <!-- ACTIVITIES (DAY2) -->
-  <section class="reveal" aria-label="DAY2 アクティビティ一覧">
-    <div class="sec-eyebrow"><span class="num">03</span>Day 2 activities</div>
+  <section class="reveal" id="sec-activities" aria-label="DAY2 アクティビティ一覧">
+    <div class="sec-eyebrow"><span class="num">02-B</span>Day 2</div>
     <h2 class="sec-title">DAY2 アクティビティ一覧</h2>
     <p class="sec-lead">2日目の午前は、貸切バスで各アクティビティ会場へ。<br>下記は<b>バス着順（A → B → C → D）</b>です。コース分けは Google チャットで別途ご案内します。</p>
 
@@ -1079,18 +1777,27 @@
     </div>
   </section>
 
-  <div class="divider tiny"><img src="assets/illust-tree.png" alt="" /></div>
+
+  
+  </div>
+
+  <div class="page" data-page="transport">
+    <div class="subpage-bar">
+      <button class="back-link" onclick="goHome()"><span class="bl-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></span>Home</button>
+      <span class="sp-title">03 · Transport</span>
+    </div>
+    
 
   <!-- TRANSPORT -->
-  <section class="reveal">
-    <div class="sec-eyebrow"><span class="num">04</span>How to get there</div>
+  <section class="reveal" id="sec-transport">
+    <div class="sec-eyebrow"><span class="num">03</span>How to get there</div>
     <h2 class="sec-title">移動について</h2>
     <p class="sec-lead">東京組は貸切バス、地方組は新幹線・飛行機で東武日光駅に集合します。</p>
 
     <div class="transport-grid">
       <!-- Tokyo -->
       <div class="transport-card">
-        <div class="tc-illust"><img src="assets/illust-bus.png" alt="" /></div>
+        <div class="tc-illust"><img src="assets/illust-bus.png" alt=""/></div>
         <div class="tc-eyebrow">Group A</div>
         <h3>東京組</h3>
         <div class="tc-meta">貸切バスで日光へ／渋谷へ戻る</div>
@@ -1098,19 +1805,17 @@
         <div class="tc-day-block day1">
           <div class="tc-day-label">DAY 1 <span class="tc-day-en">行き</span><span class="tc-day-date">7/16</span></div>
           <ul class="tc-timeline">
-            <li class="key"><b>06:30</b>HOTEL GRAPHY 渋谷 集合</li>
-            <li class="key"><b>06:45</b>バス出発</li>
-            <li><b>11:00</b>足尾銅山 見学</li>
-            <li><b>12:30</b>東照宮周辺・各自昼食</li>
-            <li><b>14:00</b>いろは坂 → ホテル着</li>
+            <li class="key"><b>07:30</b>HOTEL GRAPHY 渋谷 集合</li>
+            <li class="key"><b>07:45</b>バス出発</li>
+            <li><b>11:00</b>足尾銅山 着</li>
           </ul>
         </div>
 
         <div class="tc-day-block day2">
           <div class="tc-day-label">DAY 2 <span class="tc-day-en">帰り</span><span class="tc-day-date">7/17</span></div>
           <ul class="tc-timeline">
-            <li class="key"><b>14:00</b>解散・バス搭乗</li>
-            <li><b>19:00</b>渋谷着・解散</li>
+            <li class="key"><b>14:00</b>日光駅からバス搭乗</li>
+            <li><b>17:00</b>渋谷着・解散</li>
           </ul>
         </div>
 
@@ -1161,11 +1866,20 @@
     </div>
   </section>
 
-  <div class="divider small"><img src="assets/illust-tree.png" alt="" /></div>
+
+  
+  </div>
+
+  <div class="page" data-page="prep">
+    <div class="subpage-bar">
+      <button class="back-link" onclick="goHome()"><span class="bl-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></span>Home</button>
+      <span class="sp-title">04 · Trip prep</span>
+    </div>
+    
 
   <!-- PACK LIST -->
-  <section class="checklist-section reveal">
-    <div class="sec-eyebrow"><span class="num">05</span>Pack list</div>
+  <section class="checklist-section reveal" id="sec-pack">
+    <div class="sec-eyebrow"><span class="num">04-A</span>Pack list</div>
     <h2 class="sec-title">持ち物リスト</h2>
     <p class="sec-lead">出発前の確認に。</p>
 
@@ -1197,11 +1911,10 @@
     </div>
   </section>
 
-  <div class="divider tiny"><img src="assets/illust-deer.png" alt="" /></div>
 
   <!-- WEATHER -->
-  <section class="reveal">
-    <div class="sec-eyebrow"><span class="num">06</span>Weather</div>
+  <section class="reveal" id="sec-weather">
+    <div class="sec-eyebrow"><span class="num">04-B</span>Weather</div>
     <h2 class="sec-title">7月の奥日光は、こんな感じ</h2>
     <p class="sec-lead">標高1400mの高原。下界より涼しく、夜は重ね着がほしくなる気候です。</p>
 
@@ -1231,8 +1944,8 @@
   </section>
 
   <!-- LUNCH -->
-  <section class="reveal">
-    <div class="sec-eyebrow"><span class="num">07</span>Lunch spots</div>
+  <section class="reveal" id="sec-lunch">
+    <div class="sec-eyebrow"><span class="num">04-C</span>Lunch spots</div>
     <h2 class="sec-title">お昼ごはん候補</h2>
     <p class="sec-lead">DAY1・DAY2ともに昼食は自由。せっかくの日光、美味しいもの食べてください。</p>
 
@@ -1350,16 +2063,15 @@
     </div>
   </section>
 
-  <div class="divider"><img src="assets/illust-mountain.png" alt="" /></div>
 
   <!-- HOTEL -->
-  <section class="reveal">
-    <div class="sec-eyebrow"><span class="num">08</span>Stay</div>
+  <section class="reveal" id="sec-hotel">
+    <div class="sec-eyebrow"><span class="num">04-D</span>Stay</div>
     <h2 class="sec-title">泊まる場所</h2>
     <p class="sec-lead">湯ノ湖を目の前にした、UNWIND HOTEL &amp; BAR 奥日光。</p>
 
     <div class="hotel-card">
-      <div class="hc-illust"><img src="assets/hotel-exterior.jpg" alt="UNWIND HOTEL &amp; BAR 奥日光 外観" /></div>
+      <div class="hc-illust"><img src="assets/hotel-exterior.jpg" alt="UNWIND HOTEL &amp; BAR 奥日光 外観"/></div>
       <div class="hc-body">
         <div class="hc-eyebrow">Hotel</div>
         <h3>UNWIND HOTEL &amp; BAR 奥日光</h3>
@@ -1394,15 +2106,15 @@
     <!-- Hotel photo gallery -->
     <div class="hotel-gallery">
       <figure class="hg-item hg-wide">
-        <img src="assets/hotel-lounge.jpg" alt="ラウンジ" />
+        <img src="assets/hotel-lounge.jpg" alt="ラウンジ"/>
         <figcaption>Lounge ／ 夜のラウンジ</figcaption>
       </figure>
       <figure class="hg-item">
-        <img src="assets/hotel-room.jpg" alt="客室" />
+        <img src="assets/hotel-room.jpg" alt="客室"/>
         <figcaption>Room ／ ツインルーム</figcaption>
       </figure>
       <figure class="hg-item">
-        <img src="assets/hotel-wine.jpg" alt="バー" />
+        <img src="assets/hotel-wine.jpg" alt="バー"/>
         <figcaption>Bar ／ フリーワイン</figcaption>
       </figure>
     </div>
@@ -1412,9 +2124,19 @@
     </div>
   </section>
 
+  
+  </div>
+
+  <div class="page" data-page="info">
+    <div class="subpage-bar">
+      <button class="back-link" onclick="goHome()"><span class="bl-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></span>Home</button>
+      <span class="sp-title">05 · rules</span>
+    </div>
+    
+
   <!-- NOTICES -->
-  <section class="reveal">
-    <div class="sec-eyebrow"><span class="num">09</span>Notes</div>
+  <section class="reveal" id="sec-notes">
+    <div class="sec-eyebrow"><span class="num">05-B</span>Notes</div>
     <h2 class="sec-title">注意事項</h2>
     <p class="sec-lead">楽しく過ごすために、いくつかのお願いです。</p>
 
@@ -1426,7 +2148,7 @@
         <b>休暇扱い：</b>1.5日出勤＋0.5日有休利用となります。
       </div>
       <div class="notice">
-        <b>貸切バスは時間厳守。</b>東京組6:30／地方組16:30集合、いずれも遅れたら自走になります。
+        <b>貸切バスは時間厳守。</b>東京組7:30／地方組16:30集合、いずれも遅れたら自走になります。
       </div>
       <div class="notice">
         <b>国立公園内です。</b>ゴミは持ち帰り、動植物を傷つけないよう、自然に敬意を払って。
@@ -1441,8 +2163,8 @@
   </section>
 
   <!-- LINE GROUP -->
-  <section class="line-section reveal">
-    <div class="sec-eyebrow"><span class="num">10</span>Join the group</div>
+  <section class="line-section reveal" id="sec-line">
+    <div class="sec-eyebrow"><span class="num">11</span>Join the group</div>
     <h2 class="sec-title">LINEグループに参加</h2>
     <p class="sec-lead">当日の連絡・集合場所の共有はLINEグループで行います。<br>必ず事前にご参加ください。</p>
 
@@ -1457,7 +2179,7 @@
         </div>
       </div>
 
-      <a class="line-cta" href="#" target="_blank" rel="noopener">
+      <a class="line-cta" href="https://line.me/ti/g2/DRWLEJFC9eB3YihJZYDHFTClQMscqHCkWA-Nvw?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank" rel="noopener">
         <span>グループに参加する</span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
@@ -1481,37 +2203,59 @@
     </div>
   </section>
 
+  
+  </div>
+
+  <div class="page" data-page="people">
+    <div class="subpage-bar">
+      <button class="back-link" onclick="goHome()"><span class="bl-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></span>Home</button>
+      <span class="sp-title">06 · People</span>
+    </div>
+    
+
+    <!-- タブ:幹事 / UNWIND スタッフ -->
+    <div class="people-tabs" style="padding: 0 24px 8px;">
+      <div class="tabs" role="tablist" style="margin-bottom:0;">
+        <button class="tab active" data-people="organizers" role="tab">
+          幹事チーム
+          <span class="tab-en">Organizers</span>
+        </button>
+        <button class="tab" data-people="staff" role="tab">
+          UNWINDスタッフ
+          <span class="tab-en">UNWIND Staff</span>
+        </button>
+      </div>
+    </div>
+
   <!-- ORGANIZERS -->
-  <section class="organizers-section reveal">
-    <div class="sec-eyebrow"><span class="num">11</span>Organizers</div>
+  <section class="organizers-section reveal" id="sec-organizers">
+    <div class="sec-eyebrow"><span class="num">06-A</span>Organizers</div>
     <h2 class="sec-title">幹事チーム</h2>
     <p class="sec-lead">この旅をつくっているメンバーです。<br>困ったとき、迷ったときは声をかけてください。</p>
 
-    <div class="organizer-grid" id="organizerGrid"></div>
+    <div class="organizer-grid" id="organizerGrid">
+      <div class="people-loading">読み込み中…</div>
+    </div>
+  </section>
+
+  <!-- UNWIND STAFF -->
+  <section class="organizers-section reveal" id="sec-staff">
+    <div class="sec-eyebrow"><span class="num">06-B</span>UNWIND Staff</div>
+    <h2 class="sec-title">奥日光スタッフ紹介</h2>
+    <p class="sec-lead">現地で迎えてくれる UNWIND HOTEL &amp; BAR 奥日光のスタッフのみなさん。<br>ぜひ話しかけてみてください。</p>
+
+    <div class="organizer-grid" id="staffGrid">
+      <div class="people-loading">読み込み中…</div>
+    </div>
 
     <p class="organizer-thanks">— Thank you for joining us. See you in Okunikko. —</p>
   </section>
 
-  <!-- FOOTER / CONTACT -->
-  <footer>
-    <div class="footer-illust"><img src="assets/illust-deer.png" alt="" /></div>
-    <div class="f-eyebrow">Contact</div>
-    <h3>当日の緊急連絡先</h3>
-    <p>スケジュール変更、体調不良、迷子のとき。<br>遠慮せず連絡してくださいね。</p>
+  
+  </div>
 
-    <a class="contact-btn" href="tel:07069719069">
-      <div class="cb-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/>
-        </svg>
-      </div>
-      <div class="cb-text">
-        <div class="l">担当・吉田さん</div>
-        <div class="v">070-6971-9069</div>
-        <div class="n">タップで発信</div>
-      </div>
-    </a>
-
+  <!-- FOOTER (全ページ共通・軽量) -->
+  <footer class="site-footer">
     <div class="footer-meta">
       <div class="line">
         <span>Global Agents</span>
@@ -1524,14 +2268,17 @@
   // ============== SCHEDULE DATA ==============
   const day1 = [
     // ============ 東京組 ============
-    {time:"06:30", group:"tokyo", title:"HOTEL GRAPHY 渋谷 集合", own:false, detail:"東京組は <a href=\"https://www.google.com/maps/search/?api=1&query=HOTEL+GRAPHY+%E6%B8%8B%E8%B0%B7\" target=\"_blank\" rel=\"noopener\" style=\"color:inherit;text-decoration:underline;text-underline-offset:3px;\">HOTEL GRAPHY 渋谷</a> にお越しください。時間厳守でお願いします。", key:true},
-    {time:"06:45", group:"tokyo", title:"バス出発", own:false, detail:"貸切バスで奥日光へ向けて出発。片道 約4時間半の道のりです。"},
-    {time:"11:00", group:"tokyo", title:"足尾銅山", own:false, detail:"バスで到着後、足尾銅山を見学。トロッコで坑道へ。"},
-    {time:"12:30", group:"tokyo", title:"東照宮周辺・各自昼食", cost:"自己負担", own:true, detail:"東照宮エリアで散策しつつ昼食。下のおすすめスポットを参考に。"},
-    {time:"14:00", group:"tokyo", title:"いろは坂のぼる → ホテル着", own:false, detail:"いろは坂を経由してホテルへ。到着後は自由時間。館内注意事項は下記参照。", key:true},
+    {time:"07:30", group:"tokyo", title:"HOTEL GRAPHY 渋谷 集合", own:false, detail:"東京組は <a href=\"https://www.google.com/maps/search/?api=1&query=HOTEL+GRAPHY+%E6%B8%8B%E8%B0%B7\" target=\"_blank\" rel=\"noopener\" style=\"color:inherit;text-decoration:underline;text-underline-offset:3px;\">HOTEL GRAPHY 渋谷</a> にお越しください。時間厳守でお願いします。", key:true},
+    {time:"07:45", group:"tokyo", title:"バス出発", own:false, detail:"貸切バスで足尾銅山へ向けて出発。<b>渋谷 → 足尾銅山は 片道 約3時間</b>（休憩含む）の道のりです。"},
+    {time:"11:00", group:"tokyo", title:"足尾銅山 見学", own:false, detail:"11:00–12:00 ⁄ 約1時間。バスで到着後、足尾銅山を見学。トロッコで坑道へ。"},
+    {time:"12:00", group:"tokyo", title:"バス移動（足尾 → 東照宮）", own:false, transit:true, detail:"12:00–12:30 ⁄ 約30分のバス移動。"},
+    {time:"12:30", group:"tokyo", title:"東照宮周辺で自由行動・各自ランチ", cost:"自己負担", own:true, detail:"12:30–14:00 ⁄ 約1時間半の自由行動。<b>東照宮に参拝してもよし、周辺観光でもよし</b>。各自でお店を選んでランチもどうぞ。下のおすすめスポットを参考に。"},
+    {time:"14:00", group:"tokyo", title:"バス移動（いろは坂 → ホテル）", own:false, transit:true, detail:"14:00–15:00 ⁄ 約1時間のバス移動。いろは坂を経由してホテルへ。"},
+    {time:"15:00", group:"tokyo", title:"ホテル着", own:false, detail:"ホテル到着。到着後は自由時間。館内注意事項は下記参照。", key:true},
 
     // ============ 地方組 ============
     {time:"16:30", group:"local", title:"東武日光駅 集合", own:false, detail:"★地方組はこの時間に東武日光駅集合。貸切バスでホテルへ向かいます。", key:true},
+    {time:"16:30", group:"local", title:"バス移動（日光駅 → ホテル）", own:false, transit:true, detail:"16:30–17:30 ⁄ 約1時間のバス移動。"},
     {time:"17:30", group:"local", title:"ホテル着", own:false, detail:"貸切バスでホテル到着。チェックインを済ませて、下のフリーワインへ。"},
 
     // ============ 合流 ============
@@ -1557,30 +2304,36 @@
     const ul = document.getElementById(host);
     let prevGroup = undefined;
     arr.forEach((it, i)=>{
-      // 分岐セクションの見出し
+      // 分岐セクションの見出し（グループの切り替わり時）
       if(it.group !== prevGroup){
-        let label = null;
-        if(it.group === "tokyo") label = "🚌 東京組（HOTEL GRAPHY 渋谷 集合）";
-        else if(it.group === "local") label = "🚄 地方組（東武日光駅 集合）";
-        else if(prevGroup !== undefined && !it.group) label = "🍷 合流 — 全員でホテル集合";
+        let label = null, en = null, cls = null;
+        if(it.group === "tokyo"){
+          label = "🚌 東京組"; en = "TOKYO GROUP"; cls = "grp-tokyo";
+        } else if(it.group === "local"){
+          label = "🚄 地方組"; en = "LOCAL GROUP"; cls = "grp-local";
+        } else if(prevGroup !== undefined && !it.group){
+          label = "🍷 全員合流"; en = "ALL TOGETHER"; cls = "grp-merge";
+        }
         if(label){
           const note = document.createElement("li");
-          note.className = "sch-branch-note";
-          note.textContent = label;
+          note.className = "sch-branch-note " + cls;
+          note.innerHTML = `<span>${label}</span><span class="sbn-en">${en}</span>`;
           ul.appendChild(note);
         }
         prevGroup = it.group;
       }
 
+      // group side-bar class (毎行チップの代わりに縦バーで色分け)
+      const grpCls = it.group === "tokyo" ? " grp-tokyo"
+                   : it.group === "local" ? " grp-local"
+                   : " grp-merge";
+
       const li = document.createElement("li");
-      li.className = "sch-item" + (it.key?" highlight":"");
-      const groupPill = it.group
-        ? `<span class="sch-group ${it.group}">${it.group === "tokyo" ? "東京組" : "地方組"}</span>`
-        : "";
+      li.className = "sch-item" + (it.key?" highlight":"") + (it.transit?" transit":"") + grpCls;
       li.innerHTML = `
         <button class="sch-toggle" aria-expanded="false">
           <span class="sch-time">${it.time}</span>
-          <span class="sch-title">${groupPill}${it.title}${it.cost?`<span class="sch-cost${it.own?" own":""}">${it.cost}</span>`:""}</span>
+          <span class="sch-title">${it.title}${it.cost?`<span class="sch-cost${it.own?" own":""}">${it.cost}</span>`:""}</span>
           <span class="sch-chev">▾</span>
         </button>
         <div class="sch-detail"><div><div class="sch-detail-inner"><p>${it.detail}</p></div></div></div>
@@ -1614,6 +2367,22 @@
     });
   });
 
+  // People tabs (Organizers / Staff)
+  function activatePeopleTab(which){
+    const page = document.querySelector('[data-page="people"]');
+    if(!page) return;
+    page.classList.remove('show-organizers','show-staff');
+    page.classList.add('show-' + which);
+    document.querySelectorAll('.tab[data-people]').forEach(t=>{
+      t.classList.toggle('active', t.dataset.people === which);
+    });
+  }
+  document.querySelectorAll(".tab[data-people]").forEach(tab=>{
+    tab.addEventListener("click", ()=> activatePeopleTab(tab.dataset.people));
+  });
+  // 初期状態は幹事タブ
+  activatePeopleTab('organizers');
+
   // Lunch tabs
   document.querySelectorAll(".tab[data-lunch]").forEach(tab=>{
     tab.addEventListener("click", ()=>{
@@ -1627,44 +2396,153 @@
   });
 
   // ============== ORGANIZERS ==============
-  // After photos arrive, fill in `photo` (e.g. "assets/org-yukie.jpg"),
-  // `dept`, and `quote` for each entry. Empty strings render as placeholders.
-  const organizers = [
-    { name: "Yukie Yoshida",    photo: "", dept: "", quote: "" },
-    { name: "Kai Tomiyama",     photo: "", dept: "", quote: "" },
-    { name: "Izumi Hina",       photo: "", dept: "", quote: "" },
-    { name: "Rodriguez Jorge",  photo: "", dept: "", quote: "" },
-    { name: "Klara Ulmannova",  photo: "", dept: "", quote: "" },
-    { name: "Eri Matsuo",       photo: "", dept: "", quote: "" },
-    { name: "Nozomi Okazaki",   photo: "", dept: "", quote: "" },
-    { name: "Nanami Ayaki",     photo: "", dept: "", quote: "" },
-    { name: "Kota Okuyama",     photo: "", dept: "", quote: "" },
-  ];
+  // ============== PEOPLE (from Google Sheets) ==============
+  // 幹事シート / スタッフシートの CSV を取得してカードを生成。
+  // 回答が追加されると、ページを再読み込みするだけで反映されます。
+  const ORGANIZERS_SHEET_ID = "1VebBFnZv6mkc90yosAFgwVKYgvgYyCPXOLjmZQ7DGEE";
+  const STAFF_SHEET_ID      = "1V5XmJFVL5v8a4PzgwRSXzqcaePcdYN_VOxL4t1N0hWc";
 
   function initials(name){
-    return name.split(/\s+/).map(p=> p[0]||"").join("").slice(0,2).toUpperCase();
+    return (name||"").split(/\s+/).map(p=> p[0]||"").join("").slice(0,2).toUpperCase();
+  }
+  function escapeHTML(s){
+    return String(s||"").replace(/[&<>"']/g, c => ({
+      "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+    }[c]));
+  }
+  // 改行・カンマ・引用符を含む CSV に対応した簡易パーサ
+  function parseCSV(text){
+    const rows = []; let row = []; let cell = "";
+    let i = 0, inQuote = false;
+    while(i < text.length){
+      const c = text[i];
+      if(inQuote){
+        if(c === '"'){
+          if(text[i+1] === '"'){ cell += '"'; i += 2; continue; }
+          inQuote = false; i++; continue;
+        }
+        cell += c; i++;
+      } else {
+        if(c === '"'){ inQuote = true; i++; continue; }
+        if(c === ","){ row.push(cell); cell = ""; i++; continue; }
+        if(c === "\r"){ i++; continue; }
+        if(c === "\n"){ row.push(cell); rows.push(row); row = []; cell = ""; i++; continue; }
+        cell += c; i++;
+      }
+    }
+    if(cell.length || row.length){ row.push(cell); rows.push(row); }
+    return rows.filter(r => r.length > 1 || (r[0]||"").trim().length > 0);
+  }
+  // Drive の "open?id=XXX" / "file/d/XXX" などから id を抽出して thumbnail URL に
+  function driveIdFromUrl(url){
+    if(!url) return "";
+    let m = url.match(/[?&]id=([a-zA-Z0-9_-]+)/);
+    if(m) return m[1];
+    m = url.match(/\/file\/d\/([a-zA-Z0-9_-]+)/);
+    if(m) return m[1];
+    m = url.match(/\/d\/([a-zA-Z0-9_-]+)/);
+    if(m) return m[1];
+    return "";
+  }
+  function driveThumbUrl(url, size){
+    const id = driveIdFromUrl(url);
+    if(!id) return "";
+    return `https://drive.google.com/thumbnail?id=${id}&sz=w${size||600}`;
   }
 
-  (function renderOrganizers(){
-    const grid = document.getElementById("organizerGrid");
+  async function fetchSheet(sheetId){
+    // gid=0 相当の1シート目を CSV で。キャッシュ回避のため timestamp を付与。
+    const url = `https://docs.google.com/spreadsheets/d/${sheetId}/export?format=csv&t=${Date.now()}`;
+    const res = await fetch(url, { cache: "no-store" });
+    if(!res.ok) throw new Error("fetch failed: " + res.status);
+    const text = await res.text();
+    return parseCSV(text);
+  }
+
+  function renderPeopleCard({ name, dept, photoUrl, quote }){
+    const thumb = driveThumbUrl(photoUrl, 600);
+    const photoHTML = thumb
+      ? `<img src="${escapeHTML(thumb)}" alt="${escapeHTML(name)}" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.replaceWith(Object.assign(document.createElement('div'),{className:'org-placeholder',textContent:'${escapeHTML(initials(name))}'}))" />`
+      : `<div class="org-placeholder">${escapeHTML(initials(name))}</div>`;
+    const card = document.createElement("div");
+    card.className = "organizer";
+    const deptHTML = dept
+      ? `<div class="org-dept">${escapeHTML(dept)}</div>`
+      : "";
+    card.innerHTML = `
+      <div class="org-photo">${photoHTML}</div>
+      <div class="org-body">
+        <div class="org-name">${escapeHTML(name || "―")}</div>
+        ${deptHTML}
+        <div class="org-quote${quote?"":" empty"}">${escapeHTML(quote || "（一言メッセージ）")}</div>
+      </div>
+    `;
+    return card;
+  }
+
+  async function renderPeople({ gridId, sheetId, mapping }){
+    const grid = document.getElementById(gridId);
     if(!grid) return;
-    organizers.forEach(o=>{
-      const card = document.createElement("div");
-      card.className = "organizer";
-      const photoHTML = o.photo
-        ? `<img src="${o.photo}" alt="${o.name}" loading="lazy" />`
-        : `<div class="org-placeholder">${initials(o.name)}</div>`;
-      card.innerHTML = `
-        <div class="org-photo">${photoHTML}</div>
-        <div class="org-body">
-          <div class="org-name">${o.name}</div>
-          <div class="org-dept${o.dept?"":" empty"}">${o.dept || "所属未設定"}</div>
-          <div class="org-quote${o.quote?"":" empty"}">${o.quote || "（一言メッセージ）"}</div>
-        </div>
-      `;
-      grid.appendChild(card);
-    });
-  })();
+    try{
+      const rows = await fetchSheet(sheetId);
+      if(!rows.length){ throw new Error("empty"); }
+      const header = rows[0].map(h => h.trim());
+      // 列を名前で探す(見出しが変わっても部分一致でヒットさせる)
+      function idx(candidates){
+        for(const key of candidates){
+          const i = header.findIndex(h => h.includes(key));
+          if(i >= 0) return i;
+        }
+        return -1;
+      }
+      const iName  = idx(mapping.name);
+      const iDept  = mapping.dept ? idx(mapping.dept) : -1;
+      const iPhoto = idx(mapping.photo);
+      const iQuote = idx(mapping.quote);
+
+      const people = rows.slice(1)
+        .map(r => ({
+          name:     iName  >= 0 ? (r[iName]  || "").trim() : "",
+          dept:     iDept  >= 0 ? (r[iDept]  || "").trim() : "",
+          photoUrl: iPhoto >= 0 ? (r[iPhoto] || "").trim() : "",
+          quote:    iQuote >= 0 ? (r[iQuote] || "").trim() : "",
+        }))
+        .filter(p => p.name);
+
+      grid.innerHTML = "";
+      if(!people.length){
+        grid.innerHTML = `<div class="people-loading">まだ回答がありません</div>`;
+        return;
+      }
+      people.forEach(p => grid.appendChild(renderPeopleCard(p)));
+    } catch(err){
+      console.error("[people]", gridId, err);
+      grid.innerHTML = `<div class="people-loading error">読み込みに失敗しました。時間をおいて再読み込みしてください。</div>`;
+    }
+  }
+
+  // 幹事: 氏名 / 所属 / 写真 / 一言
+  renderPeople({
+    gridId: "organizerGrid",
+    sheetId: ORGANIZERS_SHEET_ID,
+    mapping: {
+      name:  ["氏名", "名前", "お名前"],
+      dept:  ["所属"],
+      photo: ["写真", "アップロード", "画像"],
+      quote: ["意気込み", "一言", "コメント"],
+    }
+  });
+
+  // スタッフ: お名前 / 写真 / 一言
+  renderPeople({
+    gridId: "staffGrid",
+    sheetId: STAFF_SHEET_ID,
+    mapping: {
+      name:  ["お名前", "氏名", "名前"],
+      photo: ["プロフィール写真", "写真", "画像"],
+      quote: ["一言", "コメント", "自己紹介"],
+    }
+  });
 
   // ============== HERO IMAGE FALLBACK ==============
   const heroImg = document.getElementById("heroImg");
@@ -1710,6 +2588,70 @@
     requestAnimationFrame(()=> requestAnimationFrame(check));
     setTimeout(check, 100);
   })();
+
+  // ============== ページ切替 (SPA-style) ==============
+  const VALID_PAGES = new Set(['home','schedule','activities','transport','prep','info','people']);
+
+  function showPage(name, ev){
+    if(ev) ev.preventDefault();
+    if(!VALID_PAGES.has(name)) name = 'home';
+    document.querySelectorAll('.page').forEach(p => {
+      p.classList.toggle('active', p.dataset.page === name);
+    });
+    // スクロール位置をトップに
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    // 履歴に追加(既に同じページなら追加しない)
+    const url = name === 'home' ? '#' : '#' + name;
+    if(location.hash !== (name === 'home' ? '' : '#' + name)){
+      history.pushState({page: name}, '', url);
+    }
+    // ページ変更時に、内部の reveal クラス要素を即表示状態にする
+    document.querySelectorAll('.page.active .reveal').forEach(el => el.classList.add('in'));
+    // ページ名を localStorage に(再読み込みで復元)
+    try{ localStorage.setItem('cur-page', name); }catch(e){}
+    // Home 以外に footer は表示不要(footer は独立して常時表示)
+  }
+  function goHome(ev){ showPage('home', ev); }
+
+  // popstate で戻る/進む
+  window.addEventListener('popstate', (e) => {
+    const name = (e.state && e.state.page) || (location.hash ? location.hash.replace('#','') : 'home');
+    if(!VALID_PAGES.has(name)){
+      document.querySelectorAll('.page').forEach(p => p.classList.toggle('active', p.dataset.page === 'home'));
+    } else {
+      document.querySelectorAll('.page').forEach(p => p.classList.toggle('active', p.dataset.page === name));
+    }
+    document.querySelectorAll('.page.active .reveal').forEach(el => el.classList.add('in'));
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  });
+
+  // 初期表示: URLハッシュ or localStorage or home
+  (function initPage(){
+    let initial = 'home';
+    const hash = location.hash.replace('#','');
+    if(hash && VALID_PAGES.has(hash)){
+      initial = hash;
+    } else {
+      try{
+        const saved = localStorage.getItem('cur-page');
+        if(saved && VALID_PAGES.has(saved)) initial = saved;
+      }catch(e){}
+    }
+    // 初期状態は home がアクティブなので、他ページの場合だけ切替
+    if(initial !== 'home'){
+      document.querySelectorAll('.page').forEach(p => {
+        p.classList.toggle('active', p.dataset.page === initial);
+      });
+      history.replaceState({page: initial}, '', '#' + initial);
+    } else {
+      history.replaceState({page: 'home'}, '', location.pathname);
+    }
+    document.querySelectorAll('.page.active .reveal').forEach(el => el.classList.add('in'));
+  })();
+
+  // グローバルに公開(inline onclick から呼べるように)
+  window.showPage = showPage;
+  window.goHome = goHome;
 </script>
 </body>
 </html>
