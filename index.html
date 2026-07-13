@@ -291,6 +291,268 @@
   .nav-card-wide .nc-arrow{ position:static;}
   .nav-card-wide .nc-title{ margin-top:0;}
 
+  /* ============== NAV SPECIAL (07 動画ギフト) ============== */
+  .nav-special{
+    display:block; position:relative; margin: 20px 24px 0;
+    background: linear-gradient(150deg, #1E4530 0%, #2A5C40 55%, #3A7551 100%);
+    color:#fff; border-radius:20px; padding: 24px 22px 22px; text-decoration:none;
+    overflow:hidden; box-shadow: 0 18px 32px -18px rgba(30,69,48,.6);
+    transition: transform .2s;
+  }
+  .nav-special:active{ transform:scale(.99);}
+  .nav-special::before{
+    content:""; position:absolute; right:-40px; top:-40px; width:180px; height:180px;
+    background: radial-gradient(circle, rgba(212,133,74,.35) 0%, rgba(212,133,74,0) 70%);
+    pointer-events:none;
+  }
+  .nav-special::after{
+    content:""; position:absolute; left:-30px; bottom:-50px; width:150px; height:150px;
+    background: radial-gradient(circle, rgba(232,168,118,.18) 0%, rgba(232,168,118,0) 70%);
+    pointer-events:none;
+  }
+  .nav-special .ns-badge{
+    display:inline-flex; align-items:center; gap:6px; padding:5px 10px 5px 9px;
+    background: rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.22);
+    border-radius:100px; font-family:var(--en); font-size:10px; font-weight:700;
+    letter-spacing:.24em; text-transform:uppercase; margin-bottom:14px; position:relative; z-index:1;
+  }
+  .nav-special .ns-badge-dot{ width:6px; height:6px; border-radius:50%; background:var(--amber-soft); animation: pulse 2.4s ease-in-out infinite;}
+  .nav-special .ns-icon{
+    position:absolute; right:20px; top:22px; width:40px; height:40px;
+    display:flex; align-items:center; justify-content:center;
+    color: var(--amber-soft); opacity:.75; z-index:1;
+  }
+  .nav-special .ns-icon svg{ width:32px; height:32px;}
+  .nav-special .ns-eyebrow{
+    font-family:var(--en); font-size:10px; letter-spacing:.28em; color:var(--amber-soft);
+    text-transform:uppercase; font-weight:600; margin-bottom:6px; position:relative; z-index:1;
+  }
+  .nav-special h3{
+    font-family:var(--maru); font-weight:900; font-size:22px; line-height:1.45;
+    margin:0 0 10px; letter-spacing:.02em; position:relative; z-index:1;
+    text-wrap:pretty;
+  }
+  .nav-special .ns-sub{
+    font-size:13px; line-height:1.75; opacity:.88; margin:0 0 16px;
+    color:rgba(255,255,255,.9); position:relative; z-index:1;
+  }
+  .nav-special .ns-cta{
+    display:inline-flex; align-items:center; gap:8px; padding:10px 16px;
+    background: var(--amber); color:#fff; border-radius:100px;
+    font-family:var(--maru); font-weight:700; font-size:13.5px;
+    position:relative; z-index:1;
+  }
+
+  /* ============== VIDEO GIFT PAGE ============== */
+  .vg-hero{
+    padding: 32px 24px 28px; text-align:left;
+    background: linear-gradient(160deg, #1E4530 0%, #2A5C40 100%);
+    color:#fff; position:relative; overflow:hidden;
+  }
+  .vg-hero::before{
+    content:""; position:absolute; right:-60px; top:-40px; width:220px; height:220px;
+    background: radial-gradient(circle, rgba(212,133,74,.28) 0%, rgba(212,133,74,0) 70%);
+    pointer-events:none;
+  }
+  .vg-hero .vg-badge{
+    display:inline-flex; align-items:center; gap:6px; padding:5px 10px 5px 9px;
+    background: rgba(255,255,255,.16); border:1px solid rgba(255,255,255,.24);
+    border-radius:100px; font-family:var(--en); font-size:10px; font-weight:700;
+    letter-spacing:.24em; text-transform:uppercase; margin-bottom:14px;
+  }
+  .vg-hero .vg-badge-dot{ width:6px; height:6px; border-radius:50%; background:var(--amber-soft); animation: pulse 2.4s ease-in-out infinite;}
+  .vg-hero h2{
+    font-family:var(--maru); font-weight:900; font-size:26px; line-height:1.5;
+    margin:0 0 12px; letter-spacing:.02em; text-wrap:pretty; position:relative; z-index:1;
+  }
+  .vg-hero h2 em{ font-style:normal; color:var(--amber-soft);}
+  .vg-hero .vg-lead{ font-size:14px; line-height:1.9; opacity:.9; margin:0; position:relative; z-index:1;}
+
+  /* あいさつ本文 */
+  .vg-message{ padding: 28px 24px 8px;}
+  .vg-message .vg-msg-eyebrow{
+    font-family:var(--en); font-size:10px; letter-spacing:.28em; color:var(--amber);
+    text-transform:uppercase; font-weight:600; margin-bottom:12px;
+  }
+  .vg-message .vg-msg-title{
+    font-family:var(--maru); font-weight:900; color:var(--green-deep);
+    font-size:20px; line-height:1.55; margin:0 0 16px; text-wrap:pretty;
+  }
+  .vg-message p{ font-size:14px; line-height:2.05; color:var(--ink-2); margin: 0 0 14px; text-wrap:pretty;}
+  .vg-message p b{ color:var(--ink); font-weight:700;}
+  .vg-message p .amber{ color:var(--amber); font-weight:700;}
+
+  /* How to (3ステップ) */
+  .vg-how{ padding: 20px 24px 8px;}
+  .vg-how h3{
+    font-family:var(--maru); font-weight:900; color:var(--green-deep);
+    font-size:17px; margin: 0 0 14px;
+  }
+  .vg-steps{ display:flex; flex-direction:column; gap:12px; margin:0; padding:0; list-style:none;}
+  .vg-step{
+    display:flex; gap:14px; padding: 16px 16px; background:#fff;
+    border:1px solid var(--line); border-radius:14px; box-shadow: var(--paper-shadow);
+  }
+  .vg-step .vs-num{
+    flex-shrink:0; width:36px; height:36px; border-radius:50%;
+    background:var(--amber); color:#fff; display:flex; align-items:center; justify-content:center;
+    font-family:var(--en); font-weight:700; font-size:15px;
+  }
+  .vg-step .vs-body{ flex:1;}
+  .vg-step .vs-title{ font-family:var(--maru); font-weight:900; color:var(--green-deep); font-size:14.5px; margin-bottom:4px; line-height:1.5;}
+  .vg-step .vs-desc{ font-size:12.5px; color:var(--ink-2); line-height:1.8;}
+
+  /* Google Drive CTA */
+  .vg-drive{
+    margin: 18px 24px 4px; display:flex; align-items:center; gap:12px;
+    padding: 16px 18px; background:#fff; border:1px solid var(--line);
+    border-left:4px solid var(--amber); border-radius:14px;
+    text-decoration:none; color:var(--ink); box-shadow: var(--paper-shadow);
+  }
+  .vg-drive:active{ transform: scale(.99);}
+  .vg-drive .vd-icon{
+    flex-shrink:0; width:44px; height:44px; border-radius:12px;
+    background: linear-gradient(135deg, #FFC107, #4285F4 60%, #34A853);
+    display:flex; align-items:center; justify-content:center; color:#fff;
+  }
+  .vg-drive .vd-icon svg{ width:22px; height:22px;}
+  .vg-drive .vd-body{ flex:1; min-width:0;}
+  .vg-drive .vd-eyebrow{
+    font-family:var(--en); font-size:9.5px; letter-spacing:.22em; color:var(--amber);
+    font-weight:700; text-transform:uppercase; margin-bottom:2px;
+  }
+  .vg-drive .vd-title{ font-family:var(--maru); font-weight:900; color:var(--green-deep); font-size:14px; line-height:1.5;}
+  .vg-drive .vd-sub{ font-size:11.5px; color:var(--ink-3); margin-top:2px;}
+  .vg-drive .vd-arrow{
+    flex-shrink:0; width:28px; height:28px; border-radius:50%;
+    background: var(--green); color:#fff; display:flex; align-items:center; justify-content:center;
+  }
+  .vg-drive .vd-arrow svg{ width:12px; height:12px;}
+
+  /* SNS映えスポットリスト・見出し */
+  .vg-list-head{ padding: 28px 24px 8px;}
+  .vg-list-head .vlh-eyebrow{
+    font-family:var(--en); font-size:10px; letter-spacing:.28em; color:var(--amber);
+    text-transform:uppercase; font-weight:600; margin-bottom:8px;
+  }
+  .vg-list-head h3{
+    font-family:var(--maru); font-weight:900; color:var(--green-deep);
+    font-size:22px; margin:0 0 8px; line-height:1.5; text-wrap:pretty;
+  }
+  .vg-list-head .vlh-lead{ font-size:13.5px; line-height:1.85; color:var(--ink-2); margin:0;}
+
+  /* エリアタブ (横スクロール) */
+  .vg-area-tabs{
+    display:flex; gap:8px; padding: 16px 24px 8px; overflow-x:auto;
+    scrollbar-width:none; -webkit-overflow-scrolling:touch;
+  }
+  .vg-area-tabs::-webkit-scrollbar{ display:none;}
+  .vg-area-tab{
+    flex-shrink:0; padding: 9px 14px; background:#fff; border:1px solid var(--line);
+    border-radius:100px; font-family:var(--maru); font-weight:700; font-size:12.5px;
+    color:var(--ink-2); cursor:pointer; white-space:nowrap;
+    transition: background .2s, color .2s, border-color .2s;
+  }
+  .vg-area-tab .vat-count{
+    display:inline-block; margin-left:6px; padding:1px 7px;
+    background:rgba(212,133,74,.15); color:var(--amber); border-radius:100px;
+    font-family:var(--en); font-size:10px; font-weight:700;
+  }
+  .vg-area-tab.active{
+    background: var(--green-deep); color:#fff; border-color: var(--green-deep);
+  }
+  .vg-area-tab.active .vat-count{ background:rgba(255,255,255,.2); color:#fff;}
+
+  /* スポットカード */
+  .vg-spot-list{ padding: 8px 24px 20px; display:flex; flex-direction:column; gap:12px;}
+  .vg-spot{
+    background:#fff; border:1px solid var(--line); border-radius:14px;
+    box-shadow: var(--paper-shadow); overflow:hidden;
+  }
+  .vg-spot-head{
+    display:flex; align-items:flex-start; justify-content:space-between; gap:10px;
+    padding: 14px 16px 12px; cursor:pointer; user-select:none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .vg-spot-head .vs-num-badge{
+    flex-shrink:0; width:26px; height:26px; border-radius:50%;
+    background:rgba(42,92,64,.08); color:var(--green-deep);
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--en); font-weight:700; font-size:11px; margin-top:2px;
+  }
+  .vg-spot-head .vs-main{ flex:1; min-width:0;}
+  .vg-spot-head .vs-name{
+    font-family:var(--maru); font-weight:900; color:var(--ink); font-size:14.5px;
+    line-height:1.5; margin-bottom:4px; text-wrap:pretty;
+  }
+  .vg-spot-head .vs-cat{
+    display:inline-block; padding: 2px 8px; background:rgba(42,92,64,.08);
+    color: var(--green); border-radius:100px;
+    font-family:var(--maru); font-weight:700; font-size:10.5px; letter-spacing:.04em;
+  }
+  .vg-spot-head .vs-cat.rare{ background:rgba(212,133,74,.14); color:var(--amber);}
+  .vg-spot-head .vs-chev{
+    flex-shrink:0; width:22px; height:22px; border-radius:50%;
+    background:rgba(0,0,0,.04); color:var(--ink-3);
+    display:flex; align-items:center; justify-content:center; margin-top:2px;
+    transition: transform .3s;
+  }
+  .vg-spot-head .vs-chev svg{ width:12px; height:12px;}
+  .vg-spot.open .vs-chev{ transform: rotate(180deg);}
+  .vg-spot-body{
+    max-height:0; overflow:hidden; padding: 0 16px;
+    transition: max-height .35s ease, padding .35s ease;
+  }
+  .vg-spot.open .vg-spot-body{
+    max-height: 500px; padding: 4px 16px 16px;
+    border-top: 1px dashed var(--line);
+  }
+  .vg-spot-body .vsb-row{ display:flex; gap:10px; padding: 10px 0; align-items:flex-start;}
+  .vg-spot-body .vsb-row + .vsb-row{ border-top: 1px dashed rgba(217,201,178,.6);}
+  .vg-spot-body .vsb-label{
+    flex-shrink:0; font-family:var(--en); font-size:9.5px; letter-spacing:.16em;
+    color:var(--ink-3); font-weight:700; text-transform:uppercase; padding-top:3px; width:72px;
+  }
+  .vg-spot-body .vsb-value{ flex:1; font-size:12.5px; color:var(--ink-2); line-height:1.85;}
+  .vg-spot-body .vsb-value b{ color:var(--ink); font-weight:700;}
+  .vg-spot-body .vsb-ref{
+    display:inline-flex; align-items:center; gap:5px; padding: 5px 10px;
+    background:rgba(212,133,74,.1); color:var(--amber);
+    border-radius:100px; font-family:var(--maru); font-weight:700; font-size:11.5px;
+    text-decoration:none; margin-top:6px;
+  }
+  .vg-spot-body .vsb-ref svg{ width:10px; height:10px;}
+
+  /* 撮影のコツ */
+  .vg-tips{
+    margin: 20px 24px 20px; padding: 18px 20px; background: var(--bg-2);
+    border-radius:14px; border: 1px dashed var(--amber);
+  }
+  .vg-tips .vt-eyebrow{
+    font-family:var(--en); font-size:10px; letter-spacing:.26em;
+    color:var(--amber); font-weight:700; margin-bottom:8px;
+  }
+  .vg-tips h4{ font-family:var(--maru); font-weight:900; color:var(--green-deep); font-size:15px; margin:0 0 10px;}
+  .vg-tips ul{ margin:0; padding:0; list-style:none;}
+  .vg-tips li{ padding-left: 22px; position:relative; margin-bottom:8px; font-size:13px; line-height:1.8; color:var(--ink-2);}
+  .vg-tips li::before{
+    content:""; position:absolute; left:0; top:11px; width:12px; height:2px; background: var(--amber);
+  }
+  .vg-tips li b{ color:var(--ink); font-weight:700;}
+
+  /* サンキュー */
+  .vg-thanks{
+    margin: 8px 24px 40px; text-align:center; padding: 24px 20px;
+    background: linear-gradient(160deg, #1E4530 0%, #2A5C40 100%);
+    color:#fff; border-radius: 20px;
+  }
+  .vg-thanks .vth-eyebrow{
+    font-family:var(--en); font-size:10px; letter-spacing:.28em;
+    color: var(--amber-soft); margin-bottom:10px; font-weight:700;
+  }
+  .vg-thanks h4{ font-family:var(--maru); font-weight:900; font-size:18px; line-height:1.6; margin:0 0 8px;}
+  .vg-thanks p{ font-size:13px; line-height:1.9; opacity:.88; margin:0;}
+
   /* people ページ:タブで一方だけ表示 */
   [data-page="people"] section#sec-organizers,
   [data-page="people"] section#sec-staff{ display:none; }
@@ -713,6 +975,106 @@
   .tc-note{ margin-top:16px; padding: 12px 14px; background:rgba(212,133,74,.08); border-radius:10px; font-size:12.5px; color:var(--ink-2); line-height:1.7;}
   .tc-note::before{ content:"⚠"; color:var(--amber); margin-right:6px; font-size:14px;}
 
+  /* 集合場所ハイライトカード（東京組・HOTEL GRAPHY 渋谷） */
+  .tc-meetup{
+    margin-top:14px; padding:16px 16px 18px;
+    background: linear-gradient(180deg, #fffaf3 0%, #fff 100%);
+    border:1px solid var(--line); border-left:4px solid var(--amber);
+    border-radius:12px; position:relative;
+  }
+  .tc-meetup .tcm-head{ display:flex; align-items:center; gap:8px; margin-bottom:10px; flex-wrap:wrap;}
+  .tc-meetup .tcm-tag{
+    font-family:var(--en); font-size:10px; letter-spacing:.2em; color:#fff;
+    background:var(--amber); padding:3px 9px; border-radius:100px;
+    font-weight:700; text-transform:uppercase;
+  }
+  .tc-meetup .tcm-pin{ font-size:15px;}
+  .tc-meetup .tcm-title{ font-family:var(--maru); font-weight:900; color:var(--green-deep); font-size:15px;}
+  .tc-meetup .tcm-figure{
+    margin: 6px 0 12px; border-radius:10px; overflow:hidden;
+    border:1px solid var(--line); background:#f4efe7;
+    box-shadow: 0 2px 8px rgba(0,0,0,.06);
+  }
+  .tc-meetup .tcm-figure img{ display:block; width:100%; height:auto; }
+  .tc-meetup .tcm-caption{
+    font-size:11.5px; color:var(--ink-3); text-align:center;
+    padding:6px 10px 8px; background:#faf7f1; border-top:1px solid var(--line);
+    font-family:var(--maru);
+  }
+  .tc-meetup .tcm-body{ font-size:13.5px; color:var(--ink-2); line-height:1.85;}
+  .tc-meetup .tcm-body b{ color:var(--ink); font-weight:800;}
+  .tc-meetup .tcm-body .hi{
+    background: linear-gradient(180deg, transparent 60%, rgba(212,133,74,.28) 60%);
+    padding: 0 2px; font-weight:800; color:var(--ink);
+  }
+  .tc-meetup .tcm-points{
+    list-style:none; margin:10px 0 0; padding:0;
+    display:flex; flex-direction:column; gap:6px;
+  }
+  .tc-meetup .tcm-points li{
+    position:relative; padding:8px 10px 8px 32px;
+    background:#fff; border:1px solid var(--line); border-radius:8px;
+    font-size:13px; color:var(--ink-2); line-height:1.6;
+  }
+  .tc-meetup .tcm-points li::before{
+    content:""; position:absolute; left:12px; top:14px;
+    width:10px; height:10px; border-radius:50%;
+    background:var(--amber); box-shadow:0 0 0 3px rgba(212,133,74,.18);
+  }
+  .tc-meetup .tcm-points li b{ color:var(--ink); font-weight:800;}
+  .tc-meetup .tcm-map{
+    display:inline-flex; align-items:center; gap:6px; margin-top:12px;
+    padding:9px 14px; background:var(--green); color:#fff;
+    border-radius:8px; font-family:var(--en); font-size:13px; font-weight:600;
+    text-decoration:none; letter-spacing:.05em;
+  }
+  .tc-meetup .tcm-map:hover{ background:var(--green-deep);}
+
+  /* 13:50 集合の分岐（東京組 DAY2） */
+  .tc-reunite{
+    margin-top:12px; padding:14px 14px 12px;
+    background:#faf7f1; border:1px solid var(--line);
+    border-left:4px solid var(--green);
+    border-radius:10px;
+  }
+  .tc-reunite .tcr-head{
+    display:flex; align-items:center; gap:8px; flex-wrap:wrap;
+    margin-bottom:10px; padding-bottom:10px; border-bottom:1px dashed var(--line);
+  }
+  .tc-reunite .tcr-tag{
+    font-family:var(--en); font-size:10px; letter-spacing:.15em;
+    background:var(--green); color:#fff; padding:3px 8px;
+    border-radius:100px; font-weight:700;
+  }
+  .tc-reunite .tcr-title{
+    font-family:var(--maru); font-weight:800;
+    color:var(--green-deep); font-size:12.5px;
+  }
+  .tc-reunite .tcr-row{
+    display:flex; align-items:center; gap:10px;
+    padding:6px 0; font-size:12.5px; color:var(--ink-2); line-height:1.6;
+  }
+  .tc-reunite .tcr-row + .tcr-row{ border-top:1px dashed var(--line);}
+  .tc-reunite .tcr-badge{
+    flex-shrink:0; display:inline-flex; align-items:center; gap:4px;
+    padding:4px 9px; border-radius:100px;
+    font-family:var(--maru); font-size:11px; font-weight:800; color:#fff;
+    min-width:96px; justify-content:center;
+  }
+  .tc-reunite .tcr-bus{ background:var(--green);}
+  .tc-reunite .tcr-self{ background:var(--amber);}
+  .tc-reunite .tcr-plans b{ color:var(--ink); font-weight:800; margin: 0 2px;}
+
+  /* 地方組・早着案内ブロック */
+  .tc-early{ margin-top:12px; padding:14px 16px; background:#fff; border:1px solid var(--line); border-left:4px solid var(--amber); border-radius:10px;}
+  .tc-early .tce-head{ display:flex; align-items:center; gap:8px; margin-bottom:8px; flex-wrap:wrap;}
+  .tc-early .tce-tag{ font-family:var(--en); font-size:10px; letter-spacing:.2em; color:#fff; background:var(--amber); padding:3px 8px; border-radius:100px; font-weight:700; text-transform:uppercase;}
+  .tc-early .tce-title{ font-family:var(--maru); font-weight:900; color:var(--green-deep); font-size:14px;}
+  .tc-early .tce-body{ font-size:13px; color:var(--ink-2); line-height:1.85;}
+  .tc-early .tce-body b{ color:var(--ink); font-weight:700;}
+  .tc-early .tce-call{ display:inline-flex; align-items:center; gap:6px; margin-top:10px; padding:9px 14px; background:var(--green); color:#fff; border-radius:8px; font-family:var(--en); font-size:13px; font-weight:600; text-decoration:none; letter-spacing:.05em;}
+  .tc-early .tce-call:active{ transform:scale(.98);}
+
   .tc-doc{
     display:flex; align-items:center; gap:12px;
     margin-top:14px; padding: 12px 14px;
@@ -948,6 +1310,21 @@
   .activity-card .ac-desc{
     font-size: 13.5px; color: var(--ink-2); line-height:1.8; margin:0;
   }
+  .activity-card .ac-sublist{
+    list-style:none; margin: 12px 0 0; padding: 0;
+    display:flex; flex-direction:column; gap:6px;
+  }
+  .activity-card .ac-sublist li{
+    position:relative; padding: 10px 12px 10px 14px;
+    background: rgba(42,92,64,.05);
+    border-left: 3px solid var(--green);
+    border-radius: 6px;
+    font-size: 13px; color: var(--ink-2); line-height:1.7;
+  }
+  .activity-card .ac-sublist li b{
+    font-family: var(--en); color: var(--green-deep);
+    font-weight:700; margin-right: 8px; font-size: 13px;
+  }
   .activity-card .ac-tags{
     display:flex; flex-wrap:wrap; gap:6px; margin-top: 12px;
   }
@@ -970,6 +1347,82 @@
     font-size:12.5px; color:var(--ink-2); line-height:1.7;
   }
   .act-note::before{ content:"ℹ"; color:var(--green); margin-right:6px; font-weight:700;}
+
+  /* ============== REUNITE CARD (13:50 集合) ============== */
+  .reunite-card{
+    margin-top: 20px;
+    background:#fff; border-radius:18px;
+    box-shadow: var(--paper-shadow); border:1px solid var(--line);
+    border-left: 4px solid var(--amber);
+    padding: 22px 22px 20px;
+  }
+  .reunite-card .ru-head{
+    display:flex; gap:16px; align-items:center; margin-bottom:18px;
+    padding-bottom:16px; border-bottom:1px dashed var(--line);
+  }
+  .reunite-card .ru-time{
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    min-width:72px; padding:8px 6px;
+    background: var(--amber); color:#fff; border-radius:10px;
+    font-family:var(--en);
+  }
+  .reunite-card .ru-time .ru-h{ font-size:20px; font-weight:800; line-height:1;}
+  .reunite-card .ru-time .ru-label{ font-size:9px; letter-spacing:.2em; margin-top:4px; opacity:.9;}
+  .reunite-card .ru-order{
+    font-family:var(--en); font-size:10px; letter-spacing:.2em;
+    color:var(--amber); font-weight:600; text-transform:uppercase;
+  }
+  .reunite-card .ru-head-text h4{
+    margin: 4px 0 3px; font-family:var(--maru);
+    font-size:18px; font-weight:900; color:var(--green-deep);
+  }
+  .reunite-card .ru-sub{ font-size:12.5px; color:var(--ink-3);}
+
+  .reunite-card .ru-split{
+    display:grid; grid-template-columns: 1fr 1fr; gap:12px;
+  }
+  @media (max-width: 560px){
+    .reunite-card .ru-split{ grid-template-columns: 1fr;}
+  }
+  .reunite-card .ru-col{
+    padding:14px 14px 12px;
+    background: #faf7f1; border:1px solid var(--line); border-radius:12px;
+  }
+  .reunite-card .ru-col-head{
+    display:flex; flex-direction:column; gap:4px; margin-bottom:10px;
+    padding-bottom:10px; border-bottom:1px solid var(--line);
+  }
+  .reunite-card .ru-badge{
+    display:inline-flex; align-items:center; gap:5px;
+    align-self:flex-start;
+    padding: 4px 10px; border-radius:100px;
+    font-family:var(--maru); font-size:12px; font-weight:800;
+    color:#fff;
+  }
+  .reunite-card .ru-badge-bus{ background: var(--green);}
+  .reunite-card .ru-badge-self{ background: var(--amber);}
+  .reunite-card .ru-col-sub{ font-size:11.5px; color:var(--ink-3); padding-left:2px;}
+
+  .reunite-card .ru-list{
+    list-style:none; margin:0; padding:0;
+    display:flex; flex-direction:column; gap:8px;
+  }
+  .reunite-card .ru-list li{
+    display:flex; align-items:center; gap:10px;
+    font-size:13px; color:var(--ink-2); line-height:1.5;
+  }
+  .reunite-card .ru-plan{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:24px; height:24px; flex-shrink:0;
+    background:#fff; border:1.5px solid var(--ink);
+    border-radius:6px; font-family:var(--en);
+    font-size:12px; font-weight:800; color:var(--ink);
+  }
+  .reunite-card .ru-foot{
+    margin-top:14px; padding-top:12px; border-top:1px dashed var(--line);
+    font-size:12.5px; color:var(--ink-3); line-height:1.7;
+  }
+  .reunite-card .ru-foot::before{ content:"⚠ "; color:var(--amber); font-weight:700;}
 
   /* ============== HOTEL ============== */
   .hotel-card{
@@ -1327,7 +1780,7 @@
         <span class="meet-tag amber">COST</span>
       </div>
       <div class="meet-body">
-        会社負担：<strong>宿泊・移動・夕食(DAY1)・朝食(DAY2)</strong><br>
+        会社負担：<strong>宿泊・移動・夕食(DAY1)・朝食(DAY2)・DAY2アクティビティ費用(2,000円まで)</strong><br>
         自己負担：<strong>昼食（2日分）</strong>
       </div>
     </div>
@@ -1395,6 +1848,26 @@
       </div>
     </a>
   </div>
+
+  <!-- 特別カード:動画ギフト企画 -->
+  <a class="nav-special" href="#videogift" onclick="showPage('videogift',event)">
+    <div class="ns-badge">
+      <span class="ns-badge-dot"></span>SPECIAL PROJECT
+    </div>
+    <div class="ns-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M23 7l-7 5 7 5V7z"/>
+        <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+      </svg>
+    </div>
+    <div class="ns-eyebrow">07 · From all of us</div>
+    <h3>旅の撮影素材はこちらに！</h3>
+    <p class="ns-sub">旅の"リアルな笑顔"と"きれいな景色"を撮って、UNWINDの皆さんへ素材プレゼント。</p>
+    <div class="ns-cta">
+      <span>撮影スポットリストを見る</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </div>
+  </a>
 
   <!-- LINE カード -->
   <a class="home-line" href="https://line.me/ti/g2/DRWLEJFC9eB3YihJZYDHFTClQMscqHCkWA-Nvw?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default" target="_blank" rel="noopener">
@@ -1498,22 +1971,36 @@
       <ul class="schedule-list" id="day2List"></ul>
     </div>
 
-    <!-- 東京組向け：チェックイン後の自由時間案内 -->
-    <div class="in-house-card" aria-label="東京組の到着後・館内での過ごし方">
+    <!-- 東京組向け：チェックイン後の過ごし方 -->
+    <div class="in-house-card" aria-label="東京組の到着後・フリーワインまでの過ごし方">
       <div class="ih-head">
         <span class="ih-tag">東京組向け</span>
         <h4>ホテル着後、フリーワインまでの過ごし方</h4>
       </div>
-      <p class="ih-lead">14:00頃にホテル到着後、17:00 のフリーワイン開始まで自由時間です。館内で寛いだり、湯ノ湖のほとりを散策したり、ご自由にどうぞ。</p>
+      <p class="ih-lead">15:00頃ホテル到着後、17:00 のフリーワインまでは <b>UNWINDスタッフのガイド付き湯元散策</b> と休憩でお過ごしいただきます。</p>
 
       <div class="ih-section">
-        <div class="ih-section-title">◆ おすすめの過ごし方</div>
+        <div class="ih-section-title">◆ タイムライン</div>
         <ul class="ih-list">
-          <li><b>湯ノ湖散策</b>：ホテル目の前。ぐるっと一周1時間ほど。</li>
-          <li><b>館内見学</b>：新規開業ホテルを探検してみてください。</li>
-          <li><b>大浴場・温泉</b>：奥日光の名湯でひと風呂。夕食前にさっぱり。</li>
-          <li><b>お部屋でゆっくり</b>：早朝集合だったので、少し休むのも◎。</li>
+          <li><b>15:00 〜 15:30</b>　チェックイン・荷物置き</li>
+          <li><b>15:30 〜 16:30</b>　湯元散策（ガイド付き／2コースに分かれて1時間程度）</li>
+          <li><b>16:30 〜 17:00</b>　休憩・自由行動</li>
         </ul>
+      </div>
+
+      <div class="ih-section">
+        <div class="ih-section-title">◆ 湯元散策コース（2グループに分かれます）</div>
+        <ul class="ih-list">
+          <li>
+            <b>Aコース｜安倍さん</b>：北東の温泉を周るコース<br>
+            👉 <b>湯元の歴史を中心にガイド</b>
+          </li>
+          <li>
+            <b>Bコース｜長谷川さん</b>：北西の展望台を目指すコース<br>
+            👉 ご自身も釣りをされるとのことで、<b>自然を中心にガイド</b>
+          </li>
+        </ul>
+        <p class="ih-note">※コース分けは当日フロント前で決めます。歩きやすい靴・雨具の準備を。</p>
       </div>
 
       <div class="ih-section">
@@ -1551,7 +2038,7 @@
     <div class="act-intro">
       <div class="ai-icon">🚌</div>
       <div>
-        <b>7:45に渋谷を出発</b>し、道中2つの見学地を巡ってホテルへ。<br>地方組は16:30に東武日光駅集合、貸切バスでホテルへ向かい合流します。
+        <b>7:15に渋谷を出発</b>し、道中2つの見学地を巡ってホテルへ。<br>地方組は16:30に東武日光駅集合、貸切バスでホテルへ向かい合流します。
       </div>
     </div>
 
@@ -1619,10 +2106,10 @@
           <div class="ac-head-text">
             <span class="ac-order">18:00 – 19:30 ／ 約1時間半</span>
             <h4>入館式 ＋ 夕食</h4>
-            <div class="ac-loc">UNWIND HOTEL &amp; BAR 奥日光</div>
+            <div class="ac-loc">ダイニング（UNWIND HOTEL &amp; BAR 奥日光）</div>
           </div>
         </div>
-        <p class="ac-desc">入館式のあと夕食。奥日光スタッフに感謝しながら、初日の乾杯を。</p>
+        <p class="ac-desc">入館式のあと夕食。ビール・ハイボール・レモンサワーに加え、産地シロップのサワー・ノンアルもセルフでご用意。</p>
         <div class="ac-tags">
           <span class="ac-tag"># 全員参加</span>
           <span class="ac-tag"># 会社負担</span>
@@ -1659,20 +2146,24 @@
           <div class="ac-head-text">
             <span class="ac-order">21:30 – 24:00 ／ 自由参加</span>
             <h4>二次会</h4>
-            <div class="ac-loc">バー ／ 各部屋</div>
+            <div class="ac-loc">ダイニング（夕食と同会場）</div>
           </div>
         </div>
-        <p class="ac-desc">バーで、あるいは部屋飲みで、ゆるく夜を延長。自由参加なので早めに切り上げて休むのももちろんOK。24:00には終了、翌日に備えましょう。</p>
+        <p class="ac-desc">夕食に引き続きダイニングでもう一杯。ドリンクは夕食時と同じ。自由参加なので早めに切り上げて休むのももちろんOK。24:00には終了、翌日に備えましょう。</p>
+        <ul class="ac-sublist">
+          <li><b>23:00</b> 星を見に行く ✨ ― 奥日光の夜空へ。希望者で少し外に出て星空鑑賞。</li>
+        </ul>
         <div class="ac-tags">
           <span class="ac-tag"># 自由参加</span>
-          <span class="ac-tag"># バー</span>
-          <span class="ac-tag"># 部屋飲み</span>
+          <span class="ac-tag"># ダイニング</span>
+          <span class="ac-tag"># セルフドリンク</span>
+          <span class="ac-tag"># 星空鑑賞</span>
         </div>
       </li>
     </ol>
 
     <div class="act-note">
-      地方組で14時以前に日光到着可能な方は、東照宮周辺で東京組と合流いただけます（詳細は「注意事項」参照）。
+      地方組で14時以前に日光到着可能な方は、東照宮周辺で東京組と合流いただけます（詳細は「移動」セクションの地方組カード参照）。
     </div>
   </section>
 
@@ -1686,7 +2177,8 @@
     <div class="act-intro">
       <div class="ai-icon">🚌</div>
       <div>
-        <b>8:45にホテルを出発</b>し、下記の順にバスで各会場を回ります。<br>該当プランの方は、自分の会場でバスを降りてください。
+        <b>8:45にホテルを出発</b>。A→B→Cプランの方は貸切バスで各会場へ、<b>Dプランの方は 8:37 湯元温泉バス停発の公共バス</b>で mekke 日光郷土センターへ向かいます。<br>
+        <span style="display:inline-block;margin-top:6px;padding:4px 10px;background:rgba(212,133,74,.12);border-radius:6px;font-size:12.5px;">⚠ <b>チェックアウトはできるだけ朝食前</b>に済ませてください（退館式 8:25）</span>
       </div>
     </div>
 
@@ -1764,13 +2256,55 @@
           </div>
         </div>
         <p class="ac-desc">日光の伝統工芸や食文化に触れる、屋内型のワークショップ体験。手を動かしながら日光の"もの"を持ち帰れるコース。</p>
+        <ul class="ac-sublist">
+          <li><b>移動</b>Dプランのみ<b>公共バスで移動</b>／<b>8:37 湯元温泉（バス停）出発</b>。時間厳守でお願いします。</li>
+        </ul>
         <div class="ac-tags">
           <span class="ac-tag"># ものづくり</span>
           <span class="ac-tag"># 屋内</span>
           <span class="ac-tag"># 雨天でも安心</span>
+          <span class="ac-tag"># 公共バス移動</span>
         </div>
       </li>
     </ol>
+
+    <!-- 13:50 日光駅周辺 集合（プランごとの移動方法分岐） -->
+    <div class="reunite-card" aria-label="13:50 日光駅周辺 集合の移動方法">
+      <div class="ru-head">
+        <div class="ru-time">
+          <span class="ru-h">13:50</span>
+          <span class="ru-label">MEET</span>
+        </div>
+        <div class="ru-head-text">
+          <span class="ru-order">14:00 解散前の集合</span>
+          <h4>日光駅周辺 集合</h4>
+          <div class="ru-sub">アクティビティにより移動方法が異なります</div>
+        </div>
+      </div>
+      <div class="ru-split">
+        <div class="ru-col ru-bus">
+          <div class="ru-col-head">
+            <span class="ru-badge ru-badge-bus">🚌 団体バス</span>
+            <span class="ru-col-sub">貸切バスで日光駅へ</span>
+          </div>
+          <ul class="ru-list">
+            <li><span class="ru-plan">A</span>戦場ヶ原トレッキング：湯滝着</li>
+            <li><span class="ru-plan">B</span>中禅寺湖 SUP 体験</li>
+          </ul>
+        </div>
+        <div class="ru-col ru-self">
+          <div class="ru-col-head">
+            <span class="ru-badge ru-badge-self">🚶 直接日光駅へ</span>
+            <span class="ru-col-sub">各自で日光駅へ移動</span>
+          </div>
+          <ul class="ru-list">
+            <li><span class="ru-plan">C</span>東照宮見学</li>
+            <li><span class="ru-plan">D</span>mekke 日光郷土センター（ワークショップ）</li>
+          </ul>
+        </div>
+      </div>
+      <div class="ru-foot">集合場所は当日ご案内。時間厳守でお願いします。</div>
+    </div>
 
     <div class="act-note">
       希望プランの調整・最終確定は Google チャットで別途ご連絡します。装備や集合場所の詳細も追ってご案内します。
@@ -1805,18 +2339,57 @@
         <div class="tc-day-block day1">
           <div class="tc-day-label">DAY 1 <span class="tc-day-en">行き</span><span class="tc-day-date">7/16</span></div>
           <ul class="tc-timeline">
-            <li class="key"><b>07:30</b>HOTEL GRAPHY 渋谷 集合</li>
-            <li class="key"><b>07:45</b>バス出発</li>
+            <li class="key"><b>06:45</b>HOTEL GRAPHY 渋谷 集合</li>
+            <li class="key"><b>07:15</b>バス出発</li>
             <li><b>11:00</b>足尾銅山 着</li>
           </ul>
+
+          <!-- 集合場所ハイライト -->
+          <div class="tc-meetup" aria-label="HOTEL GRAPHY 渋谷 集合場所詳細">
+            <div class="tcm-head">
+              <span class="tcm-tag">Meetup</span>
+              <span class="tcm-pin">📍</span>
+              <span class="tcm-title">集合場所の詳細</span>
+            </div>
+            <figure class="tcm-figure">
+              <img src="assets/meetup-hotel-graphy.png" alt="HOTEL GRAPHY 渋谷 入口向かって左・89の柱がある駐車場の集合場所ストリートビュー" loading="lazy"/>
+              <figcaption class="tcm-caption">赤枠内が集合スペース／右奥が HOTEL GRAPHY 入口</figcaption>
+            </figure>
+            <div class="tcm-body">
+              HOTEL GRAPHY 渋谷 <b>入口に向かって左</b>、<span class="hi">「89」の柱がある駐車場</span> に集合してください。
+            </div>
+            <ul class="tcm-points">
+              <li><b>目印：</b>建物側面の <b>「89」</b> と書かれた柱／隣は「SHIBUYA BRIDGE 88」の入口</li>
+              <li><b>ホテル館内ではなく屋外</b>の駐車場スペースです。ロビーで待っていると気づけないのでご注意を</li>
+              <li>雨天でも同じ場所（屋根あり）。バスはこの前に横付けします</li>
+            </ul>
+            <a class="tcm-map" href="https://www.google.com/maps/search/?api=1&query=HOTEL+GRAPHY+%E6%B8%8B%E8%B0%B7" target="_blank" rel="noopener">Google マップで開く →</a>
+          </div>
         </div>
 
         <div class="tc-day-block day2">
           <div class="tc-day-label">DAY 2 <span class="tc-day-en">帰り</span><span class="tc-day-date">7/17</span></div>
           <ul class="tc-timeline">
+            <li class="key"><b>13:50</b>日光駅周辺 集合 ★</li>
             <li class="key"><b>14:00</b>日光駅からバス搭乗</li>
             <li><b>17:00</b>渋谷着・解散</li>
           </ul>
+
+          <!-- 13:50集合の移動方法（アクティビティ別分岐） -->
+          <div class="tc-reunite" aria-label="13:50 日光駅周辺集合までの移動方法">
+            <div class="tcr-head">
+              <span class="tcr-tag">13:50 集合</span>
+              <span class="tcr-title">アクティビティ別・日光駅までの移動方法</span>
+            </div>
+            <div class="tcr-row">
+              <span class="tcr-badge tcr-bus">🚌 団体バス</span>
+              <span class="tcr-plans"><b>A</b> 戦場ヶ原トレッキング／<b>B</b> 中禅寺湖 SUP</span>
+            </div>
+            <div class="tcr-row">
+              <span class="tcr-badge tcr-self">🚶 直接日光駅へ</span>
+              <span class="tcr-plans"><b>C</b> 東照宮見学／<b>D</b> mekke ワークショップ</span>
+            </div>
+          </div>
         </div>
 
         <div class="tc-note">貸切バスのため <b>集合時間厳守</b>。1分でも遅れたら追いかける感じになります。</div>
@@ -1840,12 +2413,28 @@
         <div class="tc-day-block day2">
           <div class="tc-day-label">DAY 2 <span class="tc-day-en">帰り</span><span class="tc-day-date">7/17</span></div>
           <ul class="tc-timeline">
+            <li class="key"><b>13:50</b>日光駅周辺 集合</li>
             <li class="key"><b>14:00</b>集合場所にて現地解散</li>
             <li><b>以降</b>各自、公共交通機関で羽田・成田・各地へ</li>
           </ul>
         </div>
 
         <div class="tc-note">東武日光駅の集合時刻は <b>16:30厳守</b>。乗り換えに余裕をもって。</div>
+
+        <div class="tc-early">
+          <div class="tce-head">
+            <span class="tce-tag">EARLY</span>
+            <span class="tce-title">14時以前に日光に到着できる方へ</span>
+          </div>
+          <div class="tce-body">
+            早く到着できる方は、<b>直接体験場所（東照宮周辺）</b>へお越しの上、LINEまたはお電話で日名までご連絡ください。<br>
+            東京組の東照宮着は <b>12:30予定</b> のため、それまでは日光駅周辺で観光してお待ちください。
+          </div>
+          <a class="tce-call" href="tel:08068126598">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+            日名さん 080-6812-6598
+          </a>
+        </div>
 
         <a class="tc-doc" href="https://docs.google.com/document/d/1FYGlzENNhXUHGHr03GjVUgsnc5uwftX0qlni3AtLxAg/edit?usp=sharing" target="_blank" rel="noopener">
           <div class="tc-doc-icon">
@@ -2148,16 +2737,13 @@
         <b>休暇扱い：</b>1.5日出勤＋0.5日有休利用となります。
       </div>
       <div class="notice">
-        <b>貸切バスは時間厳守。</b>東京組7:30／地方組16:30集合、いずれも遅れたら自走になります。
+        <b>貸切バスは時間厳守。</b>東京組6:45／地方組16:30集合、いずれも遅れたら自走になります。
       </div>
       <div class="notice">
         <b>国立公園内です。</b>ゴミは持ち帰り、動植物を傷つけないよう、自然に敬意を払って。
       </div>
       <div class="notice">
         <b>食事の負担：</b>夕食(DAY1)・朝食(DAY2)は会社負担、昼食は自己負担です。
-      </div>
-      <div class="notice">
-        <b>【DAY1／地方組の方へ】</b>14時以前に日光に到着できる方は、<b>直接体験場所（東照宮周辺）</b>へお越しの上、LINEまたはお電話で日名まで連絡してください（<a href="tel:08068126598" style="color:inherit; text-decoration:underline; text-underline-offset:3px;">080-6812-6598</a>）。東京組の東照宮着は <b>12:30予定</b> のため、それまでは日光駅周辺で観光してお待ちください。
       </div>
     </div>
   </section>
@@ -2254,6 +2840,110 @@
   
   </div>
 
+  <!-- ============== VIDEO GIFT PAGE ============== -->
+  <div class="page" data-page="videogift">
+    <div class="subpage-bar">
+      <button class="back-link" onclick="goHome()"><span class="bl-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></span>Home</button>
+      <span class="sp-title">07 · Video Gift</span>
+    </div>
+
+    <!-- ヒーロー -->
+    <section class="vg-hero reveal">
+      <div class="vg-badge">
+        <span class="vg-badge-dot"></span>SPECIAL PROJECT
+      </div>
+      <h2>みんなの動画で、<br>ホテルに<em>恩返し！</em><br>「思い出素材」プレゼント企画</h2>
+      <p class="vg-lead">旅の"リアルな笑顔"と"奥日光のきれいな景色"をたくさん撮って、UNWINDの皆さんへお礼のプチプレゼントに。</p>
+    </section>
+
+    <!-- メッセージ -->
+    <section class="vg-message reveal">
+      <div class="vg-msg-eyebrow">About this project</div>
+      <h3 class="vg-msg-title">「特派員」として、旅の瞬間を撮ってください。</h3>
+      <p>今回の旅行をさらに楽しく、そしてちょっと特別なものにするために、<b>【プチプレゼント企画】</b>を立ち上げました！</p>
+      <p>今回お世話になる <b>UNWIND HOTEL &amp; BAR 奥日光</b> の皆さんに向けたささやかなプレゼントとして、私たちが旅行を思いっきり楽しんでいる<b>「リアルな笑顔」</b>や<b>「奥日光のきれいな景色」</b>の動画をたくさん撮影して、旅行の最後に <span class="amber">『お礼のプチプレゼント（自由に使っていただける動画素材）』</span> としてお届けしたいと思っています！</p>
+      <p>そこで旅の間、皆さんには <b>「特派員」</b> になっていただき、スマホで自由に楽しい瞬間を撮影していただきたいです！</p>
+      <p>下の「SNS映えスポットリスト」を参考に、メンバーと「これ美味しそう！」「ここ行ってみたい！」とワイワイ言いながら、<b>10秒〜30秒程度の動画や写真</b>をたくさん撮ってみてください。</p>
+      <p>技術や編集は一切気にしなくてOK！<b>「楽しそうな笑顔」</b>や<b>「現地の美味しい音」</b>が最高の素材になります。もちろん、集まった動画は社内でも共有するので、私たちの最高の思い出アルバムにもなります。</p>
+      <p>みんなで旅行を全力で楽しみながら、UNWIND HOTEL &amp; BAR 奥日光へ素敵なお裾分けをお届けしましょう。<b>ぜひご協力よろしくお願いします！</b></p>
+    </section>
+
+    <!-- How to (3ステップ) -->
+    <section class="vg-how reveal">
+      <h3>参加ステップ</h3>
+      <ol class="vg-steps">
+        <li class="vg-step">
+          <span class="vs-num">1</span>
+          <div class="vs-body">
+            <div class="vs-title">スポットリストを見る</div>
+            <div class="vs-desc">下のリストからエリアを選んで、行けそう／撮れそうなスポットを見つけてください。カメラワークのヒントも載っています。</div>
+          </div>
+        </li>
+        <li class="vg-step">
+          <span class="vs-num">2</span>
+          <div class="vs-body">
+            <div class="vs-title">10〜30秒の動画・写真を撮る</div>
+            <div class="vs-desc">縦向きスマホ撮影でOK。編集不要、素材のまま。「笑顔」「音」「動き」があるとリールで活きます。</div>
+          </div>
+        </li>
+        <li class="vg-step">
+          <span class="vs-num">3</span>
+          <div class="vs-body">
+            <div class="vs-title">DAY1 の夜までに Google Drive に投稿</div>
+            <div class="vs-desc">下のリンクから素材格納フォルダへ。ファイル名は気にしなくてOK、そのままアップロードしてください。</div>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- Google Drive リンク -->
+    <a class="vg-drive reveal" href="https://drive.google.com/drive/folders/1mpcc3ZyVqvn0oAkGRmISamLRxUhzkbot?usp=sharing" target="_blank" rel="noopener">
+      <div class="vd-icon">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.71 3.5L1.15 15l3.42 6h14.86l3.42-6L16.29 3.5H7.71zm.72 1.5h7.14l5.71 10H2.72l5.71-10z"/></svg>
+      </div>
+      <div class="vd-body">
+        <div class="vd-eyebrow">Google Drive</div>
+        <div class="vd-title">リール素材 格納フォルダ</div>
+        <div class="vd-sub">ここに動画・写真をアップロード</div>
+      </div>
+      <div class="vd-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </div>
+    </a>
+
+    <!-- スポットリスト見出し -->
+    <section class="vg-list-head reveal">
+      <div class="vlh-eyebrow">Photo & Video spots</div>
+      <h3>SNS映えスポットリスト</h3>
+      <p class="vlh-lead">エリアごとに切替えられます。各スポットをタップすると、動画のフックとおすすめカメラワークが見られます。</p>
+    </section>
+
+    <!-- エリアタブ -->
+    <div class="vg-area-tabs" id="vgAreaTabs" role="tablist"></div>
+
+    <!-- スポットリスト -->
+    <div class="vg-spot-list" id="vgSpotList"></div>
+
+    <!-- 撮影のコツ -->
+    <div class="vg-tips reveal">
+      <div class="vt-eyebrow">Tips</div>
+      <h4>撮影のちょっとしたコツ</h4>
+      <ul>
+        <li><b>縦向き（9:16）で撮る</b>：リール・ショート向けの標準。横向きより素材として使いやすい。</li>
+        <li><b>音を活かす</b>：滝の音、囲炉裏の炭のはぜる音、食べる時の「サクッ」……環境音は最高の素材。</li>
+        <li><b>笑顔の一瞬</b>：食べた瞬間の「うまっ！」、絶景を見た瞬間の「うわぁ〜」など、リアクションの動画は特に好まれます。</li>
+        <li><b>手ブレはOK</b>：完璧を目指さず、量を優先で。編集で選びます。</li>
+      </ul>
+    </div>
+
+    <!-- サンキュー -->
+    <div class="vg-thanks reveal">
+      <div class="vth-eyebrow">Thank you</div>
+      <h4>みんなの一瞬を、UNWINDへ。</h4>
+      <p>ご協力ありがとうございます。<br>撮った瞬間ぜんぶが、素敵な素材になります。</p>
+    </div>
+  </div>
+
   <!-- FOOTER (全ページ共通・軽量) -->
   <footer class="site-footer">
     <div class="footer-meta">
@@ -2268,34 +2958,37 @@
   // ============== SCHEDULE DATA ==============
   const day1 = [
     // ============ 東京組 ============
-    {time:"07:30", group:"tokyo", title:"HOTEL GRAPHY 渋谷 集合", own:false, detail:"東京組は <a href=\"https://www.google.com/maps/search/?api=1&query=HOTEL+GRAPHY+%E6%B8%8B%E8%B0%B7\" target=\"_blank\" rel=\"noopener\" style=\"color:inherit;text-decoration:underline;text-underline-offset:3px;\">HOTEL GRAPHY 渋谷</a> にお越しください。時間厳守でお願いします。", key:true},
-    {time:"07:45", group:"tokyo", title:"バス出発", own:false, detail:"貸切バスで足尾銅山へ向けて出発。<b>渋谷 → 足尾銅山は 片道 約3時間</b>（休憩含む）の道のりです。"},
+    {time:"06:45", group:"tokyo", title:"HOTEL GRAPHY 渋谷 集合", own:false, detail:"東京組は <a href=\"https://www.google.com/maps/search/?api=1&query=HOTEL+GRAPHY+%E6%B8%8B%E8%B0%B7\" target=\"_blank\" rel=\"noopener\" style=\"color:inherit;text-decoration:underline;text-underline-offset:3px;\">HOTEL GRAPHY 渋谷</a> にお越しください。時間厳守でお願いします。<br><br><b>📍 集合場所：</b>入口に向かって<b>左、「89」の柱がある駐車場</b>スペース（ホテル館内ではなく屋外）。詳しくは「移動」セクションの東京組カードに写真付き案内があります。", key:true},
+    {time:"07:15", group:"tokyo", title:"バス出発", own:false, detail:"貸切バスで足尾銅山へ向けて出発。<b>渋谷 → 足尾銅山は 片道 約3時間</b>（休憩含む）の道のりです。"},
     {time:"11:00", group:"tokyo", title:"足尾銅山 見学", own:false, detail:"11:00–12:00 ⁄ 約1時間。バスで到着後、足尾銅山を見学。トロッコで坑道へ。"},
     {time:"12:00", group:"tokyo", title:"バス移動（足尾 → 東照宮）", own:false, transit:true, detail:"12:00–12:30 ⁄ 約30分のバス移動。"},
     {time:"12:30", group:"tokyo", title:"東照宮周辺で自由行動・各自ランチ", cost:"自己負担", own:true, detail:"12:30–14:00 ⁄ 約1時間半の自由行動。<b>東照宮に参拝してもよし、周辺観光でもよし</b>。各自でお店を選んでランチもどうぞ。下のおすすめスポットを参考に。"},
     {time:"14:00", group:"tokyo", title:"バス移動（いろは坂 → ホテル）", own:false, transit:true, detail:"14:00–15:00 ⁄ 約1時間のバス移動。いろは坂を経由してホテルへ。"},
-    {time:"15:00", group:"tokyo", title:"ホテル着", own:false, detail:"ホテル到着。到着後は自由時間。館内注意事項は下記参照。", key:true},
+    {time:"15:00", group:"tokyo", title:"ホテル着 ／ チェックイン", own:false, detail:"ホテル到着。フロントでルームキーを受け取り、荷物を部屋へ。館内注意事項は下記参照。", key:true},
+    {time:"15:30", group:"tokyo", title:"湯元散策（UNWINDスタッフのガイド付き）", own:false, detail:"15:30–16:30 ⁄ 約1時間。2グループに分かれて湯元周辺を歩きます。<br><br><b>◆ Aコース（安倍さんガイド）</b>：北東の温泉を周るコース。<b>湯元の歴史を中心にご案内</b>します。<br><br><b>◆ Bコース（長谷川さんガイド）</b>：北西の展望台を目指すコース。長谷川さんご自身も釣りをされるとのことで、<b>自然を中心にご案内</b>します。<br><br>※コース分けは当日フロント前で決めます。歩きやすい靴でどうぞ。", key:true},
+    {time:"16:30", group:"tokyo", title:"休憩・自由行動", own:false, detail:"16:30–17:00 ⁄ フリーワインまでの30分。散策のあとは館内で一息。大浴場でさっぱりしたり、お部屋でゆっくりしたり、ご自由に。"},
 
     // ============ 地方組 ============
+    {time:"〜14:00", group:"local", title:"【早着OKの方】東照宮周辺で東京組と合流", own:false, detail:"14時以前に日光到着できる地方組の方は、<b>直接体験場所（東照宮周辺）</b>へお越しください。事前にLINEまたはお電話で <b>日名さん（<a href=\"tel:08068126598\" style=\"color:inherit;text-decoration:underline;text-underline-offset:3px;\">080-6812-6598</a>）</b>までご連絡を。<br>東京組の東照宮着は <b>12:30予定</b> なので、それまでは日光駅周辺で観光してお待ちください。"},
     {time:"16:30", group:"local", title:"東武日光駅 集合", own:false, detail:"★地方組はこの時間に東武日光駅集合。貸切バスでホテルへ向かいます。", key:true},
     {time:"16:30", group:"local", title:"バス移動（日光駅 → ホテル）", own:false, transit:true, detail:"16:30–17:30 ⁄ 約1時間のバス移動。"},
     {time:"17:30", group:"local", title:"ホテル着", own:false, detail:"貸切バスでホテル到着。チェックインを済ませて、下のフリーワインへ。"},
 
     // ============ 合流 ============
-    {time:"17:00", title:"フリーワイン", cost:"会社負担", own:false, detail:"ウェルカムワインで乾杯。到着した人からゆるく集まりましょう。<br>※地方組は到着後、合流してください。"},
-    {time:"18:00", title:"入館式 ＋ 夕食", cost:"会社負担", own:false, detail:"会場：<a href=\"https://www.google.com/maps/search/?api=1&query=UNWIND+HOTEL+%26+BAR+%E5%A5%A5%E6%97%A5%E5%85%89\" target=\"_blank\" rel=\"noopener\" style=\"color:inherit;text-decoration:underline;text-underline-offset:3px;\">UNWIND HOTEL &amp; BAR 奥日光</a><br>入館式のあと、全員で同じテーブルを囲む夕食。", key:true},
+    {time:"17:00", title:"フリーワイン", cost:"会社負担", own:false, detail:"ウェルカムドリンクで乾杯。到着した人からゆるく集まりましょう。<br>※地方組は到着後、合流してください。<br><br><b>◆ 会場</b>：ロビーを予定。<br><span style=\"font-size:12px;color:var(--ink-3);\">※施工の進捗状況により、ホールまたはダイニングに変更になる可能性あり。</span><br><br><b>◆ ドリンク</b>：ビール・ワインのほか、数種類の産地のシロップを使ったサワー・ノンアルドリンクをご用意。<br><br><b>◆ 形式</b>：一人ひとつずつプラカップを配布します。<b>セルフ式</b>でご自由にどうぞ。"},
+    {time:"18:00", title:"入館式 ＋ 夕食", cost:"会社負担", own:false, detail:"会場：<b>ダイニング</b>（<a href=\"https://www.google.com/maps/search/?api=1&query=UNWIND+HOTEL+%26+BAR+%E5%A5%A5%E6%97%A5%E5%85%89\" target=\"_blank\" rel=\"noopener\" style=\"color:inherit;text-decoration:underline;text-underline-offset:3px;\">UNWIND HOTEL &amp; BAR 奥日光</a>）<br>入館式のあと、全員で同じテーブルを囲む夕食。<br><br><b>◆ ドリンク</b>：協賛でいただく<b>ビール・ハイボール・レモンサワー</b>と、数種類の産地のシロップを使ったサワー・ノンアルドリンクをご用意。<br><br><b>◆ 形式</b>：ドリンクは<b>セルフ式</b>です。", key:true},
     {time:"19:30", title:"ゲーム ①", own:false, detail:"19:30–20:15 ／ 45分の企画。チーム分けは当日発表。"},
     {time:"20:30", title:"ゲーム ②", own:false, detail:"20:30–21:15 ／ 続けて2本目、45分。"},
-    {time:"21:30", title:"二次会", own:false, detail:"バー or 部屋飲み。自由参加。"},
+    {time:"21:30", title:"二次会", own:false, detail:"自由参加。<br><br><b>◆ 会場</b>：ダイニング予定。<br><br><b>◆ ドリンク</b>：夕食時と同じ（ビール・ハイボール・レモンサワー・シロップサワー・ノンアルドリンク）。<br><br><b>◆ 23:00 星を見に行く</b> ✨<br>奥日光の澄んだ夜空へ。希望者で少し外に出て星空鑑賞します。防寒・履き慣れた靴推奨。"},
     {time:"24:00", title:"終了", own:false, detail:"明日もあるので、ほどほどに。おやすみなさい。"},
   ];
 
   const day2 = [
-    {time:"07:00", title:"朝食", cost:"会社負担", own:false, detail:"会場：<a href=\"https://www.google.com/maps/search/?api=1&query=UNWIND+HOTEL+%26+BAR+%E5%A5%A5%E6%97%A5%E5%85%89\" target=\"_blank\" rel=\"noopener\" style=\"color:inherit;text-decoration:underline;text-underline-offset:3px;\">UNWIND HOTEL &amp; BAR 奥日光</a><br>7:00〜8:30 の間で。高原の朝ごはん。早起きの人は湖畔散歩も。", key:true},
-    {time:"08:30", title:"退館式", own:false, detail:"チェックアウトを済ませ、退館式。", key:true},
-    {time:"08:45", title:"全員バスへ乗車 → 各アクティビティへ", own:false, detail:"貸切バスで各アクティビティ会場へ移動。<br><b>▼ バス着順（4プラン）</b><br>① 戦場ヶ原トレッキング：湯滝着（<b>Aプラン</b>）<br>② 中禅寺湖SUP体験（<b>Bプラン</b>）<br>③ 東照宮見学（<b>Cプラン</b>）<br>④ ワークショップ体験：mekke 日光郷土センター（<b>Dプラン</b>）<br><br>※コース分けや集合場所の詳細は <b>Google チャットで別途ご案内</b> します。", key:true},
+    {time:"07:00", title:"朝食", cost:"会社負担", own:false, detail:"7:00から、<b>順次起きてこられた方からのご案内</b>になります（一斉スタートではありません）。<br>内容は<b>一般営業と同じ</b>メニューです。<br><br><div style=\"padding:10px 12px;background:rgba(212,133,74,.12);border-radius:8px;font-size:12.5px;line-height:1.85;\"><b>⚠ お願い</b><br>朝食は一般営業の本番を想定したオペレーションで動きたいため、<b>一般のお客様のつもりでお越しください</b>。社員同士のノリではなく、実際に審査されるつもりでご協力を。<br><br><b>※できるだけ朝食前にチェックアウトを済ませて</b>ください。朝食後の動きがスムーズになります。</div>", key:true},
+    {time:"08:25", title:"退館式", own:false, detail:"退館式。<b>チェックアウトは朝食前までに済ませて</b>ください。", key:true},
+    {time:"08:45", title:"全員バスへ乗車 → 各アクティビティへ", own:false, detail:"貸切バスで各アクティビティ会場へ移動。<br><b>▼ バス着順（4プラン）</b><br>① 戦場ヶ原トレッキング：湯滝着（<b>Aプラン</b>）<br>② 中禅寺湖SUP体験（<b>Bプラン</b>）<br>③ 東照宮見学（<b>Cプラン</b>）<br><br><b>▼ Dプランの方は公共バスで移動</b><br>④ ワークショップ体験：mekke 日光郷土センター（<b>Dプラン</b>）→ <b>8:37 湯元温泉（バス停）発</b>の公共バスで日光駅方面へ。<br><br>※コース分けや集合場所の詳細は <b>Google チャットで別途ご案内</b> します。", key:true},
     {time:"12:30", title:"日光駅周辺でランチ", cost:"自己負担", own:true, detail:"日光駅周辺で各自昼食。<br><b>⚠ 結構混む可能性があるので、あまり迷っている暇はないかも。速やかに決めて食べましょう！</b>"},
-    {time:"13:50", title:"集合", own:false, detail:"集合場所は当日ご案内。時間厳守でお願いします。"},
+    {time:"13:50", title:"日光駅周辺 集合", own:false, detail:"14:00の解散に向けて日光駅周辺に集合。<b>アクティビティにより移動方法が異なります。</b><br><br><b>▼ 団体バスで日光駅へ</b><br>① 戦場ヶ原トレッキング：湯滝着（<b>Aプラン</b>）<br>② 中禅寺湖SUP体験（<b>Bプラン</b>）<br><br><b>▼ 直接日光駅へ</b><br>③ 東照宮見学（<b>Cプラン</b>）<br>④ ワークショップ体験：mekke 日光郷土センター（<b>Dプラン</b>）<br><br>集合場所は当日ご案内。時間厳守でお願いします。", key:true},
     {time:"14:00", title:"解散", own:false, detail:"東京組：貸切バスに乗車して渋谷へ向かいます。<br>地方組：各自、公共の移動手段で羽田・成田・各地へ。お疲れさまでした！<br><br>※早めに帰る方は、ご自身でバスまで荷物を取りに行って、そのまま出発していただく形でもOKです。", key:true},
     {time:"19:00", title:"バス渋谷着・解散（東京組）", own:false, detail:"東京組は HOTEL GRAPHY 渋谷周辺にて解散予定。お疲れさまでした！", key:true},
   ];
@@ -2590,7 +3283,7 @@
   })();
 
   // ============== ページ切替 (SPA-style) ==============
-  const VALID_PAGES = new Set(['home','schedule','activities','transport','prep','info','people']);
+  const VALID_PAGES = new Set(['home','schedule','activities','transport','prep','info','people','videogift']);
 
   function showPage(name, ev){
     if(ev) ev.preventDefault();
@@ -2652,6 +3345,173 @@
   // グローバルに公開(inline onclick から呼べるように)
   window.showPage = showPage;
   window.goHome = goHome;
+
+  // ============== VIDEO GIFT: スポットデータ & レンダリング ==============
+  // カテゴリ順序（表示順）
+  const vgAreaOrder = [
+    { key: "toshogu",   label: "東照宮・二社一寺" },
+    { key: "around",    label: "周辺・散策" },
+    { key: "gourmet",   label: "グルメ・食べ歩き" },
+    { key: "yunoko",    label: "湯ノ湖・奥日光" },
+    { key: "rare",      label: "レア・穴場" },
+  ];
+
+  const vgSpots = [
+    // ============ 東照宮・二社一寺 ============
+    { area:"toshogu", name:"日光東照宮 陽明門", cat:"建築・歴史", hook:"圧倒的な金箔と細密な彫刻。画面いっぱいの豪華絢爛さ。", work:"下から上へゆっくり動かす（チルトアップ）、または真下から超広角撮影", ref:{label:"風景全体を撮影する方法", url:"https://www.instagram.com/reel/DTZyhgeD3te/?utm_source=ig_web_copy_link&igsh=NTc4MTIwNjQ2YQ=="} },
+    { area:"toshogu", name:"三猿（見ざる言わざる聞かざる）", cat:"動物彫刻", hook:"誰もが知る有名彫刻。人間の生涯を風刺したストーリー性。", work:"ズームで周囲の混雑から三猿へフォーカス／自分の手でポーズを真似して画面に入り込む「再現ショット」", ref:{label:"前に歩く撮影方法", url:"https://www.instagram.com/reel/DW0yZjVgssU/?utm_source=ig_web_copy_link&igsh=NTc4MTIwNjQ2YQ=="} },
+    { area:"toshogu", name:"眠り猫", cat:"動物彫刻", hook:"国宝の小さな彫刻。裏側の「雀」との対比が平和の象徴として映える。", work:"ズームで周囲の混雑から猫へフォーカスを絞る", ref:{label:"観光地撮影", url:"https://www.tiktok.com/@nakashin_99/video/7653391036563148048?is_from_webapp=1&sender_device=pc"} },
+    { area:"toshogu", name:"奥社宝塔への石段", cat:"絶景・自然", hook:"杉木立に囲まれた207段の厳かな石段。苔むした石壁が美しい。", work:"倍速（タイムラプス）で階段を駆け上がる主観（POV）映像" },
+    { area:"toshogu", name:"五重塔", cat:"建築・歴史", hook:"入り口にそびえ立つ高さ36mの塔。赤と金のコントラストが鮮やか。", work:"ローアングルから空を見上げるように撮り、高さを強調" },
+    { area:"toshogu", name:"御本社（拝殿）", cat:"建築・歴史", hook:"東照宮で最も重要な場所。天井画や装飾が極めて精巧。", work:"細かい彫刻にグッと寄るマクロ撮影風" },
+    { area:"toshogu", name:"二荒山神社 神門", cat:"建築・歴史", hook:"大きな麻の輪、良縁成就のハート型絵馬など女子旅ウケ抜群。", work:"チルトアップ／おみくじを引く瞬間や絵馬を結ぶ手元のアップ" },
+    { area:"toshogu", name:"二荒山神社 夫婦杉", cat:"絶景・自然", hook:"1つの根から2本の杉がまっすぐ伸びる、パワースポットの象徴。", work:"根元から見上げて、2本の木が空へ伸びていくダイナミックなアングル" },
+    { area:"toshogu", name:"輪王寺 三仏堂", cat:"建築・歴史", hook:"日光山随一の大木造建築。中には高さ7.5mの巨大な金色の仏像。", work:"お堂の巨大さを伝えるため、人物を小さく配置した引きの構図" },
+    { area:"toshogu", name:"輪王寺 大猷院 唐門", cat:"建築・歴史", hook:"徳川家光の霊廟。東照宮とは対照的な「黒と金」の重厚な美しさ。", work:"門の隙間から奥の景色を覗くような「のぞき見」カメラワーク" },
+    { area:"toshogu", name:"大猷院 皇嘉門（竜宮門）", cat:"建築・歴史", hook:"竜宮城を思わせる独特な中国風の門。写真・動画映えNO.1とも。", work:"門を中央に配置した完全シンメトリー（左右対称）の構図" },
+    { area:"toshogu", name:"上神庫の想像の象", cat:"動物彫刻", hook:"実物を見ずに描かれたというユニークな象の彫刻。ツッコミどころあり。", work:"ズームで象へフォーカスを絞る" },
+    { area:"toshogu", name:"唐門", cat:"建築・歴史", hook:"全体が白い鍾乳細工のような彫刻で覆われた、小さくも緻密な門。", work:"細かい彫刻にグッと寄るマクロ撮影風" },
+    { area:"toshogu", name:"神厩舎（しんきゅうしゃ）", cat:"建築・歴史", hook:"三猿が彫られている、実際に神馬が暮らす木造の厩舎。", work:"神馬がいる時間帯（午前中など）を狙って、動く馬の姿を収める" },
+
+    // ============ 周辺名所・散策 ============
+    { area:"around", name:"神橋（しんきょう）", cat:"絶景・自然", hook:"大谷川の急流に架かる朱色の美しい橋。世界遺産の入り口。", work:"川のせせらぎ音を活かし、橋の全景から水面へカメラを縦に振る" },
+    { area:"around", name:"日光田母沢御用邸記念公園", cat:"建築・歴史", hook:"明治・大正・昭和の建築が融合した広大な木造邸宅。畳と絨毯のモダンさ。", work:"長い廊下を歩く主観（POV）動画、または窓越しに見る日本庭園" },
+    { area:"around", name:"憾満ヶ淵（かんまんがふ淵）", cat:"絶景・自然", hook:"地蔵群（並び地蔵）が川沿いに並ぶ、少しミステリアスな景勝地。", work:"行きと帰りで地蔵の数が変わる「化け地蔵」の都市伝説風リール" },
+    { area:"around", name:"日光金谷ホテル 外観", cat:"建築・歴史", hook:"現存する日本最古のクラシックホテル。アインシュタインも泊まった宿。", work:"クラシックカーやレトロな服装で、車寄せにアプローチする演出" },
+    { area:"around", name:"金谷ホテル歴史館（カテッジイン）", cat:"建築・歴史", hook:"「金谷カテッジイン」として知られる、武家屋敷利用のレトロな建物。", work:"囲炉裏や昔の階段など、日本の伝統美をシネマティックに切り取る" },
+    { area:"around", name:"松原町通りのレトロ街並み", cat:"街並み", hook:"東照宮へ続くメインストリート。石畳やレトロな看板の店舗が並ぶ。", work:"食べ歩きをしながら、お店からお店へとテンポよく画面を切り替える" },
+    { area:"around", name:"東武日光駅 駅舎", cat:"街並み", hook:"三角屋根が特徴的な山小屋風の駅舎。日光旅のスタート地点。", work:"駅に到着して改札を出る瞬間から動画スタート「旅の始まり」演出" },
+    { area:"around", name:"JR日光駅 駅舎", cat:"建築・歴史", hook:"明治期の洋風建築が残る、白くて美しいハーフティンバー様式の駅舎。", work:"2階の旧一等車専用待合室（ホワイトルーム）のシャンデリアを映す" },
+    { area:"around", name:"本宮神社", cat:"建築・歴史", hook:"神橋のすぐ近くにある、日光発祥の地とされる静かな神社。", work:"観光客が少ない穴場感を演出し、鳥居と緑のコントラストを静かに" },
+    { area:"around", name:"滝尾神社（たきのおじんじゃ）", cat:"パワースポット", hook:"杉の巨木に囲まれた、知る人ぞ知る強力なパワースポット。", work:"鳥居の小さな穴に石を3回投げて通す「運試しの鳥居」の挑戦動画" },
+    { area:"around", name:"滝尾神社の三本杉", cat:"絶景・自然", hook:"弘法大師が修行したとされる、神聖な空気が漂う3本の巨大な杉。", work:"下から見上げてカメラを時計回りに回転させ、神秘的な雰囲気を" },
+    { area:"around", name:"白糸の滝（天降の滝）", cat:"絶景・自然", hook:"滝尾神社の手前にある、絹糸を垂らしたような優美な滝。", work:"スローモーション機能で、水の流れを滑らかに表現" },
+    { area:"around", name:"開山堂", cat:"建築・歴史", hook:"日光を開山した勝道上人の仏堂。裏手には岩をくり抜いたお墓がある。", work:"お堂の朱色と、周囲の深い緑の色の対比を鮮明に強調" },
+    { area:"around", name:"観音堂（産泰堂）", cat:"体験・文化", hook:"将棋の「香車」が祀られており、安産祈願として香車を持ち帰る風習。", work:"並んでいるたくさんの将棋の駒にピントを合わせるマクロ撮影" },
+    { area:"around", name:"含満ヶ淵の慈雲寺", cat:"建築・歴史", hook:"地蔵群の入り口にある静かなお寺。阿弥陀如来の石像が並ぶ。", work:"歴史的なお寺の門をフレームに見立てて、奥の景色を撮る「額縁効果」" },
+
+    // ============ グルメ・食べ歩き ============
+    { area:"gourmet", name:"日光さかえや 揚げゆばまんじゅう", cat:"食べ歩きグルメ", hook:"サクサクの衣に大粒の岩塩。甘じょっぱさがクセになる行列グルメ。", work:"一口食べて「サクッ」というASMR音を拾い、中のあんこを見せる" },
+    { area:"gourmet", name:"日光ぷりん亭 プリンソフト", cat:"スイーツ", hook:"レトロな瓶プリンの上に、高く巻かれた可愛いソフトクリーム。", work:"お店のレトロなロゴ看板を背景にして、ソフトクリームを掲げて撮影" },
+    { area:"gourmet", name:"雲IZU 日光店 そっぽ焼き", cat:"食べ歩きグルメ", hook:"三猿モチーフのお猿の形をした可愛いカスタード・あんこ焼き。", work:"お猿の顔をカメラに大接近させ、半分に割って中のクリームを見せる" },
+    { area:"gourmet", name:"日光ドラバタさん どらやき", cat:"スイーツ", hook:"発酵バタークリームがこれでもかと厚く挟まれた進化系どら焼き。", work:"真横から「分厚さ」をアピール。包み紙を開ける瞬間のワクワク感" },
+    { area:"gourmet", name:"補陀洛本舗 ゆばむすび", cat:"食べ歩きグルメ", hook:"味付けご飯を日光特産の湯波で巻いた、お弁当にぴったりの名物。", work:"パックを開けて、お箸でゆばむすびを持ち上げる「箸上げ」の瞬間" },
+    { area:"gourmet", name:"明治の館 オムレツライス", cat:"グルメ", hook:"熟練シェフの、ふんわりトロトロ卵と濃厚デミグラスソース。", work:"スプーンで卵の真ん中を割り、トロッと広がる瞬間をスローで" },
+    { area:"gourmet", name:"明治の館 チーズケーキ日瑠華", cat:"スイーツ", hook:"デンマーク産クリームチーズを使用した、まったり濃厚な絶品ケーキ。", work:"フォークをケーキに沈める瞬間の、しっとりとした質感をアップで" },
+    { area:"gourmet", name:"日光金谷ホテル クラフトバニラ", cat:"スイーツ", hook:"百年以上の歴史を誇る伝統のレシピで作られたプレミアムアイス。", work:"高級感のある銀の器と、レトロなスプーンを合わせてシネマティックに" },
+    { area:"gourmet", name:"金谷ホテルベーカリー ロイヤルブレッド", cat:"お土産", hook:"ずっしりと重く、きめ細やかな小麦の香りが広がる伝統の食パン。", work:"パンを贅沢に手で半分に「モチッ」と引き裂く瞬間の映像" },
+    { area:"gourmet", name:"宮前だんご 味噌付け団子", cat:"食べ歩きグルメ", hook:"創業享保年間の老舗。囲炉裏で焼かれた香ばしい味噌の香り。", work:"タレが炭火に落ちて煙が立つ様子や、お団子に焦げ目がつくシーン" },
+    { area:"gourmet", name:"湯沢屋 水羊羹", cat:"スイーツ", hook:"日光の竹炭水を使用した、透き通るような喉ごしのあっさり水羊羹。", work:"箱からつるんと取り出す瞬間や、みずみずしい断面の輝きを捉える" },
+    { area:"gourmet", name:"三ツ山羊羹本舗 羊羹", cat:"スイーツ", hook:"昔ながらの製法で作られる、表面が少しシャリっとした伝統の羊羹。", work:"高級感のある和紙の包み紙を丁寧に解いていく「開封動画」風演出" },
+    { area:"gourmet", name:"日光人形焼 みしまや", cat:"食べ歩きグルメ", hook:"三猿や眠り猫の形をした、職人が一つ一つ焼き上げる人形焼き。", work:"型に生地を流し込み、お猿の形に焼き上がる職人の手元をタイムラプス" },
+    { area:"gourmet", name:"日光真光教会前のカフェテラス", cat:"カフェ", hook:"石造りの美しい教会の向かいにあるカフェ。海外のような雰囲気。", work:"テラス席に座り、コーヒーカップを持ち上げて奥の教会と画角に収める" },
+    { area:"gourmet", name:"日光グルマンズ和牛 ビーフカレー", cat:"グルメ", hook:"厳選和牛を贅沢に煮込んだ、知る人ぞ知る門前町の絶品カレー。", work:"白いご飯の上に、濃厚で具だくさんなルーを「とろ〜り」とかける瞬間" },
+    { area:"gourmet", name:"茶寮 おん 高徳庵 抹茶スイーツ", cat:"カフェ", hook:"和モダンな空間で味わう、濃厚な抹茶と日光湯波の抹茶パフェ。", work:"真横に近い位置から、何層にも重なった美しいグラデーションを見せる" },
+    { area:"gourmet", name:"甚五郎煎餅（石田屋）", cat:"お土産", hook:"バターのコクと塩気が絶妙な、日光土産の定番おせんべい。", work:"トレードマークの可愛い猫のキャラクター缶を開ける「パカッ」という音" },
+    { area:"gourmet", name:"日光 yuba cafe あずまや", cat:"カフェ", hook:"湯波を使ったガレットやスープなど、ヘルシーでお洒落な創作湯波料理。", work:"お洒落なワンプレート料理を、真上から撮影する（フラットレイ）構図" },
+    { area:"gourmet", name:"日本料理 繊月 ゆば御膳", cat:"グルメ", hook:"引き上げ湯波や巻き湯波など、様々な食感の湯波が美しく並ぶ御膳。", work:"お膳全体を映した後、1つ1つの湯波料理にテンポよくズームイン" },
+    { area:"gourmet", name:"日光珈琲 御用邸通", cat:"カフェ", hook:"古民家をリノベーションした、落ち着いた木漏れ日が差し込む空間。", work:"ハンドドリップでコーヒーがぽたぽたと落ちる瞬間を、環境音で" },
+
+    // ============ 湯ノ湖・奥日光 ============
+    { area:"yunoko", name:"湯滝（ゆだき）観瀑台", cat:"絶景・自然", hook:"湯ノ湖から一気に流れ落ちる巨大な滝。目の前まで迫る水しぶき。", work:"滝壺のすぐ近く（ウッドデッキ）から、上を向いて滝全体をダイナミックに" },
+    { area:"yunoko", name:"湯ノ湖レストハウスの焼きヤマメ", cat:"食べ歩きグルメ", hook:"炭火でじっくり焼かれた塩焼きの魚。湯滝の爆音を背景に食べるローカル感。", work:"串に刺さったヤマメをカメラの前に「パッ」と差し出し、滝を背景に" },
+    { area:"yunoko", name:"湯元温泉「あんよの湯」", cat:"体験・リラックス", hook:"誰でも無料で入れる広々とした足湯。乳白色の本格的な硫黄泉。", work:"湯気がもくもくと立つ足湯に、足を「ぽちゃん」と浸ける瞬間" },
+    { area:"yunoko", name:"温泉寺（おんせんじ）", cat:"建築・歴史", hook:"全国でも珍しい、境内で温泉に入れる超穴場スポット。", work:"静かなお寺の門をくぐるPOV動画。和の佇まいと温泉のギャップ" },
+    { area:"yunoko", name:"湯ノ湖北岸の砂浜（白砂の浜）", cat:"絶景・自然", hook:"湖なのにまるで白い砂浜のようになっている美しいエリア。山との対比。", work:"水際を歩く足元をローアングルで撮影。波のない静かな湖面の透明感" },
+    { area:"yunoko", name:"湯ノ湖 兎島（うさぎじま）の木道", cat:"絶景・自然", hook:"湖に突き出た半島のような場所。両側が水面に囲まれた原生林の木道。", work:"班のメンバーが一列に木道を歩く姿を、後ろからついていくように撮影" },
+    { area:"yunoko", name:"湯元源泉地（湿原の木道）", cat:"体験・自然", hook:"地面からポコポコと温泉が湧き出し、硫黄の香りと湯気の異世界感。", work:"木道の両側から湧き出す源泉を映し、「ここが温泉の生まれ故郷」テロップ" },
+    { area:"yunoko", name:"湯滝の始まり（落ち口）", cat:"絶景・自然", hook:"湯ノ湖の水が、まさに滝として崖から滑り落ちる「瞬間の場所」。", work:"静かな湖水が、一転して激しい激流に変わる様子を上から覗き込むように" },
+
+    // ============ レア・穴場 ============
+    { area:"rare", name:"日光の野生のニホンザル", cat:"野生動物", hook:"いろは坂周辺や中禅寺湖畔に不意に現れるリアルな生態。", work:"車内など安全な場所からズームで。目を合わせず、エサを絶対に見せない緊張感" },
+    { area:"rare", name:"ニホンジカ", cat:"野生動物", hook:"夕方や早朝、湿原に群れで現れる野生のシカ。幻想的なシルエット。", work:"夕暮れ時のマジックアワーを背景に、シカの美しい角や立ち姿をシルエットで" },
+    { area:"rare", name:"白馬（神馬）の御出仕", cat:"体験・文化", hook:"神厩舎に本物の白馬が登場する限られた時間（通常午前中のみ）。", work:"馬が静かに佇む姿や、毛並みの美しさをアップで。現れた瞬間の神聖な空気感" },
+    { area:"rare", name:"大谷川の霧（川霧）", cat:"自然現象", hook:"夏の早朝など、特定の気象条件で神橋の下に立ち込める幻想的な霧。", work:"神橋が霧の上に浮いているかのような「天空の城」感をスローモーションで" },
+    { area:"rare", name:"千人行列（春・秋の例大祭）", cat:"限定イベント", hook:"総勢1,000人規模の時代絵巻。圧巻のスケール。", work:"鎧武者や神官がズラリと並んで歩く様子をローアングルから／タイムラプス全景" },
+    { area:"rare", name:"東照宮 陽明門の「逆柱」", cat:"建築・歴史", hook:"12本の柱のうち、1本だけ魔除けのために上下逆に建てられた柱。トリビア。", work:"他の柱の模様と、逆柱の模様を交互に映し「実は1本だけ逆さま…」解説テキスト" },
+    { area:"rare", name:"日光真光教会 礼拝堂内部", cat:"建築・歴史", hook:"内部は公開日が限られる、大谷石造りのゴシック様式教会。ステンドグラス。", work:"外の光がステンドグラスを通して床に赤い光を落とす瞬間を、ジンバルでなぞる" },
+    { area:"rare", name:"湯ノ湖の朝霧と「逆さ山」", cat:"自然現象", hook:"風のない早朝、湯ノ湖の水面が鏡のようになり、周囲の山々が完全に上下対称に映る。", work:"スマホを水面ギリギリに構え、上下が反転したような「鏡面世界」をシンメトリーで" },
+    { area:"rare", name:"強首（こわっぱ）の八坂神社", cat:"隠れスポット", hook:"東照宮の裏手、観光客が誰も来ない杉林の奥にひっそりと佇む小さな神社。", work:"鳥居をくぐる瞬間の「迷い込んだ感」をPOVで。鳥居の向こうに広がる深い緑を強調" },
+    { area:"rare", name:"戦場ヶ原のニホンジカ", cat:"野生動物", hook:"湯ノ湖から少し歩いた湿原や木立ちに、夕方〜早朝現れる野生のシカ。", work:"驚かせないよう遠くからズームで。夕暮れのグラデーションの中に浮かぶシルエット" },
+  ];
+
+  function renderVideoGiftTabs(activeKey){
+    const tabsEl = document.getElementById('vgAreaTabs');
+    if(!tabsEl) return;
+    const counts = {};
+    vgSpots.forEach(s => { counts[s.area] = (counts[s.area]||0) + 1; });
+    tabsEl.innerHTML = vgAreaOrder.map(a => {
+      const count = counts[a.key] || 0;
+      const active = a.key === activeKey ? ' active' : '';
+      return `<button class="vg-area-tab${active}" data-vg-area="${a.key}" role="tab">${a.label}<span class="vat-count">${count}</span></button>`;
+    }).join('');
+  }
+  function renderVideoGiftSpots(activeKey){
+    const listEl = document.getElementById('vgSpotList');
+    if(!listEl) return;
+    const filtered = vgSpots.filter(s => s.area === activeKey);
+    listEl.innerHTML = filtered.map((s, idx) => {
+      const isRare = s.area === 'rare';
+      const num = String(idx + 1).padStart(2, '0');
+      const refBlock = s.ref ? `
+        <div class="vsb-row">
+          <div class="vsb-label">Ref</div>
+          <div class="vsb-value">
+            <a class="vsb-ref" href="${s.ref.url}" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              ${s.ref.label}
+            </a>
+          </div>
+        </div>` : '';
+      return `
+        <div class="vg-spot" data-vg-spot="${idx}">
+          <div class="vg-spot-head" onclick="toggleVgSpot(this)">
+            <div class="vs-num-badge">${num}</div>
+            <div class="vs-main">
+              <div class="vs-name">${s.name}</div>
+              <span class="vs-cat${isRare ? ' rare' : ''}">${s.cat}</span>
+            </div>
+            <div class="vs-chev">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            </div>
+          </div>
+          <div class="vg-spot-body">
+            <div class="vsb-row">
+              <div class="vsb-label">Hook</div>
+              <div class="vsb-value">${s.hook}</div>
+            </div>
+            <div class="vsb-row">
+              <div class="vsb-label">Camera</div>
+              <div class="vsb-value">${s.work}</div>
+            </div>
+            ${refBlock}
+          </div>
+        </div>`;
+    }).join('');
+  }
+  function toggleVgSpot(headEl){
+    const spot = headEl.closest('.vg-spot');
+    if(!spot) return;
+    spot.classList.toggle('open');
+  }
+  window.toggleVgSpot = toggleVgSpot;
+
+  // タブ操作
+  (function initVideoGift(){
+    const tabsEl = document.getElementById('vgAreaTabs');
+    if(!tabsEl) return;
+    const saved = localStorage.getItem('vgArea') || 'toshogu';
+    renderVideoGiftTabs(saved);
+    renderVideoGiftSpots(saved);
+    tabsEl.addEventListener('click', (e) => {
+      const btn = e.target.closest('.vg-area-tab');
+      if(!btn) return;
+      const key = btn.dataset.vgArea;
+      localStorage.setItem('vgArea', key);
+      renderVideoGiftTabs(key);
+      renderVideoGiftSpots(key);
+    });
+  })();
 </script>
 </body>
 </html>
