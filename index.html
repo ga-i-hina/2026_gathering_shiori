@@ -1325,6 +1325,57 @@
     font-family: var(--en); color: var(--green-deep);
     font-weight:700; margin-right: 8px; font-size: 13px;
   }
+  /* トレッキング用 注意事項ボックス（服装・持ち物） */
+  .activity-card .ac-notice{
+    margin-top: 14px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--amber);
+    border-radius: 10px;
+    padding: 14px 16px 12px;
+  }
+  .activity-card .ac-notice-head{
+    display:flex; align-items:center; gap:8px; flex-wrap:wrap;
+    margin-bottom: 10px; padding-bottom: 10px;
+    border-bottom: 1px dashed var(--line);
+  }
+  .activity-card .ac-notice-tag{
+    font-family: var(--en); font-size: 10px; letter-spacing: .2em;
+    text-transform: uppercase;
+    background: var(--amber); color:#fff;
+    padding: 3px 8px; border-radius: 100px;
+    font-weight: 700;
+  }
+  .activity-card .ac-notice-title{
+    font-family: var(--maru); font-weight: 900;
+    font-size: 13.5px; color: var(--green-deep);
+  }
+  .activity-card .ac-notice-list{
+    list-style: none; margin: 0; padding: 0;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .activity-card .ac-notice-list li{
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 12.5px; line-height: 1.7; color: var(--ink-2);
+  }
+  .activity-card .ac-notice-list li::before{
+    content: ""; flex-shrink: 0;
+    width: 6px; height: 6px; margin-top: 8px;
+    border-radius: 50%; background: var(--amber);
+    box-shadow: 0 0 0 3px rgba(212,133,74,.18);
+  }
+  .activity-card .ac-notice-list li b{
+    display:block; color: var(--ink); font-weight: 800;
+    font-size: 13px; margin-bottom: 2px;
+  }
+  .activity-card .ac-notice-foot{
+    margin: 10px 0 0; padding: 8px 10px;
+    background: rgba(42,92,64,.06);
+    border-radius: 6px;
+    font-size: 11.5px; color: var(--ink-2);
+    line-height: 1.65;
+  }
+
   .activity-card .ac-tags{
     display:flex; flex-wrap:wrap; gap:6px; margin-top: 12px;
   }
@@ -2221,6 +2272,23 @@
           </div>
         </div>
         <p class="ac-desc">奥日光を代表する高層湿原・戦場ヶ原を歩くコース。湯滝からスタートし、水音と森の空気に包まれながら自然観察を楽しみます。</p>
+
+        <div class="ac-notice" aria-label="戦場ヶ原トレッキング 服装・持ち物について">
+          <div class="ac-notice-head">
+            <span class="ac-notice-tag">Note</span>
+            <span class="ac-notice-title">服装・持ち物について</span>
+          </div>
+          <ul class="ac-notice-list">
+            <li><span><b>レインウェア</b>「上下セット」がおすすめです。</span></li>
+            <li><span><b>靴</b>歩きやすい靴（<b style="display:inline;font-weight:700;">防水性のあるもの</b>がおすすめ）。</span></li>
+            <li><span><b>バッグ</b>両手が空くリュックやナップザック。</span></li>
+            <li><span><b>飲み物（500〜1000ml）</b>コース途中に売店はありません。スタート地点（<b style="display:inline;font-weight:700;">湯滝のお茶屋さん</b>）で必ず準備を！</span></li>
+            <li><span><b>防寒着</b>予想気温 <b style="display:inline;font-weight:700;">13〜19℃</b>（思ったより寒いです！）。体温調節しやすい上着を。</span></li>
+            <li><span><b>日焼け対策</b>晴れると日差しが強いため、日焼け止めはお忘れなく。</span></li>
+          </ul>
+          <p class="ac-notice-foot">※本格的な登山装備でなくても大丈夫です。<b>動きやすさ・体温調節・両手をあけること</b>を意識してご準備ください。</p>
+        </div>
+
         <div class="ac-tags">
           <span class="ac-tag"># 自然</span>
           <span class="ac-tag"># ウォーキング</span>
@@ -3000,7 +3068,7 @@
     {time:"17:30", group:"local", title:"ホテル着", own:false, detail:"貸切バスでホテル到着。チェックインを済ませて、下のフリーワインへ。"},
 
     // ============ 合流 ============
-    {time:"17:00", title:"フリーワイン", cost:"会社負担", own:false, detail:"ウェルカムドリンクで乾杯。到着した人からゆるく集まりましょう。<br>※地方組は到着後、合流してください。<br><br><b>◆ 会場</b>：ロビーを予定。<br><span style=\"font-size:12px;color:var(--ink-3);\">※施工の進捗状況により、ホールまたはダイニングに変更になる可能性あり。</span><br><br><b>◆ ドリンク</b>：ビール・ワインのほか、数種類の産地のシロップを使ったサワー・ノンアルドリンクをご用意。<br><br><b>◆ 形式</b>：一人ひとつずつプラカップを配布します。<b>セルフ式</b>でご自由にどうぞ。"},
+    {time:"17:00", title:"フリーワイン", cost:"会社負担", own:false, detail:"ウェルカムドリンクで乾杯。到着した人からゆるく集まりましょう。<br>※地方組は到着後、合流してください。<br><br><b>◆ 会場</b>：ロビー<br><br><b>◆ ドリンク</b>：ビール・ワインのほか、数種類の産地のシロップを使ったサワー・ノンアルドリンクをご用意。<br><br><b>◆ 形式</b>：一人ひとつずつプラカップを配布します。<b>セルフ式</b>でご自由にどうぞ。"},
     {time:"18:00", title:"入館式 ＋ 夕食", cost:"会社負担", own:false, detail:"会場：<b>ダイニング</b>（<a href=\"https://www.google.com/maps/search/?api=1&query=UNWIND+HOTEL+%26+BAR+%E5%A5%A5%E6%97%A5%E5%85%89\" target=\"_blank\" rel=\"noopener\" style=\"color:inherit;text-decoration:underline;text-underline-offset:3px;\">UNWIND HOTEL &amp; BAR 奥日光</a>）<br>入館式のあと、全員で同じテーブルを囲む夕食。<br><br><b>◆ ドリンク</b>：協賛でいただく<b>ビール・ハイボール・レモンサワー</b>と、数種類の産地のシロップを使ったサワー・ノンアルドリンクをご用意。<br><br><b>◆ 形式</b>：ドリンクは<b>セルフ式</b>です。", key:true},
     {time:"19:30", title:"キャンプファイヤー", own:false, detail:"19:30–20:30 ／ 約1時間。屋外で焚き火を囲んで過ごす時間。<br>奥日光の夜の空気の中、火を眺めながら\"新しい顔\"と話してみましょう。<br><br>⚠ <b>防寒着</b>・<b>履き慣れた靴</b>をお持ちください。標高1,400mの夜はかなり冷え込みます。"},
     {time:"21:00", title:"二次会（ゲームあり）", own:false, detail:"21:00–22:30 ／ 約1時間半。<br><br><b>◆ 会場</b>：ダイニング（夕食と同会場）<br><br><b>◆ ドリンク</b>：夕食時と同じ（ビール・ハイボール・レモンサワー・シロップサワー・ノンアルドリンク）をセルフで。<br><br><b>◆ ゲーム</b>：二次会内でゲーム企画あり。チーム分けは当日発表。"},
