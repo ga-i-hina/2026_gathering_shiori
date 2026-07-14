@@ -1,0 +1,3610 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+<meta name="theme-color" content="#2A5C40"/>
+<title>OFFLINE GATHERING 2026 ｜ 奥日光編</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Outfit:wght@300;400;500;600;700&family=Shippori+Mincho:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FFF8F0;
+    --bg-2:#F5EBD8;
+    --bg-alt:#E8E4D0;
+    --green:#2A5C40;
+    --green-deep:#1E4530;
+    --amber:#D4854A;
+    --amber-soft:#E8A876;
+    --ink:#2C1A0E;
+    --ink-2:#5C4838;
+    --ink-3:#8A7560;
+    --line:#D9C9B2;
+    --paper-shadow: 0 1px 0 #E8DBC1, 0 12px 24px -16px rgba(44,26,14,.18);
+    --maru: "Zen Maru Gothic", "Hiragino Maru Gothic ProN", "Hiragino Sans", "Yu Gothic", system-ui, sans-serif;
+    --en: "Outfit", "Inter", system-ui, sans-serif;
+    --serif: "Shippori Mincho", "Yu Mincho", serif;
+  }
+
+  *{ box-sizing:border-box; -webkit-tap-highlight-color: transparent;}
+  html,body{ margin:0; padding:0; background:var(--bg); color:var(--ink); font-family:var(--maru); font-weight:500; line-height:1.7; -webkit-font-smoothing:antialiased; overflow-x:hidden;}
+  body{ max-width:480px; margin:0 auto; position:relative; min-height:100vh; background:
+    radial-gradient(1200px 600px at 50% -300px, #FBEFD4 0%, transparent 60%),
+    var(--bg);
+  }
+
+  /* Paper grain */
+  body::before{
+    content:""; position:fixed; inset:0; pointer-events:none; z-index:1; opacity:.5;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(44,26,14,.025) 1px, transparent 1.5px),
+      radial-gradient(circle at 70% 60%, rgba(44,26,14,.02) 1px, transparent 1.5px),
+      radial-gradient(circle at 40% 80%, rgba(44,26,14,.025) 1px, transparent 1.5px);
+    background-size: 7px 7px, 11px 11px, 13px 13px;
+    mix-blend-mode:multiply;
+  }
+
+  /* ============== HERO ============== */
+  .hero{
+    position:relative; min-height: 62vh; padding: 24px 24px 40px;
+    display:flex; flex-direction:column; justify-content:space-between;
+    color: #FFF8F0; overflow:hidden; isolation:isolate;
+  }
+  .hero-bg{
+    position:absolute; inset:0; z-index:-2;
+    background: linear-gradient(180deg, #0d1f2c 0%, #1a3a2c 55%, #1E4530 100%);
+  }
+  .hero-img{
+    position:absolute; inset:0; z-index:-2; width:100%; height:100%;
+    object-fit:cover; opacity:.85;
+  }
+  .hero-bg::after{
+    content:""; position:absolute; inset:0;
+    background: linear-gradient(180deg, rgba(13,31,44,.25) 0%, rgba(13,31,44,.1) 40%, rgba(30,69,48,.7) 90%, var(--bg) 100%);
+  }
+  /* placeholder badge */
+  .hero-placeholder{
+    position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
+    z-index:-1; pointer-events:none;
+    font-family:var(--en); font-size:11px; letter-spacing:.18em;
+    color:rgba(255,248,240,.5); text-align:center; line-height:1.6;
+    border:1px dashed rgba(255,248,240,.3); padding:14px 18px; border-radius:4px;
+    background:rgba(13,31,44,.25); backdrop-filter:blur(2px);
+    max-width:80%;
+  }
+
+  .hero-top{ display:flex; justify-content:space-between; align-items:flex-start; font-family:var(--en); font-size:11px; letter-spacing:.2em; text-transform:uppercase; opacity:.85;}
+  .hero-top .dot{ width:6px; height:6px; border-radius:50%; background:var(--amber); display:inline-block; margin-right:8px; vertical-align:middle; animation:pulse 2.4s ease-in-out infinite;}
+  @keyframes pulse{ 0%,100%{ opacity:1; transform:scale(1);} 50%{ opacity:.4; transform:scale(.7);} }
+
+  .hero-mid{ margin-top:auto; margin-bottom: 12px;}
+  .hero-eyebrow{ font-family:var(--en); font-size:12px; letter-spacing:.3em; color:var(--amber-soft); text-transform:uppercase; margin-bottom:20px; font-weight:500;}
+  .hero-eyebrow::before{ content:""; display:inline-block; width:24px; height:1px; background:var(--amber-soft); vertical-align:middle; margin-right:10px;}
+  .hero-title{
+    font-family:var(--en); font-weight:700;
+    font-size: clamp(48px, 14.5vw, 76px); line-height:0.95; margin:0;
+    letter-spacing:-.02em;
+    text-shadow: 0 2px 24px rgba(0,0,0,.45);
+    text-transform: uppercase;
+  }
+  .hero-title em{ font-style:normal; display:block; color:var(--amber-soft);}
+  .hero-title small{ display:block; font-family:var(--maru); font-weight:500; font-size:.22em; letter-spacing:.05em; margin-top:18px; opacity:.92; text-transform:none; line-height:1.6;}
+  .hero-sub{ margin-top:22px; font-size:15px; line-height:1.9; opacity:.92; font-weight:400; max-width:90%;}
+
+  .hero-bottom{ margin-top:28px; display:flex; gap:14px; align-items:center; font-family:var(--en); font-size:12px; letter-spacing:.1em;}
+  .hero-bottom .pill{ background:rgba(255,248,240,.12); border:1px solid rgba(255,248,240,.25); padding:8px 14px; border-radius:100px; backdrop-filter:blur(8px);}
+  .hero-bottom .pill strong{ color:var(--amber-soft); font-weight:600;}
+
+  .scroll-cue{ position:absolute; bottom:24px; left:50%; transform:translateX(-50%); font-family:var(--en); font-size:10px; letter-spacing:.3em; opacity:.7; text-align:center;}
+  .scroll-cue::after{ content:""; display:block; width:1px; height:32px; background:linear-gradient(180deg, var(--amber-soft), transparent); margin:10px auto 0; animation:fall 2.2s ease-in-out infinite;}
+  @keyframes fall{ 0%{ transform:scaleY(0); transform-origin:top;} 50%{ transform:scaleY(1); transform-origin:top;} 51%{ transform-origin:bottom;} 100%{ transform:scaleY(0); transform-origin:bottom;} }
+
+  /* ============== THEME ============== */
+  .theme-section{
+    padding: 64px 24px 56px;
+    background:
+      radial-gradient(800px 400px at 80% 10%, rgba(212,133,74,.08) 0%, transparent 60%),
+      radial-gradient(600px 400px at 0% 90%, rgba(42,92,64,.06) 0%, transparent 60%),
+      var(--bg);
+    position:relative;
+    border-bottom: 1px dashed var(--line);
+  }
+  .theme-eyebrow{
+    font-family:var(--en); font-size:11px; letter-spacing:.3em; color:var(--ink-3);
+    text-align:center; margin-bottom:18px; font-weight:500;
+  }
+  .theme-title{
+    margin: 0 0 24px;
+    font-family: var(--en); font-weight: 700;
+    font-size: clamp(56px, 17vw, 92px);
+    line-height: 0.92; letter-spacing: -.03em;
+    text-align:center; color: var(--green-deep);
+    text-transform: uppercase;
+  }
+  .theme-title .theme-word{ display:inline-block;}
+  .theme-title .theme-word.amber{ color: var(--amber);}
+  .theme-title .theme-paren{
+    font-weight:300; opacity:.85;
+    font-size:.7em; vertical-align: .08em;
+  }
+  .theme-lead{
+    font-family: var(--maru); font-weight:700;
+    font-size: 17px; text-align:center; color: var(--ink);
+    margin: 0 0 32px; line-height:1.7;
+  }
+
+  /* keyword cloud */
+  .theme-cloud{
+    display:flex; flex-wrap:wrap; justify-content:center; align-items:center;
+    gap: 10px 12px;
+    margin: 0 -4px 32px;
+    padding: 8px 4px;
+    text-align:center;
+  }
+  .theme-cloud .kw{
+    display:inline-block; font-family: var(--maru); font-weight: 700;
+    color: var(--ink-2); line-height: 1.25;
+    transition: transform .25s ease, color .25s ease;
+    cursor: default;
+  }
+  /* size variants */
+  .theme-cloud .kw-s{ font-size: 13px; opacity:.7; font-weight:500;}
+  .theme-cloud .kw-m{ font-size: 18px; opacity:.85;}
+  .theme-cloud .kw-l{ font-size: 26px; font-weight:800; letter-spacing:-.005em;}
+  .theme-cloud .kw-xl{ font-size: 36px; font-weight:900; letter-spacing:-.015em; line-height:1.05;}
+  /* color variants */
+  .theme-cloud .kw-green{ color: var(--green);}
+  .theme-cloud .kw-amber{ color: var(--amber);}
+  .theme-cloud .kw:hover{ transform: translateY(-2px);}
+
+  .theme-outro{
+    font-size: 13.5px; line-height:1.95; color: var(--ink-2);
+    text-align:center; margin: 0;
+    font-family: var(--serif); font-style: normal;
+    padding: 0 8px;
+  }
+
+  /* ============== HOME ABOUT (05-A on top page) ============== */
+  .home-about{ padding: 48px 24px 40px; border-bottom: 1px dashed var(--line);}
+  .home-about .sec-title{ font-size:28px;}
+  .home-about .sec-lead{ margin-bottom:22px;}
+
+  /* ============== SECTION FRAME ============== */
+  section{ position:relative; padding: 56px 24px; z-index:2;}
+
+  /* ============== PAGE SYSTEM (SPA-style) ============== */
+  .page{ display:none; animation: pageIn .18s ease; }
+  .page.active{ display:block; }
+  @keyframes pageIn { from{ opacity:0; transform: translateY(6px);} to{ opacity:1; transform: none;} }
+
+  /* サブページ上部の戻るバー */
+  .subpage-bar{
+    position: sticky; top: 0; z-index: 40;
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 12px 16px;
+    background: rgba(255,248,240,.92); backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .back-link{
+    display:flex; align-items:center; gap:6px;
+    background:none; border:none; padding: 8px 4px;
+    font-family: var(--maru); font-size: 14px; font-weight:700;
+    color: var(--green-deep); cursor:pointer; text-decoration:none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .back-link:active{ opacity:.6;}
+  .back-link .bl-arrow{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:26px; height:26px; border-radius:50%;
+    background: var(--green); color:#fff;
+  }
+  .back-link .bl-arrow svg{ width:14px; height:14px;}
+  .subpage-bar .sp-title{
+    font-family: var(--en); font-size: 11px; letter-spacing:.25em;
+    color: var(--ink-3); text-transform: uppercase;
+  }
+
+  /* ============== HOME NAV CARDS ============== */
+  .home-hero-strip{ padding: 28px 24px 8px;}
+  .home-eyebrow{
+    font-family:var(--en); font-size:11px; letter-spacing:.3em; color:var(--ink-3);
+    text-transform:uppercase; margin:0 0 8px; font-weight:500;
+  }
+  .home-eyebrow::before{
+    content:""; display:inline-block; width:20px; height:1px;
+    background:var(--amber); vertical-align:middle; margin-right:10px;
+  }
+  .home-title{
+    font-family:var(--maru); font-weight:900; color:var(--green-deep);
+    font-size:26px; letter-spacing:-.005em; line-height:1.4; margin: 0 0 8px;
+  }
+  .home-lead{ font-size:13.5px; color:var(--ink-2); line-height:1.85; margin: 0 0 22px;}
+
+  /* Featured card = スケジュール */
+  .nav-featured{
+    display:block; text-decoration:none; color:#fff;
+    background: linear-gradient(135deg, #2A5C40 0%, #1E4530 100%);
+    border-radius: 20px; padding: 24px 22px 22px;
+    box-shadow: 0 10px 28px -12px rgba(30,69,48,.5);
+    margin: 0 24px 14px; position:relative; overflow:hidden;
+  }
+  .nav-featured::after{
+    content:""; position:absolute; right:-40px; top:-40px;
+    width:180px; height:180px; border-radius:50%;
+    background: radial-gradient(circle, rgba(212,133,74,.25), transparent 70%);
+    pointer-events:none;
+  }
+  .nav-featured .nf-eyebrow{
+    font-family:var(--en); font-size:10px; letter-spacing:.28em;
+    color: var(--amber-soft); text-transform: uppercase; font-weight:600; margin-bottom:8px;
+    position:relative; z-index:1;
+  }
+  .nav-featured h3{
+    margin:0 0 6px; font-size:26px; font-weight:900; color:#fff;
+    line-height:1.3; position:relative; z-index:1;
+  }
+  .nav-featured .nf-sub{ font-size:13px; opacity:.85; position:relative; z-index:1;}
+  .nav-featured .nf-arrow{
+    position:absolute; right:20px; bottom:20px; z-index:1;
+    width:40px; height:40px; border-radius:50%;
+    background: var(--amber); color:#fff;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .nav-featured:active{ transform: scale(.99);}
+
+  /* 2列グリッド:残り5枚 */
+  .nav-grid{
+    display:grid; grid-template-columns: 1fr 1fr; gap:10px;
+    padding: 4px 24px 0;
+  }
+  .nav-card{
+    display:flex; flex-direction:column; justify-content:space-between;
+    text-decoration:none; color:inherit;
+    background:#fff; border-radius:16px; padding: 16px 16px 14px;
+    border:1px solid var(--line); box-shadow: var(--paper-shadow);
+    aspect-ratio: 1 / .95; position:relative;
+  }
+  .nav-card:active{ transform: scale(.98);}
+  .nav-card .nc-num{
+    font-family:var(--en); font-size:10px; letter-spacing:.24em;
+    color: var(--amber); font-weight:600;
+  }
+  .nav-card .nc-title{
+    font-family:var(--maru); font-weight:900; color:var(--green-deep);
+    font-size:16px; line-height:1.35; margin-top:auto;
+  }
+  .nav-card .nc-sub{
+    font-family:var(--en); font-size:10px; letter-spacing:.15em;
+    color: var(--ink-3); text-transform: uppercase; margin-top:4px;
+  }
+  .nav-card .nc-arrow{
+    position:absolute; right:12px; top:12px;
+    width:22px; height:22px; border-radius:50%;
+    background: rgba(42,92,64,.08); color: var(--green);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .nav-card .nc-arrow svg{ width:12px; height:12px;}
+  .nav-card-wide{ grid-column: 1 / -1; aspect-ratio: auto; padding: 18px 20px;}
+  .nav-card-wide .nc-inner{ display:flex; align-items:center; justify-content:space-between; width:100%;}
+  .nav-card-wide .nc-inner > div:first-child{ display:flex; flex-direction:column; gap:4px;}
+  .nav-card-wide .nc-arrow{ position:static;}
+  .nav-card-wide .nc-title{ margin-top:0;}
+
+  /* ============== NAV SPECIAL (07 動画ギフト) ============== */
+  .nav-special{
+    display:block; position:relative; margin: 20px 24px 0;
+    background: linear-gradient(150deg, #1E4530 0%, #2A5C40 55%, #3A7551 100%);
+    color:#fff; border-radius:20px; padding: 24px 22px 22px; text-decoration:none;
+    overflow:hidden; box-shadow: 0 18px 32px -18px rgba(30,69,48,.6);
+    transition: transform .2s;
+  }
+  .nav-special:active{ transform:scale(.99);}
+  .nav-special::before{
+    content:""; position:absolute; right:-40px; top:-40px; width:180px; height:180px;
+    background: radial-gradient(circle, rgba(212,133,74,.35) 0%, rgba(212,133,74,0) 70%);
+    pointer-events:none;
+  }
+  .nav-special::after{
+    content:""; position:absolute; left:-30px; bottom:-50px; width:150px; height:150px;
+    background: radial-gradient(circle, rgba(232,168,118,.18) 0%, rgba(232,168,118,0) 70%);
+    pointer-events:none;
+  }
+  .nav-special .ns-badge{
+    display:inline-flex; align-items:center; gap:6px; padding:5px 10px 5px 9px;
+    background: rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.22);
+    border-radius:100px; font-family:var(--en); font-size:10px; font-weight:700;
+    letter-spacing:.24em; text-transform:uppercase; margin-bottom:14px; position:relative; z-index:1;
+  }
+  .nav-special .ns-badge-dot{ width:6px; height:6px; border-radius:50%; background:var(--amber-soft); animation: pulse 2.4s ease-in-out infinite;}
+  .nav-special .ns-icon{
+    position:absolute; right:20px; top:22px; width:40px; height:40px;
+    display:flex; align-items:center; justify-content:center;
+    color: var(--amber-soft); opacity:.75; z-index:1;
+  }
+  .nav-special .ns-icon svg{ width:32px; height:32px;}
+  .nav-special .ns-eyebrow{
+    font-family:var(--en); font-size:10px; letter-spacing:.28em; color:var(--amber-soft);
+    text-transform:uppercase; font-weight:600; margin-bottom:6px; position:relative; z-index:1;
+  }
+  .nav-special h3{
+    font-family:var(--maru); font-weight:900; font-size:22px; line-height:1.45;
+    margin:0 0 10px; letter-spacing:.02em; position:relative; z-index:1;
+    text-wrap:pretty;
+  }
+  .nav-special .ns-sub{
+    font-size:13px; line-height:1.75; opacity:.88; margin:0 0 16px;
+    color:rgba(255,255,255,.9); position:relative; z-index:1;
+  }
+  .nav-special .ns-cta{
+    display:inline-flex; align-items:center; gap:8px; padding:10px 16px;
+    background: var(--amber); color:#fff; border-radius:100px;
+    font-family:var(--maru); font-weight:700; font-size:13.5px;
+    position:relative; z-index:1;
+  }
+
+  /* ============== VIDEO GIFT PAGE ============== */
+  .vg-hero{
+    padding: 32px 24px 28px; text-align:left;
+    background: linear-gradient(160deg, #1E4530 0%, #2A5C40 100%);
+    color:#fff; position:relative; overflow:hidden;
+  }
+  .vg-hero::before{
+    content:""; position:absolute; right:-60px; top:-40px; width:220px; height:220px;
+    background: radial-gradient(circle, rgba(212,133,74,.28) 0%, rgba(212,133,74,0) 70%);
+    pointer-events:none;
+  }
+  .vg-hero .vg-badge{
+    display:inline-flex; align-items:center; gap:6px; padding:5px 10px 5px 9px;
+    background: rgba(255,255,255,.16); border:1px solid rgba(255,255,255,.24);
+    border-radius:100px; font-family:var(--en); font-size:10px; font-weight:700;
+    letter-spacing:.24em; text-transform:uppercase; margin-bottom:14px;
+  }
+  .vg-hero .vg-badge-dot{ width:6px; height:6px; border-radius:50%; background:var(--amber-soft); animation: pulse 2.4s ease-in-out infinite;}
+  .vg-hero h2{
+    font-family:var(--maru); font-weight:900; font-size:26px; line-height:1.5;
+    margin:0 0 12px; letter-spacing:.02em; text-wrap:pretty; position:relative; z-index:1;
+  }
+  .vg-hero h2 em{ font-style:normal; color:var(--amber-soft);}
+  .vg-hero .vg-lead{ font-size:14px; line-height:1.9; opacity:.9; margin:0; position:relative; z-index:1;}
+
+  /* あいさつ本文 */
+  .vg-message{ padding: 28px 24px 8px;}
+  .vg-message .vg-msg-eyebrow{
+    font-family:var(--en); font-size:10px; letter-spacing:.28em; color:var(--amber);
+    text-transform:uppercase; font-weight:600; margin-bottom:12px;
+  }
+  .vg-message .vg-msg-title{
+    font-family:var(--maru); font-weight:900; color:var(--green-deep);
+    font-size:20px; line-height:1.55; margin:0 0 16px; text-wrap:pretty;
+  }
+  .vg-message p{ font-size:14px; line-height:2.05; color:var(--ink-2); margin: 0 0 14px; text-wrap:pretty;}
+  .vg-message p b{ color:var(--ink); font-weight:700;}
+  .vg-message p .amber{ color:var(--amber); font-weight:700;}
+
+  /* How to (3ステップ) */
+  .vg-how{ padding: 20px 24px 8px;}
+  .vg-how h3{
+    font-family:var(--maru); font-weight:900; color:var(--green-deep);
+    font-size:17px; margin: 0 0 14px;
+  }
+  .vg-steps{ display:flex; flex-direction:column; gap:12px; margin:0; padding:0; list-style:none;}
+  .vg-step{
+    display:flex; gap:14px; padding: 16px 16px; background:#fff;
+    border:1px solid var(--line); border-radius:14px; box-shadow: var(--paper-shadow);
+  }
+  .vg-step .vs-num{
+    flex-shrink:0; width:36px; height:36px; border-radius:50%;
+    background:var(--amber); color:#fff; display:flex; align-items:center; justify-content:center;
+    font-family:var(--en); font-weight:700; font-size:15px;
+  }
+  .vg-step .vs-body{ flex:1;}
+  .vg-step .vs-title{ font-family:var(--maru); font-weight:900; color:var(--green-deep); font-size:14.5px; margin-bottom:4px; line-height:1.5;}
+  .vg-step .vs-desc{ font-size:12.5px; color:var(--ink-2); line-height:1.8;}
+
+  /* Google Drive CTA */
+  .vg-drive{
+    margin: 18px 24px 4px; display:flex; align-items:center; gap:12px;
+    padding: 16px 18px; background:#fff; border:1px solid var(--line);
+    border-left:4px solid var(--amber); border-radius:14px;
+    text-decoration:none; color:var(--ink); box-shadow: var(--paper-shadow);
+  }
+  .vg-drive:active{ transform: scale(.99);}
+  .vg-drive .vd-icon{
+    flex-shrink:0; width:44px; height:44px; border-radius:12px;
+    background: linear-gradient(135deg, #FFC107, #4285F4 60%, #34A853);
+    display:flex; align-items:center; justify-content:center; color:#fff;
+  }
+  .vg-drive .vd-icon svg{ width:22px; height:22px;}
+  .vg-drive .vd-body{ flex:1; min-width:0;}
+  .vg-drive .vd-eyebrow{
+    font-family:var(--en); font-size:9.5px; letter-spacing:.22em; color:var(--amber);
+    font-weight:700; text-transform:uppercase; margin-bottom:2px;
+  }
+  .vg-drive .vd-title{ font-family:var(--maru); font-weight:900; color:var(--green-deep); font-size:14px; line-height:1.5;}
+  .vg-drive .vd-sub{ font-size:11.5px; color:var(--ink-3); margin-top:2px;}
+  .vg-drive .vd-arrow{
+    flex-shrink:0; width:28px; height:28px; border-radius:50%;
+    background: var(--green); color:#fff; display:flex; align-items:center; justify-content:center;
+  }
+  .vg-drive .vd-arrow svg{ width:12px; height:12px;}
+
+  /* SNS映えスポットリスト・見出し */
+  .vg-list-head{ padding: 28px 24px 8px;}
+  .vg-list-head .vlh-eyebrow{
+    font-family:var(--en); font-size:10px; letter-spacing:.28em; color:var(--amber);
+    text-transform:uppercase; font-weight:600; margin-bottom:8px;
+  }
+  .vg-list-head h3{
+    font-family:var(--maru); font-weight:900; color:var(--green-deep);
+    font-size:22px; margin:0 0 8px; line-height:1.5; text-wrap:pretty;
+  }
+  .vg-list-head .vlh-lead{ font-size:13.5px; line-height:1.85; color:var(--ink-2); margin:0;}
+
+  /* エリアタブ (横スクロール) */
+  .vg-area-tabs{
+    display:flex; gap:8px; padding: 16px 24px 8px; overflow-x:auto;
+    scrollbar-width:none; -webkit-overflow-scrolling:touch;
+  }
+  .vg-area-tabs::-webkit-scrollbar{ display:none;}
+  .vg-area-tab{
+    flex-shrink:0; padding: 9px 14px; background:#fff; border:1px solid var(--line);
+    border-radius:100px; font-family:var(--maru); font-weight:700; font-size:12.5px;
+    color:var(--ink-2); cursor:pointer; white-space:nowrap;
+    transition: background .2s, color .2s, border-color .2s;
+  }
+  .vg-area-tab .vat-count{
+    display:inline-block; margin-left:6px; padding:1px 7px;
+    background:rgba(212,133,74,.15); color:var(--amber); border-radius:100px;
+    font-family:var(--en); font-size:10px; font-weight:700;
+  }
+  .vg-area-tab.active{
+    background: var(--green-deep); color:#fff; border-color: var(--green-deep);
+  }
+  .vg-area-tab.active .vat-count{ background:rgba(255,255,255,.2); color:#fff;}
+
+  /* スポットカード */
+  .vg-spot-list{ padding: 8px 24px 20px; display:flex; flex-direction:column; gap:12px;}
+  .vg-spot{
+    background:#fff; border:1px solid var(--line); border-radius:14px;
+    box-shadow: var(--paper-shadow); overflow:hidden;
+  }
+  .vg-spot-head{
+    display:flex; align-items:flex-start; justify-content:space-between; gap:10px;
+    padding: 14px 16px 12px; cursor:pointer; user-select:none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .vg-spot-head .vs-num-badge{
+    flex-shrink:0; width:26px; height:26px; border-radius:50%;
+    background:rgba(42,92,64,.08); color:var(--green-deep);
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--en); font-weight:700; font-size:11px; margin-top:2px;
+  }
+  .vg-spot-head .vs-main{ flex:1; min-width:0;}
+  .vg-spot-head .vs-name{
+    font-family:var(--maru); font-weight:900; color:var(--ink); font-size:14.5px;
+    line-height:1.5; margin-bottom:4px; text-wrap:pretty;
+  }
+  .vg-spot-head .vs-cat{
+    display:inline-block; padding: 2px 8px; background:rgba(42,92,64,.08);
+    color: var(--green); border-radius:100px;
+    font-family:var(--maru); font-weight:700; font-size:10.5px; letter-spacing:.04em;
+  }
+  .vg-spot-head .vs-cat.rare{ background:rgba(212,133,74,.14); color:var(--amber);}
+  .vg-spot-head .vs-chev{
+    flex-shrink:0; width:22px; height:22px; border-radius:50%;
+    background:rgba(0,0,0,.04); color:var(--ink-3);
+    display:flex; align-items:center; justify-content:center; margin-top:2px;
+    transition: transform .3s;
+  }
+  .vg-spot-head .vs-chev svg{ width:12px; height:12px;}
+  .vg-spot.open .vs-chev{ transform: rotate(180deg);}
+  .vg-spot-body{
+    max-height:0; overflow:hidden; padding: 0 16px;
+    transition: max-height .35s ease, padding .35s ease;
+  }
+  .vg-spot.open .vg-spot-body{
+    max-height: 500px; padding: 4px 16px 16px;
+    border-top: 1px dashed var(--line);
+  }
+  .vg-spot-body .vsb-row{ display:flex; gap:10px; padding: 10px 0; align-items:flex-start;}
+  .vg-spot-body .vsb-row + .vsb-row{ border-top: 1px dashed rgba(217,201,178,.6);}
+  .vg-spot-body .vsb-label{
+    flex-shrink:0; font-family:var(--en); font-size:9.5px; letter-spacing:.16em;
+    color:var(--ink-3); font-weight:700; text-transform:uppercase; padding-top:3px; width:72px;
+  }
+  .vg-spot-body .vsb-value{ flex:1; font-size:12.5px; color:var(--ink-2); line-height:1.85;}
+  .vg-spot-body .vsb-value b{ color:var(--ink); font-weight:700;}
+  .vg-spot-body .vsb-ref{
+    display:inline-flex; align-items:center; gap:5px; padding: 5px 10px;
+    background:rgba(212,133,74,.1); color:var(--amber);
+    border-radius:100px; font-family:var(--maru); font-weight:700; font-size:11.5px;
+    text-decoration:none; margin-top:6px;
+  }
+  .vg-spot-body .vsb-ref svg{ width:10px; height:10px;}
+
+  /* 撮影のコツ */
+  .vg-tips{
+    margin: 20px 24px 20px; padding: 18px 20px; background: var(--bg-2);
+    border-radius:14px; border: 1px dashed var(--amber);
+  }
+  .vg-tips .vt-eyebrow{
+    font-family:var(--en); font-size:10px; letter-spacing:.26em;
+    color:var(--amber); font-weight:700; margin-bottom:8px;
+  }
+  .vg-tips h4{ font-family:var(--maru); font-weight:900; color:var(--green-deep); font-size:15px; margin:0 0 10px;}
+  .vg-tips ul{ margin:0; padding:0; list-style:none;}
+  .vg-tips li{ padding-left: 22px; position:relative; margin-bottom:8px; font-size:13px; line-height:1.8; color:var(--ink-2);}
+  .vg-tips li::before{
+    content:""; position:absolute; left:0; top:11px; width:12px; height:2px; background: var(--amber);
+  }
+  .vg-tips li b{ color:var(--ink); font-weight:700;}
+
+  /* サンキュー */
+  .vg-thanks{
+    margin: 8px 24px 40px; text-align:center; padding: 24px 20px;
+    background: linear-gradient(160deg, #1E4530 0%, #2A5C40 100%);
+    color:#fff; border-radius: 20px;
+  }
+  .vg-thanks .vth-eyebrow{
+    font-family:var(--en); font-size:10px; letter-spacing:.28em;
+    color: var(--amber-soft); margin-bottom:10px; font-weight:700;
+  }
+  .vg-thanks h4{ font-family:var(--maru); font-weight:900; font-size:18px; line-height:1.6; margin:0 0 8px;}
+  .vg-thanks p{ font-size:13px; line-height:1.9; opacity:.88; margin:0;}
+
+  /* people ページ:タブで一方だけ表示 */
+  [data-page="people"] section#sec-organizers,
+  [data-page="people"] section#sec-staff{ display:none; }
+  [data-page="people"].show-organizers section#sec-organizers,
+  [data-page="people"].show-staff section#sec-staff{ display:block; }
+
+  /* Home 内の緊急連絡先ブロック */
+  .home-contact{
+    margin: 32px 24px 0;
+    background: linear-gradient(135deg, #2A5C40 0%, #1E4530 100%);
+    border-radius:20px; padding: 22px 20px 20px; color:#fff;
+    position:relative; overflow:hidden;
+  }
+  .home-contact .hc-eyebrow{
+    font-family:var(--en); font-size:10px; letter-spacing:.3em;
+    color: var(--amber-soft); text-transform: uppercase; font-weight:600; margin-bottom:6px;
+  }
+  .home-contact h3{
+    margin:0 0 16px; font-size:20px; font-weight:900; color:#fff; line-height:1.4;
+  }
+
+  /* Home 内の LINE ブロック */
+  .home-line{
+    margin: 14px 24px 0;
+    background:#fff; border-radius:20px; padding: 20px;
+    border: 1px solid var(--line); box-shadow: var(--paper-shadow);
+    display:flex; align-items:center; gap:14px;
+  }
+  .home-line .hl-icon{
+    width:48px; height:48px; border-radius:14px; background:#06C755;
+    color:#fff; display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  }
+  .home-line .hl-icon svg{ width:26px; height:26px;}
+  .home-line .hl-body{ flex:1; min-width:0;}
+  .home-line .hl-eyebrow{
+    font-family:var(--en); font-size:10px; letter-spacing:.22em;
+    color:var(--ink-3); text-transform:uppercase; font-weight:600;
+  }
+  .home-line .hl-title{ font-family:var(--maru); font-weight:900; color:var(--ink); font-size:14.5px; margin-top:2px; line-height:1.4;}
+  .home-line .hl-arrow{
+    width:30px; height:30px; border-radius:50%;
+    background: var(--green); color:#fff; flex-shrink:0;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .home-line .hl-arrow svg{ width:14px; height:14px;}
+
+  .home-outro{
+    text-align:center; margin: 40px 24px 24px;
+    font-family: var(--en); font-size: 11px; letter-spacing: .25em;
+    color: var(--ink-3); text-transform: uppercase;
+  }
+
+  /* サブページのタイトル領域は撤去。sec-eyebrow + sec-title が担う。 */
+
+  /* --- セクション交互背景 & 区切りオーナメント --- */
+  /* デフォルト:id="sec-〜"のセクションは明色 */
+  section[id^="sec-"]{ background: var(--bg); }
+  /* ページ内の交互リズムに合わせて淡色を割り当て */
+  section#sec-activities,   /* activities page: 2番目 */
+  section#sec-weather,      /* prep page: 2番目 */
+  section#sec-hotel,        /* prep page: 4番目 */
+  section#sec-notes,        /* info page: 2番目 */
+  section#sec-staff{        /* people page: 2番目 */
+    background: var(--bg-alt);
+  }
+  /* グラデを持つセクションはそのまま(明色開始) */
+  section#sec-pack{ background: linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%); }
+  section#sec-organizers{ background: linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 60%, var(--bg-2) 100%); }
+
+  /* セクション上端の小さな仕切り(3点オーナメント) */
+  section[id^="sec-"]::before{
+    content:""; position:absolute; left:50%; top:18px; transform:translateX(-50%);
+    width:44px; height:6px;
+    background:
+      radial-gradient(circle at 6px 3px, var(--amber) 2px, transparent 2.5px),
+      radial-gradient(circle at 22px 3px, var(--ink-3) 2px, transparent 2.5px),
+      radial-gradient(circle at 38px 3px, var(--amber) 2px, transparent 2.5px);
+    opacity:.55;
+    pointer-events:none;
+  }
+  /* セクション上端に余白を確保(オーナメント分) */
+  section[id^="sec-"]{ padding-top: 48px; }
+  .sec-eyebrow{ font-family:var(--en); font-size:11px; letter-spacing:.3em; color:var(--amber); text-transform:uppercase; font-weight:600; margin-bottom:14px;}
+  .sec-eyebrow .num{ color:var(--green); margin-right:10px;}
+  .sec-title{ font-family:var(--maru); font-weight:900; font-size:32px; line-height:1.25; margin:0 0 8px; color:var(--green-deep); letter-spacing:-.01em;}
+  .sec-lead{ font-size:14px; color:var(--ink-2); line-height:1.9; margin:0 0 28px;}
+
+  /* Section divider — line art */
+  .divider{
+    display:flex; justify-content:center; align-items:center;
+    padding: 8px 0 0; margin: 0;
+    position:relative;
+  }
+  .divider img{ width:100%; max-width:340px; height:auto; opacity:.85; mix-blend-mode:multiply;}
+  .divider.small img{ max-width:120px;}
+  .divider.tiny img{ max-width:64px; opacity:.6;}
+
+  /* ============== MEET CARD ============== */
+  .meet-card{
+    background:#fff; border-radius:18px; padding:22px 22px 20px;
+    box-shadow: var(--paper-shadow);
+    border:1px solid var(--line);
+    position:relative; overflow:hidden;
+  }
+  .meet-card + .meet-card{ margin-top:14px;}
+  .meet-card .meet-head{ display:flex; align-items:baseline; justify-content:space-between; gap:10px; margin-bottom:10px;}
+  .meet-card .meet-tag{ font-family:var(--en); font-size:10px; letter-spacing:.2em; padding:4px 10px; border-radius:100px; background:var(--green); color:#fff; font-weight:600;}
+  .meet-card .meet-tag.amber{ background:var(--amber);}
+  .meet-card h3{ font-size:20px; margin:0; font-weight:700; color:var(--green-deep);}
+  .meet-card .meet-meta{ font-family:var(--en); font-size:11px; color:var(--ink-3); letter-spacing:.08em; margin-bottom:14px;}
+  .meet-card .meet-body{ font-size:14px; color:var(--ink-2); line-height:1.85;}
+  .meet-card .meet-body strong{ color:var(--ink); font-weight:700;}
+  .meet-card .meet-body ul{ margin:10px 0 0; padding:0; list-style:none;}
+  .meet-card .meet-body li{ position:relative; padding-left:18px; margin:4px 0;}
+  .meet-card .meet-body li::before{ content:"●"; position:absolute; left:0; top:0; color:var(--amber); font-size:8px; top:8px;}
+
+  /* ============== SCHEDULE TABS ============== */
+  .tabs{ display:flex; gap:8px; margin-bottom:20px; background:var(--bg-2); padding:6px; border-radius:14px;}
+  .tab{
+    flex:1; border:none; background:transparent; padding:14px 8px;
+    font-family:var(--maru); font-weight:700; font-size:15px; color:var(--ink-3);
+    border-radius:10px; cursor:pointer; transition: all .25s ease;
+    display:flex; flex-direction:column; align-items:center; gap:2px;
+  }
+  .tab .tab-en{ font-family:var(--en); font-size:10px; letter-spacing:.2em; opacity:.7; font-weight:500;}
+  .tab.active{ background:var(--green); color:#fff; box-shadow: 0 4px 12px -4px rgba(42,92,64,.5);}
+  .tab.active .tab-en{ opacity:.9;}
+
+  .day-panel{ display:none; animation: fadeUp .4s ease both;}
+  .day-panel.active{ display:block;}
+  @keyframes fadeUp{ from{ opacity:0; transform:translateY(10px);} to{ opacity:1; transform:translateY(0);} }
+
+  .day-head{ display:flex; align-items:baseline; justify-content:space-between; margin-bottom:18px;}
+  .day-head h3{ margin:0; font-size:22px; font-weight:900; color:var(--green-deep);}
+  .day-head .date{ font-family:var(--en); font-size:13px; color:var(--amber); font-weight:600; letter-spacing:.05em;}
+
+  /* Accordion items (timeline) */
+  .schedule-list{ list-style:none; margin:0; padding:0; position:relative;}
+  .schedule-list::before{
+    content:""; position:absolute; left: 68px; top:10px; bottom:10px; width:1px;
+    background: repeating-linear-gradient(to bottom, var(--line) 0 4px, transparent 4px 8px);
+  }
+
+  .sch-item{
+    position:relative; margin-bottom:6px;
+  }
+  .sch-toggle{
+    width:100%; border:none; background:transparent; padding: 14px 0 14px 0;
+    display:grid; grid-template-columns: 56px 1fr auto; align-items:center; gap:14px;
+    text-align:left; cursor:pointer; font-family:var(--maru);
+    border-bottom: 1px solid var(--line);
+    transition: background .2s ease;
+  }
+  .sch-toggle:hover{ background: rgba(212,133,74,.04);}
+  .sch-time{ font-family:var(--en); font-size:15px; font-weight:600; color:var(--green); letter-spacing:.02em; position:relative; z-index:1; background:var(--bg); padding-right:8px;}
+  .sch-time::before{
+    content:""; position:absolute; left: 50%; top:50%; width:10px; height:10px; border-radius:50%;
+    background:var(--bg); border:2px solid var(--amber);
+    transform:translate(-50%,-50%); margin-left: 28px;
+    box-shadow: 0 0 0 4px var(--bg);
+  }
+  .sch-item.highlight .sch-time::before{ background:var(--amber); border-color:var(--amber);}
+
+  /* Transit items — visually recessive; not the main content */
+  .sch-item.transit .sch-toggle{ padding: 8px 0 8px 0;}
+  .sch-item.transit .sch-time{
+    color: var(--ink-3); font-weight: 500; font-size: 12.5px; opacity: .85;
+  }
+  .sch-item.transit .sch-time::before{
+    width:6px; height:6px; border-width:1px;
+    border-color: var(--ink-3); background: var(--bg);
+    box-shadow: 0 0 0 3px var(--bg);
+  }
+  .sch-item.transit .sch-title{
+    color: var(--ink-3); font-weight: 500; font-size: 12.5px;
+  }
+  .sch-item.transit .sch-title::before{
+    content:"🚌"; font-size: 11px; margin-right: 6px; opacity:.75;
+    vertical-align: 1px;
+  }
+  .sch-item.transit .sch-chev{ opacity:.5; font-size: 12px;}
+  .sch-item.transit .sch-toggle{ border-bottom-style: dashed; border-bottom-color: rgba(217,201,178,.7);}
+  .sch-item.transit .sch-toggle:hover{ background: rgba(0,0,0,.015);}
+
+  .sch-title{ font-size:15px; font-weight:700; color:var(--ink); line-height:1.4;}
+  .sch-title .sch-cost{ display:inline-block; font-family:var(--en); font-size:10px; letter-spacing:.1em; color:var(--green); background:rgba(42,92,64,.1); padding:2px 7px; border-radius:4px; margin-left:6px; font-weight:600; vertical-align:1px;}
+  .sch-title .sch-cost.own{ color:var(--amber); background:rgba(212,133,74,.12);}
+
+  /* Group side-bar (visual grouping without repeating pills) */
+  .sch-item.grp-tokyo,
+  .sch-item.grp-local,
+  .sch-item.grp-merge{
+    padding-left: 12px; position:relative;
+  }
+  .sch-item.grp-tokyo::before,
+  .sch-item.grp-local::before,
+  .sch-item.grp-merge::before{
+    content:""; position:absolute; left:0; top:2px; bottom:2px; width:3px;
+    border-radius: 2px;
+  }
+  .sch-item.grp-tokyo::before{ background: var(--green);}
+  .sch-item.grp-local::before{ background: var(--amber);}
+  .sch-item.grp-merge::before{
+    background: repeating-linear-gradient(180deg,
+      var(--green) 0 6px, var(--amber) 6px 12px);
+    opacity: .55;
+  }
+
+  /* Section divider — the label for each group section */
+  .sch-branch-note{
+    margin: 20px 0 8px;
+    padding: 10px 14px 10px 16px;
+    border-radius: 10px;
+    font-family:var(--maru); font-size:12.5px; font-weight:700;
+    color:var(--ink);
+    display:flex; align-items:center; gap:10px;
+    position:relative; overflow:hidden;
+    border: 1px solid transparent;
+  }
+  .sch-branch-note .sbn-en{
+    font-family:var(--en); font-size:9.5px; letter-spacing:.22em;
+    text-transform:uppercase; font-weight:600;
+    opacity:.75; margin-left:auto;
+  }
+  .sch-branch-note::before{
+    content:""; width:4px; align-self:stretch; border-radius:2px;
+  }
+  .sch-branch-note.grp-tokyo{
+    background: rgba(42,92,64,.08);
+    border-color: rgba(42,92,64,.20);
+    color: var(--green-deep);
+  }
+  .sch-branch-note.grp-tokyo::before{ background: var(--green);}
+  .sch-branch-note.grp-local{
+    background: rgba(212,133,74,.10);
+    border-color: rgba(212,133,74,.28);
+    color: #7a4318;
+  }
+  .sch-branch-note.grp-local::before{ background: var(--amber);}
+  .sch-branch-note.grp-merge{
+    background: linear-gradient(90deg, rgba(42,92,64,.07), rgba(212,133,74,.09));
+    border-color: rgba(44,26,14,.10);
+    color: var(--ink);
+  }
+  .sch-branch-note.grp-merge::before{
+    background: repeating-linear-gradient(180deg,
+      var(--green) 0 6px, var(--amber) 6px 12px);
+  }
+
+  /* In-house guide card (DAY1 東京組の自由時間) */
+  .in-house-card{
+    margin-top:22px; background:#fff; border:1px solid var(--line); border-radius:16px;
+    padding: 20px 20px 18px; box-shadow: var(--paper-shadow);
+    border-left: 4px solid var(--green);
+  }
+  .in-house-card .ih-head{ display:flex; align-items:center; gap:10px; margin-bottom:8px; flex-wrap:wrap;}
+  .in-house-card .ih-tag{
+    font-family:var(--en); font-size:10px; letter-spacing:.18em; text-transform:uppercase;
+    background:var(--green); color:#fff; padding:4px 10px; border-radius:100px; font-weight:600;
+  }
+  .in-house-card h4{ margin:0; font-size:16px; font-weight:900; color:var(--green-deep); line-height:1.4;}
+  .in-house-card .ih-lead{ font-size:13.5px; color:var(--ink-2); line-height:1.85; margin:6px 0 14px;}
+  .in-house-card .ih-section{ margin-top:14px;}
+  .in-house-card .ih-section-title{
+    font-family:var(--maru); font-weight:800; font-size:13px; color:var(--ink);
+    margin-bottom:8px; letter-spacing:.02em;
+  }
+  .in-house-card .ih-list{ list-style:none; margin:0; padding:0;}
+  .in-house-card .ih-list li{
+    position:relative; padding: 4px 0 4px 18px;
+    font-size:13px; color:var(--ink-2); line-height:1.75;
+  }
+  .in-house-card .ih-list li::before{
+    content:""; position:absolute; left:0; top:12px; width:6px; height:6px;
+    background:var(--green); border-radius:50%;
+  }
+  .in-house-card .ih-list li b{ color:var(--ink); font-weight:700;}
+  .in-house-card .ih-list.ih-list-caution li::before{ background:var(--amber);}
+  .in-house-card .ih-note{
+    margin-top:10px; font-size:11.5px; color:var(--ink-3);
+    padding: 6px 10px; background: rgba(212,133,74,.08); border-radius:6px;
+    font-style: italic;
+  }
+  .sch-chev{ font-family:var(--en); color:var(--ink-3); font-size:14px; transition: transform .3s ease; width:20px; text-align:center;}
+  .sch-item.open .sch-chev{ transform: rotate(180deg); color:var(--amber);}
+
+  .sch-detail{
+    display:grid; grid-template-rows: 0fr; transition: grid-template-rows .35s ease;
+  }
+  .sch-detail > div{ overflow:hidden; min-height:0;}
+  .sch-item.open .sch-detail{ grid-template-rows: 1fr;}
+  .sch-detail .sch-detail-inner{
+    padding: 10px 0 18px 70px; font-size:13.5px; color:var(--ink-2); line-height:1.9;
+  }
+  .sch-detail .sch-detail-inner p{ margin:0 0 6px;}
+
+  /* ============== TOC (INDEX) ============== */
+  html{ scroll-behavior: smooth;}
+  .toc-section{
+    padding: 40px 24px 48px;
+    background:
+      radial-gradient(500px 300px at 100% 0%, rgba(212,133,74,.08), transparent 60%),
+      var(--bg);
+    border-bottom: 1px dashed var(--line);
+  }
+  .toc-eyebrow{
+    font-family:var(--en); font-size:11px; letter-spacing:.3em; color:var(--ink-3);
+    font-weight:500; text-transform:uppercase; display:block;
+  }
+  .toc-eyebrow::before{
+    content:""; display:inline-block; width:20px; height:1px;
+    background:var(--amber); vertical-align:middle; margin-right:10px;
+  }
+  .toc-title{
+    margin: 4px 0 0;
+    font-family: var(--maru); font-weight: 900; color: var(--green-deep);
+    font-size: 22px; letter-spacing:.02em; display:block;
+  }
+
+  /* --- 折りたたみ目次 --- */
+  .toc-details{
+    background:#fff; border-radius:16px; border:1px solid var(--line);
+    box-shadow: var(--paper-shadow); overflow:hidden;
+  }
+  .toc-summary{
+    list-style:none; cursor:pointer;
+    display:flex; align-items:center; justify-content:space-between; gap:14px;
+    padding: 18px 20px;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .toc-summary::-webkit-details-marker{ display:none; }
+  .toc-summary-text{ display:flex; flex-direction:column; gap:0;}
+  .toc-chevron{
+    flex-shrink:0; width:28px; height:28px; border-radius:50%;
+    background: rgba(42,92,64,.08);
+    position:relative; transition: transform .25s ease, background .2s ease;
+  }
+  .toc-chevron::before{
+    content:""; position:absolute; left:50%; top:50%;
+    width:8px; height:8px; border-right:2px solid var(--green); border-bottom:2px solid var(--green);
+    transform: translate(-50%, -70%) rotate(45deg);
+    transition: transform .25s ease;
+  }
+  .toc-details[open] .toc-chevron{ background: rgba(212,133,74,.14); }
+  .toc-details[open] .toc-chevron::before{
+    border-color: var(--amber);
+    transform: translate(-50%, -30%) rotate(-135deg);
+  }
+  .toc-summary:hover{ background: rgba(42,92,64,.03); }
+
+  .toc-list{
+    list-style:none; margin:0; padding:0;
+    border-top: 1px solid var(--line);
+    animation: tocFade .25s ease;
+  }
+  @keyframes tocFade{ from{ opacity:0; transform: translateY(-4px);} to{ opacity:1; transform: translateY(0);} }
+  .toc-list li{ border-bottom: 1px dashed var(--line);}
+  .toc-list li:last-child{ border-bottom:none;}
+  .toc-list a{
+    display:flex; align-items:center; gap:14px;
+    padding: 14px 18px; text-decoration:none; color:inherit;
+    transition: background .15s ease;
+    min-height: 52px;
+  }
+  .toc-list a:active{ background: rgba(212,133,74,.08);}
+  .toc-num{
+    flex-shrink:0;
+    font-family: var(--en); font-weight: 600; font-size: 11px;
+    color:#fff; background: var(--green);
+    width: 28px; height: 28px; border-radius: 50%;
+    display:flex; align-items:center; justify-content:center;
+    letter-spacing: .02em;
+  }
+  .toc-text{ flex:1; min-width:0; display:flex; flex-direction:column; gap:2px;}
+  .toc-ja{ font-size: 14.5px; font-weight: 700; color: var(--ink); line-height:1.35;}
+  .toc-en{
+    font-family: var(--en); font-size: 10px; letter-spacing: .18em;
+    color: var(--ink-3); text-transform: uppercase; font-weight: 500;
+  }
+  .toc-arrow{
+    flex-shrink:0;
+    font-family: var(--en); font-size: 14px; color: var(--amber);
+    opacity: .7;
+  }
+  .toc-list a:active .toc-arrow{ transform: translateX(2px); opacity: 1;}
+
+  /* ============== TRANSPORT ============== */
+  .transport-grid{ display:grid; gap:16px;}
+  .transport-card{
+    background:#fff; border-radius:18px; padding:24px 22px;
+    box-shadow: var(--paper-shadow); border:1px solid var(--line);
+    position:relative;
+  }
+  .transport-card .tc-illust{ position:absolute; right:14px; top:14px; width:88px; height:48px; opacity:.6;}
+  .transport-card .tc-illust img{ width:100%; height:100%; object-fit:contain; mix-blend-mode:multiply;}
+  .transport-card .tc-eyebrow{ font-family:var(--en); font-size:10px; letter-spacing:.25em; color:var(--amber); font-weight:600; text-transform:uppercase; margin-bottom:6px;}
+  .transport-card h3{ margin:0 0 4px; font-size:20px; font-weight:900; color:var(--green-deep);}
+  .transport-card .tc-meta{ font-size:12px; color:var(--ink-3); margin-bottom:18px;}
+
+  .tc-timeline{ list-style:none; margin:0; padding:0; position:relative; border-left: 2px solid var(--line); padding-left:20px;}
+  .tc-timeline li{ position:relative; padding: 6px 0; font-size:14px;}
+  .tc-timeline li::before{ content:""; position:absolute; left:-26px; top:14px; width:8px; height:8px; border-radius:50%; background:var(--green);}
+  .tc-timeline li b{ font-family:var(--en); color:var(--green); font-weight:600; margin-right:10px; font-size:13px;}
+  .tc-timeline li.key::before{ background:var(--amber); box-shadow: 0 0 0 4px rgba(212,133,74,.2);}
+  .tc-timeline li.key{ color:var(--ink); font-weight:700;}
+
+  /* Day labels inside transport card */
+  .tc-day-block{ margin-top:14px;}
+  .tc-day-block:first-of-type{ margin-top:4px;}
+  .tc-day-label{
+    display:inline-flex; align-items:baseline; gap:8px;
+    margin-bottom:10px; padding: 4px 10px 4px 10px;
+    background:var(--green); color:#fff; border-radius:6px;
+    font-family:var(--maru); font-weight:700; font-size:12px; letter-spacing:.04em;
+  }
+  .tc-day-label .tc-day-en{ font-family:var(--en); font-size:10px; letter-spacing:.2em; opacity:.85; font-weight:500;}
+  .tc-day-label .tc-day-date{ font-family:var(--en); font-size:10px; opacity:.75; margin-left:2px;}
+  .tc-day-block.day2 .tc-day-label{ background:var(--amber);}
+
+  .tc-note{ margin-top:16px; padding: 12px 14px; background:rgba(212,133,74,.08); border-radius:10px; font-size:12.5px; color:var(--ink-2); line-height:1.7;}
+  .tc-note::before{ content:"⚠"; color:var(--amber); margin-right:6px; font-size:14px;}
+
+  /* 集合場所ハイライトカード（東京組・HOTEL GRAPHY 渋谷） */
+  .tc-meetup{
+    margin-top:14px; padding:16px 16px 18px;
+    background: linear-gradient(180deg, #fffaf3 0%, #fff 100%);
+    border:1px solid var(--line); border-left:4px solid var(--amber);
+    border-radius:12px; position:relative;
+  }
+  .tc-meetup .tcm-head{ display:flex; align-items:center; gap:8px; margin-bottom:10px; flex-wrap:wrap;}
+  .tc-meetup .tcm-tag{
+    font-family:var(--en); font-size:10px; letter-spacing:.2em; color:#fff;
+    background:var(--amber); padding:3px 9px; border-radius:100px;
+    font-weight:700; text-transform:uppercase;
+  }
+  .tc-meetup .tcm-pin{ font-size:15px;}
+  .tc-meetup .tcm-title{ font-family:var(--maru); font-weight:900; color:var(--green-deep); font-size:15px;}
+  .tc-meetup .tcm-figure{
+    margin: 6px 0 12px; border-radius:10px; overflow:hidden;
+    border:1px solid var(--line); background:#f4efe7;
+    box-shadow: 0 2px 8px rgba(0,0,0,.06);
+  }
+  .tc-meetup .tcm-figure img{ display:block; width:100%; height:auto; }
+  .tc-meetup .tcm-caption{
+    font-size:11.5px; color:var(--ink-3); text-align:center;
+    padding:6px 10px 8px; background:#faf7f1; border-top:1px solid var(--line);
+    font-family:var(--maru);
+  }
+  .tc-meetup .tcm-body{ font-size:13.5px; color:var(--ink-2); line-height:1.85;}
+  .tc-meetup .tcm-body b{ color:var(--ink); font-weight:800;}
+  .tc-meetup .tcm-body .hi{
+    background: linear-gradient(180deg, transparent 60%, rgba(212,133,74,.28) 60%);
+    padding: 0 2px; font-weight:800; color:var(--ink);
+  }
+  .tc-meetup .tcm-points{
+    list-style:none; margin:10px 0 0; padding:0;
+    display:flex; flex-direction:column; gap:6px;
+  }
+  .tc-meetup .tcm-points li{
+    position:relative; padding:8px 10px 8px 32px;
+    background:#fff; border:1px solid var(--line); border-radius:8px;
+    font-size:13px; color:var(--ink-2); line-height:1.6;
+  }
+  .tc-meetup .tcm-points li::before{
+    content:""; position:absolute; left:12px; top:14px;
+    width:10px; height:10px; border-radius:50%;
+    background:var(--amber); box-shadow:0 0 0 3px rgba(212,133,74,.18);
+  }
+  .tc-meetup .tcm-points li b{ color:var(--ink); font-weight:800;}
+  .tc-meetup .tcm-map{
+    display:inline-flex; align-items:center; gap:6px; margin-top:12px;
+    padding:9px 14px; background:var(--green); color:#fff;
+    border-radius:8px; font-family:var(--en); font-size:13px; font-weight:600;
+    text-decoration:none; letter-spacing:.05em;
+  }
+  .tc-meetup .tcm-map:hover{ background:var(--green-deep);}
+
+  /* 13:50 集合の分岐（東京組 DAY2） */
+  .tc-reunite{
+    margin-top:12px; padding:14px 14px 12px;
+    background:#faf7f1; border:1px solid var(--line);
+    border-left:4px solid var(--green);
+    border-radius:10px;
+  }
+  .tc-reunite .tcr-head{
+    display:flex; align-items:center; gap:8px; flex-wrap:wrap;
+    margin-bottom:10px; padding-bottom:10px; border-bottom:1px dashed var(--line);
+  }
+  .tc-reunite .tcr-tag{
+    font-family:var(--en); font-size:10px; letter-spacing:.15em;
+    background:var(--green); color:#fff; padding:3px 8px;
+    border-radius:100px; font-weight:700;
+  }
+  .tc-reunite .tcr-title{
+    font-family:var(--maru); font-weight:800;
+    color:var(--green-deep); font-size:12.5px;
+  }
+  .tc-reunite .tcr-row{
+    display:flex; align-items:center; gap:10px;
+    padding:6px 0; font-size:12.5px; color:var(--ink-2); line-height:1.6;
+  }
+  .tc-reunite .tcr-row + .tcr-row{ border-top:1px dashed var(--line);}
+  .tc-reunite .tcr-badge{
+    flex-shrink:0; display:inline-flex; align-items:center; gap:4px;
+    padding:4px 9px; border-radius:100px;
+    font-family:var(--maru); font-size:11px; font-weight:800; color:#fff;
+    min-width:96px; justify-content:center;
+  }
+  .tc-reunite .tcr-bus{ background:var(--green);}
+  .tc-reunite .tcr-self{ background:var(--amber);}
+  .tc-reunite .tcr-plans b{ color:var(--ink); font-weight:800; margin: 0 2px;}
+
+  /* 地方組・早着案内ブロック */
+  .tc-early{ margin-top:12px; padding:14px 16px; background:#fff; border:1px solid var(--line); border-left:4px solid var(--amber); border-radius:10px;}
+  .tc-early .tce-head{ display:flex; align-items:center; gap:8px; margin-bottom:8px; flex-wrap:wrap;}
+  .tc-early .tce-tag{ font-family:var(--en); font-size:10px; letter-spacing:.2em; color:#fff; background:var(--amber); padding:3px 8px; border-radius:100px; font-weight:700; text-transform:uppercase;}
+  .tc-early .tce-title{ font-family:var(--maru); font-weight:900; color:var(--green-deep); font-size:14px;}
+  .tc-early .tce-body{ font-size:13px; color:var(--ink-2); line-height:1.85;}
+  .tc-early .tce-body b{ color:var(--ink); font-weight:700;}
+  .tc-early .tce-call{ display:inline-flex; align-items:center; gap:6px; margin-top:10px; padding:9px 14px; background:var(--green); color:#fff; border-radius:8px; font-family:var(--en); font-size:13px; font-weight:600; text-decoration:none; letter-spacing:.05em;}
+  .tc-early .tce-call:active{ transform:scale(.98);}
+
+  .tc-doc{
+    display:flex; align-items:center; gap:12px;
+    margin-top:14px; padding: 12px 14px;
+    background: var(--green); color:#fff;
+    text-decoration:none; border-radius:10px;
+    transition: background .2s ease; min-height:56px;
+  }
+  .tc-doc:active{ transform: scale(.98);}
+  .tc-doc-icon{
+    width:36px; height:36px; border-radius:8px;
+    background: rgba(255,255,255,.15);
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+  .tc-doc-icon svg{ width:18px; height:18px;}
+  .tc-doc-text{ flex:1; min-width:0;}
+  .tc-doc-label{ font-size:13.5px; font-weight:700; line-height:1.3;}
+  .tc-doc-sub{
+    font-family:var(--en); font-size:10px; letter-spacing:.12em;
+    color: var(--amber-soft); margin-top:2px; opacity:.95;
+  }
+  .tc-doc-arrow{
+    font-family:var(--en); font-size:16px; opacity:.7;
+    flex-shrink:0;
+  }
+
+  /* ============== PACK LIST ============== */
+  .checklist-section{ background:linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%); padding-bottom:80px;}
+
+  .pack-group{ margin-bottom:22px; background:#fff; border-radius:16px; border:1px solid var(--line); box-shadow: var(--paper-shadow); overflow:hidden;}
+  .pack-group h4{
+    margin:0; padding: 16px 20px;
+    font-size:14px; font-weight:700; color:var(--green-deep);
+    display:flex; align-items:center; gap:10px;
+    font-family:var(--maru);
+    border-bottom: 1px solid var(--line);
+    background: rgba(42,92,64,.04);
+  }
+  .pack-group h4 .cg-tag{ font-family:var(--en); font-size:9px; letter-spacing:.2em; color:var(--amber); background:rgba(212,133,74,.14); padding:3px 8px; border-radius:4px; font-weight:600;}
+
+  .pack-list{ list-style:none; margin:0; padding: 6px 20px 14px;}
+  .pack-list li{
+    position:relative; padding: 12px 0 12px 26px;
+    font-size:15px; font-weight:500; color:var(--ink); line-height:1.5;
+    border-bottom: 1px dashed var(--line);
+  }
+  .pack-list li:last-child{ border-bottom:none;}
+  .pack-list li::before{
+    content:""; position:absolute; left:0; top:18px;
+    width:14px; height:14px; border:1.5px solid var(--green); border-radius:4px;
+    background:#fff;
+  }
+
+  .check-note{ font-size:12.5px; color:var(--ink-2); padding: 14px 16px; background: rgba(255,255,255,.7); border-radius:10px; border:1px dashed var(--line); line-height:1.8; margin-top:14px;}
+  .check-note b{ color:var(--green); font-weight:700;}
+
+  /* ============== WEATHER ============== */
+  .weather-card{
+    background: linear-gradient(135deg, #2A5C40 0%, #1E4530 100%);
+    color:#fff; border-radius:20px; padding:24px;
+    position:relative; overflow:hidden;
+  }
+  .weather-card::before{
+    content:""; position:absolute; right:-30px; top:-30px; width:160px; height:160px;
+    background: radial-gradient(circle, rgba(212,133,74,.35) 0%, transparent 70%);
+    border-radius:50%;
+  }
+  .weather-card .wc-eyebrow{ font-family:var(--en); font-size:10px; letter-spacing:.25em; color:var(--amber-soft); text-transform:uppercase; font-weight:600;}
+  .weather-card h3{ margin:6px 0 16px; font-size:22px; font-weight:900;}
+  .weather-card .wc-grid{ display:grid; grid-template-columns: 1fr 1fr; gap:14px; position:relative; z-index:1;}
+  .weather-card .wc-stat{ background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15); border-radius:12px; padding:14px;}
+  .weather-card .wc-stat .wc-label{ font-family:var(--en); font-size:10px; letter-spacing:.15em; opacity:.7; text-transform:uppercase; margin-bottom:4px;}
+  .weather-card .wc-stat .wc-val{ font-family:var(--en); font-size:24px; font-weight:600; color:var(--amber-soft);}
+  .weather-card .wc-stat .wc-val small{ font-size:13px; opacity:.7; margin-left:4px;}
+  .weather-card .wc-note{ margin-top:16px; font-size:13px; line-height:1.7; opacity:.92; position:relative; z-index:1;}
+
+  /* ============== LUNCH ============== */
+  .lunch-panel{ display:none;}
+  .lunch-panel.active{ display:block;}
+
+  .lunch-cat{
+    display:flex; align-items:center; gap:14px;
+    margin: 24px 0 12px;
+    padding-bottom: 8px;
+    border-bottom: 1.5px solid var(--green);
+  }
+  .lunch-cat:first-child{ margin-top:8px;}
+  .lunch-cat .lc-num{
+    font-family:var(--en); font-size:14px; font-weight:600; color:#fff;
+    background:var(--green); width:28px; height:28px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+    letter-spacing:.02em;
+  }
+  .lunch-cat .lc-title{ font-size:15px; font-weight:700; color:var(--green-deep); line-height:1.4;}
+
+  .lunch-list{ display:grid; gap:10px; margin-bottom:8px;}
+  .lunch-item{
+    background:#fff; border-radius:14px; padding:18px 20px; border:1px solid var(--line);
+    box-shadow: var(--paper-shadow);
+  }
+  .lunch-item h4{ margin:0 0 6px; font-size:16px; font-weight:700; color:var(--ink); line-height:1.4;}
+  .lunch-item .li-loc{
+    font-family: var(--maru); font-size:11.5px; color:var(--green); font-weight:600;
+    margin-bottom:10px;
+    display:inline-block; padding: 3px 10px;
+    background: rgba(42,92,64,.08); border-radius:100px;
+  }
+  .lunch-item p{ margin:0; font-size:13.5px; color:var(--ink-2); line-height:1.85;}
+
+  /* ============== ACTIVITIES (DAY2) ============== */
+  .act-intro{
+    display:flex; align-items:center; gap:10px;
+    margin: 8px 0 18px;
+    padding: 12px 14px;
+    background: rgba(212,133,74,.10);
+    border: 1px dashed var(--amber);
+    border-radius: 12px;
+    font-size: 12.5px; color: var(--ink-2); line-height:1.7;
+  }
+  .act-intro .ai-icon{
+    flex-shrink:0; width:32px; height:32px; border-radius:50%;
+    background: var(--amber); color:#fff;
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--en); font-size:14px; font-weight:700;
+  }
+  .act-intro b{ color: var(--ink);}
+
+  .activity-list{ display:grid; gap:14px; margin-top: 4px; list-style:none; padding:0; margin-left:0; margin-right:0;}
+  .activity-list > li{ margin:0;}
+  .activity-card{
+    position:relative;
+    background:#fff; border-radius:18px; padding: 20px 20px 22px;
+    border:1px solid var(--line); box-shadow: var(--paper-shadow);
+    overflow:hidden;
+  }
+  .activity-card::before{
+    content:""; position:absolute; left:0; top:0; bottom:0; width:5px;
+    background: var(--amber);
+  }
+  .activity-card .ac-head{
+    display:flex; align-items:center; gap:14px;
+    margin-bottom: 14px; padding-bottom: 12px;
+    border-bottom: 1px dashed var(--line);
+  }
+  .activity-card .ac-plan{
+    flex-shrink:0;
+    width:56px; height:56px; border-radius: 14px;
+    background: var(--green); color:#fff;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    font-family: var(--en); font-weight: 700; line-height:1;
+    box-shadow: 0 6px 14px -6px rgba(42,92,64,.55);
+  }
+  .activity-card .ac-plan .ap-letter{
+    font-size: 24px; letter-spacing:.02em;
+  }
+  .activity-card .ac-plan .ap-label{
+    font-size: 8px; letter-spacing:.2em; opacity:.9; margin-top:4px;
+    font-weight: 500;
+  }
+
+  /* Time-badge variant (used when plan letters are not needed) */
+  .activity-card .ac-time{
+    flex-shrink:0;
+    width:56px; height:56px; border-radius: 14px;
+    background: var(--green); color:#fff;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    font-family: var(--en); font-weight: 700; line-height:1;
+    box-shadow: 0 6px 14px -6px rgba(42,92,64,.55);
+    letter-spacing:.02em;
+  }
+  .activity-card .ac-time .at-h{ font-size: 20px;}
+  .activity-card .ac-time .at-label{
+    font-size: 8px; letter-spacing:.2em; opacity:.9; margin-top:4px; font-weight:500;
+  }
+  /* Evening variant — amber accent to signal "night" section */
+  .activity-card.evening::before{ background: var(--amber);}
+  .activity-card.evening .ac-time{
+    background: var(--amber);
+    box-shadow: 0 6px 14px -6px rgba(212,133,74,.6);
+  }
+  .activity-card.evening .ac-order{ color: var(--green); background: rgba(42,92,64,.10);}
+  .activity-card.evening h4{ color: var(--ink);}
+
+  /* Sub-section head inside activity list (e.g., 昼 / 夜) */
+  .ac-section-head{
+    list-style:none;
+    display:flex; align-items:center; gap:12px;
+    margin: 10px 2px 2px;
+    font-family:var(--maru); font-weight:800; font-size: 13px;
+    color: var(--ink);
+    letter-spacing:.02em;
+  }
+  .ac-section-head:first-child{ margin-top:2px;}
+  .ac-section-head .ash-line{
+    flex: 1; height: 1px;
+    background: repeating-linear-gradient(90deg, var(--line) 0 4px, transparent 4px 8px);
+  }
+  .ac-section-head .ash-en{
+    font-family: var(--en); font-size: 10px; letter-spacing:.22em;
+    color: var(--ink-3); text-transform: uppercase; font-weight: 600;
+  }
+  .ac-section-head .ash-icon{
+    width: 26px; height: 26px; border-radius: 50%;
+    background: rgba(42,92,64,.10);
+    display:flex; align-items:center; justify-content:center;
+    font-size: 13px;
+  }
+  .ac-section-head.night .ash-icon{ background: rgba(212,133,74,.14);}
+
+  /* Connector between cards inside the same section only */
+  .activity-list .activity-card + .ac-section-head{ margin-top: 18px;}
+  .activity-list .ac-section-head + .activity-card::after{ display:none;}
+  .activity-card .ac-head-text{ flex:1; min-width:0;}
+  .activity-card .ac-order{
+    display:inline-block; font-family:var(--en); font-size:10px; font-weight:600;
+    letter-spacing:.18em; color: var(--amber);
+    background: rgba(212,133,74,.12);
+    padding: 3px 8px; border-radius: 4px;
+    margin-bottom: 6px;
+  }
+  .activity-card h4{
+    margin: 0; font-size: 16.5px; font-weight: 900; color: var(--green-deep);
+    line-height:1.35;
+  }
+  .activity-card .ac-loc{
+    margin-top:4px;
+    font-size: 12px; color: var(--ink-3);
+    display:flex; align-items:center; gap:5px;
+  }
+  .activity-card .ac-loc::before{
+    content:"📍"; font-size:11px;
+  }
+  .activity-card .ac-desc{
+    font-size: 13.5px; color: var(--ink-2); line-height:1.8; margin:0;
+  }
+  .activity-card .ac-sublist{
+    list-style:none; margin: 12px 0 0; padding: 0;
+    display:flex; flex-direction:column; gap:6px;
+  }
+  .activity-card .ac-sublist li{
+    position:relative; padding: 10px 12px 10px 14px;
+    background: rgba(42,92,64,.05);
+    border-left: 3px solid var(--green);
+    border-radius: 6px;
+    font-size: 13px; color: var(--ink-2); line-height:1.7;
+  }
+  .activity-card .ac-sublist li b{
+    font-family: var(--en); color: var(--green-deep);
+    font-weight:700; margin-right: 8px; font-size: 13px;
+  }
+  /* トレッキング用 注意事項ボックス（服装・持ち物） */
+  .activity-card .ac-notice{
+    margin-top: 14px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--amber);
+    border-radius: 10px;
+    padding: 14px 16px 12px;
+  }
+  .activity-card .ac-notice-head{
+    display:flex; align-items:center; gap:8px; flex-wrap:wrap;
+    margin-bottom: 10px; padding-bottom: 10px;
+    border-bottom: 1px dashed var(--line);
+  }
+  .activity-card .ac-notice-tag{
+    font-family: var(--en); font-size: 10px; letter-spacing: .2em;
+    text-transform: uppercase;
+    background: var(--amber); color:#fff;
+    padding: 3px 8px; border-radius: 100px;
+    font-weight: 700;
+  }
+  .activity-card .ac-notice-title{
+    font-family: var(--maru); font-weight: 900;
+    font-size: 13.5px; color: var(--green-deep);
+  }
+  .activity-card .ac-notice-list{
+    list-style: none; margin: 0; padding: 0;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .activity-card .ac-notice-list li{
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 12.5px; line-height: 1.7; color: var(--ink-2);
+  }
+  .activity-card .ac-notice-list li::before{
+    content: ""; flex-shrink: 0;
+    width: 6px; height: 6px; margin-top: 8px;
+    border-radius: 50%; background: var(--amber);
+    box-shadow: 0 0 0 3px rgba(212,133,74,.18);
+  }
+  .activity-card .ac-notice-list li b{
+    display:block; color: var(--ink); font-weight: 800;
+    font-size: 13px; margin-bottom: 2px;
+  }
+  .activity-card .ac-notice-foot{
+    margin: 10px 0 0; padding: 8px 10px;
+    background: rgba(42,92,64,.06);
+    border-radius: 6px;
+    font-size: 11.5px; color: var(--ink-2);
+    line-height: 1.65;
+  }
+
+  .activity-card .ac-tags{
+    display:flex; flex-wrap:wrap; gap:6px; margin-top: 12px;
+  }
+  .activity-card .ac-tag{
+    font-family:var(--maru); font-size: 11px; font-weight:600;
+    color: var(--green); background: rgba(42,92,64,.09);
+    padding: 3px 9px; border-radius: 100px;
+  }
+
+  /* connector line between cards (bus route feel) */
+  .activity-list{ position:relative;}
+  .activity-card + .activity-card::after{
+    content:""; position:absolute; left: 34px; top: -14px; height:14px;
+    width:2px; background: repeating-linear-gradient(180deg, var(--amber) 0 3px, transparent 3px 6px);
+  }
+
+  .act-note{
+    margin-top: 16px;
+    padding: 12px 14px; background:rgba(42,92,64,.06); border-radius:10px;
+    font-size:12.5px; color:var(--ink-2); line-height:1.7;
+  }
+  .act-note::before{ content:"ℹ"; color:var(--green); margin-right:6px; font-weight:700;}
+
+  /* ============== REUNITE CARD (13:50 集合) ============== */
+  .reunite-card{
+    margin-top: 20px;
+    background:#fff; border-radius:18px;
+    box-shadow: var(--paper-shadow); border:1px solid var(--line);
+    border-left: 4px solid var(--amber);
+    padding: 22px 22px 20px;
+  }
+  .reunite-card .ru-head{
+    display:flex; gap:16px; align-items:center; margin-bottom:18px;
+    padding-bottom:16px; border-bottom:1px dashed var(--line);
+  }
+  .reunite-card .ru-time{
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    min-width:72px; padding:8px 6px;
+    background: var(--amber); color:#fff; border-radius:10px;
+    font-family:var(--en);
+  }
+  .reunite-card .ru-time .ru-h{ font-size:20px; font-weight:800; line-height:1;}
+  .reunite-card .ru-time .ru-label{ font-size:9px; letter-spacing:.2em; margin-top:4px; opacity:.9;}
+  .reunite-card .ru-order{
+    font-family:var(--en); font-size:10px; letter-spacing:.2em;
+    color:var(--amber); font-weight:600; text-transform:uppercase;
+  }
+  .reunite-card .ru-head-text h4{
+    margin: 4px 0 3px; font-family:var(--maru);
+    font-size:18px; font-weight:900; color:var(--green-deep);
+  }
+  .reunite-card .ru-sub{ font-size:12.5px; color:var(--ink-3);}
+
+  .reunite-card .ru-split{
+    display:grid; grid-template-columns: 1fr 1fr; gap:12px;
+  }
+  @media (max-width: 560px){
+    .reunite-card .ru-split{ grid-template-columns: 1fr;}
+  }
+  .reunite-card .ru-col{
+    padding:14px 14px 12px;
+    background: #faf7f1; border:1px solid var(--line); border-radius:12px;
+  }
+  .reunite-card .ru-col-head{
+    display:flex; flex-direction:column; gap:4px; margin-bottom:10px;
+    padding-bottom:10px; border-bottom:1px solid var(--line);
+  }
+  .reunite-card .ru-badge{
+    display:inline-flex; align-items:center; gap:5px;
+    align-self:flex-start;
+    padding: 4px 10px; border-radius:100px;
+    font-family:var(--maru); font-size:12px; font-weight:800;
+    color:#fff;
+  }
+  .reunite-card .ru-badge-bus{ background: var(--green);}
+  .reunite-card .ru-badge-self{ background: var(--amber);}
+  .reunite-card .ru-col-sub{ font-size:11.5px; color:var(--ink-3); padding-left:2px;}
+
+  .reunite-card .ru-list{
+    list-style:none; margin:0; padding:0;
+    display:flex; flex-direction:column; gap:8px;
+  }
+  .reunite-card .ru-list li{
+    display:flex; align-items:center; gap:10px;
+    font-size:13px; color:var(--ink-2); line-height:1.5;
+  }
+  .reunite-card .ru-plan{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:24px; height:24px; flex-shrink:0;
+    background:#fff; border:1.5px solid var(--ink);
+    border-radius:6px; font-family:var(--en);
+    font-size:12px; font-weight:800; color:var(--ink);
+  }
+  .reunite-card .ru-foot{
+    margin-top:14px; padding-top:12px; border-top:1px dashed var(--line);
+    font-size:12.5px; color:var(--ink-3); line-height:1.7;
+  }
+  .reunite-card .ru-foot::before{ content:"⚠ "; color:var(--amber); font-weight:700;}
+
+  /* ============== HOTEL ============== */
+  .hotel-card{
+    background:#fff; border-radius:20px; overflow:hidden;
+    box-shadow: var(--paper-shadow); border:1px solid var(--line);
+  }
+  .hotel-card .hc-illust{ aspect-ratio: 16/9; background: linear-gradient(135deg, #1E4530, #2A5C40); position:relative; overflow:hidden;}
+  .hotel-card .hc-illust img{ width:100%; height:100%; object-fit:cover; opacity:.95;}
+  .hotel-card .hc-illust::after{ content:""; position:absolute; inset:0; background: linear-gradient(0deg, rgba(30,69,48,.3), transparent 60%);}
+  .hotel-card .hc-body{ padding:22px 22px 24px;}
+  .hotel-card .hc-eyebrow{ font-family:var(--en); font-size:10px; letter-spacing:.25em; color:var(--amber); font-weight:600;}
+  .hotel-card h3{ margin:6px 0 10px; font-size:20px; font-weight:900; color:var(--green-deep);}
+  .hotel-card .hc-addr{ font-size:13px; color:var(--ink-2); margin-bottom:18px;}
+  .hotel-card .hc-meta{ display:grid; grid-template-columns: 1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:10px; overflow:hidden; margin-bottom:16px;}
+  .hotel-card .hc-meta div{ background:#fff; padding:12px 14px;}
+  .hotel-card .hc-meta .l{ font-family:var(--en); font-size:9px; letter-spacing:.2em; color:var(--ink-3); text-transform:uppercase; margin-bottom:3px;}
+  .hotel-card .hc-meta .v{ font-size:14px; font-weight:700; color:var(--ink);}
+  .hotel-card .hc-links{ display:flex; gap:10px;}
+  .hotel-card a{
+    flex:1; text-align:center; text-decoration:none; padding:14px;
+    background:var(--green); color:#fff; border-radius:10px; font-size:13px; font-weight:700;
+    letter-spacing:.05em;
+    transition: background .2s ease; min-height:48px; display:flex; align-items:center; justify-content:center;
+  }
+  .hotel-card a.outline{ background:transparent; color:var(--green); border:1.5px solid var(--green);}
+  .hotel-card a:active{ transform: scale(.97);}
+
+  /* Hotel photo gallery */
+  .hotel-gallery{
+    margin-top:16px;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:10px;
+  }
+  .hg-item{
+    margin:0; position:relative; border-radius:14px; overflow:hidden;
+    background:#1E4530; box-shadow: var(--paper-shadow); border:1px solid var(--line);
+    aspect-ratio: 1/1;
+  }
+  .hg-item.hg-wide{ grid-column: 1 / -1; aspect-ratio: 16/10;}
+  .hg-item img{ width:100%; height:100%; object-fit:cover; display:block;}
+  .hg-item figcaption{
+    position:absolute; left:0; right:0; bottom:0;
+    padding: 18px 14px 10px;
+    background: linear-gradient(0deg, rgba(30,69,48,.92) 0%, rgba(30,69,48,.5) 60%, transparent 100%);
+    color: #FFF8F0; font-family: var(--en); font-size:11px; letter-spacing:.12em;
+    font-weight:500;
+  }
+
+  /* ============== NOTICES ============== */
+  .notice-list{ display:grid; gap:10px;}
+  .notice{
+    background:#fff; border-left:3px solid var(--amber); padding: 14px 16px;
+    border-radius: 0 10px 10px 0; font-size:13.5px; color:var(--ink-2); line-height:1.75;
+    border-top:1px solid var(--line); border-right:1px solid var(--line); border-bottom:1px solid var(--line);
+  }
+  .notice b{ color:var(--ink); font-weight:700;}
+  .notice.critical{ border-left-color:var(--green); background: rgba(42,92,64,.04);}
+  .notice.critical b{ color:var(--green-deep);}
+
+  /* ============== LINE GROUP ============== */
+  .line-section{ padding-bottom: 64px;}
+  .line-card{
+    background:#fff; border-radius:18px; padding:22px 22px 24px;
+    border:1px solid var(--line); box-shadow: var(--paper-shadow);
+    position:relative; overflow:hidden;
+  }
+  .line-card::before{
+    content:""; position:absolute; right:-30px; top:-30px; width:120px; height:120px;
+    background: radial-gradient(circle, rgba(6,199,85,.1) 0%, transparent 70%);
+    border-radius:50%; pointer-events:none;
+  }
+  .line-card-head{ display:flex; align-items:center; gap:14px; margin-bottom:18px;}
+  .line-icon{
+    width:48px; height:48px; border-radius:14px;
+    background: #06C755; color:#fff;
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+    box-shadow: 0 4px 12px -4px rgba(6,199,85,.4);
+  }
+  .line-icon svg{ width:28px; height:28px;}
+  .line-card-eyebrow{
+    font-family:var(--en); font-size:10px; letter-spacing:.25em;
+    color:var(--ink-3); text-transform:uppercase; font-weight:600;
+  }
+  .line-card-name{
+    font-size:16px; font-weight:700; color:var(--ink); margin-top:2px;
+    line-height:1.4;
+  }
+
+  .line-cta{
+    display:flex; align-items:center; justify-content:center; gap:8px;
+    background: #06C755; color:#fff; text-decoration:none;
+    padding: 16px; border-radius:12px; font-weight:700; font-size:15px;
+    min-height: 52px;
+    transition: background .2s ease;
+    margin-bottom: 22px;
+  }
+  .line-cta:active{ transform: scale(.98);}
+  .line-cta svg{ flex-shrink:0;}
+
+  .line-rule{
+    border: 1.5px dashed var(--amber);
+    border-radius: 14px;
+    padding: 18px 18px 16px;
+    background: rgba(212,133,74,.04);
+  }
+  .line-rule-head{ margin-bottom:14px;}
+  .line-rule .lr-tag{
+    display:inline-block; font-family:var(--maru); font-weight:700; font-size:11px;
+    color:#fff; background: var(--amber);
+    padding: 4px 12px; border-radius: 100px; letter-spacing:.05em;
+    margin-bottom:8px;
+  }
+  .line-rule .lr-title{
+    font-size:15px; color:var(--ink); font-weight:500; line-height:1.5;
+  }
+  .line-rule .lr-title b{ font-weight:700; color: var(--green-deep);}
+
+  .line-rule-example{
+    background:#fff; border:1px solid var(--line); border-radius:10px;
+    padding: 16px 18px; margin-bottom:12px;
+  }
+  .lre-label{
+    font-family:var(--en); font-size:10px; letter-spacing:.25em;
+    color:var(--ink-3); text-transform:uppercase; font-weight:600;
+    margin-bottom:8px;
+  }
+  .lre-name{
+    font-size:22px; font-weight:700; color:var(--ink);
+    font-family: var(--maru); line-height:1.3; margin-bottom:10px;
+    letter-spacing:.02em;
+  }
+  .lre-name .lre-jp{ color: var(--green-deep);}
+  .lre-name .lre-paren{ color: var(--ink-3); font-weight:500;}
+  .lre-name .lre-dept{ color: var(--amber); font-weight:700;}
+  .lre-samples{
+    font-size: 12.5px; color: var(--ink-2); line-height:1.7;
+    padding-top:10px; border-top: 1px dashed var(--line);
+  }
+
+  .line-rule-note{
+    margin:0; font-size: 12.5px; color: var(--ink-2); line-height:1.7;
+  }
+
+  /* ============== ORGANIZERS ============== */
+  .organizers-section{
+    background:
+      linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 60%, var(--bg-2) 100%);
+    padding-bottom: 64px;
+  }
+  .organizer-grid{
+    display:grid; grid-template-columns: 1fr 1fr; gap:12px;
+  }
+  .organizer{
+    background:#fff; border-radius:16px; border:1px solid var(--line);
+    box-shadow: var(--paper-shadow); overflow:hidden;
+    display:flex; flex-direction:column;
+  }
+  .org-photo{
+    position:relative; aspect-ratio: 1/1; background: var(--bg-2);
+    overflow:hidden;
+  }
+  .org-photo img{ width:100%; height:100%; object-fit:cover; display:block;}
+  .org-photo .org-placeholder{
+    position:absolute; inset:0;
+    display:flex; align-items:center; justify-content:center;
+    background:
+      repeating-linear-gradient(45deg, rgba(42,92,64,.04) 0 6px, transparent 6px 12px),
+      linear-gradient(135deg, #E8DBC1, #F5EBD8);
+    color: var(--green); font-family: var(--en); font-weight:600; font-size:32px;
+    letter-spacing:.02em;
+  }
+  .org-body{ padding: 12px 14px 14px; flex:1; display:flex; flex-direction:column;}
+  .org-name{
+    font-family: var(--en); font-weight: 600; font-size: 14px;
+    color: var(--ink); line-height:1.3; letter-spacing:.01em;
+    margin-bottom: 4px;
+  }
+  .org-dept{
+    font-family: var(--maru); font-size: 11px; color: var(--green);
+    font-weight: 600; line-height:1.4;
+    padding: 2px 8px; background: rgba(42,92,64,.08); border-radius: 100px;
+    align-self: flex-start;
+    margin-bottom: 8px;
+  }
+  .org-dept.empty{
+    color: var(--ink-3); background: rgba(44,26,14,.05); font-style:italic;
+  }
+  .org-quote{
+    margin: auto 0 0; font-size: 12.5px; color: var(--ink-2);
+    line-height: 1.65;
+    padding-top: 8px; border-top: 1px dashed var(--line);
+    font-family: var(--serif); position:relative;
+  }
+  .org-quote.empty{ color: var(--ink-3); font-style: italic;}
+
+  .people-loading{
+    grid-column: 1 / -1;
+    text-align:center; padding: 40px 12px;
+    font-family: var(--en); font-size: 12px; letter-spacing:.2em;
+    color: var(--ink-3); text-transform: uppercase;
+  }
+  .people-loading.error{ color: var(--amber); }
+  .organizer-thanks{
+    text-align:center; margin: 32px 0 0;
+    font-family: var(--en); font-size: 11px; letter-spacing: .25em;
+    color: var(--ink-3); font-weight: 500;
+  }
+
+  /* ============== SITE FOOTER (軽量・全ページ共通) ============== */
+  .site-footer{
+    padding: 32px 24px 40px;
+    text-align:center;
+    border-top: 1px dashed var(--line);
+    margin-top: 8px;
+  }
+  .site-footer .footer-meta{
+    font-family:var(--en); font-size:10px; letter-spacing:.24em;
+    color: var(--ink-3); text-transform: uppercase; opacity:.7;
+  }
+  .site-footer .footer-meta .line{
+    display:flex; justify-content:space-between; align-items:center; gap:16px;
+  }
+
+  /* ============== CONTACT LIST (home-contactブロック内で使用) ============== */
+  .contact-list{ display:flex; flex-direction:column; gap:10px;}
+  .contact-btn{
+    display:flex; align-items:center; gap:14px;
+    background: rgba(255,255,255,.08); border:1px solid rgba(255,248,240,.2);
+    border-radius:14px; padding:16px 18px; text-decoration:none; color:#fff;
+    transition: background .2s ease; backdrop-filter: blur(4px);
+  }
+  .contact-btn:active{ background: rgba(255,255,255,.15);}
+  .contact-btn .cb-icon{
+    width:44px; height:44px; border-radius:50%; background:var(--amber);
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  }
+  .contact-btn .cb-icon.cb-icon-med{ background:#c94a4a;}
+  .contact-btn .cb-icon svg{ width:20px; height:20px; color:#fff;}
+  .contact-btn .cb-text{ min-width:0;}
+  .contact-btn .cb-text .l{
+    display:flex; align-items:center; gap:8px;
+    font-size:13px; color:#fff; font-weight:600; margin-bottom:2px;
+    letter-spacing:normal; text-transform:none; opacity:1;
+  }
+  .cb-role{
+    display:inline-block; font-family:var(--en); font-size:9px; letter-spacing:.2em;
+    padding:2px 8px; border-radius:100px; background:var(--amber); color:#fff;
+    font-weight:600; text-transform:uppercase;
+  }
+  .cb-role.role-med{ background:#c94a4a;}
+  .contact-btn .cb-text .v{ font-size:16px; font-weight:700; color:#fff; font-family:var(--en); letter-spacing:.02em;}
+  .contact-btn .cb-text .n{ font-size:12px; opacity:.8; margin-top:2px;}
+
+  /* ============== FADE IN ============== */
+  /* Animation removed — content renders normally to guarantee visibility. */
+
+  /* mini divider deer/tree */
+  .mini-divider{ display:flex; align-items:center; gap:14px; margin: 6px 0 22px; opacity:.5;}
+  .mini-divider::before, .mini-divider::after{ content:""; flex:1; height:1px; background: var(--line);}
+  .mini-divider .leaf{ font-family:var(--en); font-size:10px; letter-spacing:.3em; color:var(--ink-3);}
+
+  /* Floating illust accents */
+  .floating-deer{
+    position:absolute; right:-20px; opacity:.1; width:140px; pointer-events:none;
+    mix-blend-mode:multiply;
+  }
+</style>
+</head>
+<body>
+
+  <div class="page active" data-page="home">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <img src="assets/hotel-exterior.jpg" alt="UNWIND HOTEL &amp; BAR 奥日光" class="hero-img" id="heroImg"/>
+
+    <div class="hero-top">
+      <span><span class="dot"></span>GLOBAL AGENTS</span>
+      <span>2026 / 07</span>
+    </div>
+
+    <div class="hero-mid">
+      <div class="hero-eyebrow">Global Agents Company Retreat</div>
+      <h1 class="hero-title">
+        Offline<br>Gathering<br><em>2026</em>
+        <small>奥日光編 ／ 標高1400m、深い森と湯の香りに包まれる二日間。</small>
+      </h1>
+
+      <div class="hero-bottom">
+        <span class="pill"><strong>7/16</strong> Thu — <strong>7/17</strong> Fri</span>
+        <span class="pill">1泊2日</span>
+      </div>
+    </div>
+
+    <div class="scroll-cue">SCROLL</div>
+  </section>
+
+  <!-- THEME -->
+  <section class="theme-section reveal" aria-label="今回のテーマ">
+    <div class="theme-eyebrow">— THIS YEAR&rsquo;S THEME —</div>
+    <h2 class="theme-title">
+      <span class="theme-word">New</span><br>
+      <span class="theme-word amber">Face<span class="theme-paren">(s)</span></span>
+    </h2>
+    <p class="theme-lead">新しい顔ぶれと、まだ見ぬ自分の一面に出会う二日間。</p>
+
+    <div class="theme-cloud" aria-label="テーマを表すキーワード">
+      <span class="kw kw-xl kw-amber">GAの新しい顔</span>
+      <span class="kw kw-m">新しい場所</span>
+      <span class="kw kw-l kw-green">新しい顔ぶれ</span>
+      <span class="kw kw-s">開業で出会う</span>
+      <span class="kw kw-m kw-amber">一人ひとりの新しい一面</span>
+      <span class="kw kw-s">MAのような</span>
+      <span class="kw kw-l">新たな取り組み</span>
+      <span class="kw kw-xl kw-green">まだ見ぬ自分</span>
+      <span class="kw kw-s kw-amber">奥日光で</span>
+      <span class="kw kw-m">出会いなおす</span>
+      <span class="kw kw-s">語り合う夜</span>
+      <span class="kw kw-l kw-amber">名前の向こう側</span>
+      <span class="kw kw-s">ふと見せる横顔</span>
+      <span class="kw kw-m kw-green">これからの私たち</span>
+    </div>
+
+    <p class="theme-outro">二日間が終わるころ、お互いに「あ、こんな顔もあったんだ」と笑い合えていたら。<br>そんな旅にしたい、と思っています。</p>
+  </section>
+
+  <!-- ABOUT / KEY INFO (moved to home) -->
+  <section class="reveal home-about" id="sec-about-home">
+    <div class="sec-eyebrow"><span class="num">05-A</span>About this trip</div>
+    <h2 class="sec-title">概要</h2>
+    <p class="sec-lead">湯ノ湖のほとり、UNWIND HOTEL &amp; BAR 奥日光で過ごす1泊2日。<br>移動・宿泊・夕食・朝食は会社負担。昼食だけ自己負担です。</p>
+
+    <div class="meet-card">
+      <div class="meet-head">
+        <h3>イベント概要</h3>
+        <span class="meet-tag">EVENT</span>
+      </div>
+      <div class="meet-meta">OFFLINE GATHERING 2026 ／ 奥日光編</div>
+      <div class="meet-body">
+        <ul>
+          <li><strong>日程</strong>：2026年7月16日(木) — 17日(金)</li>
+          <li><strong>場所</strong>：UNWIND HOTEL &amp; BAR 奥日光</li>
+          <li><strong>参加</strong>：グローバルエージェンツ 正社員 約50名</li>
+          <li><strong>休暇</strong>：1.5日出勤＋0.5日有休</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="meet-card" style="margin-top:14px">
+      <div class="meet-head">
+        <h3>会社が負担するもの</h3>
+        <span class="meet-tag amber">COST</span>
+      </div>
+      <div class="meet-body">
+        会社負担：<strong>宿泊・移動・夕食(DAY1)・朝食(DAY2)・DAY2アクティビティ費用(2,000円まで)</strong><br>
+        自己負担：<strong>昼食（2日分）</strong>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOME MENU -->
+  <div class="home-hero-strip">
+    <div class="home-eyebrow">Menu</div>
+    <h2 class="home-title">この旅のしおり、<br>目的地はここから。</h2>
+    <p class="home-lead">当日、いちばん使うのはスケジュールです。<br>まずはここをタップしてください。</p>
+  </div>
+
+  <!-- 特大カード:スケジュール -->
+  <a class="nav-featured" href="#schedule" onclick="showPage('schedule',event)">
+    <div class="nf-eyebrow">01 · Most used</div>
+    <h3>スケジュール</h3>
+    <div class="nf-sub">2日間の全タイムライン ／ Day 1・Day 2</div>
+    <div class="nf-arrow" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </div>
+  </a>
+
+  <!-- 2列ナビ -->
+  <div class="nav-grid">
+    <a class="nav-card" href="#activities" onclick="showPage('activities',event)">
+      <div class="nc-num">02</div>
+      <div>
+        <div class="nc-title">アクティビティ</div>
+        <div class="nc-sub">Activities</div>
+      </div>
+      <div class="nc-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+    </a>
+    <a class="nav-card" href="#transport" onclick="showPage('transport',event)">
+      <div class="nc-num">03</div>
+      <div>
+        <div class="nc-title">移動</div>
+        <div class="nc-sub">Transport</div>
+      </div>
+      <div class="nc-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+    </a>
+    <a class="nav-card" href="#prep" onclick="showPage('prep',event)">
+      <div class="nc-num">04</div>
+      <div>
+        <div class="nc-title">旅の準備</div>
+        <div class="nc-sub">Pack · Weather · Lunch · Stay</div>
+      </div>
+      <div class="nc-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+    </a>
+    <a class="nav-card" href="#info" onclick="showPage('info',event)">
+      <div class="nc-num">05</div>
+      <div>
+        <div class="nc-title">集合・注意事項</div>
+        <div class="nc-sub">rules</div>
+      </div>
+      <div class="nc-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+    </a>
+    <a class="nav-card nav-card-wide" href="#people" onclick="showPage('people',event)">
+      <div class="nc-inner">
+        <div>
+          <div class="nc-num">06</div>
+          <div class="nc-title">メンバー紹介</div>
+          <div class="nc-sub">Organizers &amp; UNWIND Staff</div>
+        </div>
+        <div class="nc-arrow nc-arrow-inline"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      </div>
+    </a>
+  </div>
+
+  <!-- 特別カード:動画ギフト企画 -->
+  <a class="nav-special" href="#videogift" onclick="showPage('videogift',event)">
+    <div class="ns-badge">
+      <span class="ns-badge-dot"></span>SPECIAL PROJECT
+    </div>
+    <div class="ns-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M23 7l-7 5 7 5V7z"/>
+        <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+      </svg>
+    </div>
+    <div class="ns-eyebrow">07 · From all of us</div>
+    <h3>旅の撮影素材はこちらに！</h3>
+    <p class="ns-sub">旅の"リアルな笑顔"と"きれいな景色"を撮って、UNWINDの皆さんへ素材プレゼント。</p>
+    <div class="ns-cta">
+      <span>撮影スポットリストを見る</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </div>
+  </a>
+
+  <!-- LINE カード -->
+  <a class="home-line" href="https://line.me/ti/g2/DRWLEJFC9eB3YihJZYDHFTClQMscqHCkWA-Nvw?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default" target="_blank" rel="noopener">
+    <div class="hl-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+    </div>
+    <div class="hl-body">
+      <div class="hl-eyebrow">LINE Group</div>
+      <div class="hl-title">OFFLINE GATHERING 2026 に参加</div>
+    </div>
+    <div class="hl-arrow" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </div>
+  </a>
+
+  <!-- 緊急連絡先ブロック(3件) -->
+  <div class="home-contact">
+    <div class="hc-eyebrow">Contact</div>
+    <h3>当日の緊急連絡先</h3>
+    <div class="contact-list">
+      <a class="contact-btn" href="tel:07069719069">
+        <div class="cb-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/>
+          </svg>
+        </div>
+        <div class="cb-text">
+          <div class="l"><span class="cb-role">幹事</span>吉田さん</div>
+          <div class="v">070-6971-9069</div>
+          <div class="n">タップで発信</div>
+        </div>
+      </a>
+      <a class="contact-btn" href="tel:07048068595">
+        <div class="cb-icon cb-icon-med" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3v18M3 12h18"/>
+          </svg>
+        </div>
+        <div class="cb-text">
+          <div class="l"><span class="cb-role role-med">救護</span>漢城さん</div>
+          <div class="v">070-4806-8595</div>
+          <div class="n">タップで発信</div>
+        </div>
+      </a>
+      <a class="contact-btn" href="tel:08087230065">
+        <div class="cb-icon cb-icon-med" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3v18M3 12h18"/>
+          </svg>
+        </div>
+        <div class="cb-text">
+          <div class="l"><span class="cb-role role-med">救護</span>奥山さん</div>
+          <div class="v">080-8723-0065</div>
+          <div class="n">タップで発信</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <p class="home-outro">— See you in Okunikko. —</p>
+
+  </div><!-- /page:home -->
+
+  <div class="page" data-page="schedule">
+    <div class="subpage-bar">
+      <button class="back-link" onclick="goHome()"><span class="bl-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></span>Home</button>
+      <span class="sp-title">01 · Schedule</span>
+    </div>
+    
+
+  <!-- SCHEDULE -->
+  <section class="reveal" id="sec-schedule">
+    <div class="sec-eyebrow"><span class="num">01</span>Schedule</div>
+    <h2 class="sec-title">2日間のながれ</h2>
+    <p class="sec-lead">各時間をタップすると詳細が開きます。</p>
+
+    <div class="tabs" role="tablist">
+      <button class="tab active" data-day="1" role="tab">
+        DAY 1
+        <span class="tab-en">JUL 16 THU</span>
+      </button>
+      <button class="tab" data-day="2" role="tab">
+        DAY 2
+        <span class="tab-en">JUL 17 FRI</span>
+      </button>
+    </div>
+
+    <!-- DAY 1 -->
+    <div class="day-panel active" data-panel="1">
+      <div class="day-head">
+        <span class="date">07.16 THU</span>
+      </div>
+      <ul class="schedule-list" id="day1List"></ul>
+    </div>
+
+    <!-- DAY 2 -->
+    <div class="day-panel" data-panel="2">
+      <div class="day-head">
+        <span class="date">07.17 FRI</span>
+      </div>
+      <ul class="schedule-list" id="day2List"></ul>
+    </div>
+
+    <!-- 東京組向け：チェックイン後の過ごし方 -->
+    <div class="in-house-card" aria-label="東京組の到着後・フリーワインまでの過ごし方">
+      <div class="ih-head">
+        <span class="ih-tag">東京組向け</span>
+        <h4>ホテル着後、フリーワインまでの過ごし方</h4>
+      </div>
+      <p class="ih-lead">15:00頃ホテル到着後、17:00 のフリーワインまでは <b>UNWINDスタッフのガイド付き湯元散策</b> と休憩でお過ごしいただきます。</p>
+
+      <div class="ih-section">
+        <div class="ih-section-title">◆ タイムライン</div>
+        <ul class="ih-list">
+          <li><b>15:00 〜 15:30</b>　チェックイン・荷物置き</li>
+          <li><b>15:30 〜 16:30</b>　湯元散策（ガイド付き／2コースに分かれて1時間程度）</li>
+          <li><b>16:30 〜 17:00</b>　休憩・自由行動</li>
+        </ul>
+      </div>
+
+      <div class="ih-section">
+        <div class="ih-section-title">◆ 湯元散策コース（2グループに分かれます）</div>
+        <ul class="ih-list">
+          <li>
+            <b>Aコース｜安倍さん</b>：北東の温泉を周るコース<br>
+            👉 <b>湯元の歴史を中心にガイド</b>
+          </li>
+          <li>
+            <b>Bコース｜長谷川さん</b>：北西の展望台を目指すコース<br>
+            👉 ご自身も釣りをされるとのことで、<b>自然を中心にガイド</b>
+          </li>
+        </ul>
+        <p class="ih-note">※コース分けは当日フロント前で決めます。歩きやすい靴・雨具の準備を。</p>
+      </div>
+
+      <div class="ih-section">
+        <div class="ih-section-title">⚠ 館内での注意事項</div>
+        <ul class="ih-list ih-list-caution">
+          <li>チェックインは順次。フロントでルームキーを受け取ってください。</li>
+          <li>館内は基本的に <b>静かに</b>。他のお客様もいらっしゃいます。</li>
+          <li>大浴場の利用時間・タオルの持ち出しルールはフロント案内に従ってください。</li>
+          <li>喫煙は指定エリアのみ。客室・館内は全面禁煙です。</li>
+          <li>ラウンジやバーでの飲食は、17:00 のフリーワインまでは各自で。</li>
+          <li>貴重品は各自で管理を。金庫は各室に備え付けあり。</li>
+          <li>ホテル備品の破損・持ち出しはNG。困ったらフロントか幹事まで。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  
+  </div>
+
+  <div class="page" data-page="activities">
+    <div class="subpage-bar">
+      <button class="back-link" onclick="goHome()"><span class="bl-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></span>Home</button>
+      <span class="sp-title">02 · Activities</span>
+    </div>
+    
+
+  <!-- ACTIVITIES (DAY1) -->
+  <section class="reveal" id="sec-activities-day1" aria-label="DAY1 アクティビティ一覧">
+    <div class="sec-eyebrow"><span class="num">02-A</span>Day 1</div>
+    <h2 class="sec-title">DAY1 アクティビティ一覧</h2>
+    <p class="sec-lead">初日は道中2つの見学地を巡り、ホテル着後は夕食・キャンプファイヤー・二次会・星空鑑賞と続きます。<br>星空鑑賞のみ希望者参加、<b>それ以外は全員参加</b>のプログラムです。</p>
+
+    <div class="act-intro">
+      <div class="ai-icon">🚌</div>
+      <div>
+        <b>7:15に渋谷を出発</b>し、道中2つの見学地を巡ってホテルへ。<br>地方組は16:30に東武日光駅集合、貸切バスでホテルへ向かい合流します。
+      </div>
+    </div>
+
+    <ol class="activity-list">
+      <li class="ac-section-head">
+        <span class="ash-icon">☀️</span>
+        <span>昼のプログラム</span>
+        <span class="ash-line"></span>
+        <span class="ash-en">Daytime</span>
+      </li>
+
+      <li class="activity-card">
+        <div class="ac-head">
+          <div class="ac-time">
+            <span class="at-h">11:00</span>
+            <span class="at-label">START</span>
+          </div>
+          <div class="ac-head-text">
+            <span class="ac-order">11:00 – 12:00 ／ 約1時間</span>
+            <h4>足尾銅山 見学</h4>
+            <div class="ac-loc">足尾銅山観光</div>
+          </div>
+        </div>
+        <p class="ac-desc">日本の近代化を支えた銅山跡。トロッコに乗って坑道内部へ入り、坑内での採掘作業や当時の生活の様子を見学できます。</p>
+        <div class="ac-tags">
+          <span class="ac-tag"># 歴史</span>
+          <span class="ac-tag"># トロッコ</span>
+          <span class="ac-tag"># 屋内あり</span>
+        </div>
+      </li>
+
+      <li class="activity-card">
+        <div class="ac-head">
+          <div class="ac-time">
+            <span class="at-h">12:30</span>
+            <span class="at-label">START</span>
+          </div>
+          <div class="ac-head-text">
+            <span class="ac-order">12:30 – 14:00 ／ 約1時間半</span>
+            <h4>東照宮周辺で自由行動・ランチ</h4>
+            <div class="ac-loc">日光東照宮エリア</div>
+          </div>
+        </div>
+        <p class="ac-desc">世界遺産・日光東照宮の門前町エリアで自由行動。<b>東照宮に参拝してもよし、周辺を観光してもよし</b>。各自でお店を選んで日光名物（湯波・そばなど）の昼食も楽しめます。おすすめ店は「お昼ごはん候補」セクションを参照。</p>
+        <div class="ac-tags">
+          <span class="ac-tag"># 自由行動</span>
+          <span class="ac-tag"># 世界遺産</span>
+          <span class="ac-tag"># ランチ</span>
+        </div>
+      </li>
+
+      <li class="ac-section-head night">
+        <span class="ash-icon">🌙</span>
+        <span>夜のプログラム</span>
+        <span class="ash-line"></span>
+        <span class="ash-en">Evening</span>
+      </li>
+
+      <li class="activity-card evening">
+        <div class="ac-head">
+          <div class="ac-time">
+            <span class="at-h">18:00</span>
+            <span class="at-label">START</span>
+          </div>
+          <div class="ac-head-text">
+            <span class="ac-order">18:00 – 19:30 ／ 約1時間半</span>
+            <h4>入館式 ＋ 夕食</h4>
+            <div class="ac-loc">ダイニング（UNWIND HOTEL &amp; BAR 奥日光）</div>
+          </div>
+        </div>
+        <p class="ac-desc">入館式のあと夕食。ビール・ハイボール・レモンサワーに加え、産地シロップのサワー・ノンアルもセルフでご用意。</p>
+        <div class="ac-tags">
+          <span class="ac-tag"># 全員参加</span>
+          <span class="ac-tag"># 会社負担</span>
+          <span class="ac-tag"># 乾杯</span>
+        </div>
+      </li>
+
+      <li class="activity-card evening">
+        <div class="ac-head">
+          <div class="ac-time">
+            <span class="at-h">19:30</span>
+            <span class="at-label">START</span>
+          </div>
+          <div class="ac-head-text">
+            <span class="ac-order">19:30 – 20:30 ／ 約1時間</span>
+            <h4>キャンプファイヤー</h4>
+            <div class="ac-loc">屋外</div>
+          </div>
+        </div>
+        <p class="ac-desc">焚き火を囲んで過ごす時間。奥日光の夜の空気の中、火を眺めながら"新しい顔"とゆっくり話してみましょう。</p>
+        <ul class="ac-sublist">
+          <li><b>持ち物</b>標高1,400m の夜は冷え込みます。<b>防寒着・履き慣れた靴</b>をお忘れなく。</li>
+        </ul>
+        <div class="ac-tags">
+          <span class="ac-tag"># 全員参加</span>
+          <span class="ac-tag"># 屋外</span>
+          <span class="ac-tag"># 焚き火</span>
+          <span class="ac-tag"># 交流</span>
+        </div>
+      </li>
+
+      <li class="activity-card evening">
+        <div class="ac-head">
+          <div class="ac-time">
+            <span class="at-h">21:00</span>
+            <span class="at-label">START</span>
+          </div>
+          <div class="ac-head-text">
+            <span class="ac-order">21:00 – 22:30 ／ 約1時間半</span>
+            <h4>二次会（ゲームあり）</h4>
+            <div class="ac-loc">ダイニング（夕食と同会場）</div>
+          </div>
+        </div>
+        <p class="ac-desc">ダイニングでもう一杯。ドリンクは夕食時と同じ（セルフ式）。<b>二次会内でゲーム企画あり</b>。チーム分けは当日発表。"新しい顔"に出会う仕掛けが色々。</p>
+        <div class="ac-tags">
+          <span class="ac-tag"># 全員参加</span>
+          <span class="ac-tag"># ゲーム</span>
+          <span class="ac-tag"># ダイニング</span>
+          <span class="ac-tag"># セルフドリンク</span>
+        </div>
+      </li>
+
+      <li class="activity-card evening">
+        <div class="ac-head">
+          <div class="ac-time">
+            <span class="at-h">23:00</span>
+            <span class="at-label">STAR</span>
+          </div>
+          <div class="ac-head-text">
+            <span class="ac-order">23:00 – ／ 希望者</span>
+            <h4>星空鑑賞 ✨</h4>
+            <div class="ac-loc">ホテル前・屋外</div>
+          </div>
+        </div>
+        <p class="ac-desc">奥日光の澄んだ夜空へ。希望者で少し外に出て星空鑑賞。街灯りが少ないぶん、条件が良ければ驚くほどの星が見えます。</p>
+        <ul class="ac-sublist">
+          <li><b>持ち物</b><b>防寒着・履き慣れた靴</b>推奨。ホテル前は暗いので、スマホライトもご用意を。</li>
+          <li><b>24:00</b>プログラム終了。明日もあるので、ほどほどに。</li>
+        </ul>
+        <div class="ac-tags">
+          <span class="ac-tag"># 希望者参加</span>
+          <span class="ac-tag"># 星空</span>
+          <span class="ac-tag"># 夜の屋外</span>
+        </div>
+      </li>
+    </ol>
+
+    <div class="act-note">
+      地方組で14時以前に日光到着可能な方は、東照宮周辺で東京組と合流いただけます（詳細は「移動」セクションの地方組カード参照）。
+    </div>
+  </section>
+
+
+  <!-- ACTIVITIES (DAY2) -->
+  <section class="reveal" id="sec-activities" aria-label="DAY2 アクティビティ一覧">
+    <div class="sec-eyebrow"><span class="num">02-B</span>Day 2</div>
+    <h2 class="sec-title">DAY2 アクティビティ一覧</h2>
+    <p class="sec-lead">2日目の午前は、貸切バスで各アクティビティ会場へ。<br>下記は<b>バス着順（A → B → C → D）</b>です。コース分けは Google チャットで別途ご案内します。</p>
+
+    <div class="act-intro">
+      <div class="ai-icon">🚌</div>
+      <div>
+        <b>8:45にホテルを出発</b>。A→B→Cプランの方は貸切バスで各会場へ、<b>Dプランの方は 8:37 湯元温泉バス停発の公共バス</b>で mekke 日光郷土センターへ向かいます。<br>
+        <span style="display:inline-block;margin-top:6px;padding:4px 10px;background:rgba(212,133,74,.12);border-radius:6px;font-size:12.5px;">⚠ <b>チェックアウトはできるだけ朝食前</b>に済ませてください（退館式 8:25）</span>
+      </div>
+    </div>
+
+    <ol class="activity-list">
+      <li class="activity-card">
+        <div class="ac-head">
+          <div class="ac-plan">
+            <span class="ap-letter">A</span>
+            <span class="ap-label">PLAN</span>
+          </div>
+          <div class="ac-head-text">
+            <span class="ac-order">STOP 01 ／ 湯滝 着</span>
+            <h4>戦場ヶ原トレッキング</h4>
+            <div class="ac-loc">湯滝 → 戦場ヶ原</div>
+          </div>
+        </div>
+        <p class="ac-desc">奥日光を代表する高層湿原・戦場ヶ原を歩くコース。湯滝からスタートし、水音と森の空気に包まれながら自然観察を楽しみます。</p>
+
+        <div class="ac-notice" aria-label="戦場ヶ原トレッキング 服装・持ち物について">
+          <div class="ac-notice-head">
+            <span class="ac-notice-tag">Note</span>
+            <span class="ac-notice-title">服装・持ち物について</span>
+          </div>
+          <ul class="ac-notice-list">
+            <li><span><b>レインウェア</b>「上下セット」がおすすめです。</span></li>
+            <li><span><b>靴</b>歩きやすい靴（<b style="display:inline;font-weight:700;">防水性のあるもの</b>がおすすめ）。</span></li>
+            <li><span><b>バッグ</b>両手が空くリュックやナップザック。</span></li>
+            <li><span><b>飲み物（500〜1000ml）</b>コース途中に売店はありません。スタート地点（<b style="display:inline;font-weight:700;">湯滝のお茶屋さん</b>）で必ず準備を！</span></li>
+            <li><span><b>防寒着</b>予想気温 <b style="display:inline;font-weight:700;">13〜19℃</b>（思ったより寒いです！）。体温調節しやすい上着を。</span></li>
+            <li><span><b>日焼け対策</b>晴れると日差しが強いため、日焼け止めはお忘れなく。</span></li>
+          </ul>
+          <p class="ac-notice-foot">※本格的な登山装備でなくても大丈夫です。<b>動きやすさ・体温調節・両手をあけること</b>を意識してご準備ください。</p>
+        </div>
+
+        <div class="ac-tags">
+          <span class="ac-tag"># 自然</span>
+          <span class="ac-tag"># ウォーキング</span>
+          <span class="ac-tag"># 奥日光らしさ</span>
+        </div>
+      </li>
+
+      <li class="activity-card">
+        <div class="ac-head">
+          <div class="ac-plan">
+            <span class="ap-letter">B</span>
+            <span class="ap-label">PLAN</span>
+          </div>
+          <div class="ac-head-text">
+            <span class="ac-order">STOP 02 ／ 中禅寺湖畔</span>
+            <h4>中禅寺湖 SUP体験</h4>
+            <div class="ac-loc">中禅寺湖</div>
+          </div>
+        </div>
+        <p class="ac-desc">標高1,269mの湖上でスタンドアップパドルボード。男体山を望む静かな湖面を、ボードの上からゆっくり味わうアクティビティ。</p>
+        <div class="ac-tags">
+          <span class="ac-tag"># アクティブ</span>
+          <span class="ac-tag"># 水上</span>
+          <span class="ac-tag"># 絶景</span>
+        </div>
+      </li>
+
+      <li class="activity-card">
+        <div class="ac-head">
+          <div class="ac-plan">
+            <span class="ap-letter">C</span>
+            <span class="ap-label">PLAN</span>
+          </div>
+          <div class="ac-head-text">
+            <span class="ac-order">STOP 03 ／ 東照宮</span>
+            <h4>東照宮見学</h4>
+            <div class="ac-loc">日光東照宮</div>
+          </div>
+        </div>
+        <p class="ac-desc">言わずと知れた世界遺産・日光東照宮。陽明門をはじめ、豪華絢爛な社殿建築と彫刻をじっくり見学できるコース。</p>
+        <div class="ac-tags">
+          <span class="ac-tag"># 世界遺産</span>
+          <span class="ac-tag"># 文化</span>
+          <span class="ac-tag"># 定番</span>
+        </div>
+      </li>
+
+      <li class="activity-card">
+        <div class="ac-head">
+          <div class="ac-plan">
+            <span class="ap-letter">D</span>
+            <span class="ap-label">PLAN</span>
+          </div>
+          <div class="ac-head-text">
+            <span class="ac-order">STOP 04 ／ mekke 日光郷土センター</span>
+            <h4>ワークショップ体験</h4>
+            <div class="ac-loc">mekke 日光郷土センター</div>
+          </div>
+        </div>
+        <p class="ac-desc">日光の伝統工芸や食文化に触れる、屋内型のワークショップ体験。手を動かしながら日光の"もの"を持ち帰れるコース。</p>
+        <ul class="ac-sublist">
+          <li><b>移動</b>Dプランのみ<b>公共バスで移動</b>／<b>8:37 湯元温泉（バス停）出発</b>。時間厳守でお願いします。</li>
+        </ul>
+        <div class="ac-tags">
+          <span class="ac-tag"># ものづくり</span>
+          <span class="ac-tag"># 屋内</span>
+          <span class="ac-tag"># 雨天でも安心</span>
+          <span class="ac-tag"># 公共バス移動</span>
+        </div>
+      </li>
+    </ol>
+
+    <!-- 13:50 日光駅周辺 集合（プランごとの移動方法分岐） -->
+    <div class="reunite-card" aria-label="13:50 日光駅周辺 集合の移動方法">
+      <div class="ru-head">
+        <div class="ru-time">
+          <span class="ru-h">13:50</span>
+          <span class="ru-label">MEET</span>
+        </div>
+        <div class="ru-head-text">
+          <span class="ru-order">14:00 解散前の集合</span>
+          <h4>日光駅周辺 集合</h4>
+          <div class="ru-sub">アクティビティにより移動方法が異なります</div>
+        </div>
+      </div>
+      <div class="ru-split">
+        <div class="ru-col ru-bus">
+          <div class="ru-col-head">
+            <span class="ru-badge ru-badge-bus">🚌 団体バス</span>
+            <span class="ru-col-sub">貸切バスで日光駅へ</span>
+          </div>
+          <ul class="ru-list">
+            <li><span class="ru-plan">A</span>戦場ヶ原トレッキング：湯滝着</li>
+            <li><span class="ru-plan">B</span>中禅寺湖 SUP 体験</li>
+          </ul>
+        </div>
+        <div class="ru-col ru-self">
+          <div class="ru-col-head">
+            <span class="ru-badge ru-badge-self">🚶 直接日光駅へ</span>
+            <span class="ru-col-sub">各自で日光駅へ移動</span>
+          </div>
+          <ul class="ru-list">
+            <li><span class="ru-plan">C</span>東照宮見学</li>
+            <li><span class="ru-plan">D</span>mekke 日光郷土センター（ワークショップ）</li>
+          </ul>
+        </div>
+      </div>
+      <div class="ru-foot">集合場所は当日ご案内。時間厳守でお願いします。</div>
+    </div>
+
+    <div class="act-note">
+      希望プランの調整・最終確定は Google チャットで別途ご連絡します。装備や集合場所の詳細も追ってご案内します。
+    </div>
+  </section>
+
+
+  
+  </div>
+
+  <div class="page" data-page="transport">
+    <div class="subpage-bar">
+      <button class="back-link" onclick="goHome()"><span class="bl-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></span>Home</button>
+      <span class="sp-title">03 · Transport</span>
+    </div>
+    
+
+  <!-- TRANSPORT -->
+  <section class="reveal" id="sec-transport">
+    <div class="sec-eyebrow"><span class="num">03</span>How to get there</div>
+    <h2 class="sec-title">移動について</h2>
+    <p class="sec-lead">東京組は貸切バス、地方組は新幹線・飛行機で東武日光駅に集合します。</p>
+
+    <div class="transport-grid">
+      <!-- Tokyo -->
+      <div class="transport-card">
+        <div class="tc-illust"><img src="assets/illust-bus.png" alt=""/></div>
+        <div class="tc-eyebrow">Group A</div>
+        <h3>東京組</h3>
+        <div class="tc-meta">貸切バスで日光へ／渋谷へ戻る</div>
+
+        <div class="tc-day-block day1">
+          <div class="tc-day-label">DAY 1 <span class="tc-day-en">行き</span><span class="tc-day-date">7/16</span></div>
+          <ul class="tc-timeline">
+            <li class="key"><b>06:45</b>HOTEL GRAPHY 渋谷 集合</li>
+            <li class="key"><b>07:15</b>バス出発</li>
+            <li><b>11:00</b>足尾銅山 着</li>
+          </ul>
+
+          <!-- 集合場所ハイライト -->
+          <div class="tc-meetup" aria-label="HOTEL GRAPHY 渋谷 集合場所詳細">
+            <div class="tcm-head">
+              <span class="tcm-tag">Meetup</span>
+              <span class="tcm-pin">📍</span>
+              <span class="tcm-title">集合場所の詳細</span>
+            </div>
+            <figure class="tcm-figure">
+              <img src="assets/meetup-hotel-graphy.png" alt="HOTEL GRAPHY 渋谷 入口向かって左・89の柱がある駐車場の集合場所ストリートビュー" loading="lazy"/>
+              <figcaption class="tcm-caption">赤枠内が集合スペース／右奥が HOTEL GRAPHY 入口</figcaption>
+            </figure>
+            <div class="tcm-body">
+              HOTEL GRAPHY 渋谷 <b>入口に向かって左</b>、<span class="hi">「89」の柱がある駐車場</span> に集合してください。
+            </div>
+            <ul class="tcm-points">
+              <li><b>目印：</b>建物側面の <b>「89」</b> と書かれた柱／隣は「SHIBUYA BRIDGE 88」の入口</li>
+              <li><b>ホテル館内ではなく屋外</b>の駐車場スペースです。ロビーで待っていると気づけないのでご注意を</li>
+              <li>雨天でも同じ場所（屋根あり）。バスはこの前に横付けします</li>
+            </ul>
+            <a class="tcm-map" href="https://www.google.com/maps/search/?api=1&query=HOTEL+GRAPHY+%E6%B8%8B%E8%B0%B7" target="_blank" rel="noopener">Google マップで開く →</a>
+          </div>
+        </div>
+
+        <div class="tc-day-block day2">
+          <div class="tc-day-label">DAY 2 <span class="tc-day-en">帰り</span><span class="tc-day-date">7/17</span></div>
+          <ul class="tc-timeline">
+            <li class="key"><b>13:50</b>日光駅周辺 集合 ★</li>
+            <li class="key"><b>14:00</b>日光駅からバス搭乗</li>
+            <li><b>17:00</b>渋谷着・解散</li>
+          </ul>
+
+          <!-- 13:50集合の移動方法（アクティビティ別分岐） -->
+          <div class="tc-reunite" aria-label="13:50 日光駅周辺集合までの移動方法">
+            <div class="tcr-head">
+              <span class="tcr-tag">13:50 集合</span>
+              <span class="tcr-title">アクティビティ別・日光駅までの移動方法</span>
+            </div>
+            <div class="tcr-row">
+              <span class="tcr-badge tcr-bus">🚌 団体バス</span>
+              <span class="tcr-plans"><b>A</b> 戦場ヶ原トレッキング／<b>B</b> 中禅寺湖 SUP</span>
+            </div>
+            <div class="tcr-row">
+              <span class="tcr-badge tcr-self">🚶 直接日光駅へ</span>
+              <span class="tcr-plans"><b>C</b> 東照宮見学／<b>D</b> mekke ワークショップ</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="tc-note">貸切バスのため <b>集合時間厳守</b>。1分でも遅れたら追いかける感じになります。</div>
+      </div>
+
+      <!-- Local -->
+      <div class="transport-card">
+        <div class="tc-eyebrow">Group B</div>
+        <h3>地方組</h3>
+        <div class="tc-meta">新幹線・飛行機で日光集合／現地解散</div>
+
+        <div class="tc-day-block day1">
+          <div class="tc-day-label">DAY 1 <span class="tc-day-en">行き</span><span class="tc-day-date">7/16</span></div>
+          <ul class="tc-timeline">
+            <li><b>各自</b>新幹線・飛行機で日光へ</li>
+            <li class="key"><b>16:30</b>東武日光駅 集合 ★</li>
+            <li><b>17:30頃</b>貸切バスでホテル着</li>
+          </ul>
+        </div>
+
+        <div class="tc-day-block day2">
+          <div class="tc-day-label">DAY 2 <span class="tc-day-en">帰り</span><span class="tc-day-date">7/17</span></div>
+          <ul class="tc-timeline">
+            <li class="key"><b>13:50</b>日光駅周辺 集合</li>
+            <li class="key"><b>14:00</b>集合場所にて現地解散</li>
+            <li><b>以降</b>各自、公共交通機関で羽田・成田・各地へ</li>
+          </ul>
+        </div>
+
+        <div class="tc-note">東武日光駅の集合時刻は <b>16:30厳守</b>。乗り換えに余裕をもって。</div>
+
+        <div class="tc-early">
+          <div class="tce-head">
+            <span class="tce-tag">EARLY</span>
+            <span class="tce-title">14時以前に日光に到着できる方へ</span>
+          </div>
+          <div class="tce-body">
+            早く到着できる方は、<b>直接体験場所（東照宮周辺）</b>へお越しの上、LINEまたはお電話で日名までご連絡ください。<br>
+            東京組の東照宮着は <b>12:30予定</b> のため、それまでは日光駅周辺で観光してお待ちください。
+          </div>
+          <a class="tce-call" href="tel:08068126598">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+            日名さん 080-6812-6598
+          </a>
+        </div>
+
+        <a class="tc-doc" href="https://docs.google.com/document/d/1FYGlzENNhXUHGHr03GjVUgsnc5uwftX0qlni3AtLxAg/edit?usp=sharing" target="_blank" rel="noopener">
+          <div class="tc-doc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="9" y1="13" x2="15" y2="13"/>
+              <line x1="9" y1="17" x2="15" y2="17"/>
+            </svg>
+          </div>
+          <div class="tc-doc-text">
+            <div class="tc-doc-label">地方組向け 交通詳細</div>
+            <div class="tc-doc-sub">経路・時刻表・予約方法など</div>
+          </div>
+          <div class="tc-doc-arrow">↗</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  
+  </div>
+
+  <div class="page" data-page="prep">
+    <div class="subpage-bar">
+      <button class="back-link" onclick="goHome()"><span class="bl-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></span>Home</button>
+      <span class="sp-title">04 · Trip prep</span>
+    </div>
+    
+
+  <!-- PACK LIST -->
+  <section class="checklist-section reveal" id="sec-pack">
+    <div class="sec-eyebrow"><span class="num">04-A</span>Pack list</div>
+    <h2 class="sec-title">持ち物リスト</h2>
+    <p class="sec-lead">出発前の確認に。</p>
+
+    <div class="pack-group">
+      <h4>基本の持ち物 <span class="cg-tag">ESSENTIAL</span></h4>
+      <ul class="pack-list">
+        <li>着替え（1〜2日分）</li>
+        <li>洗面・歯ブラシセット</li>
+        <li>スマートフォン・充電器</li>
+        <li>財布・交通系ICカード</li>
+        <li>常備薬・酔い止め</li>
+      </ul>
+    </div>
+
+    <div class="pack-group">
+      <h4>奥日光向けアイテム <span class="cg-tag">OKUNIKKO</span></h4>
+      <ul class="pack-list">
+        <li>歩きやすいシューズ</li>
+        <li>薄手のアウター（夜は15〜20℃）</li>
+        <li>虫除けスプレー</li>
+        <li>折りたたみ傘・レインウェア</li>
+        <li>ランチ代（自己負担分）</li>
+        <li>カメラ・予備バッテリー</li>
+      </ul>
+    </div>
+
+    <div class="check-note">
+      <b>服装メモ：</b>ドレスコードなし。奥日光は標高1400m、7月でも夜は <b>15〜20℃前後</b> でひんやり。Tシャツ＋薄手のアウター＋長ズボンが安心です。
+    </div>
+  </section>
+
+
+  <!-- WEATHER -->
+  <section class="reveal" id="sec-weather">
+    <div class="sec-eyebrow"><span class="num">04-B</span>Weather</div>
+    <h2 class="sec-title">7月の奥日光は、こんな感じ</h2>
+    <p class="sec-lead">標高1400mの高原。下界より涼しく、夜は重ね着がほしくなる気候です。</p>
+
+    <div class="weather-card">
+      <div class="wc-eyebrow">Okunikko / Mid July</div>
+      <h3>過去5年の平均気温</h3>
+      <div class="wc-grid">
+        <div class="wc-stat">
+          <div class="wc-label">Daytime</div>
+          <div class="wc-val">22<small>℃</small></div>
+        </div>
+        <div class="wc-stat">
+          <div class="wc-label">Night</div>
+          <div class="wc-val">15<small>℃</small></div>
+        </div>
+        <div class="wc-stat">
+          <div class="wc-label">Humidity</div>
+          <div class="wc-val">78<small>%</small></div>
+        </div>
+        <div class="wc-stat">
+          <div class="wc-label">Rain days</div>
+          <div class="wc-val">11<small>/月</small></div>
+        </div>
+      </div>
+      <p class="wc-note">日中は半袖でちょうど良いものの、朝晩と曇り空ではぐっと冷えます。<br>梅雨明け前後にあたるので、折りたたみ傘もぜひ。</p>
+    </div>
+  </section>
+
+  <!-- LUNCH -->
+  <section class="reveal" id="sec-lunch">
+    <div class="sec-eyebrow"><span class="num">04-C</span>Lunch spots</div>
+    <h2 class="sec-title">お昼ごはん候補</h2>
+    <p class="sec-lead">DAY1・DAY2ともに昼食は自由。せっかくの日光、美味しいもの食べてください。</p>
+
+    <div class="tabs" role="tablist" id="lunchTabs">
+      <button class="tab active" data-lunch="1" role="tab">
+        DAY 1
+        <span class="tab-en">東照宮周辺</span>
+      </button>
+      <button class="tab" data-lunch="2" role="tab">
+        DAY 2
+        <span class="tab-en">東武日光駅周辺</span>
+      </button>
+    </div>
+
+    <!-- DAY1 lunch -->
+    <div class="lunch-panel active" data-lunch-panel="1">
+
+      <div class="lunch-cat">
+        <div class="lc-num">01</div>
+        <div class="lc-title">日光名物「湯波（ゆば）」を堪能</div>
+      </div>
+      <div class="lunch-list">
+        <div class="lunch-item">
+          <h4>恵比寿家（えびすや）</h4>
+          <div class="li-loc">陽明門から徒歩約12分／神橋から徒歩約3分</div>
+          <p>創業明治末期、元祖・日光湯波の老舗。引き上げ湯波やたぐり湯波など、上品で優しい湯波料理をコース・御膳で。</p>
+        </div>
+        <div class="lunch-item">
+          <h4>補陀洛本舗 石屋町店</h4>
+          <div class="li-loc">東照宮から徒歩約15分</div>
+          <p>名物「ゆばむすび」が絶品。出汁で炊いた味付けご飯を湯波で包んだ食べ歩き向き（売り切れ注意）。</p>
+        </div>
+      </div>
+
+      <div class="lunch-cat">
+        <div class="lc-num">02</div>
+        <div class="lc-title">レトロな洋館で味わう絶品グルメ</div>
+      </div>
+      <div class="lunch-list">
+        <div class="lunch-item">
+          <h4>西洋料理館 明治の館</h4>
+          <div class="li-loc">東照宮から徒歩約15分</div>
+          <p>明治時代の石造り洋館を利用した名店。ふんわりトロトロの「オムレツライス」と、食後のチーズケーキ「ニルバーナ」が看板。</p>
+        </div>
+      </div>
+
+      <div class="lunch-cat">
+        <div class="lc-num">03</div>
+        <div class="lc-title">お洒落な和モダンカフェ＆洋食</div>
+      </div>
+      <div class="lunch-list">
+        <div class="lunch-item">
+          <h4>日光珈琲 御用邸通</h4>
+          <div class="li-loc">東照宮から徒歩約12分</div>
+          <p>古い商家リノベのノスタルジック古民家カフェ。「黒カレー」やガレットと、ハンドドリップコーヒーを静かな空間で。</p>
+        </div>
+        <div class="lunch-item">
+          <h4>雲IZU 日光店</h4>
+          <div class="li-loc">東照宮から徒歩約10分（神橋すぐ）</div>
+          <p>湯波を使った食事メニューとスイーツ。三猿モチーフの「そっぽ焼き」をデザートにするのもおすすめ。</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- DAY2 lunch -->
+    <div class="lunch-panel" data-lunch-panel="2">
+
+      <div class="lunch-cat">
+        <div class="lc-num">01</div>
+        <div class="lc-title">駅の目の前！気軽に名物を</div>
+      </div>
+      <div class="lunch-list">
+        <div class="lunch-item">
+          <h4>日光さかえや</h4>
+          <div class="li-loc">東武日光駅から徒歩約30秒</div>
+          <p>駅出てすぐ右手、行列の絶えない超有名店。名物「揚げゆばまんじゅう」は岩塩がアクセント。イートインで軽食も。</p>
+        </div>
+        <div class="lunch-item">
+          <h4>補陀洛本舗 駅前店</h4>
+          <div class="li-loc">東武日光駅から徒歩約2分</div>
+          <p>名物「ゆばむすび（2個入り）」をパック販売。電車前のお弁当テイクアウトに最適。</p>
+        </div>
+      </div>
+
+      <div class="lunch-cat">
+        <div class="lc-num">02</div>
+        <div class="lc-title">行列のできる絶品専門店</div>
+      </div>
+      <div class="lunch-list">
+        <div class="lunch-item">
+          <h4>欄干橋 寿し常</h4>
+          <div class="li-loc">東武日光駅から徒歩約6分</div>
+          <p>湯波料理と寿司の「ゆば御膳」「ゆば寿司」。ちょっと贅沢に湯波をメインで楽しみたい派へ。</p>
+        </div>
+        <div class="lunch-item">
+          <h4>豚骨100%ラーメン 鳴神</h4>
+          <div class="li-loc">東武日光駅から徒歩約4分</div>
+          <p>濃厚豚骨×細麺の本格派。「日光湯波」トッピングのご当地ラーメンもあり。がっつり派の隠れた名店。</p>
+        </div>
+      </div>
+
+      <div class="lunch-cat">
+        <div class="lc-num">03</div>
+        <div class="lc-title">レトロでお洒落な駅前カフェ</div>
+      </div>
+      <div class="lunch-list">
+        <div class="lunch-item">
+          <h4>日光ぷりん亭 日光店</h4>
+          <div class="li-loc">東武日光駅から徒歩約5分</div>
+          <p>大正ロマン調のプリン専門店。大笹牧場の牛乳のなめらかプリンと、SNSで人気の「プリンソフト」。</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- HOTEL -->
+  <section class="reveal" id="sec-hotel">
+    <div class="sec-eyebrow"><span class="num">04-D</span>Stay</div>
+    <h2 class="sec-title">泊まる場所</h2>
+    <p class="sec-lead">湯ノ湖を目の前にした、UNWIND HOTEL &amp; BAR 奥日光。</p>
+
+    <div class="hotel-card">
+      <div class="hc-illust"><img src="assets/hotel-exterior.jpg" alt="UNWIND HOTEL &amp; BAR 奥日光 外観"/></div>
+      <div class="hc-body">
+        <div class="hc-eyebrow">Hotel</div>
+        <h3>UNWIND HOTEL &amp; BAR 奥日光</h3>
+        <div class="hc-addr">栃木県日光市湯元温泉</div>
+
+        <div class="hc-meta">
+          <div>
+            <div class="l">Check-in</div>
+            <div class="v">15:00〜</div>
+          </div>
+          <div>
+            <div class="l">Check-out</div>
+            <div class="v">朝食後</div>
+          </div>
+          <div>
+            <div class="l">Rooms</div>
+            <div class="v">46室</div>
+          </div>
+          <div>
+            <div class="l">Meals</div>
+            <div class="v">夕・朝食付</div>
+          </div>
+        </div>
+
+        <div class="hc-links">
+          <a href="https://www.livelyhotels.com/ja/unwindokunikko/" target="_blank" rel="noopener">公式サイト →</a>
+          <a class="outline" href="https://www.google.com/maps/search/?api=1&query=UNWIND+HOTEL+%26+BAR+%E5%A5%A5%E6%97%A5%E5%85%89" target="_blank" rel="noopener">地図を開く</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hotel photo gallery -->
+    <div class="hotel-gallery">
+      <figure class="hg-item hg-wide">
+        <img src="assets/hotel-lounge.jpg" alt="ラウンジ"/>
+        <figcaption>Lounge ／ 夜のラウンジ</figcaption>
+      </figure>
+      <figure class="hg-item">
+        <img src="assets/hotel-room.jpg" alt="客室"/>
+        <figcaption>Room ／ ツインルーム</figcaption>
+      </figure>
+      <figure class="hg-item">
+        <img src="assets/hotel-wine.jpg" alt="バー"/>
+        <figcaption>Bar ／ フリーワイン</figcaption>
+      </figure>
+    </div>
+
+    <div class="check-note" style="margin-top:16px">
+      <b>相部屋について：</b>客室は46室のため、組み合わせによっては相部屋になります。詳細は後日ご案内します。
+    </div>
+  </section>
+
+  
+  </div>
+
+  <div class="page" data-page="info">
+    <div class="subpage-bar">
+      <button class="back-link" onclick="goHome()"><span class="bl-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></span>Home</button>
+      <span class="sp-title">05 · rules</span>
+    </div>
+    
+
+  <!-- NOTICES -->
+  <section class="reveal" id="sec-notes">
+    <div class="sec-eyebrow"><span class="num">05-B</span>Notes</div>
+    <h2 class="sec-title">注意事項</h2>
+    <p class="sec-lead">楽しく過ごすために、いくつかのお願いです。</p>
+
+    <div class="notice-list">
+      <div class="notice critical">
+        <b>1泊2日参加が必須です。</b>1日のみの参加はできません。スケジュール調整にご協力を。
+      </div>
+      <div class="notice critical">
+        <b>休暇扱い：</b>1.5日出勤＋0.5日有休利用となります。
+      </div>
+      <div class="notice">
+        <b>貸切バスは時間厳守。</b>東京組6:45／地方組16:30集合、いずれも遅れたら自走になります。
+      </div>
+      <div class="notice">
+        <b>国立公園内です。</b>ゴミは持ち帰り、動植物を傷つけないよう、自然に敬意を払って。
+      </div>
+      <div class="notice">
+        <b>食事の負担：</b>夕食(DAY1)・朝食(DAY2)は会社負担、昼食は自己負担です。
+      </div>
+    </div>
+  </section>
+
+  <!-- LINE GROUP -->
+  <section class="line-section reveal" id="sec-line">
+    <div class="sec-eyebrow"><span class="num">11</span>Join the group</div>
+    <h2 class="sec-title">LINEグループに参加</h2>
+    <p class="sec-lead">当日の連絡・集合場所の共有はLINEグループで行います。<br>必ず事前にご参加ください。</p>
+
+    <div class="line-card">
+      <div class="line-card-head">
+        <div class="line-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+        </div>
+        <div>
+          <div class="line-card-eyebrow">LINE Group</div>
+          <div class="line-card-name">OFFLINE GATHERING 2026</div>
+        </div>
+      </div>
+
+      <a class="line-cta" href="https://line.me/ti/g2/DRWLEJFC9eB3YihJZYDHFTClQMscqHCkWA-Nvw?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank" rel="noopener">
+        <span>グループに参加する</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+
+      <div class="line-rule">
+        <div class="line-rule-head">
+          <span class="lr-tag">★ 必読 ★</span>
+          <div class="lr-title">名前は<b>こちらのフォーマット</b>で登録</div>
+        </div>
+        <div class="line-rule-example">
+          <div class="lre-label">記入例</div>
+          <div class="lre-name">
+            <span class="lre-jp">名前</span><span class="lre-paren">（</span><span class="lre-dept">部署・施設</span><span class="lre-paren">）</span>
+          </div>
+          <div class="lre-samples">
+            例：山田太郎（マーケティング）／佐藤花子（UNWIND奥日光）
+          </div>
+        </div>
+        <p class="line-rule-note">当日の点呼・連絡をスムーズにするためのお願いです。よろしくお願いします。</p>
+      </div>
+    </div>
+  </section>
+
+  
+  </div>
+
+  <div class="page" data-page="people">
+    <div class="subpage-bar">
+      <button class="back-link" onclick="goHome()"><span class="bl-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></span>Home</button>
+      <span class="sp-title">06 · People</span>
+    </div>
+    
+
+    <!-- タブ:幹事 / UNWIND スタッフ -->
+    <div class="people-tabs" style="padding: 0 24px 8px;">
+      <div class="tabs" role="tablist" style="margin-bottom:0;">
+        <button class="tab active" data-people="organizers" role="tab">
+          幹事チーム
+          <span class="tab-en">Organizers</span>
+        </button>
+        <button class="tab" data-people="staff" role="tab">
+          UNWINDスタッフ
+          <span class="tab-en">UNWIND Staff</span>
+        </button>
+      </div>
+    </div>
+
+  <!-- ORGANIZERS -->
+  <section class="organizers-section reveal" id="sec-organizers">
+    <div class="sec-eyebrow"><span class="num">06-A</span>Organizers</div>
+    <h2 class="sec-title">幹事チーム</h2>
+    <p class="sec-lead">この旅をつくっているメンバーです。<br>困ったとき、迷ったときは声をかけてください。</p>
+
+    <div class="organizer-grid" id="organizerGrid">
+      <div class="people-loading">読み込み中…</div>
+    </div>
+  </section>
+
+  <!-- UNWIND STAFF -->
+  <section class="organizers-section reveal" id="sec-staff">
+    <div class="sec-eyebrow"><span class="num">06-B</span>UNWIND Staff</div>
+    <h2 class="sec-title">奥日光スタッフ紹介</h2>
+    <p class="sec-lead">現地で迎えてくれる UNWIND HOTEL &amp; BAR 奥日光のスタッフのみなさん。<br>ぜひ話しかけてみてください。</p>
+
+    <div class="organizer-grid" id="staffGrid">
+      <div class="people-loading">読み込み中…</div>
+    </div>
+
+    <p class="organizer-thanks">— Thank you for joining us. See you in Okunikko. —</p>
+  </section>
+
+  
+  </div>
+
+  <!-- ============== VIDEO GIFT PAGE ============== -->
+  <div class="page" data-page="videogift">
+    <div class="subpage-bar">
+      <button class="back-link" onclick="goHome()"><span class="bl-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></span>Home</button>
+      <span class="sp-title">07 · Video Gift</span>
+    </div>
+
+    <!-- ヒーロー -->
+    <section class="vg-hero reveal">
+      <div class="vg-badge">
+        <span class="vg-badge-dot"></span>SPECIAL PROJECT
+      </div>
+      <h2>みんなの動画で、<br>ホテルに<em>恩返し！</em><br>「思い出素材」プレゼント企画</h2>
+      <p class="vg-lead">旅の"リアルな笑顔"と"奥日光のきれいな景色"をたくさん撮って、UNWINDの皆さんへお礼のプチプレゼントに。</p>
+    </section>
+
+    <!-- メッセージ -->
+    <section class="vg-message reveal">
+      <div class="vg-msg-eyebrow">About this project</div>
+      <h3 class="vg-msg-title">「特派員」として、旅の瞬間を撮ってください。</h3>
+      <p>今回の旅行をさらに楽しく、そしてちょっと特別なものにするために、<b>【プチプレゼント企画】</b>を立ち上げました！</p>
+      <p>今回お世話になる <b>UNWIND HOTEL &amp; BAR 奥日光</b> の皆さんに向けたささやかなプレゼントとして、私たちが旅行を思いっきり楽しんでいる<b>「リアルな笑顔」</b>や<b>「奥日光のきれいな景色」</b>の動画をたくさん撮影して、旅行の最後に <span class="amber">『お礼のプチプレゼント（自由に使っていただける動画素材）』</span> としてお届けしたいと思っています！</p>
+      <p>そこで旅の間、皆さんには <b>「特派員」</b> になっていただき、スマホで自由に楽しい瞬間を撮影していただきたいです！</p>
+      <p>下の「SNS映えスポットリスト」を参考に、メンバーと「これ美味しそう！」「ここ行ってみたい！」とワイワイ言いながら、<b>10秒〜30秒程度の動画や写真</b>をたくさん撮ってみてください。</p>
+      <p>技術や編集は一切気にしなくてOK！<b>「楽しそうな笑顔」</b>や<b>「現地の美味しい音」</b>が最高の素材になります。もちろん、集まった動画は社内でも共有するので、私たちの最高の思い出アルバムにもなります。</p>
+      <p>みんなで旅行を全力で楽しみながら、UNWIND HOTEL &amp; BAR 奥日光へ素敵なお裾分けをお届けしましょう。<b>ぜひご協力よろしくお願いします！</b></p>
+    </section>
+
+    <!-- How to (3ステップ) -->
+    <section class="vg-how reveal">
+      <h3>参加ステップ</h3>
+      <ol class="vg-steps">
+        <li class="vg-step">
+          <span class="vs-num">1</span>
+          <div class="vs-body">
+            <div class="vs-title">スポットリストを見る</div>
+            <div class="vs-desc">下のリストからエリアを選んで、行けそう／撮れそうなスポットを見つけてください。カメラワークのヒントも載っています。</div>
+          </div>
+        </li>
+        <li class="vg-step">
+          <span class="vs-num">2</span>
+          <div class="vs-body">
+            <div class="vs-title">10〜30秒の動画・写真を撮る</div>
+            <div class="vs-desc">縦向きスマホ撮影でOK。編集不要、素材のまま。「笑顔」「音」「動き」があるとリールで活きます。</div>
+          </div>
+        </li>
+        <li class="vg-step">
+          <span class="vs-num">3</span>
+          <div class="vs-body">
+            <div class="vs-title">DAY1 の夜までに Google Drive に投稿</div>
+            <div class="vs-desc">下のリンクから素材格納フォルダへ。ファイル名は気にしなくてOK、そのままアップロードしてください。</div>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- Google Drive リンク -->
+    <a class="vg-drive reveal" href="https://drive.google.com/drive/folders/1mpcc3ZyVqvn0oAkGRmISamLRxUhzkbot?usp=sharing" target="_blank" rel="noopener">
+      <div class="vd-icon">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.71 3.5L1.15 15l3.42 6h14.86l3.42-6L16.29 3.5H7.71zm.72 1.5h7.14l5.71 10H2.72l5.71-10z"/></svg>
+      </div>
+      <div class="vd-body">
+        <div class="vd-eyebrow">Google Drive</div>
+        <div class="vd-title">リール素材 格納フォルダ</div>
+        <div class="vd-sub">ここに動画・写真をアップロード</div>
+      </div>
+      <div class="vd-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </div>
+    </a>
+
+    <!-- スポットリスト見出し -->
+    <section class="vg-list-head reveal">
+      <div class="vlh-eyebrow">Photo & Video spots</div>
+      <h3>SNS映えスポットリスト</h3>
+      <p class="vlh-lead">エリアごとに切替えられます。各スポットをタップすると、動画のフックとおすすめカメラワークが見られます。</p>
+    </section>
+
+    <!-- エリアタブ -->
+    <div class="vg-area-tabs" id="vgAreaTabs" role="tablist"></div>
+
+    <!-- スポットリスト -->
+    <div class="vg-spot-list" id="vgSpotList"></div>
+
+    <!-- 撮影のコツ -->
+    <div class="vg-tips reveal">
+      <div class="vt-eyebrow">Tips</div>
+      <h4>撮影のちょっとしたコツ</h4>
+      <ul>
+        <li><b>縦向き（9:16）で撮る</b>：リール・ショート向けの標準。横向きより素材として使いやすい。</li>
+        <li><b>音を活かす</b>：滝の音、囲炉裏の炭のはぜる音、食べる時の「サクッ」……環境音は最高の素材。</li>
+        <li><b>笑顔の一瞬</b>：食べた瞬間の「うまっ！」、絶景を見た瞬間の「うわぁ〜」など、リアクションの動画は特に好まれます。</li>
+        <li><b>手ブレはOK</b>：完璧を目指さず、量を優先で。編集で選びます。</li>
+      </ul>
+    </div>
+
+    <!-- サンキュー -->
+    <div class="vg-thanks reveal">
+      <div class="vth-eyebrow">Thank you</div>
+      <h4>みんなの一瞬を、UNWINDへ。</h4>
+      <p>ご協力ありがとうございます。<br>撮った瞬間ぜんぶが、素敵な素材になります。</p>
+    </div>
+  </div>
+
+  <!-- FOOTER (全ページ共通・軽量) -->
+  <footer class="site-footer">
+    <div class="footer-meta">
+      <div class="line">
+        <span>Global Agents</span>
+        <span>2026.07.16 — 17</span>
+      </div>
+    </div>
+  </footer>
+
+<script>
+  // ============== SCHEDULE DATA ==============
+  const day1 = [
+    // ============ 東京組 ============
+    {time:"06:45", group:"tokyo", title:"HOTEL GRAPHY 渋谷 集合", own:false, detail:"東京組は <a href=\"https://www.google.com/maps/search/?api=1&query=HOTEL+GRAPHY+%E6%B8%8B%E8%B0%B7\" target=\"_blank\" rel=\"noopener\" style=\"color:inherit;text-decoration:underline;text-underline-offset:3px;\">HOTEL GRAPHY 渋谷</a> にお越しください。時間厳守でお願いします。<br><br><b>📍 集合場所：</b>入口に向かって<b>左、「89」の柱がある駐車場</b>スペース（ホテル館内ではなく屋外）。詳しくは「移動」セクションの東京組カードに写真付き案内があります。", key:true},
+    {time:"07:15", group:"tokyo", title:"バス出発", own:false, detail:"貸切バスで足尾銅山へ向けて出発。<b>渋谷 → 足尾銅山は 片道 約3時間</b>（休憩含む）の道のりです。"},
+    {time:"11:00", group:"tokyo", title:"足尾銅山 見学", own:false, detail:"11:00–12:00 ⁄ 約1時間。バスで到着後、足尾銅山を見学。トロッコで坑道へ。"},
+    {time:"12:00", group:"tokyo", title:"バス移動（足尾 → 東照宮）", own:false, transit:true, detail:"12:00–12:30 ⁄ 約30分のバス移動。"},
+    {time:"12:30", group:"tokyo", title:"東照宮周辺で自由行動・各自ランチ", cost:"自己負担", own:true, detail:"12:30–14:00 ⁄ 約1時間半の自由行動。<b>東照宮に参拝してもよし、周辺観光でもよし</b>。各自でお店を選んでランチもどうぞ。下のおすすめスポットを参考に。"},
+    {time:"14:00", group:"tokyo", title:"バス移動（いろは坂 → ホテル）", own:false, transit:true, detail:"14:00–15:00 ⁄ 約1時間のバス移動。いろは坂を経由してホテルへ。"},
+    {time:"15:00", group:"tokyo", title:"ホテル着 ／ チェックイン", own:false, detail:"ホテル到着。フロントでルームキーを受け取り、荷物を部屋へ。館内注意事項は下記参照。", key:true},
+    {time:"15:30", group:"tokyo", title:"湯元散策（UNWINDスタッフのガイド付き）", own:false, detail:"15:30–16:30 ⁄ 約1時間。2グループに分かれて湯元周辺を歩きます。<br><br><b>◆ Aコース（安倍さんガイド）</b>：北東の温泉を周るコース。<b>湯元の歴史を中心にご案内</b>します。<br><br><b>◆ Bコース（長谷川さんガイド）</b>：北西の展望台を目指すコース。長谷川さんご自身も釣りをされるとのことで、<b>自然を中心にご案内</b>します。<br><br>※コース分けは当日フロント前で決めます。歩きやすい靴でどうぞ。", key:true},
+    {time:"16:30", group:"tokyo", title:"休憩・自由行動", own:false, detail:"16:30–17:00 ⁄ フリーワインまでの30分。散策のあとは館内で一息。大浴場でさっぱりしたり、お部屋でゆっくりしたり、ご自由に。"},
+
+    // ============ 地方組 ============
+    {time:"〜14:00", group:"local", title:"【早着OKの方】東照宮周辺で東京組と合流", own:false, detail:"14時以前に日光到着できる地方組の方は、<b>直接体験場所（東照宮周辺）</b>へお越しください。事前にLINEまたはお電話で <b>日名さん（<a href=\"tel:08068126598\" style=\"color:inherit;text-decoration:underline;text-underline-offset:3px;\">080-6812-6598</a>）</b>までご連絡を。<br>東京組の東照宮着は <b>12:30予定</b> なので、それまでは日光駅周辺で観光してお待ちください。"},
+    {time:"16:30", group:"local", title:"東武日光駅 集合", own:false, detail:"★地方組はこの時間に東武日光駅集合。貸切バスでホテルへ向かいます。", key:true},
+    {time:"16:30", group:"local", title:"バス移動（日光駅 → ホテル）", own:false, transit:true, detail:"16:30–17:30 ⁄ 約1時間のバス移動。"},
+    {time:"17:30", group:"local", title:"ホテル着", own:false, detail:"貸切バスでホテル到着。チェックインを済ませて、下のフリーワインへ。"},
+
+    // ============ 合流 ============
+    {time:"17:00", title:"フリーワイン", cost:"会社負担", own:false, detail:"ウェルカムドリンクで乾杯。到着した人からゆるく集まりましょう。<br>※地方組は到着後、合流してください。<br><br><b>◆ 会場</b>：ロビー<br><br><b>◆ ドリンク</b>：ビール・ワインのほか、数種類の産地のシロップを使ったサワー・ノンアルドリンクをご用意。<br><br><b>◆ 形式</b>：一人ひとつずつプラカップを配布します。<b>セルフ式</b>でご自由にどうぞ。"},
+    {time:"18:00", title:"入館式 ＋ 夕食", cost:"会社負担", own:false, detail:"会場：<b>ダイニング</b>（<a href=\"https://www.google.com/maps/search/?api=1&query=UNWIND+HOTEL+%26+BAR+%E5%A5%A5%E6%97%A5%E5%85%89\" target=\"_blank\" rel=\"noopener\" style=\"color:inherit;text-decoration:underline;text-underline-offset:3px;\">UNWIND HOTEL &amp; BAR 奥日光</a>）<br>入館式のあと、全員で同じテーブルを囲む夕食。<br><br><b>◆ ドリンク</b>：協賛でいただく<b>ビール・ハイボール・レモンサワー</b>と、数種類の産地のシロップを使ったサワー・ノンアルドリンクをご用意。<br><br><b>◆ 形式</b>：ドリンクは<b>セルフ式</b>です。", key:true},
+    {time:"19:30", title:"キャンプファイヤー", own:false, detail:"19:30–20:30 ／ 約1時間。屋外で焚き火を囲んで過ごす時間。<br>奥日光の夜の空気の中、火を眺めながら\"新しい顔\"と話してみましょう。<br><br>⚠ <b>防寒着</b>・<b>履き慣れた靴</b>をお持ちください。標高1,400mの夜はかなり冷え込みます。"},
+    {time:"21:00", title:"二次会（ゲームあり）", own:false, detail:"21:00–22:30 ／ 約1時間半。<br><br><b>◆ 会場</b>：ダイニング（夕食と同会場）<br><br><b>◆ ドリンク</b>：夕食時と同じ（ビール・ハイボール・レモンサワー・シロップサワー・ノンアルドリンク）をセルフで。<br><br><b>◆ ゲーム</b>：二次会内でゲーム企画あり。チーム分けは当日発表。"},
+    {time:"23:00", title:"星空鑑賞", own:false, detail:"奥日光の澄んだ夜空へ。希望者で少し外に出て星空鑑賞します。<br><br>⚠ <b>防寒・履き慣れた靴推奨</b>。ホテル前は暗いので、スマホライトなどご用意ください。"},
+    {time:"24:00", title:"終了", own:false, detail:"明日もあるので、ほどほどに。おやすみなさい。"},
+  ];
+
+  const day2 = [
+    {time:"07:00", title:"朝食", cost:"会社負担", own:false, detail:"7:00から、<b>順次起きてこられた方からのご案内</b>になります（一斉スタートではありません）。<br>内容は<b>一般営業と同じ</b>メニューです。<br><br><div style=\"padding:10px 12px;background:rgba(212,133,74,.12);border-radius:8px;font-size:12.5px;line-height:1.85;\"><b>⚠ お願い</b><br>朝食は一般営業の本番を想定したオペレーションで動きたいため、<b>一般のお客様のつもりでお越しください</b>。社員同士のノリではなく、実際に審査されるつもりでご協力を。<br><br><b>※できるだけ朝食前にチェックアウトを済ませて</b>ください。朝食後の動きがスムーズになります。</div>", key:true},
+    {time:"08:25", title:"退館式", own:false, detail:"退館式。<b>チェックアウトは朝食前までに済ませて</b>ください。", key:true},
+    {time:"08:45", title:"全員バスへ乗車 → 各アクティビティへ", own:false, detail:"貸切バスで各アクティビティ会場へ移動。<br><b>▼ バス着順（4プラン）</b><br>① 戦場ヶ原トレッキング：湯滝着（<b>Aプラン</b>）<br>② 中禅寺湖SUP体験（<b>Bプラン</b>）<br>③ 東照宮見学（<b>Cプラン</b>）<br><br><b>▼ Dプランの方は公共バスで移動</b><br>④ ワークショップ体験：mekke 日光郷土センター（<b>Dプラン</b>）→ <b>8:37 湯元温泉（バス停）発</b>の公共バスで日光駅方面へ。<br><br>※コース分けや集合場所の詳細は <b>Google チャットで別途ご案内</b> します。", key:true},
+    {time:"12:30", title:"日光駅周辺でランチ", cost:"自己負担", own:true, detail:"日光駅周辺で各自昼食。<br><b>⚠ 結構混む可能性があるので、あまり迷っている暇はないかも。速やかに決めて食べましょう！</b>"},
+    {time:"13:50", title:"日光駅周辺 集合", own:false, detail:"14:00の解散に向けて日光駅周辺に集合。<b>アクティビティにより移動方法が異なります。</b><br><br><b>▼ 団体バスで日光駅へ</b><br>① 戦場ヶ原トレッキング：湯滝着（<b>Aプラン</b>）<br>② 中禅寺湖SUP体験（<b>Bプラン</b>）<br><br><b>▼ 直接日光駅へ</b><br>③ 東照宮見学（<b>Cプラン</b>）<br>④ ワークショップ体験：mekke 日光郷土センター（<b>Dプラン</b>）<br><br>集合場所は当日ご案内。時間厳守でお願いします。", key:true},
+    {time:"14:00", title:"解散", own:false, detail:"東京組：貸切バスに乗車して渋谷へ向かいます。<br>地方組：各自、公共の移動手段で羽田・成田・各地へ。お疲れさまでした！<br><br>※早めに帰る方は、ご自身でバスまで荷物を取りに行って、そのまま出発していただく形でもOKです。", key:true},
+    {time:"19:00", title:"バス渋谷着・解散（東京組）", own:false, detail:"東京組は HOTEL GRAPHY 渋谷周辺にて解散予定。お疲れさまでした！", key:true},
+  ];
+
+  function renderSchedule(arr, host){
+    const ul = document.getElementById(host);
+    let prevGroup = undefined;
+    arr.forEach((it, i)=>{
+      // 分岐セクションの見出し（グループの切り替わり時）
+      if(it.group !== prevGroup){
+        let label = null, en = null, cls = null;
+        if(it.group === "tokyo"){
+          label = "🚌 東京組"; en = "TOKYO GROUP"; cls = "grp-tokyo";
+        } else if(it.group === "local"){
+          label = "🚄 地方組"; en = "LOCAL GROUP"; cls = "grp-local";
+        } else if(prevGroup !== undefined && !it.group){
+          label = "🍷 全員合流"; en = "ALL TOGETHER"; cls = "grp-merge";
+        }
+        if(label){
+          const note = document.createElement("li");
+          note.className = "sch-branch-note " + cls;
+          note.innerHTML = `<span>${label}</span><span class="sbn-en">${en}</span>`;
+          ul.appendChild(note);
+        }
+        prevGroup = it.group;
+      }
+
+      // group side-bar class (毎行チップの代わりに縦バーで色分け)
+      const grpCls = it.group === "tokyo" ? " grp-tokyo"
+                   : it.group === "local" ? " grp-local"
+                   : " grp-merge";
+
+      const li = document.createElement("li");
+      li.className = "sch-item" + (it.key?" highlight":"") + (it.transit?" transit":"") + grpCls;
+      li.innerHTML = `
+        <button class="sch-toggle" aria-expanded="false">
+          <span class="sch-time">${it.time}</span>
+          <span class="sch-title">${it.title}${it.cost?`<span class="sch-cost${it.own?" own":""}">${it.cost}</span>`:""}</span>
+          <span class="sch-chev">▾</span>
+        </button>
+        <div class="sch-detail"><div><div class="sch-detail-inner"><p>${it.detail}</p></div></div></div>
+      `;
+      ul.appendChild(li);
+    });
+  }
+  renderSchedule(day1, "day1List");
+  renderSchedule(day2, "day2List");
+
+  // accordion behavior
+  document.addEventListener("click", (e)=>{
+    const btn = e.target.closest(".sch-toggle");
+    if(!btn) return;
+    const item = btn.parentElement;
+    const wasOpen = item.classList.contains("open");
+    // close siblings in same list
+    item.parentElement.querySelectorAll(".sch-item.open").forEach(s=>s.classList.remove("open"));
+    if(!wasOpen) item.classList.add("open");
+  });
+
+  // Schedule tabs (DAY1 / DAY2)
+  document.querySelectorAll(".tab[data-day]").forEach(tab=>{
+    tab.addEventListener("click", ()=>{
+      const day = tab.dataset.day;
+      document.querySelectorAll(".tab[data-day]").forEach(t=>t.classList.remove("active"));
+      tab.classList.add("active");
+      document.querySelectorAll(".day-panel").forEach(p=>{
+        p.classList.toggle("active", p.dataset.panel===day);
+      });
+    });
+  });
+
+  // People tabs (Organizers / Staff)
+  function activatePeopleTab(which){
+    const page = document.querySelector('[data-page="people"]');
+    if(!page) return;
+    page.classList.remove('show-organizers','show-staff');
+    page.classList.add('show-' + which);
+    document.querySelectorAll('.tab[data-people]').forEach(t=>{
+      t.classList.toggle('active', t.dataset.people === which);
+    });
+  }
+  document.querySelectorAll(".tab[data-people]").forEach(tab=>{
+    tab.addEventListener("click", ()=> activatePeopleTab(tab.dataset.people));
+  });
+  // 初期状態は幹事タブ
+  activatePeopleTab('organizers');
+
+  // Lunch tabs
+  document.querySelectorAll(".tab[data-lunch]").forEach(tab=>{
+    tab.addEventListener("click", ()=>{
+      const d = tab.dataset.lunch;
+      document.querySelectorAll(".tab[data-lunch]").forEach(t=>t.classList.remove("active"));
+      tab.classList.add("active");
+      document.querySelectorAll(".lunch-panel").forEach(p=>{
+        p.classList.toggle("active", p.dataset.lunchPanel===d);
+      });
+    });
+  });
+
+  // ============== ORGANIZERS ==============
+  // ============== PEOPLE (from Google Sheets) ==============
+  // 幹事シート / スタッフシートの CSV を取得してカードを生成。
+  // 回答が追加されると、ページを再読み込みするだけで反映されます。
+  const ORGANIZERS_SHEET_ID = "1VebBFnZv6mkc90yosAFgwVKYgvgYyCPXOLjmZQ7DGEE";
+  const STAFF_SHEET_ID      = "1V5XmJFVL5v8a4PzgwRSXzqcaePcdYN_VOxL4t1N0hWc";
+
+  function initials(name){
+    return (name||"").split(/\s+/).map(p=> p[0]||"").join("").slice(0,2).toUpperCase();
+  }
+  function escapeHTML(s){
+    return String(s||"").replace(/[&<>"']/g, c => ({
+      "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+    }[c]));
+  }
+  // 改行・カンマ・引用符を含む CSV に対応した簡易パーサ
+  function parseCSV(text){
+    const rows = []; let row = []; let cell = "";
+    let i = 0, inQuote = false;
+    while(i < text.length){
+      const c = text[i];
+      if(inQuote){
+        if(c === '"'){
+          if(text[i+1] === '"'){ cell += '"'; i += 2; continue; }
+          inQuote = false; i++; continue;
+        }
+        cell += c; i++;
+      } else {
+        if(c === '"'){ inQuote = true; i++; continue; }
+        if(c === ","){ row.push(cell); cell = ""; i++; continue; }
+        if(c === "\r"){ i++; continue; }
+        if(c === "\n"){ row.push(cell); rows.push(row); row = []; cell = ""; i++; continue; }
+        cell += c; i++;
+      }
+    }
+    if(cell.length || row.length){ row.push(cell); rows.push(row); }
+    return rows.filter(r => r.length > 1 || (r[0]||"").trim().length > 0);
+  }
+  // Drive の "open?id=XXX" / "file/d/XXX" などから id を抽出して thumbnail URL に
+  function driveIdFromUrl(url){
+    if(!url) return "";
+    let m = url.match(/[?&]id=([a-zA-Z0-9_-]+)/);
+    if(m) return m[1];
+    m = url.match(/\/file\/d\/([a-zA-Z0-9_-]+)/);
+    if(m) return m[1];
+    m = url.match(/\/d\/([a-zA-Z0-9_-]+)/);
+    if(m) return m[1];
+    return "";
+  }
+  function driveThumbUrl(url, size){
+    const id = driveIdFromUrl(url);
+    if(!id) return "";
+    return `https://drive.google.com/thumbnail?id=${id}&sz=w${size||600}`;
+  }
+
+  async function fetchSheet(sheetId){
+    // gid=0 相当の1シート目を CSV で。キャッシュ回避のため timestamp を付与。
+    const url = `https://docs.google.com/spreadsheets/d/${sheetId}/export?format=csv&t=${Date.now()}`;
+    const res = await fetch(url, { cache: "no-store" });
+    if(!res.ok) throw new Error("fetch failed: " + res.status);
+    const text = await res.text();
+    return parseCSV(text);
+  }
+
+  function renderPeopleCard({ name, dept, photoUrl, quote }){
+    const thumb = driveThumbUrl(photoUrl, 600);
+    const photoHTML = thumb
+      ? `<img src="${escapeHTML(thumb)}" alt="${escapeHTML(name)}" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.replaceWith(Object.assign(document.createElement('div'),{className:'org-placeholder',textContent:'${escapeHTML(initials(name))}'}))" />`
+      : `<div class="org-placeholder">${escapeHTML(initials(name))}</div>`;
+    const card = document.createElement("div");
+    card.className = "organizer";
+    const deptHTML = dept
+      ? `<div class="org-dept">${escapeHTML(dept)}</div>`
+      : "";
+    card.innerHTML = `
+      <div class="org-photo">${photoHTML}</div>
+      <div class="org-body">
+        <div class="org-name">${escapeHTML(name || "―")}</div>
+        ${deptHTML}
+        <div class="org-quote${quote?"":" empty"}">${escapeHTML(quote || "（一言メッセージ）")}</div>
+      </div>
+    `;
+    return card;
+  }
+
+  async function renderPeople({ gridId, sheetId, mapping }){
+    const grid = document.getElementById(gridId);
+    if(!grid) return;
+    try{
+      const rows = await fetchSheet(sheetId);
+      if(!rows.length){ throw new Error("empty"); }
+      const header = rows[0].map(h => h.trim());
+      // 列を名前で探す(見出しが変わっても部分一致でヒットさせる)
+      function idx(candidates){
+        for(const key of candidates){
+          const i = header.findIndex(h => h.includes(key));
+          if(i >= 0) return i;
+        }
+        return -1;
+      }
+      const iName  = idx(mapping.name);
+      const iDept  = mapping.dept ? idx(mapping.dept) : -1;
+      const iPhoto = idx(mapping.photo);
+      const iQuote = idx(mapping.quote);
+
+      const people = rows.slice(1)
+        .map(r => ({
+          name:     iName  >= 0 ? (r[iName]  || "").trim() : "",
+          dept:     iDept  >= 0 ? (r[iDept]  || "").trim() : "",
+          photoUrl: iPhoto >= 0 ? (r[iPhoto] || "").trim() : "",
+          quote:    iQuote >= 0 ? (r[iQuote] || "").trim() : "",
+        }))
+        .filter(p => p.name);
+
+      grid.innerHTML = "";
+      if(!people.length){
+        grid.innerHTML = `<div class="people-loading">まだ回答がありません</div>`;
+        return;
+      }
+      people.forEach(p => grid.appendChild(renderPeopleCard(p)));
+    } catch(err){
+      console.error("[people]", gridId, err);
+      grid.innerHTML = `<div class="people-loading error">読み込みに失敗しました。時間をおいて再読み込みしてください。</div>`;
+    }
+  }
+
+  // 幹事: 氏名 / 所属 / 写真 / 一言
+  renderPeople({
+    gridId: "organizerGrid",
+    sheetId: ORGANIZERS_SHEET_ID,
+    mapping: {
+      name:  ["氏名", "名前", "お名前"],
+      dept:  ["所属"],
+      photo: ["写真", "アップロード", "画像"],
+      quote: ["意気込み", "一言", "コメント"],
+    }
+  });
+
+  // スタッフ: お名前 / 写真 / 一言
+  renderPeople({
+    gridId: "staffGrid",
+    sheetId: STAFF_SHEET_ID,
+    mapping: {
+      name:  ["お名前", "氏名", "名前"],
+      photo: ["プロフィール写真", "写真", "画像"],
+      quote: ["一言", "コメント", "自己紹介"],
+    }
+  });
+
+  // ============== HERO IMAGE FALLBACK ==============
+  const heroImg = document.getElementById("heroImg");
+  if(heroImg){
+    heroImg.addEventListener("error", ()=> heroImg.style.display = "none");
+  }
+
+  // ============== REVEAL ON SCROLL ==============
+  (function setupReveal(){
+    const els = Array.from(document.querySelectorAll(".reveal"));
+    const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    // Show-everything fallback (always wins eventually) — guarantees content
+    const showAll = ()=> els.forEach(el=> el.classList.add("in"));
+
+    if(reduceMotion){ showAll(); return; }
+
+    // Safety net: ensure visibility within 1.2s no matter what
+    const safety = setTimeout(showAll, 1200);
+
+    // Manual scroll-based reveal (more reliable than IO in some preview contexts)
+    function check(){
+      const vh = window.innerHeight || document.documentElement.clientHeight;
+      let allDone = true;
+      els.forEach(el=>{
+        if(el.classList.contains("in")) return;
+        const r = el.getBoundingClientRect();
+        if(r.top < vh - 40 && r.bottom > 0){
+          el.classList.add("in");
+        } else {
+          allDone = false;
+        }
+      });
+      if(allDone){
+        clearTimeout(safety);
+        window.removeEventListener("scroll", check);
+        window.removeEventListener("resize", check);
+      }
+    }
+    window.addEventListener("scroll", check, {passive:true});
+    window.addEventListener("resize", check);
+    // Run after layout settles
+    requestAnimationFrame(()=> requestAnimationFrame(check));
+    setTimeout(check, 100);
+  })();
+
+  // ============== ページ切替 (SPA-style) ==============
+  const VALID_PAGES = new Set(['home','schedule','activities','transport','prep','info','people','videogift']);
+
+  function showPage(name, ev){
+    if(ev) ev.preventDefault();
+    if(!VALID_PAGES.has(name)) name = 'home';
+    document.querySelectorAll('.page').forEach(p => {
+      p.classList.toggle('active', p.dataset.page === name);
+    });
+    // スクロール位置をトップに
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    // 履歴に追加(既に同じページなら追加しない)
+    const url = name === 'home' ? '#' : '#' + name;
+    if(location.hash !== (name === 'home' ? '' : '#' + name)){
+      history.pushState({page: name}, '', url);
+    }
+    // ページ変更時に、内部の reveal クラス要素を即表示状態にする
+    document.querySelectorAll('.page.active .reveal').forEach(el => el.classList.add('in'));
+    // ページ名を localStorage に(再読み込みで復元)
+    try{ localStorage.setItem('cur-page', name); }catch(e){}
+    // Home 以外に footer は表示不要(footer は独立して常時表示)
+  }
+  function goHome(ev){ showPage('home', ev); }
+
+  // popstate で戻る/進む
+  window.addEventListener('popstate', (e) => {
+    const name = (e.state && e.state.page) || (location.hash ? location.hash.replace('#','') : 'home');
+    if(!VALID_PAGES.has(name)){
+      document.querySelectorAll('.page').forEach(p => p.classList.toggle('active', p.dataset.page === 'home'));
+    } else {
+      document.querySelectorAll('.page').forEach(p => p.classList.toggle('active', p.dataset.page === name));
+    }
+    document.querySelectorAll('.page.active .reveal').forEach(el => el.classList.add('in'));
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  });
+
+  // 初期表示: URLハッシュ or localStorage or home
+  (function initPage(){
+    let initial = 'home';
+    const hash = location.hash.replace('#','');
+    if(hash && VALID_PAGES.has(hash)){
+      initial = hash;
+    } else {
+      try{
+        const saved = localStorage.getItem('cur-page');
+        if(saved && VALID_PAGES.has(saved)) initial = saved;
+      }catch(e){}
+    }
+    // 初期状態は home がアクティブなので、他ページの場合だけ切替
+    if(initial !== 'home'){
+      document.querySelectorAll('.page').forEach(p => {
+        p.classList.toggle('active', p.dataset.page === initial);
+      });
+      history.replaceState({page: initial}, '', '#' + initial);
+    } else {
+      history.replaceState({page: 'home'}, '', location.pathname);
+    }
+    document.querySelectorAll('.page.active .reveal').forEach(el => el.classList.add('in'));
+  })();
+
+  // グローバルに公開(inline onclick から呼べるように)
+  window.showPage = showPage;
+  window.goHome = goHome;
+
+  // ============== VIDEO GIFT: スポットデータ & レンダリング ==============
+  // カテゴリ順序（表示順）
+  const vgAreaOrder = [
+    { key: "toshogu",   label: "東照宮・二社一寺" },
+    { key: "around",    label: "周辺・散策" },
+    { key: "gourmet",   label: "グルメ・食べ歩き" },
+    { key: "yunoko",    label: "湯ノ湖・奥日光" },
+    { key: "rare",      label: "レア・穴場" },
+  ];
+
+  const vgSpots = [
+    // ============ 東照宮・二社一寺 ============
+    { area:"toshogu", name:"日光東照宮 陽明門", cat:"建築・歴史", hook:"圧倒的な金箔と細密な彫刻。画面いっぱいの豪華絢爛さ。", work:"下から上へゆっくり動かす（チルトアップ）、または真下から超広角撮影", ref:{label:"風景全体を撮影する方法", url:"https://www.instagram.com/reel/DTZyhgeD3te/?utm_source=ig_web_copy_link&igsh=NTc4MTIwNjQ2YQ=="} },
+    { area:"toshogu", name:"三猿（見ざる言わざる聞かざる）", cat:"動物彫刻", hook:"誰もが知る有名彫刻。人間の生涯を風刺したストーリー性。", work:"ズームで周囲の混雑から三猿へフォーカス／自分の手でポーズを真似して画面に入り込む「再現ショット」", ref:{label:"前に歩く撮影方法", url:"https://www.instagram.com/reel/DW0yZjVgssU/?utm_source=ig_web_copy_link&igsh=NTc4MTIwNjQ2YQ=="} },
+    { area:"toshogu", name:"眠り猫", cat:"動物彫刻", hook:"国宝の小さな彫刻。裏側の「雀」との対比が平和の象徴として映える。", work:"ズームで周囲の混雑から猫へフォーカスを絞る", ref:{label:"観光地撮影", url:"https://www.tiktok.com/@nakashin_99/video/7653391036563148048?is_from_webapp=1&sender_device=pc"} },
+    { area:"toshogu", name:"奥社宝塔への石段", cat:"絶景・自然", hook:"杉木立に囲まれた207段の厳かな石段。苔むした石壁が美しい。", work:"倍速（タイムラプス）で階段を駆け上がる主観（POV）映像" },
+    { area:"toshogu", name:"五重塔", cat:"建築・歴史", hook:"入り口にそびえ立つ高さ36mの塔。赤と金のコントラストが鮮やか。", work:"ローアングルから空を見上げるように撮り、高さを強調" },
+    { area:"toshogu", name:"御本社（拝殿）", cat:"建築・歴史", hook:"東照宮で最も重要な場所。天井画や装飾が極めて精巧。", work:"細かい彫刻にグッと寄るマクロ撮影風" },
+    { area:"toshogu", name:"二荒山神社 神門", cat:"建築・歴史", hook:"大きな麻の輪、良縁成就のハート型絵馬など女子旅ウケ抜群。", work:"チルトアップ／おみくじを引く瞬間や絵馬を結ぶ手元のアップ" },
+    { area:"toshogu", name:"二荒山神社 夫婦杉", cat:"絶景・自然", hook:"1つの根から2本の杉がまっすぐ伸びる、パワースポットの象徴。", work:"根元から見上げて、2本の木が空へ伸びていくダイナミックなアングル" },
+    { area:"toshogu", name:"輪王寺 三仏堂", cat:"建築・歴史", hook:"日光山随一の大木造建築。中には高さ7.5mの巨大な金色の仏像。", work:"お堂の巨大さを伝えるため、人物を小さく配置した引きの構図" },
+    { area:"toshogu", name:"輪王寺 大猷院 唐門", cat:"建築・歴史", hook:"徳川家光の霊廟。東照宮とは対照的な「黒と金」の重厚な美しさ。", work:"門の隙間から奥の景色を覗くような「のぞき見」カメラワーク" },
+    { area:"toshogu", name:"大猷院 皇嘉門（竜宮門）", cat:"建築・歴史", hook:"竜宮城を思わせる独特な中国風の門。写真・動画映えNO.1とも。", work:"門を中央に配置した完全シンメトリー（左右対称）の構図" },
+    { area:"toshogu", name:"上神庫の想像の象", cat:"動物彫刻", hook:"実物を見ずに描かれたというユニークな象の彫刻。ツッコミどころあり。", work:"ズームで象へフォーカスを絞る" },
+    { area:"toshogu", name:"唐門", cat:"建築・歴史", hook:"全体が白い鍾乳細工のような彫刻で覆われた、小さくも緻密な門。", work:"細かい彫刻にグッと寄るマクロ撮影風" },
+    { area:"toshogu", name:"神厩舎（しんきゅうしゃ）", cat:"建築・歴史", hook:"三猿が彫られている、実際に神馬が暮らす木造の厩舎。", work:"神馬がいる時間帯（午前中など）を狙って、動く馬の姿を収める" },
+
+    // ============ 周辺名所・散策 ============
+    { area:"around", name:"神橋（しんきょう）", cat:"絶景・自然", hook:"大谷川の急流に架かる朱色の美しい橋。世界遺産の入り口。", work:"川のせせらぎ音を活かし、橋の全景から水面へカメラを縦に振る" },
+    { area:"around", name:"日光田母沢御用邸記念公園", cat:"建築・歴史", hook:"明治・大正・昭和の建築が融合した広大な木造邸宅。畳と絨毯のモダンさ。", work:"長い廊下を歩く主観（POV）動画、または窓越しに見る日本庭園" },
+    { area:"around", name:"憾満ヶ淵（かんまんがふ淵）", cat:"絶景・自然", hook:"地蔵群（並び地蔵）が川沿いに並ぶ、少しミステリアスな景勝地。", work:"行きと帰りで地蔵の数が変わる「化け地蔵」の都市伝説風リール" },
+    { area:"around", name:"日光金谷ホテル 外観", cat:"建築・歴史", hook:"現存する日本最古のクラシックホテル。アインシュタインも泊まった宿。", work:"クラシックカーやレトロな服装で、車寄せにアプローチする演出" },
+    { area:"around", name:"金谷ホテル歴史館（カテッジイン）", cat:"建築・歴史", hook:"「金谷カテッジイン」として知られる、武家屋敷利用のレトロな建物。", work:"囲炉裏や昔の階段など、日本の伝統美をシネマティックに切り取る" },
+    { area:"around", name:"松原町通りのレトロ街並み", cat:"街並み", hook:"東照宮へ続くメインストリート。石畳やレトロな看板の店舗が並ぶ。", work:"食べ歩きをしながら、お店からお店へとテンポよく画面を切り替える" },
+    { area:"around", name:"東武日光駅 駅舎", cat:"街並み", hook:"三角屋根が特徴的な山小屋風の駅舎。日光旅のスタート地点。", work:"駅に到着して改札を出る瞬間から動画スタート「旅の始まり」演出" },
+    { area:"around", name:"JR日光駅 駅舎", cat:"建築・歴史", hook:"明治期の洋風建築が残る、白くて美しいハーフティンバー様式の駅舎。", work:"2階の旧一等車専用待合室（ホワイトルーム）のシャンデリアを映す" },
+    { area:"around", name:"本宮神社", cat:"建築・歴史", hook:"神橋のすぐ近くにある、日光発祥の地とされる静かな神社。", work:"観光客が少ない穴場感を演出し、鳥居と緑のコントラストを静かに" },
+    { area:"around", name:"滝尾神社（たきのおじんじゃ）", cat:"パワースポット", hook:"杉の巨木に囲まれた、知る人ぞ知る強力なパワースポット。", work:"鳥居の小さな穴に石を3回投げて通す「運試しの鳥居」の挑戦動画" },
+    { area:"around", name:"滝尾神社の三本杉", cat:"絶景・自然", hook:"弘法大師が修行したとされる、神聖な空気が漂う3本の巨大な杉。", work:"下から見上げてカメラを時計回りに回転させ、神秘的な雰囲気を" },
+    { area:"around", name:"白糸の滝（天降の滝）", cat:"絶景・自然", hook:"滝尾神社の手前にある、絹糸を垂らしたような優美な滝。", work:"スローモーション機能で、水の流れを滑らかに表現" },
+    { area:"around", name:"開山堂", cat:"建築・歴史", hook:"日光を開山した勝道上人の仏堂。裏手には岩をくり抜いたお墓がある。", work:"お堂の朱色と、周囲の深い緑の色の対比を鮮明に強調" },
+    { area:"around", name:"観音堂（産泰堂）", cat:"体験・文化", hook:"将棋の「香車」が祀られており、安産祈願として香車を持ち帰る風習。", work:"並んでいるたくさんの将棋の駒にピントを合わせるマクロ撮影" },
+    { area:"around", name:"含満ヶ淵の慈雲寺", cat:"建築・歴史", hook:"地蔵群の入り口にある静かなお寺。阿弥陀如来の石像が並ぶ。", work:"歴史的なお寺の門をフレームに見立てて、奥の景色を撮る「額縁効果」" },
+
+    // ============ グルメ・食べ歩き ============
+    { area:"gourmet", name:"日光さかえや 揚げゆばまんじゅう", cat:"食べ歩きグルメ", hook:"サクサクの衣に大粒の岩塩。甘じょっぱさがクセになる行列グルメ。", work:"一口食べて「サクッ」というASMR音を拾い、中のあんこを見せる" },
+    { area:"gourmet", name:"日光ぷりん亭 プリンソフト", cat:"スイーツ", hook:"レトロな瓶プリンの上に、高く巻かれた可愛いソフトクリーム。", work:"お店のレトロなロゴ看板を背景にして、ソフトクリームを掲げて撮影" },
+    { area:"gourmet", name:"雲IZU 日光店 そっぽ焼き", cat:"食べ歩きグルメ", hook:"三猿モチーフのお猿の形をした可愛いカスタード・あんこ焼き。", work:"お猿の顔をカメラに大接近させ、半分に割って中のクリームを見せる" },
+    { area:"gourmet", name:"日光ドラバタさん どらやき", cat:"スイーツ", hook:"発酵バタークリームがこれでもかと厚く挟まれた進化系どら焼き。", work:"真横から「分厚さ」をアピール。包み紙を開ける瞬間のワクワク感" },
+    { area:"gourmet", name:"補陀洛本舗 ゆばむすび", cat:"食べ歩きグルメ", hook:"味付けご飯を日光特産の湯波で巻いた、お弁当にぴったりの名物。", work:"パックを開けて、お箸でゆばむすびを持ち上げる「箸上げ」の瞬間" },
+    { area:"gourmet", name:"明治の館 オムレツライス", cat:"グルメ", hook:"熟練シェフの、ふんわりトロトロ卵と濃厚デミグラスソース。", work:"スプーンで卵の真ん中を割り、トロッと広がる瞬間をスローで" },
+    { area:"gourmet", name:"明治の館 チーズケーキ日瑠華", cat:"スイーツ", hook:"デンマーク産クリームチーズを使用した、まったり濃厚な絶品ケーキ。", work:"フォークをケーキに沈める瞬間の、しっとりとした質感をアップで" },
+    { area:"gourmet", name:"日光金谷ホテル クラフトバニラ", cat:"スイーツ", hook:"百年以上の歴史を誇る伝統のレシピで作られたプレミアムアイス。", work:"高級感のある銀の器と、レトロなスプーンを合わせてシネマティックに" },
+    { area:"gourmet", name:"金谷ホテルベーカリー ロイヤルブレッド", cat:"お土産", hook:"ずっしりと重く、きめ細やかな小麦の香りが広がる伝統の食パン。", work:"パンを贅沢に手で半分に「モチッ」と引き裂く瞬間の映像" },
+    { area:"gourmet", name:"宮前だんご 味噌付け団子", cat:"食べ歩きグルメ", hook:"創業享保年間の老舗。囲炉裏で焼かれた香ばしい味噌の香り。", work:"タレが炭火に落ちて煙が立つ様子や、お団子に焦げ目がつくシーン" },
+    { area:"gourmet", name:"湯沢屋 水羊羹", cat:"スイーツ", hook:"日光の竹炭水を使用した、透き通るような喉ごしのあっさり水羊羹。", work:"箱からつるんと取り出す瞬間や、みずみずしい断面の輝きを捉える" },
+    { area:"gourmet", name:"三ツ山羊羹本舗 羊羹", cat:"スイーツ", hook:"昔ながらの製法で作られる、表面が少しシャリっとした伝統の羊羹。", work:"高級感のある和紙の包み紙を丁寧に解いていく「開封動画」風演出" },
+    { area:"gourmet", name:"日光人形焼 みしまや", cat:"食べ歩きグルメ", hook:"三猿や眠り猫の形をした、職人が一つ一つ焼き上げる人形焼き。", work:"型に生地を流し込み、お猿の形に焼き上がる職人の手元をタイムラプス" },
+    { area:"gourmet", name:"日光真光教会前のカフェテラス", cat:"カフェ", hook:"石造りの美しい教会の向かいにあるカフェ。海外のような雰囲気。", work:"テラス席に座り、コーヒーカップを持ち上げて奥の教会と画角に収める" },
+    { area:"gourmet", name:"日光グルマンズ和牛 ビーフカレー", cat:"グルメ", hook:"厳選和牛を贅沢に煮込んだ、知る人ぞ知る門前町の絶品カレー。", work:"白いご飯の上に、濃厚で具だくさんなルーを「とろ〜り」とかける瞬間" },
+    { area:"gourmet", name:"茶寮 おん 高徳庵 抹茶スイーツ", cat:"カフェ", hook:"和モダンな空間で味わう、濃厚な抹茶と日光湯波の抹茶パフェ。", work:"真横に近い位置から、何層にも重なった美しいグラデーションを見せる" },
+    { area:"gourmet", name:"甚五郎煎餅（石田屋）", cat:"お土産", hook:"バターのコクと塩気が絶妙な、日光土産の定番おせんべい。", work:"トレードマークの可愛い猫のキャラクター缶を開ける「パカッ」という音" },
+    { area:"gourmet", name:"日光 yuba cafe あずまや", cat:"カフェ", hook:"湯波を使ったガレットやスープなど、ヘルシーでお洒落な創作湯波料理。", work:"お洒落なワンプレート料理を、真上から撮影する（フラットレイ）構図" },
+    { area:"gourmet", name:"日本料理 繊月 ゆば御膳", cat:"グルメ", hook:"引き上げ湯波や巻き湯波など、様々な食感の湯波が美しく並ぶ御膳。", work:"お膳全体を映した後、1つ1つの湯波料理にテンポよくズームイン" },
+    { area:"gourmet", name:"日光珈琲 御用邸通", cat:"カフェ", hook:"古民家をリノベーションした、落ち着いた木漏れ日が差し込む空間。", work:"ハンドドリップでコーヒーがぽたぽたと落ちる瞬間を、環境音で" },
+
+    // ============ 湯ノ湖・奥日光 ============
+    { area:"yunoko", name:"湯滝（ゆだき）観瀑台", cat:"絶景・自然", hook:"湯ノ湖から一気に流れ落ちる巨大な滝。目の前まで迫る水しぶき。", work:"滝壺のすぐ近く（ウッドデッキ）から、上を向いて滝全体をダイナミックに" },
+    { area:"yunoko", name:"湯ノ湖レストハウスの焼きヤマメ", cat:"食べ歩きグルメ", hook:"炭火でじっくり焼かれた塩焼きの魚。湯滝の爆音を背景に食べるローカル感。", work:"串に刺さったヤマメをカメラの前に「パッ」と差し出し、滝を背景に" },
+    { area:"yunoko", name:"湯元温泉「あんよの湯」", cat:"体験・リラックス", hook:"誰でも無料で入れる広々とした足湯。乳白色の本格的な硫黄泉。", work:"湯気がもくもくと立つ足湯に、足を「ぽちゃん」と浸ける瞬間" },
+    { area:"yunoko", name:"温泉寺（おんせんじ）", cat:"建築・歴史", hook:"全国でも珍しい、境内で温泉に入れる超穴場スポット。", work:"静かなお寺の門をくぐるPOV動画。和の佇まいと温泉のギャップ" },
+    { area:"yunoko", name:"湯ノ湖北岸の砂浜（白砂の浜）", cat:"絶景・自然", hook:"湖なのにまるで白い砂浜のようになっている美しいエリア。山との対比。", work:"水際を歩く足元をローアングルで撮影。波のない静かな湖面の透明感" },
+    { area:"yunoko", name:"湯ノ湖 兎島（うさぎじま）の木道", cat:"絶景・自然", hook:"湖に突き出た半島のような場所。両側が水面に囲まれた原生林の木道。", work:"班のメンバーが一列に木道を歩く姿を、後ろからついていくように撮影" },
+    { area:"yunoko", name:"湯元源泉地（湿原の木道）", cat:"体験・自然", hook:"地面からポコポコと温泉が湧き出し、硫黄の香りと湯気の異世界感。", work:"木道の両側から湧き出す源泉を映し、「ここが温泉の生まれ故郷」テロップ" },
+    { area:"yunoko", name:"湯滝の始まり（落ち口）", cat:"絶景・自然", hook:"湯ノ湖の水が、まさに滝として崖から滑り落ちる「瞬間の場所」。", work:"静かな湖水が、一転して激しい激流に変わる様子を上から覗き込むように" },
+
+    // ============ レア・穴場 ============
+    { area:"rare", name:"日光の野生のニホンザル", cat:"野生動物", hook:"いろは坂周辺や中禅寺湖畔に不意に現れるリアルな生態。", work:"車内など安全な場所からズームで。目を合わせず、エサを絶対に見せない緊張感" },
+    { area:"rare", name:"ニホンジカ", cat:"野生動物", hook:"夕方や早朝、湿原に群れで現れる野生のシカ。幻想的なシルエット。", work:"夕暮れ時のマジックアワーを背景に、シカの美しい角や立ち姿をシルエットで" },
+    { area:"rare", name:"白馬（神馬）の御出仕", cat:"体験・文化", hook:"神厩舎に本物の白馬が登場する限られた時間（通常午前中のみ）。", work:"馬が静かに佇む姿や、毛並みの美しさをアップで。現れた瞬間の神聖な空気感" },
+    { area:"rare", name:"大谷川の霧（川霧）", cat:"自然現象", hook:"夏の早朝など、特定の気象条件で神橋の下に立ち込める幻想的な霧。", work:"神橋が霧の上に浮いているかのような「天空の城」感をスローモーションで" },
+    { area:"rare", name:"千人行列（春・秋の例大祭）", cat:"限定イベント", hook:"総勢1,000人規模の時代絵巻。圧巻のスケール。", work:"鎧武者や神官がズラリと並んで歩く様子をローアングルから／タイムラプス全景" },
+    { area:"rare", name:"東照宮 陽明門の「逆柱」", cat:"建築・歴史", hook:"12本の柱のうち、1本だけ魔除けのために上下逆に建てられた柱。トリビア。", work:"他の柱の模様と、逆柱の模様を交互に映し「実は1本だけ逆さま…」解説テキスト" },
+    { area:"rare", name:"日光真光教会 礼拝堂内部", cat:"建築・歴史", hook:"内部は公開日が限られる、大谷石造りのゴシック様式教会。ステンドグラス。", work:"外の光がステンドグラスを通して床に赤い光を落とす瞬間を、ジンバルでなぞる" },
+    { area:"rare", name:"湯ノ湖の朝霧と「逆さ山」", cat:"自然現象", hook:"風のない早朝、湯ノ湖の水面が鏡のようになり、周囲の山々が完全に上下対称に映る。", work:"スマホを水面ギリギリに構え、上下が反転したような「鏡面世界」をシンメトリーで" },
+    { area:"rare", name:"強首（こわっぱ）の八坂神社", cat:"隠れスポット", hook:"東照宮の裏手、観光客が誰も来ない杉林の奥にひっそりと佇む小さな神社。", work:"鳥居をくぐる瞬間の「迷い込んだ感」をPOVで。鳥居の向こうに広がる深い緑を強調" },
+    { area:"rare", name:"戦場ヶ原のニホンジカ", cat:"野生動物", hook:"湯ノ湖から少し歩いた湿原や木立ちに、夕方〜早朝現れる野生のシカ。", work:"驚かせないよう遠くからズームで。夕暮れのグラデーションの中に浮かぶシルエット" },
+  ];
+
+  function renderVideoGiftTabs(activeKey){
+    const tabsEl = document.getElementById('vgAreaTabs');
+    if(!tabsEl) return;
+    const counts = {};
+    vgSpots.forEach(s => { counts[s.area] = (counts[s.area]||0) + 1; });
+    tabsEl.innerHTML = vgAreaOrder.map(a => {
+      const count = counts[a.key] || 0;
+      const active = a.key === activeKey ? ' active' : '';
+      return `<button class="vg-area-tab${active}" data-vg-area="${a.key}" role="tab">${a.label}<span class="vat-count">${count}</span></button>`;
+    }).join('');
+  }
+  function renderVideoGiftSpots(activeKey){
+    const listEl = document.getElementById('vgSpotList');
+    if(!listEl) return;
+    const filtered = vgSpots.filter(s => s.area === activeKey);
+    listEl.innerHTML = filtered.map((s, idx) => {
+      const isRare = s.area === 'rare';
+      const num = String(idx + 1).padStart(2, '0');
+      const refBlock = s.ref ? `
+        <div class="vsb-row">
+          <div class="vsb-label">Ref</div>
+          <div class="vsb-value">
+            <a class="vsb-ref" href="${s.ref.url}" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              ${s.ref.label}
+            </a>
+          </div>
+        </div>` : '';
+      return `
+        <div class="vg-spot" data-vg-spot="${idx}">
+          <div class="vg-spot-head" onclick="toggleVgSpot(this)">
+            <div class="vs-num-badge">${num}</div>
+            <div class="vs-main">
+              <div class="vs-name">${s.name}</div>
+              <span class="vs-cat${isRare ? ' rare' : ''}">${s.cat}</span>
+            </div>
+            <div class="vs-chev">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            </div>
+          </div>
+          <div class="vg-spot-body">
+            <div class="vsb-row">
+              <div class="vsb-label">Hook</div>
+              <div class="vsb-value">${s.hook}</div>
+            </div>
+            <div class="vsb-row">
+              <div class="vsb-label">Camera</div>
+              <div class="vsb-value">${s.work}</div>
+            </div>
+            ${refBlock}
+          </div>
+        </div>`;
+    }).join('');
+  }
+  function toggleVgSpot(headEl){
+    const spot = headEl.closest('.vg-spot');
+    if(!spot) return;
+    spot.classList.toggle('open');
+  }
+  window.toggleVgSpot = toggleVgSpot;
+
+  // タブ操作
+  (function initVideoGift(){
+    const tabsEl = document.getElementById('vgAreaTabs');
+    if(!tabsEl) return;
+    const saved = localStorage.getItem('vgArea') || 'toshogu';
+    renderVideoGiftTabs(saved);
+    renderVideoGiftSpots(saved);
+    tabsEl.addEventListener('click', (e) => {
+      const btn = e.target.closest('.vg-area-tab');
+      if(!btn) return;
+      const key = btn.dataset.vgArea;
+      localStorage.setItem('vgArea', key);
+      renderVideoGiftTabs(key);
+      renderVideoGiftSpots(key);
+    });
+  })();
+</script>
+</body>
+</html>
